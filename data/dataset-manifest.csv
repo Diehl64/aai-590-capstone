@@ -1,1 +1,2 @@
 dataset_id,source_url,version,modality,classes,license_or_permission,access_instructions,recording_group_field,paired_observation_status,checksum_reference
+kth_77ghz_v2,https://zenodo.org/records/5896641,2.0,77 GHz FMCW radar,drone;bird;human;corner reflector — proposed grouping pending audit,UNVERIFIED — confirm license before use,Download official NPY manually after rights review; keep outside git,measurement row index (candidate group),No paired imagery documented,MD5 01d66ba7b1ccc04477a9e69b2813f251 (publisher)
