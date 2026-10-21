@@ -5,9 +5,9 @@ Updated: 2026-10-21. Team: Tony, Mostafa, and Jacob.
 ## Current status
 
 The repository exists at https://github.com/Diehl64/aai-590-capstone.
-The first notebook is a documentation-driven radar audit, not a trained model or a completed experiment. It has not been executed against the real dataset. The environment below is a proposed starting setup; package versions and platform compatibility have not yet been validated for this project.
+The first notebook is a documentation-driven radar audit, a completed data inspection rather than a model-training experiment. Its Python cells were executed sequentially against the checksum-verified real dataset on 2026-10-21; captured outputs and versions are in `results/`. Jupyter kernel startup was blocked here, so the JupyterLab steps below and cross-platform compatibility still require team validation.
 
-Read [the project overview](README.md), [radar audit notes](docs/radar-data-audit.md), and [dataset manifest](data/dataset-manifest.csv) before running it. Dataset licensing remains unverified. Resolve and record the applicable terms before proceeding with data use.
+Read [the project overview](README.md), [radar audit notes](docs/radar-data-audit.md), and [dataset manifest](data/dataset-manifest.csv) before running it. The official Zenodo API identifies the dataset as CC BY 4.0, verified 2026-10-21. Follow the attribution and change-disclosure guidance in the audit notes.
 
 ## 1. Get a local copy
 
@@ -44,7 +44,7 @@ These dependencies cover the audit only. They are not a validated or pinned trai
 
 ## 3. Obtain and review the candidate dataset
 
-1. Confirm the license/permission and record the result in `data/dataset-manifest.csv`.
+1. Review the CC BY 4.0 license and the attribution guidance recorded in `data/dataset-manifest.csv` and the audit notes.
 2. Visit the [official dataset record](https://zenodo.org/records/5896641) and read its `ReadMe.txt`.
 3. Download `data_SAAB_SIRS_77GHz_FMCW.npy` from that record. Store it outside the repository. The download is approximately 1.6 GB; loading and inspecting it requires additional memory.
 4. The notebook compares the download against the publisher's MD5 value recorded in the manifest before loading. A checksum checks file consistency; it is not a substitute for trusting the source.
@@ -124,4 +124,4 @@ After the audit, select preprocessing, a baseline, and a neural network training
 - Python virtual environments: https://docs.python.org/3/library/venv.html
 - Jupyter installation: https://jupyter.org/install
 
-ChatGPT assisted with this setup draft. Team review and actual environment/data validation remain pending; update `docs/ai-assistance.md` when adopting it.
+ChatGPT assisted with this setup draft. The real-data Python audit is complete. Team review, native Jupyter execution, and cross-platform validation remain pending; update `docs/ai-assistance.md` when adopting it.
