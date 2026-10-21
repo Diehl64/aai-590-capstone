@@ -13,7 +13,7 @@ The notebook's four Python cells ran sequentially in Python 3.12.14. A Python ru
 - Nonfinite signal, range, and time values: zero in the checks performed.
 - Negative time steps within measurements: zero.
 - Edge-marked segments: 67.
-- All 130 measurements contain segments assigned to all three published splits.
+- All 130 measurements span multiple published splits: 128 span splits 1, 2, and 3; measurement IDs 81 and 92 span only splits 1 and 3.
 
 | Proposed coarse class | Measurements | Segments |
 | --- | ---: | ---: |
