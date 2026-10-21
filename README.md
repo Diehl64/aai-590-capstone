@@ -2,7 +2,7 @@
 
 University of San Diego — M.S. in Applied Artificial Intelligence
 
-**Team:** Ramon Antonio Diehl-Verdugo (Tony), Mostafa Zamaniturk, and Jacob Tassos.
+**Team:** Ramon (Tony) Antonio Diehl-Verdugo, Mostafa Zamaniturk, and Jacob Tassos.
 
 **Status:** Planning and repository setup. Models and experiments have not yet been implemented.
 
