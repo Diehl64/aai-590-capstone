@@ -1,0 +1,36 @@
+{
+  "checked_date": "2026-10-21",
+  "source": "https://zenodo.org/api/records/5896641",
+  "title": "Radar measurements on drones, birds and humans with a 77GHz FMCW sensor.",
+  "creators": [
+    {
+      "name": "Alexander Karlsson",
+      "affiliation": "KTH",
+      "orcid": "0000-0001-8077-6826"
+    }
+  ],
+  "license": {
+    "id": "cc-by-4.0"
+  },
+  "doi": "10.5281/zenodo.5896641",
+  "files": [
+    {
+      "id": "36d675d1-de74-4b9d-9a31-bdda7a1f9b5a",
+      "key": "data_SAAB_SIRS_77GHz_FMCW.npy",
+      "size": 1555196683,
+      "checksum": "md5:01d66ba7b1ccc04477a9e69b2813f251",
+      "links": {
+        "self": "https://zenodo.org/api/records/5896641/files/data_SAAB_SIRS_77GHz_FMCW.npy/content"
+      }
+    },
+    {
+      "id": "bbeb1b39-19de-49c7-b35b-7f30ab086746",
+      "key": "ReadMe.txt",
+      "size": 2917,
+      "checksum": "md5:efd7164e5855d2a0016c7a85d9006bc8",
+      "links": {
+        "self": "https://zenodo.org/api/records/5896641/files/ReadMe.txt/content"
+      }
+    }
+  ]
+}

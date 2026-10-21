@@ -1,0 +1,16 @@
+label,measurements,segments
+CR,19,3280
+D1,8,6921
+D2,9,9555
+D3,4,10212
+D4,4,8735
+D5,4,12093
+D6,15,11252
+black-headed gull,11,4364
+heron,5,387
+human_run,4,1499
+human_walk,7,4529
+pigeon,1,32
+raven,1,19
+seagull,34,2550
+seagull and black-headed gull,4,440
