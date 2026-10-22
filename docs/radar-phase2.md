@@ -18,7 +18,7 @@ The manifest totals are 50,491 train segments, 11,047 validation segments, and 1
 
 The baseline computes five per-segment magnitude statistics (mean, standard deviation, maximum, and 25th/75th percentiles) and predicts by nearest class centroid fitted on training measurements only. It reports accuracy, macro F1, per-class precision/recall/F1, and a row-normalized-by-count confusion matrix in `radar-baseline-metrics.json`. It requires the official file supplied through `--data`; the raw dataset is not committed.
 
-`src/radar_neural_network.py` records the next model contract: a train-from-scratch network using the same grouped manifest, training-only preprocessing, and the same held-out metrics. It intentionally contains no unmeasured performance claim. Framework and architecture selection remain open until the baseline and resource constraints are reviewed.
+`src/radar_neural_network.py` implements a small train-from-scratch CNN using the same grouped manifest, training-only normalization, and held-out metrics. The measured comparison is recorded in [radar-model-results](radar-model-results.md). The session/subject/target independence limitation still applies.
 
 Run the baseline after downloading and verifying the official file:
 
