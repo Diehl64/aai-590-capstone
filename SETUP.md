@@ -5,7 +5,7 @@ Updated: 2026-10-21. Team: Tony, Mostafa, and Jacob.
 ## Current status
 
 The repository exists at https://github.com/Diehl64/aai-590-capstone.
-The first notebook is a documentation-driven radar audit, a completed data inspection rather than a model-training experiment. Its Python cells were executed sequentially against the checksum-verified real dataset on 2026-10-21; captured outputs and versions are in `results/`. Jupyter kernel startup was blocked here, so the JupyterLab steps below and cross-platform compatibility still require team validation.
+The first notebook is a documentation-driven radar audit. The repository also contains a measurement-disjoint nearest-centroid baseline and a from-scratch CNN run on the verified real dataset; captured metrics and versions are in `results/`. Run the JupyterLab steps below when reproducing the audit locally.
 
 Read [the project overview](README.md), [radar audit notes](docs/radar-data-audit.md), and [dataset manifest](data/dataset-manifest.csv) before running it. The official Zenodo API identifies the dataset as CC BY 4.0, verified 2026-10-21. Follow the attribution and change-disclosure guidance in the audit notes.
 
@@ -124,4 +124,4 @@ After the audit, select preprocessing, a baseline, and a neural network training
 - Python virtual environments: https://docs.python.org/3/library/venv.html
 - Jupyter installation: https://jupyter.org/install
 
-ChatGPT assisted with this setup draft. The real-data Python audit is complete. Team review, native Jupyter execution, and cross-platform validation remain pending; update `docs/ai-assistance.md` when adopting it.
+ChatGPT assisted with this setup draft and documentation. The real-data audit, baseline, and CNN evaluation are recorded; team scientific review, report integration, and broader cross-platform validation remain the next review tasks. Update `docs/ai-assistance.md` when adopting further assistance.
