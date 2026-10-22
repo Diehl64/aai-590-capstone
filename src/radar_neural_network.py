@@ -49,18 +49,18 @@ def score(y, p):
 
 def main():
     p = argparse.ArgumentParser(); p.add_argument("--data", type=Path, required=True); p.add_argument("--output", type=Path, default=Path("results/radar-neural-network")); p.add_argument("--epochs", type=int, default=8); p.add_argument("--batch-size", type=int, default=256); p.add_argument("--seed", type=int, default=590); a = p.parse_args()
-    random.seed(a.seed); np.random.seed(a.seed); torch.manual_seed(a.seed); x, y, prep = load_data(a.data, a.seed); model = RadarCNN(); opt = torch.optim.Adam(model.parameters(), lr=1e-3); criterion = nn.CrossEntropyLoss(); loader = DataLoader(TensorDataset(torch.from_numpy(x["train"][:, None]), torch.from_numpy(y["train"])), batch_size=a.batch_size, shuffle=True)
+    random.seed(a.seed); np.random.seed(a.seed); torch.manual_seed(a.seed); device = torch.device("cuda" if torch.cuda.is_available() else "cpu"); x, y, prep = load_data(a.data, a.seed); model = RadarCNN().to(device); opt = torch.optim.Adam(model.parameters(), lr=1e-3); criterion = nn.CrossEntropyLoss(); loader = DataLoader(TensorDataset(torch.from_numpy(x["train"][:, None]), torch.from_numpy(y["train"])), batch_size=a.batch_size, shuffle=True, pin_memory=device.type == "cuda")
     history = []; best = (-1, None)
     for epoch in range(1, a.epochs + 1):
         model.train()
-        for xb, yb in loader: opt.zero_grad(); criterion(model(xb), yb).backward(); opt.step()
+        for xb, yb in loader: xb, yb = xb.to(device, non_blocking=True), yb.to(device, non_blocking=True); opt.zero_grad(); criterion(model(xb), yb).backward(); opt.step()
         model.eval()
-        with torch.no_grad(): pred = model(torch.from_numpy(x["validation"][:, None])).argmax(1).numpy()
+        with torch.no_grad(): pred = model(torch.from_numpy(x["validation"][:, None]).to(device)).argmax(1).cpu().numpy()
         val = score(y["validation"], pred); history.append({"epoch": epoch, **val})
         if val["macro_f1"] > best[0]: best = (val["macro_f1"], {k: v.clone() for k, v in model.state_dict().items()})
     model.load_state_dict(best[1]); model.eval()
-    with torch.no_grad(): pred = model(torch.from_numpy(x["test"][:, None])).argmax(1).numpy()
+    with torch.no_grad(): pred = model(torch.from_numpy(x["test"][:, None]).to(device)).argmax(1).cpu().numpy()
     best_epoch = max(history, key=lambda item: item["macro_f1"])
-    result = {"model": "RadarCNN", "seed": a.seed, "epochs": a.epochs, "selected_epoch": best_epoch["epoch"], "input": "normalized magnitude 5x256", "reflector_policy": "excluded", "preprocessing": prep, "validation": best_epoch, "test": score(y["test"], pred), "history": history}
+    result = {"model": "RadarCNN", "seed": a.seed, "epochs": a.epochs, "device": str(device), "selected_epoch": best_epoch["epoch"], "input": "normalized magnitude 5x256", "reflector_policy": "excluded", "preprocessing": prep, "validation": best_epoch, "test": score(y["test"], pred), "history": history}
     a.output.mkdir(parents=True, exist_ok=True); (a.output / "radar-neural-network-metrics.json").write_text(json.dumps(result, indent=2) + "\n"); torch.save(model.state_dict(), a.output / "radar-cnn.pt"); print(json.dumps(result, indent=2))
 if __name__ == "__main__": main()
