@@ -115,7 +115,9 @@ def run(data_path: Path, output: Path, seed: int) -> dict:
     for split in ("validation", "test"):
         rows = [(features(m["signal"]), m["class"]) for m in measurements
                 if assignment.get(m["measurement_id"]) == split]
-        x = np.vstack([a for a, _ in rows]); y = np.array([b for _, b in rows])
+        x = np.vstack([a for a, _ in rows])
+        # Each measurement contributes one source label to every segment.
+        y = np.concatenate([np.repeat(b, a.shape[0]) for a, b in rows])
         pred = np.array([min(classes, key=lambda c: np.linalg.norm(v - centroids[c])) for v in x])
         metrics[split] = evaluate(y, pred, classes)
     result = {"seed": seed, "data": str(data_path), "classifier": "nearest_centroid",
