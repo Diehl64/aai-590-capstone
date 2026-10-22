@@ -1,6 +1,6 @@
 {
   "seed": 590,
-  "data": "C:\\Users\\ramon\\OneDrive\\Desktop\\aai-590-capstone\\datasets\\data_SAAB_SIRS_77GHz_FMCW.npy",
+  "data": "official Zenodo dataset; local path omitted",
   "classifier": "nearest_centroid",
   "features": [
     "mean_magnitude",
