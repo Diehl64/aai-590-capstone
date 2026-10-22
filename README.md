@@ -30,10 +30,15 @@ Evidence:
 
 This capstone explores a software pipeline that classifies sensor observations, requests visual verification, and presents evidence and uncertainty to a human operator.
 
-The project builds on our AAI-540 RF Intrusion Detection MLOps project:
-https://github.com/Mosizamani/aai-540-final-project-group6
+## Continuity from AAI-540 to AAI-590
 
-The capstone will document its original contributions and distinguish RF communications data from radar measurements.
+This capstone builds on the team's [AAI-540 RF Intrusion Detection MLOps project](https://github.com/Mosizamani/aai-540-final-project-group6), retained as a read-only predecessor/reference project. Its reusable foundation includes CNN training and evaluation, dataset and model provenance, SageMaker batch inference, model/data monitoring, and performance-gated CI/CD promotion. These components are candidates for adaptation; they have not been integrated into this repository.
+
+**RF communications data and radar data are separate modalities.** AAI-540 classifies RF activity from spectrogram images into Benign, Broadband_Jam, Human, Machine, Narrowband_Jam, and Wildlife. AAI-590 is auditing complex-valued measurements from a 77 GHz FMCW radar, with a proposed drone/bird/person grouping pending review. Shared label wording does not establish equivalent targets, paired observations, compatible inputs, or transferable performance. AAI-540 weights, preprocessing, thresholds, and metrics do not establish radar classifier performance.
+
+The new AAI-590 contributions are planned radar preprocessing and measurement-disjoint evaluation, a radar baseline and neural network trained from scratch, separately evaluated visual verification, coordination of observation and verification events, and operator review of evidence and uncertainty. Only the initial radar data audit is complete; the models and coordinated demonstration remain to be implemented.
+
+[Phase 1 integration plan](docs/aai-540-integration.md) records source evidence, reuse boundaries, proposed interfaces, and completion criteria. Phase 1 documents continuity and scope; it does not deploy or execute the predecessor's AWS workflows.
 
 ## Scope
 
