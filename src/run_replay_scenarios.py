@@ -11,7 +11,7 @@ def scenarios():
         "agreement": (radar, VerificationResult(radar.event_id, VerificationStatus.CONFIRMED, "simulated-rgb-001", "drone"), "accepted"),
         "conflict": (radar, VerificationResult(radar.event_id, VerificationStatus.CONFLICTING, "simulated-rgb-002", "bird", "simulated evidence disagrees"), "required"),
         "timeout": (radar, VerificationResult(radar.event_id, VerificationStatus.TIMEOUT, reason="verification deadline elapsed"), "required"),
-        "unavailable": (radar, None, "required"),
+        "unavailable": (radar, VerificationResult(radar.event_id, VerificationStatus.UNAVAILABLE, reason="verification source unavailable"), "required"),
     }
 
 def main():
