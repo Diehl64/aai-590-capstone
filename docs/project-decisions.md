@@ -25,6 +25,15 @@ This file separates current direction from decisions still requiring team agreem
 | Repository license and publication | Team agreement and third-party rights review | Team / open |
 | Lattice integration | Verified sandbox access and tested interface | Tony / access not verified here |
 
+## Phase 2 proposal
+
+- Proposed first task: map D1–D6 to `drone`, all bird labels to `bird`, and human_run/human_walk to `human`.
+- Corner reflector (`CR`) remains explicit and excluded from the three-class metrics; it is not silently treated as unknown.
+- Use the committed measurement-disjoint manifest in `data/radar-split-manifest.csv` (seed 590; target 70%/15%/15% by segment count).
+- The split prevents measurement-ID leakage, but session, subject, or target overlap across measurement IDs remains unverified and must be reported as a limitation.
+- Baseline: training-only magnitude statistics with a nearest-centroid classifier. Report accuracy, macro F1, per-class precision/recall/F1, and a confusion matrix.
+- The neural network must be trained from scratch after baseline review; its framework and architecture remain open.
+
 ## Data and claim boundaries
 
 The proposed KTH data consists of target-centered radar scan segments. It is not automatically a source of complete 3D trajectories, calibrated uncertainty, or continuous negative surveillance periods. Any simulated tracks must be labeled. Real model metrics and simulated integration behavior should be reported separately.
