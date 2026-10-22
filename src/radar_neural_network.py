@@ -60,6 +60,7 @@ def main():
         if val["macro_f1"] > best[0]: best = (val["macro_f1"], {k: v.clone() for k, v in model.state_dict().items()})
     model.load_state_dict(best[1]); model.eval()
     with torch.no_grad(): pred = model(torch.from_numpy(x["test"][:, None])).argmax(1).numpy()
-    result = {"model": "RadarCNN", "seed": a.seed, "epochs": a.epochs, "input": "normalized magnitude 5x256", "reflector_policy": "excluded", "preprocessing": prep, "validation": history[-1], "test": score(y["test"], pred), "history": history}
+    best_epoch = max(history, key=lambda item: item["macro_f1"])
+    result = {"model": "RadarCNN", "seed": a.seed, "epochs": a.epochs, "selected_epoch": best_epoch["epoch"], "input": "normalized magnitude 5x256", "reflector_policy": "excluded", "preprocessing": prep, "validation": best_epoch, "test": score(y["test"], pred), "history": history}
     a.output.mkdir(parents=True, exist_ok=True); (a.output / "radar-neural-network-metrics.json").write_text(json.dumps(result, indent=2) + "\n"); torch.save(model.state_dict(), a.output / "radar-cnn.pt"); print(json.dumps(result, indent=2))
 if __name__ == "__main__": main()
