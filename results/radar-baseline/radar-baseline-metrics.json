@@ -1,0 +1,101 @@
+{
+  "seed": 590,
+  "data": "C:\\Users\\ramon\\OneDrive\\Desktop\\aai-590-capstone\\datasets\\data_SAAB_SIRS_77GHz_FMCW.npy",
+  "classifier": "nearest_centroid",
+  "features": [
+    "mean_magnitude",
+    "std_magnitude",
+    "max_magnitude",
+    "q25_magnitude",
+    "q75_magnitude"
+  ],
+  "reflector_policy": "excluded_from_drone_bird_human_training_and_metrics",
+  "metrics": {
+    "validation": {
+      "accuracy": 0.5249388974382185,
+      "macro_f1": 0.45208277649664425,
+      "per_class": {
+        "drone": {
+          "precision": 0.8979857050032488,
+          "recall": 0.4687924016282225,
+          "f1": 0.61600178292846
+        },
+        "bird": {
+          "precision": 0.2801294820717131,
+          "recall": 0.9566326530612245,
+          "f1": 0.43335901386748843
+        },
+        "human": {
+          "precision": 0.2187241093620547,
+          "recall": 0.5141187925998053,
+          "f1": 0.30688753269398433
+        }
+      },
+      "confusion_matrix": [
+        [
+          4146,
+          2812,
+          1886
+        ],
+        [
+          51,
+          1125,
+          0
+        ],
+        [
+          420,
+          79,
+          528
+        ]
+      ],
+      "classes": [
+        "drone",
+        "bird",
+        "human"
+      ]
+    },
+    "test": {
+      "accuracy": 0.5807239819004525,
+      "macro_f1": 0.48815732821392926,
+      "per_class": {
+        "drone": {
+          "precision": 0.9097288071306656,
+          "recall": 0.5400810628236884,
+          "f1": 0.6777817025785942
+        },
+        "bird": {
+          "precision": 0.34147812971342384,
+          "recall": 0.9625850340136054,
+          "f1": 0.5041193498107326
+        },
+        "human": {
+          "precision": 0.19821283509341997,
+          "recall": 0.49193548387096775,
+          "f1": 0.2825709322524609
+        }
+      },
+      "confusion_matrix": [
+        [
+          4797,
+          2112,
+          1973
+        ],
+        [
+          43,
+          1132,
+          1
+        ],
+        [
+          433,
+          71,
+          488
+        ]
+      ],
+      "classes": [
+        "drone",
+        "bird",
+        "human"
+      ]
+    }
+  }
+}
