@@ -1,1 +1,2 @@
 date,contributor,task,issue_or_pr,evidence,reviewer
+2026-10-22,Jacob Tassos,"Copied the radar-classification materials into the capstone layout and updated exporter defaults. Updated data/README.md and src/README.md","Branch: data/radar-export (pushed); https://github.com/Diehl64/aai-590-capstone/tree/data/radar-export","src/radar/export_radar_images.py; docs/radar-export-dataset.md; source and copied raw-data MD5 values matched; generated-export file paths and sizes matched",Pending team review
