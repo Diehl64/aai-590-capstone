@@ -2,7 +2,7 @@
 
 ## Proposed modeling decision
 
-The first coarse task maps `D1`–`D6` to `drone`, all bird labels (`black-headed gull`, `heron`, `pigeon`, `raven`, `seagull`, and `seagull and black-headed gull`) to `bird`, and `human_run`/`human_walk` to `human`. The `CR` corner-reflector measurements remain explicitly excluded from these three-class metrics. They are retained in the manifest for accounting and are not silently treated as an unknown class. The mapping is a proposal for team approval, not evidence that the labels are interchangeable in every operating context.
+The evaluated coarse task maps `D1`–`D6` to `drone`, all bird labels (`black-headed gull`, `heron`, `pigeon`, `raven`, `seagull`, and `seagull and black-headed gull`) to `bird`, and `human_run`/`human_walk` to `human`. The `CR` corner-reflector measurements remain explicitly excluded from these three-class metrics and are retained in the manifest for accounting. Team review should still confirm that this mapping suits the capstone objective.
 
 The committed [split manifest](../data/radar-split-manifest.csv) assigns complete measurement IDs to train, validation, or test. It was produced with seed `590`, a deterministic class-wise greedy assignment targeting 70%/15%/15% of segments. No measurement is divided across partitions. The manifest includes all 19 reflector measurements as `excluded_reflector` and records source labels, proposed classes, and segment counts.
 
