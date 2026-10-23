@@ -44,7 +44,7 @@ The [radar audit notes](radar-data-audit.md), [dataset manifest](../data/dataset
 | Operator review | Present model evidence, uncertainty, verification status, and an explicit human decision | Replay scenarios showing reviewable alerts, human disposition, and an audit trail; no autonomous physical response |
 | Capstone monitoring and promotion | Apply the predecessor's monitoring/gating patterns to the new components with new baselines and validation-selected thresholds | Reports for each model and the coordinated workflow, rejected-candidate evidence, versioned approved artifacts, and preserved final test independence |
 
-These are planned contributions, not completed capabilities. Final metrics, thresholds, and acceptance criteria require team agreement. The Module 5 plan includes a neural network trained from scratch; clarify any alternative with the instructor. Compare radar models before expanding into visual and coordinated evaluation.
+The radar modeling contributions and metrics are now recorded in [radar-model-results](radar-model-results.md). Visual verification, coordinated replay, and operator review remain separate capabilities with their own evidence requirements. Final acceptance criteria still require team agreement.
 
 ## Proposed coordination boundary
 
