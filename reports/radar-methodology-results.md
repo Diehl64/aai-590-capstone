@@ -12,3 +12,5 @@ The nearest-centroid baseline uses five magnitude statistics per segment. The Ra
 The CNN test confusion matrix, in drone/bird/human order, is `[[8556, 173, 153], [98, 1075, 3], [193, 0, 799]]`. Per-class precision/recall/F1 are drone 0.9671/0.9633/0.9652, bird 0.8614/0.9141/0.8870, and human 0.8366/0.8054/0.8207.
 
 The source metadata does not prove that different measurement IDs are independent sessions, subjects, or targets. These results therefore do not establish unseen-session generalization, continuous detection rates, calibrated probabilities, geographic tracking, or field readiness. Replay scenarios are simulated and reported separately; RGB/thermal verification and Lattice integration were not evaluated.
+
+The radar and candidate verification datasets capture different events and are not synchronized. The project therefore evaluates each model independently and uses clearly labeled simulated scenarios for agreement, conflict, missing evidence, and delay. These scenarios do not establish that sensor fusion improves real-world detection. A combined-performance claim would require suitable paired observations and ground truth.

@@ -40,6 +40,8 @@ The proposed KTH data consists of target-centered radar scan segments. It is not
 
 Two model outputs agreeing does not establish ground truth. Define verification states, thresholds, and human-review behavior explicitly. Validate using held-out observations and account for shared recording groups to reduce leakage.
 
+The radar and future verification datasets capture different events and are not synchronized. Evaluate each model independently. Use simulated scenarios only to test evidence coordination and operator-review behavior. Do not claim that fusion improves real-world detection without suitable paired observations.
+
 ## Decision log
 
 When the team resolves an item, record the date, decision, rationale, evidence link, and participants here. No architecture or dataset is approved merely because it appears in this scaffold.
