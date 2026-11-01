@@ -10,7 +10,7 @@ Each modality owner must provide a CSV of saved **held-out test** outputs before
 | `sensor_type` | One of `rf`, `radar`, `thermal`, or `acoustic`. |
 | `source_observation_id` | Identifier from the source dataset; not a fabricated shared-event ID. |
 | `split` | Must be `test`; do not supply training or validation outputs. |
-| `timestamp` | Source timestamp when available; otherwise a documented value such as `source-time-unavailable`. |
+| `timestamp` | Source timestamp when available; otherwise a documented value such as `source-time-unavailable`. Radar exports use `relative_seconds:<value>` because the source provides within-measurement relative time rather than an absolute clock time. |
 | `predicted_label` | The model's predicted class. |
 | `score` | Raw model score from 0 through 1. It must not be called a calibrated probability without calibration evidence. |
 | `model_version` | Exact model or experiment version. |
@@ -31,4 +31,4 @@ Each owner should commit or provide the model code, environment/dependency speci
 
 ## Radar export
 
-`src/radar_neural_network.py` writes `radar-test-outputs.csv` beside its metrics after a training run. Each row contains one held-out radar segment, its prediction, the top raw softmax score, and the model/dataset identifiers required by this handoff. The score is a model output, not a calibrated probability.
+`src/radar_neural_network.py` writes `radar-test-outputs.csv` beside its metrics after a training run. Each row contains one held-out radar segment, its source relative time, prediction, top raw softmax score, and the model/dataset identifiers required by this handoff. The score is a model output, not a calibrated probability. Artifact references are filenames so local absolute paths are not recorded.
