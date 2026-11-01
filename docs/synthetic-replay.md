@@ -1,6 +1,6 @@
 # Synthetic local-replay foundation
 
-This is development scaffolding for the capstone's evidence-based local replay. It supports RF, radar, and thermal/vision records in one explicitly simulated event. It does not generate sensor data, train a fusion model, calculate a fused probability, or establish real-world sensor-fusion performance.
+This is development scaffolding for the capstone's evidence-based local replay. It supports RF, radar, thermal/vision, and acoustic records in one explicitly simulated event. It does not generate sensor data, train a fusion model, calculate a fused probability, or establish real-world sensor-fusion performance.
 
 ## What is in the foundation
 
@@ -8,12 +8,12 @@ This is development scaffolding for the capstone's evidence-based local replay. 
 
 `src/run_synthetic_scenarios.py` writes four placeholder-only development scenarios:
 
-1. RF, radar, and thermal evidence support a drone hypothesis.
-2. RF is uncertain while radar and thermal support a drone hypothesis.
-3. Thermal evidence is missing.
-4. RF, radar, and thermal evidence conflict.
+1. RF, radar, thermal, and acoustic evidence support a drone hypothesis.
+2. RF is uncertain while radar, thermal, and acoustic evidence support a drone hypothesis.
+3. Thermal evidence is missing while acoustic evidence remains available.
+4. RF, radar, thermal, and acoustic evidence conflict.
 
-Every placeholder record has `placeholder_value: true`, `model_version: "placeholder-not-a-model"`, and a `placeholder://` source reference. These values must be replaced only with saved outputs from separately evaluated RF, radar, and thermal/vision models. They are not model metrics, probabilities, or evidence about a real event.
+Every placeholder record has `placeholder_value: true`, `model_version: "placeholder-not-a-model"`, and a `placeholder://` source reference. These values must be replaced only with saved outputs from separately evaluated RF, radar, thermal/vision, and acoustic models. They are not model metrics, probabilities, or evidence about a real event.
 
 ## Run
 
