@@ -60,7 +60,7 @@ A proposed event record should carry an event ID, observation/source IDs, timest
 
 Synchronized radar-camera data has not been secured. Separate datasets support separate model evaluations; any cross-modal pairing or coordination scenario must be labeled as simulated. Coordinates, velocity, shared timestamps, and camera pose require external measurements or an explicitly documented simulation. Classification labels do not produce measured locations or trajectories.
 
-Anduril Lattice and acoustic modeling are outside the submitted capstone scope. Local replay and operator review must remain demonstrable without them. Physical drone flight control and interception are outside scope. Target-centered samples cannot establish continuous detection performance or false alerts per operating hour.
+Anduril Lattice is outside the capstone scope. Acoustic model outputs may participate only in the explicitly simulated local replay after their code, provenance, split evidence, metrics, and limitations are committed. Local replay and operator review must remain demonstrable without Lattice. Physical drone flight control and interception are outside scope. Target-centered samples cannot establish continuous detection performance or false alerts per operating hour.
 
 ## Implementation sequence and Phase 1 review
 
