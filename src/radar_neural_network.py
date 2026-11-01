@@ -7,6 +7,7 @@ import numpy as np
 import torch
 from torch import nn
 from torch.utils.data import DataLoader, TensorDataset
+from model_output_handoff import write_handoff
 
 CLASSES = ["drone", "bird", "human"]
 LABELS = {**{f"D{i}": "drone" for i in range(1, 7)}, "black-headed gull": "bird", "heron": "bird", "pigeon": "bird", "raven": "bird", "seagull": "bird", "seagull and black-headed gull": "bird", "human_run": "human", "human_walk": "human"}
@@ -28,11 +29,12 @@ def load_data(path, seed):
         if label == "CR": continue
         if signal.shape[0] != 1280 or not np.iscomplexobj(signal): raise ValueError(f"bad signal at {i}")
         ms.append({"id": i, "class": LABELS[label], "n": signal.shape[1], "signal": signal})
-    split = groups(ms, seed); xs = {s: [] for s in ("train", "validation", "test")}; ys = {s: [] for s in xs}
+    split = groups(ms, seed); xs = {s: [] for s in ("train", "validation", "test")}; ys = {s: [] for s in xs}; observation_ids = {s: [] for s in xs}
     for m in ms:
         s = split[m["id"]]; a = np.abs(m["signal"]).astype(np.float32).T.reshape(-1, 5, 256); xs[s].append(a); ys[s].extend([CLASSES.index(m["class"])] * len(a))
+        observation_ids[s].extend(f"measurement-{m['id']}-segment-{segment}" for segment in range(len(a)))
     x = {s: np.concatenate(xs[s]) for s in xs}; y = {s: np.array(ys[s], dtype=np.int64) for s in xs}; mean, std = x["train"].mean(), x["train"].std()
-    return {s: (x[s] - mean) / max(std, 1e-6) for s in x}, y, {"train_mean": float(mean), "train_std": float(std), "counts": {s: len(y[s]) for s in y}}
+    return {s: (x[s] - mean) / max(std, 1e-6) for s in x}, y, observation_ids, {"train_mean": float(mean), "train_std": float(std), "counts": {s: len(y[s]) for s in y}}
 
 class RadarCNN(nn.Module):
     def __init__(self):
@@ -49,7 +51,7 @@ def score(y, p):
 
 def main():
     p = argparse.ArgumentParser(); p.add_argument("--data", type=Path, required=True); p.add_argument("--output", type=Path, default=Path("results/radar-neural-network")); p.add_argument("--epochs", type=int, default=8); p.add_argument("--batch-size", type=int, default=256); p.add_argument("--seed", type=int, default=590); a = p.parse_args()
-    random.seed(a.seed); np.random.seed(a.seed); torch.manual_seed(a.seed); device = torch.device("cuda" if torch.cuda.is_available() else "cpu"); x, y, prep = load_data(a.data, a.seed); model = RadarCNN().to(device); opt = torch.optim.Adam(model.parameters(), lr=1e-3); criterion = nn.CrossEntropyLoss(); loader = DataLoader(TensorDataset(torch.from_numpy(x["train"][:, None]), torch.from_numpy(y["train"])), batch_size=a.batch_size, shuffle=True, pin_memory=device.type == "cuda")
+    random.seed(a.seed); np.random.seed(a.seed); torch.manual_seed(a.seed); device = torch.device("cuda" if torch.cuda.is_available() else "cpu"); x, y, observation_ids, prep = load_data(a.data, a.seed); model = RadarCNN().to(device); opt = torch.optim.Adam(model.parameters(), lr=1e-3); criterion = nn.CrossEntropyLoss(); loader = DataLoader(TensorDataset(torch.from_numpy(x["train"][:, None]), torch.from_numpy(y["train"])), batch_size=a.batch_size, shuffle=True, pin_memory=device.type == "cuda")
     history = []; best = (-1, None)
     for epoch in range(1, a.epochs + 1):
         model.train()
@@ -59,8 +61,13 @@ def main():
         val = score(y["validation"], pred); history.append({"epoch": epoch, **val})
         if val["macro_f1"] > best[0]: best = (val["macro_f1"], {k: v.clone() for k, v in model.state_dict().items()})
     model.load_state_dict(best[1]); model.eval()
-    with torch.no_grad(): pred = model(torch.from_numpy(x["test"][:, None]).to(device)).argmax(1).cpu().numpy()
+    with torch.no_grad():
+        test_logits = model(torch.from_numpy(x["test"][:, None]).to(device))
+        test_scores = torch.softmax(test_logits, dim=1).cpu().numpy()
+        pred = test_scores.argmax(1)
     best_epoch = max(history, key=lambda item: item["macro_f1"])
-    result = {"model": "RadarCNN", "seed": a.seed, "epochs": a.epochs, "device": str(device), "selected_epoch": best_epoch["epoch"], "input": "normalized magnitude 5x256", "reflector_policy": "excluded", "preprocessing": prep, "validation": best_epoch, "test": score(y["test"], pred), "history": history}
+    output_file = a.output / "radar-test-outputs.csv"
+    write_handoff(output_file, [{"output_id": f"radar-test-{i:06d}", "sensor_type": "radar", "source_observation_id": observation_ids["test"][i], "split": "test", "timestamp": "source-time-unavailable", "predicted_label": CLASSES[pred[i]], "score": float(test_scores[i, pred[i]]), "model_version": f"RadarCNN-seed-{a.seed}", "dataset_id": "kth_77ghz_v2", "source_output_ref": str(output_file)} for i in range(len(pred))])
+    result = {"model": "RadarCNN", "seed": a.seed, "epochs": a.epochs, "device": str(device), "selected_epoch": best_epoch["epoch"], "input": "normalized magnitude 5x256", "reflector_policy": "excluded", "preprocessing": prep, "test_output_file": str(output_file), "validation": best_epoch, "test": score(y["test"], pred), "history": history}
     a.output.mkdir(parents=True, exist_ok=True); (a.output / "radar-neural-network-metrics.json").write_text(json.dumps(result, indent=2) + "\n"); torch.save(model.state_dict(), a.output / "radar-cnn.pt"); print(json.dumps(result, indent=2))
 if __name__ == "__main__": main()
