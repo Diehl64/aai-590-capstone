@@ -31,4 +31,4 @@ Each owner should commit or provide the model code, environment/dependency speci
 
 ## Radar export
 
-`src/radar_neural_network.py` writes `radar-test-outputs.csv` beside its metrics after a training run. Each row contains one held-out radar segment, its source relative time, prediction, top raw softmax score, and the model/dataset identifiers required by this handoff. The score is a model output, not a calibrated probability. Artifact references are filenames so local absolute paths are not recorded.
+`src/radar_neural_network.py` writes `radar-test-outputs.csv` beside its metrics after a training run. Each row contains one held-out radar segment, its source relative time, prediction, top raw softmax score, and the model/dataset identifiers required by this handoff. The model version records the seed and validation-selected epoch. The score is a model output, not a calibrated probability. Artifact references are filenames so local absolute paths are not recorded.
