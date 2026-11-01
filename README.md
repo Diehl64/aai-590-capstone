@@ -50,10 +50,12 @@ The radar and any future verification datasets capture different events and are 
 
 The proposed proof of concept uses recorded or simulated observations to demonstrate:
 
-1. Radar observation classification.
-2. Thermal/vision feasibility for drone detection.
-3. Structured results containing a predicted class, confidence, supporting evidence, and verification status.
-4. An operator alert for human review.
+1. RF intrusion-classification evaluation.
+2. Radar observation classification.
+3. Thermal/vision feasibility for drone detection.
+4. Acoustic drone-sound detection.
+5. Structured results containing a predicted class, confidence, supporting evidence, and verification status.
+6. An operator alert for human review.
 
 Physical drone flight control and interception are outside the capstone implementation scope.
 
@@ -68,7 +70,7 @@ Initial integrity and schema checks are complete, and the source metadata identi
 
 The team will:
 
-- Select suitable radar and visual datasets.
+- Select suitable RF, radar, thermal/vision, and acoustic datasets.
 - Document provenance, limitations, and permitted uses.
 - Prevent leakage between related recordings in training and test splits.
 - Extend the measured radar comparison with error analysis and robustness checks.
