@@ -8,9 +8,11 @@ class SyntheticReplayTests(unittest.TestCase):
         scenario = create_scenario([
             SensorEvidence("event-1", "2026-11-16T18:00:00Z", SensorType.RF, EvidenceStatus.AVAILABLE, "machine", .7, "rf-v5", "rf://test"),
             SensorEvidence("event-1", "2026-11-16T18:00:00Z", SensorType.RADAR, EvidenceStatus.AVAILABLE, "drone", .9, "radar-v1", "radar://test"),
+            SensorEvidence("event-1", "2026-11-16T18:00:00Z", SensorType.ACOUSTIC, EvidenceStatus.AVAILABLE, "drone", .9, "acoustic-v1", "acoustic://test"),
         ])
         self.assertTrue(scenario.simulated)
         self.assertTrue(scenario.review_required)
+        self.assertEqual(len(scenario.evidence), 3)
 
     def test_scenario_rejects_mismatched_event(self):
         records = [
