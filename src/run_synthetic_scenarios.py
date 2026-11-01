@@ -21,21 +21,25 @@ def scenarios() -> dict[str, object]:
             evidence("sim-001", SensorType.RF, "machine", .72),
             evidence("sim-001", SensorType.RADAR, "drone", .91),
             evidence("sim-001", SensorType.THERMAL, "drone", .88),
+            evidence("sim-001", SensorType.ACOUSTIC, "drone", .93),
         ]),
         "rf_uncertain_radar_and_thermal_support": create_scenario([
             evidence("sim-002", SensorType.RF, "uncertain", .50),
             evidence("sim-002", SensorType.RADAR, "drone", .86),
             evidence("sim-002", SensorType.THERMAL, "drone", .83),
+            evidence("sim-002", SensorType.ACOUSTIC, "drone", .90),
         ]),
         "thermal_missing": create_scenario([
             evidence("sim-003", SensorType.RF, "machine", .69),
             evidence("sim-003", SensorType.RADAR, "drone", .84),
             evidence("sim-003", SensorType.THERMAL, None, None, EvidenceStatus.MISSING),
+            evidence("sim-003", SensorType.ACOUSTIC, "drone", .91),
         ]),
         "conflicting_evidence": create_scenario([
             evidence("sim-004", SensorType.RF, "benign", .76),
             evidence("sim-004", SensorType.RADAR, "drone", .82),
             evidence("sim-004", SensorType.THERMAL, "no_drone", .79),
+            evidence("sim-004", SensorType.ACOUSTIC, "drone", .89),
         ]),
     }
 
