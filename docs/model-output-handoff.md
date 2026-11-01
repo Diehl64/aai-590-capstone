@@ -28,3 +28,7 @@ The validator checks required fields, unique row IDs, supported sensors, a held-
 ## Owner checklist
 
 Each owner should commit or provide the model code, environment/dependency specification, dataset provenance, split policy, metrics, confusion matrix where applicable, and this validated output CSV. The acoustic output must also state the source/site-generalization limitation recorded in [acoustic-model-evidence.md](acoustic-model-evidence.md).
+
+## Radar export
+
+`src/radar_neural_network.py` writes `radar-test-outputs.csv` beside its metrics after a training run. Each row contains one held-out radar segment, its prediction, the top raw softmax score, and the model/dataset identifiers required by this handoff. The score is a model output, not a calibrated probability.
