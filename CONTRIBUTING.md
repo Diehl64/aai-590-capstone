@@ -9,7 +9,11 @@
 5. Push the branch and open a pull request. Ask another teammate to review it.
 6. Resolve feedback, merge the approved change, and update the issue and contribution record.
 
-Use `main` for reviewed work. These are team conventions until GitHub rules enforce them; no branch rules or automated checks have been configured by the scaffold.
+## Protected-main policy
+
+Do not push directly to `main`. Every change must use a focused branch and pull request, with at least one teammate's approval before merge. The pull request must describe the change, link its issue when applicable, and report relevant checks.
+
+Repository administrators should enable GitHub branch protection for `main` with required pull-request approval before merging. Until that GitHub setting is enabled, contributors must follow this rule manually.
 
 ## Notebooks and experiments
 
