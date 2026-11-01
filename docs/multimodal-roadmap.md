@@ -2,7 +2,7 @@
 
 ## Locked scope claim
 
-The capstone evaluates RF intrusion classification, 77 GHz radar micro-Doppler classification, and thermal/vision feasibility for drone detection. The datasets are not synchronized. Multisensor work is limited to an evidence-based comparison and local replay; it does not validate real-time sensor fusion or field performance. Acoustic modeling is out of scope.
+The capstone evaluates RF intrusion classification, 77 GHz radar micro-Doppler classification, thermal/vision feasibility for drone detection, and acoustic drone-sound detection. The datasets are not synchronized. Multisensor work is limited to an evidence-based comparison and local replay; it does not validate real-time sensor fusion or field performance.
 
 ## Work phases
 
@@ -13,7 +13,7 @@ The capstone evaluates RF intrusion classification, 77 GHz radar micro-Doppler c
 
 ## Current state
 
-Radar audit, measurement-disjoint split, nearest-centroid baseline, from-scratch RadarCNN, CUDA run, and radar replay states are complete. RF evaluation, thermal/vision feasibility, evidence-based comparison, and report integration remain scheduled work. Acoustic modeling and Lattice publishing are outside the submitted capstone scope.
+Radar audit, measurement-disjoint split, nearest-centroid baseline, from-scratch RadarCNN, CUDA run, and radar replay states are complete. RF evaluation, thermal/vision feasibility, acoustic-model evidence review, evidence-based comparison, and report integration remain scheduled work. Lattice publishing remains outside the capstone scope.
 
 ## Decision gates
 
