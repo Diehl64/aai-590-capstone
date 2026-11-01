@@ -4,7 +4,7 @@ University of San Diego — M.S. in Applied Artificial Intelligence
 
 **Team:** Ramon (Tony) Diehl-Verdugo, Mostafa Zamaniturk, and Jacob Tassos.
 
-**Status:** Radar audit, measurement-disjoint baseline, and from-scratch CNN evaluation are complete. Visual verification, coordination, and operator-review workflow remain future work.
+**Status:** Radar audit, measurement-disjoint baseline, and from-scratch CNN evaluation are complete. The submitted management plan schedules RF evaluation, thermal/vision feasibility, evidence-based multisensor comparison, and local replay as the remaining capstone work. Acoustic modeling is out of scope.
 
 ## Completed Radar Audit
 
@@ -38,7 +38,7 @@ This capstone builds on the team's [AAI-540 RF Intrusion Detection MLOps project
 
 The new AAI-590 contributions now include radar preprocessing, measurement-disjoint evaluation, a radar baseline, and a neural network trained from scratch. Separately evaluated visual verification, coordination of observation and verification events, and operator review remain future work.
 
-The proposed next phases are documented in the [multimodal roadmap](docs/multimodal-roadmap.md): calibrate independent model outputs, generate explicitly simulated timelines, apply transparent weighted fusion, and evaluate uncertainty and missing-sensor behavior.
+The remaining scope and dated ownership are recorded in the [project management plan](docs/project-management-plan.md). The local comparison will use explicitly simulated replay scenarios and will not claim measured sensor fusion.
 
 The radar and any future verification datasets capture different events and are not synchronized. They therefore cannot establish that sensor fusion improves real-world detection. We evaluate each model independently and use clearly labeled simulated scenarios to test agreement, conflict, missing evidence, and delayed verification. Claims about combined performance require suitable paired observations and will not be made from the current datasets.
 
@@ -49,7 +49,7 @@ The radar and any future verification datasets capture different events and are 
 The proposed proof of concept uses recorded or simulated observations to demonstrate:
 
 1. Radar observation classification.
-2. Visual verification using RGB imagery, with thermal imagery as a possible extension.
+2. Thermal/vision feasibility for drone detection.
 3. Structured results containing a predicted class, confidence, supporting evidence, and verification status.
 4. An operator alert for human review.
 
@@ -70,7 +70,7 @@ The team will:
 - Document provenance, limitations, and permitted uses.
 - Prevent leakage between related recordings in training and test splits.
 - Extend the measured radar comparison with error analysis and robustness checks.
-- Build the local replay and operator-review workflow without implying paired real-world radar-camera data.
+- Complete the thermal/vision feasibility work and the local replay without implying paired real-world sensor data.
 
 Synchronized radar-camera data has not yet been secured. Models using separate real-world datasets will be evaluated separately. Simulated verification scenarios will be identified explicitly.
 
@@ -125,8 +125,8 @@ This repository contains the executed audit, split manifest, baseline and CNN co
 1. Review the measured radar results, error patterns, and the remaining session/subject/target-overlap limitation.
 2. Add report-ready methodology, results, figures, and a reviewed dependency specification.
 3. Add meaningful split, schema, and metric tests.
-4. Build a local replay and operator-review demonstration; keep simulated coordination separate from measured radar metrics.
-5. Evaluate visual verification separately only after its data, labels, and permissions are established.
+4. Complete the scheduled RF evaluation, thermal/vision feasibility work, and local replay; keep their evidence-based comparison separate from measured radar metrics.
+5. Assemble and review the report, presentation, and repository deliverables on the dates in the project management plan.
 
 Record actual team contributions in [the contribution log](docs/contributions.csv).
 
