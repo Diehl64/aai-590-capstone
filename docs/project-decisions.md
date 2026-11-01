@@ -7,8 +7,8 @@ This file separates current direction from decisions still requiring team agreem
 - Team: Tony, Mostafa, and Jacob.
 - Tony intends to coordinate GitHub for the capstone.
 - Software and AI proof of concept building on the AAI-540 project.
-- RF intrusion classification, radar micro-Doppler classification, thermal/vision feasibility, evidence-based comparison, and human-reviewed alerts.
-- Acoustic modeling and Lattice integration are outside the submitted capstone scope.
+- RF intrusion classification, radar micro-Doppler classification, thermal/vision feasibility, acoustic drone-sound detection, evidence-based comparison, and human-reviewed alerts.
+- Lattice integration is outside the capstone scope.
 
 ## Open decisions
 
@@ -22,6 +22,7 @@ This file separates current direction from decisions still requiring team agreem
 | Python/framework versions | Tested shared environment | Team / open |
 | Evaluation and acceptance criteria | Baseline, split plan, metric definitions, uncertainty tests | Tony proposes; team agrees / open |
 | Repository license and publication | Team agreement and third-party rights review | Team / open |
+| Acoustic model evidence | Reproducible code, source/license record, split evidence, metrics, and limitation review | Mostafa / scheduled Nov 9–15 |
 | Lattice integration | Verified sandbox access and tested interface | Outside submitted scope |
 
 ## Phase 2 proposal
@@ -39,11 +40,11 @@ The proposed KTH data consists of target-centered radar scan segments. It is not
 
 Two model outputs agreeing does not establish ground truth. Define verification states, thresholds, and human-review behavior explicitly. Validate using held-out observations and account for shared recording groups to reduce leakage.
 
-The RF, radar, and future thermal/vision datasets capture different events and are not synchronized. Evaluate each model independently. Use simulated scenarios only for evidence-based comparison and operator-review behavior. Do not claim measured real-time fusion or improved real-world detection without suitable paired observations.
+The RF, radar, thermal/vision, and acoustic datasets capture different events and are not synchronized. Evaluate each model independently. Use simulated scenarios only for evidence-based comparison and operator-review behavior. Do not claim measured real-time fusion or improved real-world detection without suitable paired observations.
 
 ## Submitted management-plan scope
 
-The Assignment 2.1.2 plan is authoritative for this capstone: RF classification, radar classification, thermal/vision feasibility, and local replay are in scope. Acoustic modeling is out of scope. The dated ownership and review windows are in [project-management-plan.md](project-management-plan.md).
+The current plan includes RF classification, radar classification, thermal/vision feasibility, acoustic drone-sound detection, and local replay. The acoustic addition is a documented scope revision dated 2026-11-01. The dated ownership and review windows are in [project-management-plan.md](project-management-plan.md).
 
 ## Decision log
 
