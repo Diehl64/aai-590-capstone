@@ -70,7 +70,8 @@ def main():
         pred = test_scores.argmax(1)
     best_epoch = max(history, key=lambda item: item["macro_f1"])
     output_file = a.output / "radar-test-outputs.csv"
-    write_handoff(output_file, [{"output_id": f"radar-test-{i:06d}", "sensor_type": "radar", "source_observation_id": observation_ids["test"][i], "split": "test", "timestamp": f"relative_seconds:{observation_times['test'][i]:.9g}", "predicted_label": CLASSES[pred[i]], "score": float(test_scores[i, pred[i]]), "model_version": f"RadarCNN-seed-{a.seed}", "dataset_id": "kth_77ghz_v2", "source_output_ref": output_file.name} for i in range(len(pred))])
+    model_version = f"RadarCNN-seed-{a.seed}-epoch-{best_epoch['epoch']}"
+    write_handoff(output_file, [{"output_id": f"radar-test-{i:06d}", "sensor_type": "radar", "source_observation_id": observation_ids["test"][i], "split": "test", "timestamp": f"relative_seconds:{observation_times['test'][i]:.9g}", "predicted_label": CLASSES[pred[i]], "score": float(test_scores[i, pred[i]]), "model_version": model_version, "dataset_id": "kth_77ghz_v2", "source_output_ref": output_file.name} for i in range(len(pred))])
     result = {"model": "RadarCNN", "seed": a.seed, "epochs": a.epochs, "device": str(device), "selected_epoch": best_epoch["epoch"], "input": "normalized magnitude 5x256", "reflector_policy": "excluded", "preprocessing": prep, "test_output_file": output_file.name, "validation": best_epoch, "test": score(y["test"], pred), "history": history}
     a.output.mkdir(parents=True, exist_ok=True); (a.output / "radar-neural-network-metrics.json").write_text(json.dumps(result, indent=2) + "\n"); torch.save(model.state_dict(), a.output / "radar-cnn.pt"); print(json.dumps(result, indent=2))
 if __name__ == "__main__": main()
