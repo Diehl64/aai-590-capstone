@@ -1,4 +1,4 @@
-"""Contracts for explicitly simulated RF, radar, and thermal replay events.
+"""Contracts for explicitly simulated RF, radar, thermal, and acoustic replay events.
 
 This module combines evidence records for operator review. It does not calculate
 a fused probability or establish performance on paired real-world observations.
@@ -14,6 +14,7 @@ class SensorType(str, Enum):
     RF = "rf"
     RADAR = "radar"
     THERMAL = "thermal"
+    ACOUSTIC = "acoustic"
 
 
 class EvidenceStatus(str, Enum):
