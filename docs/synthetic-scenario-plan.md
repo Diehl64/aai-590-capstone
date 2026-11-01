@@ -14,7 +14,7 @@ For each sensor record, the team must retain:
 - whether the evidence was available, missing, delayed, or low quality; and
 - the simulated-event label and the reason the records were paired.
 
-The development placeholders in `src/run_synthetic_scenarios.py` stay marked as placeholders. Replace them only after the RF, radar, thermal/vision, and acoustic components have committed their reproducible artifacts and outputs. Do not calculate or present a combined probability as a validated real-world result.
+The development placeholders in `src/run_synthetic_scenarios.py` stay marked as placeholders. Replace them only after the RF, radar, thermal/vision, and acoustic components have committed their reproducible artifacts and a validated [model-output handoff](model-output-handoff.md). Do not calculate or present a combined probability as a validated real-world result.
 
 ## Team handoff
 
