@@ -40,6 +40,8 @@ The new AAI-590 contributions now include radar preprocessing, measurement-disjo
 
 The remaining scope and dated ownership are recorded in the [project management plan](docs/project-management-plan.md). The local comparison will use explicitly simulated replay scenarios and will not claim measured sensor fusion.
 
+The [synthetic local-replay foundation](docs/synthetic-replay.md) provides an RF/radar/thermal event contract and placeholder-only development scenarios. It will accept saved outputs from independently evaluated models when those results are available.
+
 The radar and any future verification datasets capture different events and are not synchronized. They therefore cannot establish that sensor fusion improves real-world detection. We evaluate each model independently and use clearly labeled simulated scenarios to test agreement, conflict, missing evidence, and delayed verification. Claims about combined performance require suitable paired observations and will not be made from the current datasets.
 
 [Phase 1 integration plan](docs/aai-540-integration.md) records source evidence, reuse boundaries, proposed interfaces, and completion criteria. Phase 1 documents continuity and scope; it does not deploy or execute the predecessor's AWS workflows.
