@@ -22,3 +22,5 @@ python src/run_synthetic_scenarios.py --output results/synthetic-replay
 ```
 
 The resulting JSON remains separate from measured-model results. The later multisensor-comparison task must retain the simulated label, document the source output for every record, and preserve the human-review requirement.
+
+The [synthetic scenario plan](synthetic-scenario-plan.md) defines the five cases and the model-output handoff required before placeholders can be replaced.
