@@ -1,0 +1,17 @@
+source_dataset,source_sequence,original_frame,class_name,sample_kind,issue_type,bbox,output_path
+anti_uav_dataset1,01_1751_0250-1750,1,Drone,valid_target,,"[306.0, 270.0, 14.0, 11.0]",data/thermal-ir/interim/qa_overlays/01_anti_uav_dataset1_01_1751_0250-1750_000001.png
+anti_uav_dataset1,01_2192_0001-1500,1,Drone,valid_target,,"[268.0, 279.0, 29.0, 22.0]",data/thermal-ir/interim/qa_overlays/02_anti_uav_dataset1_01_2192_0001-1500_000001.png
+anti_uav_dataset1,01_4485_1167-2666,4,Drone,valid_target,,"[605.0, 361.0, 27.0, 10.0]",data/thermal-ir/interim/qa_overlays/03_anti_uav_dataset1_01_4485_1167-2666_000004.png
+drone_detection_dataset2,IR_DRONE_001,1,Drone,valid_target,,"[26.76181411743164, 118.27247619628906, 28.563472747802734, 15.325759887695312]",data/thermal-ir/interim/qa_overlays/04_drone_detection_dataset2_IR_DRONE_001_000001.png
+drone_detection_dataset2,IR_DRONE_002,1,Drone,valid_target,,"[165.0, 113.0, 29.0, 13.0]",data/thermal-ir/interim/qa_overlays/05_drone_detection_dataset2_IR_DRONE_002_000001.png
+drone_detection_dataset2,IR_DRONE_003,1,Drone,valid_target,,"[177.0, 144.0, 24.0, 13.0]",data/thermal-ir/interim/qa_overlays/06_drone_detection_dataset2_IR_DRONE_003_000001.png
+drone_detection_dataset2,IR_BIRD_001,2,Bird,valid_target,,"[3.0, 153.0, 8.0, 9.0]",data/thermal-ir/interim/qa_overlays/07_drone_detection_dataset2_IR_BIRD_001_000002.png
+drone_detection_dataset2,IR_BIRD_002,2,Bird,valid_target,,"[120.0, 136.0, 9.0, 9.0]",data/thermal-ir/interim/qa_overlays/08_drone_detection_dataset2_IR_BIRD_002_000002.png
+drone_detection_dataset2,IR_BIRD_003,2,Bird,valid_target,,"[158.0, 141.0, 13.0, 14.0]",data/thermal-ir/interim/qa_overlays/09_drone_detection_dataset2_IR_BIRD_003_000002.png
+anti_uav_dataset1,01_4485_1167-2666,1,Drone,annotation_issue,box_exceeds_image_boundary,"[633.0, 365.0, 8.0, 8.0]",data/thermal-ir/interim/qa_overlays/10_anti_uav_dataset1_01_4485_1167-2666_000001.png
+anti_uav_dataset1,01_4485_1167-2666,2,Drone,annotation_issue,box_exceeds_image_boundary,"[618.0, 363.0, 23.0, 10.0]",data/thermal-ir/interim/qa_overlays/11_anti_uav_dataset1_01_4485_1167-2666_000002.png
+anti_uav_dataset1,20190925_111757_1_2,706,Drone,annotation_issue,non_positive_box_dimensions,"[0.0, 0.0, 0.0, 0.0]",data/thermal-ir/interim/qa_overlays/12_anti_uav_dataset1_20190925_111757_1_2_000706.png
+anti_uav_dataset1,20190925_111757_1_2,707,Drone,annotation_issue,non_positive_box_dimensions,"[0.0, 0.0, 0.0, 0.0]",data/thermal-ir/interim/qa_overlays/13_anti_uav_dataset1_20190925_111757_1_2_000707.png
+drone_detection_dataset2,IR_BIRD_001,310,Bird,overlap_boundary,video_annotation_length_mismatch,"[224.64369201660156, 86.6029281616211, 9.762008666992188, 8.37335205078125]",data/thermal-ir/interim/qa_overlays/14_drone_detection_dataset2_IR_BIRD_001_000310.png
+drone_detection_dataset2,IR_BIRD_002,301,Bird,overlap_boundary,video_annotation_length_mismatch,"[5.0, 91.0, 9.0, 13.0]",data/thermal-ir/interim/qa_overlays/15_drone_detection_dataset2_IR_BIRD_002_000301.png
+drone_detection_dataset2,IR_BIRD_003,300,Bird,overlap_boundary,video_annotation_length_mismatch,"[5.53333338327759, 145.13333334581927, 11.933333327090292, 11.866666654180609]",data/thermal-ir/interim/qa_overlays/16_drone_detection_dataset2_IR_BIRD_003_000300.png

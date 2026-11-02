@@ -28,6 +28,9 @@ secrets*
 data/raw/
 data/processed/
 data/interim/
+data/thermal-ir/raw/
+data/thermal-ir/interim/
+data/thermal-ir/processed/
 *.mat
 *.npy
 *.npz

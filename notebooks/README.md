@@ -4,6 +4,7 @@ No notebooks are implemented yet. Suggested sequence:
 
 | Suggested name | Purpose |
 | --- | --- |
+| `02_thermal_ir_pipeline.ipynb` | Thermal dataset provenance, validation, conversion, sequence-disjoint splitting, and later approved YOLO evaluation |
 | `01_data_audit_and_cleaning.ipynb` | Provenance, data issues, preprocessing, and split construction |
 | `02_exploratory_data_analysis.ipynb` | Class distributions, recording structure, and useful signal/image characteristics |
 | `03_baseline_and_model_training.ipynb` | Baseline and neural-network training or fine-tuning |
