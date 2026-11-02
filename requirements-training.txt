@@ -1,0 +1,9 @@
+# Reproduced on Windows 11 with an NVIDIA RTX 5080.
+# The raw radar dataset remains outside the repository.
+numpy==2.4.6
+torch==2.11.0+cu128
+torchvision==0.26.0+cu128
+torchaudio==2.11.0+cu128
+
+# Install the CUDA wheels with the PyTorch index:
+# python -m pip install -r requirements-training.txt --index-url https://download.pytorch.org/whl/cu128

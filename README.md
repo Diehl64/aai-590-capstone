@@ -4,7 +4,7 @@ University of San Diego — M.S. in Applied Artificial Intelligence
 
 **Team:** Ramon (Tony) Diehl-Verdugo, Mostafa Zamaniturk, and Jacob Tassos.
 
-**Status:** Initial real-data radar audit complete (2026-10-21). Model training and the verification pipeline remain to be implemented. Team scientific review and native Jupyter validation are pending.
+**Status:** Radar audit, measurement-disjoint baseline, and from-scratch CNN evaluation are complete. The current management plan schedules RF evaluation, thermal/vision feasibility, acoustic-model evidence review, evidence-based multisensor comparison, and local replay as the remaining capstone work.
 
 ## Completed Radar Audit
 
@@ -13,11 +13,11 @@ The checksum-verified dataset contains **130 measurements and 75,868 segments**.
 - No nonfinite signal, range, or time values, or negative within-measurement time steps, were found in the checks performed.
 - There are 67 edge-marked segments.
 - 128 measurements span published splits 1, 2, and 3. Measurement IDs 81 and 92 span only splits 1 and 3.
-- Proposed drone/bird/person grouping, excluding reflectors, leaves 72,588 segments, approximately 81% drones. Team approval of these labels remains pending.
+- The proposed three-class mapping is drone, bird, and human; reflectors are explicitly excluded, leaving 72,588 segments.
 
 All measurements span multiple published splits. The published partition therefore does not evaluate unseen measurements. We need measurement-disjoint evaluation and further checks for session or target overlap. This does not establish that the original study's results are invalid; its evaluation question may differ.
 
-The four notebook Python cells ran sequentially with a Python runner and captured outputs. Native Jupyter kernel startup was blocked in that environment. JupyterLab execution and cross-platform compatibility still need validation. **No classifier performance has been measured.**
+The audit was followed by a measurement-disjoint nearest-centroid baseline and a from-scratch CNN. The CNN was trained on an RTX 5080 with PyTorch CUDA and evaluated once on the untouched test partition. See the [model results](docs/radar-model-results.md). These are target-centered dataset results, not continuous field-detection performance.
 
 Evidence:
 
@@ -30,19 +30,32 @@ Evidence:
 
 This capstone explores a software pipeline that classifies sensor observations, requests visual verification, and presents evidence and uncertainty to a human operator.
 
-The project builds on our AAI-540 RF Intrusion Detection MLOps project:
-https://github.com/Mosizamani/aai-540-final-project-group6
+## Continuity from AAI-540 to AAI-590
 
-The capstone will document its original contributions and distinguish RF communications data from radar measurements.
+This capstone builds on the team's [AAI-540 RF Intrusion Detection MLOps project](https://github.com/Mosizamani/aai-540-final-project-group6), retained as a read-only predecessor/reference project. Its reusable foundation includes CNN training and evaluation, dataset and model provenance, SageMaker batch inference, model/data monitoring, and performance-gated CI/CD promotion. These components are candidates for adaptation; they have not been integrated into this repository.
+
+**RF communications data and radar data are separate modalities.** AAI-540 classifies RF activity from spectrogram images into Benign, Broadband_Jam, Human, Machine, Narrowband_Jam, and Wildlife. AAI-590 evaluates complex-valued measurements from a 77 GHz FMCW radar using the documented drone/bird/human mapping and explicit reflector exclusion. Shared label wording does not establish equivalent targets, paired observations, compatible inputs, or transferable performance. AAI-540 weights, preprocessing, thresholds, and metrics do not establish radar classifier performance.
+
+The new AAI-590 contributions now include radar preprocessing, measurement-disjoint evaluation, a radar baseline, and a neural network trained from scratch. Separately evaluated visual verification, coordination of observation and verification events, and operator review remain future work.
+
+The remaining scope and dated ownership are recorded in the [project management plan](docs/project-management-plan.md). The local comparison will use explicitly simulated replay scenarios and will not claim measured sensor fusion.
+
+The [synthetic local-replay foundation](docs/synthetic-replay.md) provides an RF/radar/thermal/acoustic event contract and placeholder-only development scenarios. It will accept saved outputs from independently evaluated models when those results are available.
+
+The radar and any future verification datasets capture different events and are not synchronized. They therefore cannot establish that sensor fusion improves real-world detection. We evaluate each model independently and use clearly labeled simulated scenarios to test agreement, conflict, missing evidence, and delayed verification. Claims about combined performance require suitable paired observations and will not be made from the current datasets.
+
+[Phase 1 integration plan](docs/aai-540-integration.md) records source evidence, reuse boundaries, proposed interfaces, and completion criteria. Phase 1 documents continuity and scope; it does not deploy or execute the predecessor's AWS workflows.
 
 ## Scope
 
 The proposed proof of concept uses recorded or simulated observations to demonstrate:
 
-1. Radar observation classification.
-2. Visual verification using RGB imagery, with thermal imagery as a possible extension.
-3. Structured results containing a predicted class, confidence, supporting evidence, and verification status.
-4. An operator alert for human review.
+1. RF intrusion-classification evaluation.
+2. Radar observation classification.
+3. Thermal/vision feasibility for drone detection.
+4. Acoustic drone-sound detection.
+5. Structured results containing a predicted class, confidence, supporting evidence, and verification status.
+6. An operator alert for human review.
 
 Physical drone flight control and interception are outside the capstone implementation scope.
 
@@ -57,11 +70,11 @@ Initial integrity and schema checks are complete, and the source metadata identi
 
 The team will:
 
-- Select suitable radar and visual datasets.
+- Select suitable RF, radar, thermal/vision, and acoustic datasets.
 - Document provenance, limitations, and permitted uses.
 - Prevent leakage between related recordings in training and test splits.
-- Plan a neural network trained from scratch to address the Module 5 learning outcome; clarify any alternative with the instructor.
-- Compare model performance against a documented baseline.
+- Extend the measured radar comparison with error analysis and robustness checks.
+- Complete the thermal/vision feasibility work and the local replay without implying paired real-world sensor data.
 
 Synchronized radar-camera data has not yet been secured. Models using separate real-world datasets will be evaluated separately. Simulated verification scenarios will be identified explicitly.
 
@@ -109,15 +122,15 @@ Each member contributes to implementation, documentation, and the final presenta
 
 Read [SETUP.md](SETUP.md) and [CONTRIBUTING.md](CONTRIBUTING.md).
 
-This repository contains an executed data-audit notebook, derived tables and a figure, provenance records, and planning documents. Download the raw dataset separately using SETUP.md; it is not bundled here. There is no runnable model pipeline or finalized dependency specification yet.
+This repository contains the executed audit, split manifest, baseline and CNN code, measured results, provenance records, and planning documents. Download the raw dataset separately using SETUP.md; it is not bundled here.
 
 ## Next Milestones
 
-1. Review the audit and approve class mapping and reflector treatment in [project decisions](docs/project-decisions.md).
-2. Define measurement-disjoint training, validation, and test groups; check class coverage and remaining session overlap.
-3. Validate native Jupyter execution and record a tested dependency specification.
-4. Inspect more class and edge examples, select preprocessing, and train a baseline and neural network.
-5. Evaluate radar classification before adding separately evaluated visual verification and explicitly simulated integration.
+1. Review the measured radar results, error patterns, and the remaining session/subject/target-overlap limitation.
+2. Add report-ready methodology, results, figures, and a reviewed dependency specification.
+3. Add meaningful split, schema, and metric tests.
+4. Complete the scheduled RF evaluation, thermal/vision feasibility work, and local replay; keep their evidence-based comparison separate from measured radar metrics.
+5. Assemble and review the report, presentation, and repository deliverables on the dates in the project management plan.
 
 Record actual team contributions in [the contribution log](docs/contributions.csv).
 

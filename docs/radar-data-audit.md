@@ -1,6 +1,6 @@
 # Candidate radar data audit
 
-Status: documentation reviewed and real-data Python audit executed on 2026-10-21. See [audit results](../results/radar-audit-results.md). Native Jupyter execution remains pending.
+Status: documentation reviewed, real-data audit executed on 2026-10-21, and radar baseline/CNN evaluation completed. See [audit results](../results/radar-audit-results.md) and [model results](radar-model-results.md).
 
 ## Source evidence
 
@@ -22,6 +22,6 @@ The documentation does not establish synchronized RGB/thermal observations or co
 
 License verified on 2026-10-21: the official Zenodo API identifies CC BY 4.0 (`metadata.license.id = cc-by-4.0`). See https://zenodo.org/api/records/5896641 and [saved source metadata](../results/radar-source-metadata.json). Credit Alexander Karlsson (KTH), cite https://doi.org/10.5281/zenodo.5896641, link https://creativecommons.org/licenses/by/4.0/, and identify modifications such as preprocessing or label regrouping. Do not imply publisher endorsement. This dataset license does not choose a license for our project code.
 
-Validate checksum, array schema, counts, missing/nonfinite values, and class coverage in held-out groups. The audit has run on the verified real dataset; no model results exist yet. The loader requires explicit trust because this object array uses pickle.
+Validate checksum, array schema, counts, missing/nonfinite values, and class coverage in held-out groups. The audit and model runs use the verified real dataset. The loader requires explicit trust because this object array uses pickle.
 
 See [the radar audit notebook](../notebooks/01_radar_data_audit.ipynb). No data is bundled with this repository.

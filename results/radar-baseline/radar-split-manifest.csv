@@ -1,0 +1,131 @@
+measurement_id,source_label,class,segments,split
+0,D1,drone,1228,train
+1,D1,drone,1254,train
+2,D1,drone,1349,train
+3,D1,drone,809,train
+4,D1,drone,322,train
+5,D1,drone,317,train
+6,D1,drone,393,train
+7,D1,drone,1249,train
+8,D2,drone,179,train
+9,D2,drone,98,train
+10,D2,drone,99,train
+11,D2,drone,2414,train
+12,D2,drone,2429,validation
+13,D2,drone,2423,train
+14,D2,drone,1734,test
+15,D2,drone,111,validation
+16,D2,drone,68,train
+17,D3,drone,2699,train
+18,D3,drone,2469,train
+19,D3,drone,1405,train
+20,D3,drone,3639,validation
+21,D4,drone,2759,test
+22,D4,drone,2350,train
+23,D4,drone,2669,train
+24,D4,drone,957,train
+25,D5,drone,2562,test
+26,D5,drone,2590,train
+27,D5,drone,2751,train
+28,D5,drone,4190,train
+29,D6,drone,364,train
+30,D6,drone,518,train
+31,D6,drone,272,train
+32,D6,drone,557,train
+33,D6,drone,157,test
+34,D6,drone,587,train
+35,D6,drone,859,train
+36,D6,drone,444,test
+37,D6,drone,917,validation
+38,D6,drone,2053,train
+39,D6,drone,944,train
+40,D6,drone,606,train
+41,D6,drone,439,validation
+42,D6,drone,1309,validation
+43,D6,drone,1226,test
+44,human_walk,human,93,train
+45,human_walk,human,97,train
+46,human_walk,human,304,train
+47,human_walk,human,1027,validation
+48,human_run,human,357,train
+49,human_walk,human,972,train
+50,human_run,human,420,train
+51,human_walk,human,1044,train
+52,human_run,human,329,train
+53,human_walk,human,992,test
+54,human_run,human,393,train
+55,seagull,bird,35,test
+56,seagull,bird,145,train
+57,seagull,bird,72,test
+58,seagull,bird,39,train
+59,seagull,bird,63,train
+60,seagull,bird,33,train
+61,seagull,bird,49,train
+62,seagull,bird,41,train
+63,seagull,bird,132,train
+64,seagull,bird,51,train
+65,seagull,bird,39,train
+66,seagull,bird,188,train
+67,pigeon,bird,32,train
+68,raven,bird,19,train
+69,seagull,bird,89,train
+70,seagull,bird,54,train
+71,seagull,bird,126,train
+72,seagull,bird,30,train
+73,seagull,bird,87,train
+74,seagull,bird,78,train
+75,seagull,bird,113,train
+76,seagull,bird,112,train
+77,seagull,bird,50,train
+78,seagull,bird,300,train
+79,seagull,bird,29,train
+80,seagull,bird,90,train
+81,seagull,bird,23,validation
+82,seagull,bird,50,test
+83,seagull,bird,15,train
+84,seagull,bird,28,test
+85,seagull,bird,90,test
+86,seagull,bird,43,validation
+87,seagull,bird,80,validation
+88,seagull,bird,33,train
+89,seagull,bird,100,train
+90,seagull,bird,43,train
+91,seagull and black-headed gull,bird,234,train
+92,seagull and black-headed gull,bird,15,train
+93,seagull and black-headed gull,bird,184,train
+94,seagull and black-headed gull,bird,7,train
+95,black-headed gull,bird,650,train
+96,black-headed gull,bird,73,train
+97,black-headed gull,bird,45,train
+98,black-headed gull,bird,33,validation
+99,black-headed gull,bird,1008,train
+100,black-headed gull,bird,289,train
+101,black-headed gull,bird,901,test
+102,black-headed gull,bird,126,train
+103,black-headed gull,bird,168,train
+104,black-headed gull,bird,934,validation
+105,black-headed gull,bird,137,train
+106,heron,bird,125,train
+107,heron,bird,52,train
+108,heron,bird,63,validation
+109,heron,bird,68,train
+110,heron,bird,79,train
+111,CR,reflector,289,excluded_reflector
+112,CR,reflector,95,excluded_reflector
+113,CR,reflector,93,excluded_reflector
+114,CR,reflector,93,excluded_reflector
+115,CR,reflector,97,excluded_reflector
+116,CR,reflector,93,excluded_reflector
+117,CR,reflector,98,excluded_reflector
+118,CR,reflector,95,excluded_reflector
+119,CR,reflector,93,excluded_reflector
+120,CR,reflector,93,excluded_reflector
+121,CR,reflector,118,excluded_reflector
+122,CR,reflector,298,excluded_reflector
+123,CR,reflector,302,excluded_reflector
+124,CR,reflector,306,excluded_reflector
+125,CR,reflector,293,excluded_reflector
+126,CR,reflector,183,excluded_reflector
+127,CR,reflector,171,excluded_reflector
+128,CR,reflector,167,excluded_reflector
+129,CR,reflector,303,excluded_reflector
