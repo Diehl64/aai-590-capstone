@@ -38,7 +38,7 @@ data/thermal-ir/processed/
 *.keras
 *.h5
 *.hdf5
-*.pt
+# *.pt
 *.pth
 *.ckpt
 *.onnx
@@ -46,7 +46,8 @@ data/thermal-ir/processed/
 *.joblib
 checkpoints/
 artifacts/
-runs/
+notebooks/runs/
+thermal-ir/runs/experiment_a_dataset2_only
 wandb/
 mlruns/
 
