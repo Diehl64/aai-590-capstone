@@ -1,10 +1,10 @@
-# AAI-590 Capstone: Multi-Stage Monitoring
+# AAI-590 Capstone: Agentic Multi-Sensor Perimeter Monitoring
 
 University of San Diego — M.S. in Applied Artificial Intelligence
 
 **Team:** Ramon (Tony) Diehl-Verdugo, Mostafa Zamaniturk, and Jacob Tassos.
 
-**Status:** Radar audit, measurement-disjoint baseline, and from-scratch CNN evaluation are complete. The current management plan schedules RF evaluation, thermal/vision feasibility, acoustic-model evidence review, evidence-based multisensor comparison, and local replay as the remaining capstone work.
+**Status:** Radar audit, measurement-disjoint baseline, and from-scratch CNN evaluation are complete. The current management plan schedules RF evaluation, acoustic-model evaluation with noise robustness, thermal/vision training and evaluation, the human-in-the-loop coordination agent, and the evidence-based multisensor comparison and local replay as the remaining capstone work.
 
 ## Completed Radar Audit
 
@@ -54,8 +54,11 @@ The proposed proof of concept uses recorded or simulated observations to demonst
 2. Radar observation classification.
 3. Thermal/vision feasibility for drone detection.
 4. Acoustic drone-sound detection.
-5. Structured results containing a predicted class, confidence, supporting evidence, and verification status.
-6. An operator alert for human review.
+5. A human-in-the-loop coordination agent that decides which sensor evidence to request, evaluated on simulated replay scenarios against a fixed rule-based baseline.
+6. Structured alerts containing per-sensor predictions, confidence scores, cited evidence, and a confirmed, conflicting, unknown, or unverified status.
+7. Operator review of every alert.
+
+The agent's authority is limited to software coordination. It has no sensor-control, drone-control, or response tools. See [agent-coordination.md](docs/agent-coordination.md).
 
 Physical drone flight control and interception are outside the capstone implementation scope.
 

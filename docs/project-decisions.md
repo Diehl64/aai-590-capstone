@@ -7,8 +7,9 @@ This file separates current direction from decisions still requiring team agreem
 - Team: Tony, Mostafa, and Jacob.
 - Tony intends to coordinate GitHub for the capstone.
 - Software and AI proof of concept building on the AAI-540 project.
-- RF intrusion classification, radar micro-Doppler classification, thermal/vision feasibility, acoustic drone-sound detection, evidence-based comparison, and human-reviewed alerts.
-- Lattice integration is outside the capstone scope.
+- RF intrusion classification, radar micro-Doppler classification, thermal/vision feasibility, binary acoustic drone detection with noise-robustness checks, a human-in-the-loop coordination agent, evidence-based comparison, and human-reviewed alerts.
+- The agent has no response or actuator tools and is evaluated only on simulated replay against a fixed rule-based baseline. See [agent-coordination.md](agent-coordination.md).
+- Anduril Lattice integration is an optional extension that depends on verified sandbox access. It is not part of the submitted core deliverables, and the core demonstration must remain locally executable.
 
 ## Open decisions
 
@@ -22,8 +23,10 @@ This file separates current direction from decisions still requiring team agreem
 | Python/framework versions | Tested shared environment | Team / open |
 | Evaluation and acceptance criteria | Baseline, split plan, metric definitions, uncertainty tests | Tony proposes; team agrees / open |
 | Repository license and publication | Team agreement and third-party rights review | Team / open |
-| Acoustic model evidence | Reproducible code, source/license record, split evidence, metrics, and limitation review | Mostafa / scheduled Nov 9–15 |
-| Lattice integration | Verified sandbox access and tested interface | Outside submitted scope |
+| Acoustic model evidence | Reproducible code, source/license record, split evidence, metrics, noise-robustness results, and limitation review | Mostafa / scheduled Nov 9–15 |
+| Agent label mapping, status rules, and uncertainty bands | Validation-split outputs from each modality and team review | Mostafa / scheduled Nov 9–12 |
+| Score calibration claim | Per-model temperature scaling on the validation split and reported calibration error, or scores labeled uncalibrated | Each model owner / before row 14 |
+| Lattice integration | Verified sandbox access and tested interface | Optional extension; not a core deliverable |
 
 ## Phase 2 proposal
 
@@ -44,8 +47,13 @@ The RF, radar, thermal/vision, and acoustic datasets capture different events an
 
 ## Submitted management-plan scope
 
-The current plan includes RF classification, radar classification, thermal/vision feasibility, acoustic drone-sound detection, and local replay. The acoustic addition is a documented scope revision dated 2026-11-01. The dated ownership and review windows are in [project-management-plan.md](project-management-plan.md).
+The current plan includes RF classification, radar classification, thermal/vision feasibility, binary acoustic drone detection, the human-in-the-loop coordination agent, and local replay. The acoustic addition is a documented scope revision dated 2026-11-01. The agent addition was agreed by the full team and included in the submitted introduction and Assignment 2.1.2 plan. The dated ownership and review windows are in [project-management-plan.md](project-management-plan.md).
 
 ## Decision log
 
 When the team resolves an item, record the date, decision, rationale, evidence link, and participants here. No architecture or dataset is approved merely because it appears in this scaffold.
+
+| Date | Decision | Rationale | Evidence | Participants |
+| --- | --- | --- | --- | --- |
+| 2026-11-01 | Add binary acoustic drone detection to scope | Completed acoustic-model work identified | [acoustic-model-evidence.md](acoustic-model-evidence.md) | Tony, Mostafa, Jacob |
+| 2026-11 (before plan submission) | Add human-in-the-loop coordination agent; LLM reporting, AWS model-health, and IoT device-health integration are future work | Coordinates separately evaluated models without claiming fusion; addresses RF Benign/Machine ambiguity | Submitted introduction and Assignment 2.1.2 plan; [agent-coordination.md](agent-coordination.md) | Tony, Mostafa, Jacob |

@@ -29,6 +29,10 @@ The validator checks required fields, unique row IDs, supported sensors, a held-
 
 Each owner should commit or provide the model code, environment/dependency specification, dataset provenance, split policy, metrics, confusion matrix where applicable, and this validated output CSV. The acoustic output must also state the source/site-generalization limitation recorded in [acoustic-model-evidence.md](acoustic-model-evidence.md).
 
+## Calibration (optional, recommended)
+
+The submitted introduction and plan describe calibrated confidence scores. To support that claim for a modality, the owner fits temperature scaling (or another documented method) on the **validation** split only. The owner then reports expected calibration error before and after and records the calibrated score in an additional `calibrated_score` column with `calibration_method` and `calibration_split`. Without this evidence, the agent labels that sensor's scores `score_calibrated: false`.
+
 ## Radar export
 
 `src/radar_neural_network.py` writes `radar-test-outputs.csv` beside its metrics after a training run. Each row contains one held-out radar segment, its source relative time, prediction, top raw softmax score, and the model/dataset identifiers required by this handoff. The model version records the seed and validation-selected epoch. The score is a model output, not a calibrated probability. Artifact references are filenames so local absolute paths are not recorded.
