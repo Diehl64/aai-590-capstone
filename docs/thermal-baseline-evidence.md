@@ -36,6 +36,12 @@ At a validation-selected threshold, the Batch-32 baseline reportedly achieved:
 
 These values must not be treated as independently reproducible capstone results until the team records the code commit, environment/dependency specification, data-access and license evidence, exact split manifest, saved metrics, threshold-selection procedure, and held-out prediction outputs.
 
+## Reviewed handoff artifact
+
+The committed test-image decisions from `origin/thermal-ir-pipeline` commit `4738a821` were reviewed without rerunning training. They contain one row per held-out test image, the model’s maximum confidence, and the validation-selected decision threshold of 0.25.
+
+`data/model-outputs/thermal-dataset2-batch32-test-outputs.csv` maps those saved decisions into the shared replay handoff schema. Its `source_output_ref` points to the exact source branch, commit, and source file. A source image timestamp is unavailable, so the handoff preserves the recording/frame identifier in `source_observation_id` and uses `source-time-unavailable` for `timestamp`. The CSV remains individual-model evidence; it may be paired only in explicitly simulated replay scenarios that require human review.
+
 ## Integration boundary
 
 Dataset 2 is not synchronized with the RF, radar, or acoustic datasets. If reviewed artifacts are accepted, thermal outputs may be used only in the clearly labeled simulated local replay. They cannot establish measured real-time sensor-fusion performance.
