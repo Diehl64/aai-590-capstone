@@ -4,7 +4,7 @@ University of San Diego — M.S. in Applied Artificial Intelligence
 
 **Team:** Ramon (Tony) Diehl-Verdugo, Mostafa Zamaniturk, and Jacob Tassos.
 
-**Status:** Radar audit, measurement-disjoint baseline, and from-scratch CNN evaluation are complete. The current management plan schedules RF evaluation, thermal/vision feasibility, acoustic-model evidence review, evidence-based multisensor comparison, and local replay as the remaining capstone work.
+**Status:** Radar audit, measurement-disjoint baseline, and from-scratch CNN evaluation are complete. Thermal source validation and Dataset 2 exploratory data analysis are documented; the current management plan schedules RF evaluation, further thermal/vision work, acoustic-model evidence review, evidence-based multisensor comparison, and local replay as the remaining capstone work.
 
 ## Completed Radar Audit
 
@@ -65,6 +65,8 @@ Coordinates, velocity, timestamps, and camera pose must come from an external so
 
 Candidate radar data:
 https://zenodo.org/records/5896641
+
+The [Thermal Dataset 2 EDA notebook](notebooks/03_thermal_dataset2_eda.ipynb) documents recording counts, durations, annotation issues, bounding-box geometry, target location, and temporal dependence for the current thermal analysis subset.
 
 Initial integrity and schema checks are complete, and the source metadata identifies CC BY 4.0. Final adoption, class mapping, preprocessing, and evaluation suitability require team review. See the [dataset manifest](data/dataset-manifest.csv) and [audit notes](docs/radar-data-audit.md).
 
