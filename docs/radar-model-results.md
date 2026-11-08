@@ -28,3 +28,9 @@ The saved held-out test metrics are visualized in:
 - `results/radar-neural-network/radar-cnn-per-class-metrics.png`
 
 These figures are generated from the saved metrics JSON by `src/plot_radar_results.py`; generating them does not retrain or reevaluate the model.
+
+## Held-out replay handoff
+
+`data/model-outputs/radar-cnn-test-outputs.csv` contains 11,050 saved RadarCNN held-out test predictions. It was generated from `radar-cnn.pt` by `src/export_radar_test_outputs.py`, which rebuilds the fixed seed-590 measurement-disjoint split and checks that the resulting confusion matrix matches the recorded metrics. The export uses GPU inference when available; it does not train or alter the model.
+
+Each row preserves the source measurement/segment identifier and relative source time. The output remains individual radar evidence and may be paired with other modality outputs only in scenarios labeled `simulated` with human/operator review.
