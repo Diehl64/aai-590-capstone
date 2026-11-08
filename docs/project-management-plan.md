@@ -40,13 +40,13 @@ This status records repository evidence without changing the approved schedule o
 | Project area | Repository status | Remaining action |
 | --- | --- | --- |
 | Management plan and GitHub Project | Plan, issues, and review workflow are committed. | Jacob records review feedback. |
-| Radar audit and data summary | Audit, measurement-disjoint split, baseline, CNN, metrics, tests, and output exporter are committed. | Finish report-ready data summary and review the remaining session/subject/target-overlap limitation. |
-| RF v4 versus v5 | Comparison evidence and RF dataset provenance are committed. | Obtain the existing saved model/output artifact or per-image held-out predictions; do not retrain solely for handoff. |
-| Radar evaluation and limitations | Held-out radar export contract and provenance metadata are committed. | Add report-ready error analysis and obtain reviewer feedback. |
-| Thermal/vision feasibility | A validated 2,631-row held-out thermal handoff is committed; the source pipeline remains on the team branch. | Review the full pipeline, environment, data-access/license evidence, and figures before final reporting. |
+| Radar audit and data summary | Audit, measurement-disjoint split, baseline, CNN, metrics, tests, report figures, error analysis, and held-out output handoff are committed. | Obtain reviewer feedback and document the remaining session/subject/target-overlap limitation. |
+| RF v4 versus v5 | Comparison evidence and RF dataset provenance are committed. The team branch contains calibration and held-out-output export code. | Commit the existing saved RF held-out outputs, configuration, metrics, and provenance; do not retrain solely for handoff. |
+| Radar evaluation and limitations | Validated 11,050-row held-out output handoff, report figures, and error analysis are committed. | Obtain reviewer feedback. |
+| Thermal/vision feasibility | A validated 2,631-row held-out thermal handoff is committed; the source pipeline remains on the team branch. | Review the full pipeline, environment, data-access/license evidence, curated error-analysis figures, and final thermal manifest entry. |
 | Acoustic evidence and robustness | Acoustic Transformer, CNN, and Random Forest baseline notebook is committed on the team branch. | Commit optimized-model comparison, controlled-noise evidence, metrics, and held-out outputs. |
-| Local replay | Four-sensor simulated replay foundation, placeholders, schema, and validator are committed. | Replace placeholders only with independently evaluated held-out outputs; retain simulated labels and human review. |
-| Coordination-agent comparison | Coordination-agent rules and fixed-baseline comparison plan are committed on the team branch. | Implement the executable agent and run the scheduled simulated-scenario comparison. |
+| Local replay | A six-scenario partial replay using real radar and thermal held-out outputs is committed; every case is simulated and requires human review. | Add RF and acoustic held-out outputs, then run the planned four-sensor simulated scenarios. |
+| Coordination-agent comparison | Coordination rules are documented, and an interface with tests exists on the team agent branch. | Create a focused agent-only PR, approve validation-based per-sensor thresholds, and run the scheduled comparison with fixed rules. |
 
 ## Risks and controls
 
