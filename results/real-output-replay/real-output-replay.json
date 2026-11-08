@@ -1,0 +1,352 @@
+{
+  "workflow": "partial_real_output_simulated_replay",
+  "simulated_only": true,
+  "not_a_measured_fusion_evaluation": true,
+  "review_required_for_every_scenario": true,
+  "available_sensor_types": [
+    "radar",
+    "thermal"
+  ],
+  "missing_sensor_types": [
+    "rf",
+    "acoustic"
+  ],
+  "scenarios": [
+    {
+      "scenario": "both_predict_drone",
+      "record": {
+        "event_id": "sim-real-001",
+        "timestamp": "simulated-event:sim-real-001",
+        "evidence": [
+          {
+            "event_id": "sim-real-001",
+            "timestamp": "simulated-event:sim-real-001",
+            "sensor_type": "radar",
+            "status": "available",
+            "prediction": "drone",
+            "score": 0.9910517334938049,
+            "model_version": "RadarCNN-seed-590-epoch-7",
+            "source_ref": "data/model-outputs/radar-cnn-test-outputs.csv#output_id=radar-test-000000;source_timestamp=relative_seconds:0.0395853869",
+            "placeholder_value": false
+          },
+          {
+            "event_id": "sim-real-001",
+            "timestamp": "simulated-event:sim-real-001",
+            "sensor_type": "rf",
+            "status": "missing",
+            "prediction": null,
+            "score": null,
+            "model_version": "not-provided",
+            "source_ref": "not-provided",
+            "placeholder_value": false
+          },
+          {
+            "event_id": "sim-real-001",
+            "timestamp": "simulated-event:sim-real-001",
+            "sensor_type": "acoustic",
+            "status": "missing",
+            "prediction": null,
+            "score": null,
+            "model_version": "not-provided",
+            "source_ref": "not-provided",
+            "placeholder_value": false
+          },
+          {
+            "event_id": "sim-real-001",
+            "timestamp": "simulated-event:sim-real-001",
+            "sensor_type": "thermal",
+            "status": "available",
+            "prediction": "drone",
+            "score": 0.3640251159667969,
+            "model_version": "YOLO26n-dataset2-only-batch32-threshold-0.25",
+            "source_ref": "origin/thermal-ir-pipeline@4738a821:results/thermal-ir/evaluation/experiment_a_dataset2_only_batch32/test_image_decisions.csv#output_id=thermal-test-drone_detection_dataset2-IR_BIRD_011-275;source_timestamp=source-time-unavailable",
+            "placeholder_value": false
+          }
+        ],
+        "simulated": true,
+        "review_required": true,
+        "review_reason": "simulated_evidence_requires_human_review"
+      }
+    },
+    {
+      "scenario": "radar_drone_thermal_no_drone",
+      "record": {
+        "event_id": "sim-real-002",
+        "timestamp": "simulated-event:sim-real-002",
+        "evidence": [
+          {
+            "event_id": "sim-real-002",
+            "timestamp": "simulated-event:sim-real-002",
+            "sensor_type": "radar",
+            "status": "available",
+            "prediction": "drone",
+            "score": 0.9910517334938049,
+            "model_version": "RadarCNN-seed-590-epoch-7",
+            "source_ref": "data/model-outputs/radar-cnn-test-outputs.csv#output_id=radar-test-000000;source_timestamp=relative_seconds:0.0395853869",
+            "placeholder_value": false
+          },
+          {
+            "event_id": "sim-real-002",
+            "timestamp": "simulated-event:sim-real-002",
+            "sensor_type": "rf",
+            "status": "missing",
+            "prediction": null,
+            "score": null,
+            "model_version": "not-provided",
+            "source_ref": "not-provided",
+            "placeholder_value": false
+          },
+          {
+            "event_id": "sim-real-002",
+            "timestamp": "simulated-event:sim-real-002",
+            "sensor_type": "acoustic",
+            "status": "missing",
+            "prediction": null,
+            "score": null,
+            "model_version": "not-provided",
+            "source_ref": "not-provided",
+            "placeholder_value": false
+          },
+          {
+            "event_id": "sim-real-002",
+            "timestamp": "simulated-event:sim-real-002",
+            "sensor_type": "thermal",
+            "status": "available",
+            "prediction": "no_drone",
+            "score": 0.0,
+            "model_version": "YOLO26n-dataset2-only-batch32-threshold-0.25",
+            "source_ref": "origin/thermal-ir-pipeline@4738a821:results/thermal-ir/evaluation/experiment_a_dataset2_only_batch32/test_image_decisions.csv#output_id=thermal-test-drone_detection_dataset2-IR_BIRD_004-5;source_timestamp=source-time-unavailable",
+            "placeholder_value": false
+          }
+        ],
+        "simulated": true,
+        "review_required": true,
+        "review_reason": "simulated_evidence_requires_human_review"
+      }
+    },
+    {
+      "scenario": "radar_bird_thermal_no_drone",
+      "record": {
+        "event_id": "sim-real-003",
+        "timestamp": "simulated-event:sim-real-003",
+        "evidence": [
+          {
+            "event_id": "sim-real-003",
+            "timestamp": "simulated-event:sim-real-003",
+            "sensor_type": "radar",
+            "status": "available",
+            "prediction": "bird",
+            "score": 0.618328332901001,
+            "model_version": "RadarCNN-seed-590-epoch-7",
+            "source_ref": "data/model-outputs/radar-cnn-test-outputs.csv#output_id=radar-test-001731;source_timestamp=relative_seconds:173.136572",
+            "placeholder_value": false
+          },
+          {
+            "event_id": "sim-real-003",
+            "timestamp": "simulated-event:sim-real-003",
+            "sensor_type": "rf",
+            "status": "missing",
+            "prediction": null,
+            "score": null,
+            "model_version": "not-provided",
+            "source_ref": "not-provided",
+            "placeholder_value": false
+          },
+          {
+            "event_id": "sim-real-003",
+            "timestamp": "simulated-event:sim-real-003",
+            "sensor_type": "acoustic",
+            "status": "missing",
+            "prediction": null,
+            "score": null,
+            "model_version": "not-provided",
+            "source_ref": "not-provided",
+            "placeholder_value": false
+          },
+          {
+            "event_id": "sim-real-003",
+            "timestamp": "simulated-event:sim-real-003",
+            "sensor_type": "thermal",
+            "status": "available",
+            "prediction": "no_drone",
+            "score": 0.0,
+            "model_version": "YOLO26n-dataset2-only-batch32-threshold-0.25",
+            "source_ref": "origin/thermal-ir-pipeline@4738a821:results/thermal-ir/evaluation/experiment_a_dataset2_only_batch32/test_image_decisions.csv#output_id=thermal-test-drone_detection_dataset2-IR_BIRD_004-5;source_timestamp=source-time-unavailable",
+            "placeholder_value": false
+          }
+        ],
+        "simulated": true,
+        "review_required": true,
+        "review_reason": "simulated_evidence_requires_human_review"
+      }
+    },
+    {
+      "scenario": "radar_human_thermal_drone",
+      "record": {
+        "event_id": "sim-real-004",
+        "timestamp": "simulated-event:sim-real-004",
+        "evidence": [
+          {
+            "event_id": "sim-real-004",
+            "timestamp": "simulated-event:sim-real-004",
+            "sensor_type": "radar",
+            "status": "available",
+            "prediction": "human",
+            "score": 0.7207658886909485,
+            "model_version": "RadarCNN-seed-590-epoch-7",
+            "source_ref": "data/model-outputs/radar-cnn-test-outputs.csv#output_id=radar-test-000915;source_timestamp=relative_seconds:91.5390536",
+            "placeholder_value": false
+          },
+          {
+            "event_id": "sim-real-004",
+            "timestamp": "simulated-event:sim-real-004",
+            "sensor_type": "rf",
+            "status": "missing",
+            "prediction": null,
+            "score": null,
+            "model_version": "not-provided",
+            "source_ref": "not-provided",
+            "placeholder_value": false
+          },
+          {
+            "event_id": "sim-real-004",
+            "timestamp": "simulated-event:sim-real-004",
+            "sensor_type": "acoustic",
+            "status": "missing",
+            "prediction": null,
+            "score": null,
+            "model_version": "not-provided",
+            "source_ref": "not-provided",
+            "placeholder_value": false
+          },
+          {
+            "event_id": "sim-real-004",
+            "timestamp": "simulated-event:sim-real-004",
+            "sensor_type": "thermal",
+            "status": "available",
+            "prediction": "drone",
+            "score": 0.3640251159667969,
+            "model_version": "YOLO26n-dataset2-only-batch32-threshold-0.25",
+            "source_ref": "origin/thermal-ir-pipeline@4738a821:results/thermal-ir/evaluation/experiment_a_dataset2_only_batch32/test_image_decisions.csv#output_id=thermal-test-drone_detection_dataset2-IR_BIRD_011-275;source_timestamp=source-time-unavailable",
+            "placeholder_value": false
+          }
+        ],
+        "simulated": true,
+        "review_required": true,
+        "review_reason": "simulated_evidence_requires_human_review"
+      }
+    },
+    {
+      "scenario": "thermal_missing",
+      "record": {
+        "event_id": "sim-real-005",
+        "timestamp": "simulated-event:sim-real-005",
+        "evidence": [
+          {
+            "event_id": "sim-real-005",
+            "timestamp": "simulated-event:sim-real-005",
+            "sensor_type": "radar",
+            "status": "available",
+            "prediction": "drone",
+            "score": 0.9910517334938049,
+            "model_version": "RadarCNN-seed-590-epoch-7",
+            "source_ref": "data/model-outputs/radar-cnn-test-outputs.csv#output_id=radar-test-000000;source_timestamp=relative_seconds:0.0395853869",
+            "placeholder_value": false
+          },
+          {
+            "event_id": "sim-real-005",
+            "timestamp": "simulated-event:sim-real-005",
+            "sensor_type": "rf",
+            "status": "missing",
+            "prediction": null,
+            "score": null,
+            "model_version": "not-provided",
+            "source_ref": "not-provided",
+            "placeholder_value": false
+          },
+          {
+            "event_id": "sim-real-005",
+            "timestamp": "simulated-event:sim-real-005",
+            "sensor_type": "acoustic",
+            "status": "missing",
+            "prediction": null,
+            "score": null,
+            "model_version": "not-provided",
+            "source_ref": "not-provided",
+            "placeholder_value": false
+          },
+          {
+            "event_id": "sim-real-005",
+            "timestamp": "simulated-event:sim-real-005",
+            "sensor_type": "thermal",
+            "status": "missing",
+            "prediction": null,
+            "score": null,
+            "model_version": "not-provided",
+            "source_ref": "not-provided",
+            "placeholder_value": false
+          }
+        ],
+        "simulated": true,
+        "review_required": true,
+        "review_reason": "simulated_evidence_requires_human_review"
+      }
+    },
+    {
+      "scenario": "thermal_delayed",
+      "record": {
+        "event_id": "sim-real-006",
+        "timestamp": "simulated-event:sim-real-006",
+        "evidence": [
+          {
+            "event_id": "sim-real-006",
+            "timestamp": "simulated-event:sim-real-006",
+            "sensor_type": "radar",
+            "status": "available",
+            "prediction": "drone",
+            "score": 0.9910517334938049,
+            "model_version": "RadarCNN-seed-590-epoch-7",
+            "source_ref": "data/model-outputs/radar-cnn-test-outputs.csv#output_id=radar-test-000000;source_timestamp=relative_seconds:0.0395853869",
+            "placeholder_value": false
+          },
+          {
+            "event_id": "sim-real-006",
+            "timestamp": "simulated-event:sim-real-006",
+            "sensor_type": "rf",
+            "status": "missing",
+            "prediction": null,
+            "score": null,
+            "model_version": "not-provided",
+            "source_ref": "not-provided",
+            "placeholder_value": false
+          },
+          {
+            "event_id": "sim-real-006",
+            "timestamp": "simulated-event:sim-real-006",
+            "sensor_type": "acoustic",
+            "status": "missing",
+            "prediction": null,
+            "score": null,
+            "model_version": "not-provided",
+            "source_ref": "not-provided",
+            "placeholder_value": false
+          },
+          {
+            "event_id": "sim-real-006",
+            "timestamp": "simulated-event:sim-real-006",
+            "sensor_type": "thermal",
+            "status": "delayed",
+            "prediction": "drone",
+            "score": 0.3640251159667969,
+            "model_version": "YOLO26n-dataset2-only-batch32-threshold-0.25",
+            "source_ref": "origin/thermal-ir-pipeline@4738a821:results/thermal-ir/evaluation/experiment_a_dataset2_only_batch32/test_image_decisions.csv#output_id=thermal-test-drone_detection_dataset2-IR_BIRD_011-275;source_timestamp=source-time-unavailable",
+            "placeholder_value": false
+          }
+        ],
+        "simulated": true,
+        "review_required": true,
+        "review_reason": "simulated_evidence_requires_human_review"
+      }
+    }
+  ]
+}
