@@ -14,3 +14,11 @@ For the CNN test partition, drone precision/recall/F1 are 0.9671/0.9633/0.9652, 
 The CNN improvement is measured on this checksum-verified, target-centered dataset and this grouped split. The source does not establish that different measurement IDs are independent sessions, subjects, or targets; repeated recording context may remain across partitions. Therefore these results do not establish unseen-session generalization, continuous perimeter detection, false alerts per operating hour, calibrated probabilities, geographic tracking, or field deployment readiness. No RGB/thermal verification or Lattice integration was evaluated.
 
 The radar and any future verification datasets capture different events and are not synchronized. These component results cannot establish that sensor fusion improves real-world detection. The replay scenarios are explicitly simulated tests of software behavior under agreement, conflict, missing evidence, and delay; they are not paired sensor-fusion measurements. Combined-performance claims require suitable paired observations and are outside the evidence in this project phase.
+## Report figures
+
+The saved held-out test metrics are visualized in:
+
+- `results/radar-neural-network/radar-cnn-test-confusion-matrix.png`
+- `results/radar-neural-network/radar-cnn-per-class-metrics.png`
+
+These figures are generated from the saved metrics JSON by `src/plot_radar_results.py`; generating them does not retrain or reevaluate the model.
