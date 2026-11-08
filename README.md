@@ -4,7 +4,7 @@ University of San Diego — M.S. in Applied Artificial Intelligence
 
 **Team:** Ramon (Tony) Diehl-Verdugo, Mostafa Zamaniturk, and Jacob Tassos.
 
-**Status:** Radar audit, measurement-disjoint baseline, and from-scratch CNN evaluation are complete. The current management plan schedules RF evaluation, thermal/vision feasibility, acoustic-model evidence review, evidence-based multisensor comparison, and local replay as the remaining capstone work.
+**Status:** Radar audit, measurement-disjoint baseline, CNN evaluation, held-out radar handoff, report figures, and error analysis are complete. A partial simulated replay now uses saved radar and thermal outputs. RF held-out outputs, acoustic robustness evidence and outputs, thermal final review, the coordination-agent comparison, and the final four-sensor simulated replay remain.
 
 ## Completed Radar Audit
 
@@ -40,7 +40,7 @@ The new AAI-590 contributions now include radar preprocessing, measurement-disjo
 
 The remaining scope and dated ownership are recorded in the [project management plan](docs/project-management-plan.md). The local comparison will use explicitly simulated replay scenarios and will not claim measured sensor fusion.
 
-The [synthetic local-replay foundation](docs/synthetic-replay.md) provides an RF/radar/thermal/acoustic event contract and placeholder-only development scenarios. It will accept saved outputs from independently evaluated models when those results are available.
+The [synthetic local-replay foundation](docs/synthetic-replay.md) provides an RF/radar/thermal/acoustic event contract and placeholder-only development scenarios. The [partial real-output replay](docs/real-output-replay.md) now uses saved held-out radar and thermal outputs in six explicitly simulated scenarios. RF and acoustic remain missing until their owners provide validated held-out output files. Every replay scenario requires human review and does not claim measured real-world sensor fusion.
 
 The radar and any future verification datasets capture different events and are not synchronized. They therefore cannot establish that sensor fusion improves real-world detection. We evaluate each model independently and use clearly labeled simulated scenarios to test agreement, conflict, missing evidence, and delayed verification. Claims about combined performance require suitable paired observations and will not be made from the current datasets.
 
