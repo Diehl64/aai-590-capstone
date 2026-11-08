@@ -13,7 +13,18 @@ This replay uses saved held-out outputs from the independently evaluated radar a
 From the repository root:
 
 ```powershell
-python src/run_real_output_replay.pysss
+python src/run_real_output_replay.py
+```
+
+The script validates both input CSVs before use and writes:
+
+`results/real-output-replay/real-output-replay.json`
+
+## Current scenarios
+
+The initial ten scenarios show simulated agreement, disagreement, non-drone predictions, missing radar or thermal evidence, delayed radar or thermal evidence, and a simulated low-quality thermal state. RF and acoustic are represented only as missing evidence. Every scenario is marked `simulated: true` and `review_required: true`.
+
+The replay is a test of software behavior and operator review handling. It does not establish real-world sensor association, synchronized timing, calibrated combined confidence, or operational detection performance.
 
 ## Scenario-status figure
 
