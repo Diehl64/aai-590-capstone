@@ -14,3 +14,7 @@ From the repository root:
 
 ```powershell
 python src/run_real_output_replay.pysss
+
+## Scenario-status figure
+
+`results/real-output-replay/scenario-evidence-status-matrix.png` visualizes the evidence state for all ten simulated scenarios. It is a presentation aid for explaining available, missing, delayed, and low-quality evidence; it does not show real-world sensor fusion performance.
