@@ -33,6 +33,21 @@ GitHub Projects is the team Kanban board. Work moves from **To do** to **In prog
 | 17 | Slides, rehearsal, and presentation recording | Dec 2–4 | Dec 5 | All | Tony, Mostafa, and Jacob |
 | 18 | Playback check, final repository review, and submission | Dec 6 | Dec 6 | Tony submits | Mostafa and Jacob |
 
+## Current execution status (2026-11-08)
+
+This status records repository evidence without changing the approved schedule or ownership above. A task remains in progress until its listed review is complete.
+
+| Project area | Repository status | Remaining action |
+| --- | --- | --- |
+| Management plan and GitHub Project | Plan, issues, and review workflow are committed. | Jacob records review feedback. |
+| Radar audit and data summary | Audit, measurement-disjoint split, baseline, CNN, metrics, tests, and output exporter are committed. | Finish report-ready data summary and review the remaining session/subject/target-overlap limitation. |
+| RF v4 versus v5 | Comparison evidence and RF dataset provenance are committed. | Obtain the existing saved model/output artifact or per-image held-out predictions; do not retrain solely for handoff. |
+| Radar evaluation and limitations | Held-out radar export contract and provenance metadata are committed. | Add report-ready error analysis and obtain reviewer feedback. |
+| Thermal/vision feasibility | A validated 2,631-row held-out thermal handoff is committed; the source pipeline remains on the team branch. | Review the full pipeline, environment, data-access/license evidence, and figures before final reporting. |
+| Acoustic evidence and robustness | Acoustic Transformer, CNN, and Random Forest baseline notebook is committed on the team branch. | Commit optimized-model comparison, controlled-noise evidence, metrics, and held-out outputs. |
+| Local replay | Four-sensor simulated replay foundation, placeholders, schema, and validator are committed. | Replace placeholders only with independently evaluated held-out outputs; retain simulated labels and human review. |
+| Coordination-agent comparison | Coordination-agent rules and fixed-baseline comparison plan are committed on the team branch. | Implement the executable agent and run the scheduled simulated-scenario comparison. |
+
 ## Risks and controls
 
 | Risk | Control |
