@@ -11,6 +11,12 @@ The baseline uses five magnitude statistics per segment and class centroids fitt
 
 For the CNN test partition, drone precision/recall/F1 are 0.9671/0.9633/0.9652, bird 0.8614/0.9141/0.8870, and human 0.8366/0.8054/0.8207. The test confusion matrix is `[[8556, 173, 153], [98, 1075, 3], [193, 0, 799]]` in the class order drone, bird, human.
 
+## Error analysis
+
+The held-out confusion matrix shows that the largest single error is 193 human segments predicted as drones. This is the main operational review concern because human activity could produce a drone alert. Bird segments were predicted as drones 98 times. Drone segments were missed less often: 173 were predicted as birds and 153 as humans.
+
+These are segment-level counts from the grouped held-out test partition. They identify where the model needs operator attention in the simulated replay, but do not establish continuous false-alert rates, calibrated confidence, or performance in a field deployment.
+
 The CNN improvement is measured on this checksum-verified, target-centered dataset and this grouped split. The source does not establish that different measurement IDs are independent sessions, subjects, or targets; repeated recording context may remain across partitions. Therefore these results do not establish unseen-session generalization, continuous perimeter detection, false alerts per operating hour, calibrated probabilities, geographic tracking, or field deployment readiness. No RGB/thermal verification or Lattice integration was evaluated.
 
 The radar and any future verification datasets capture different events and are not synchronized. These component results cannot establish that sensor fusion improves real-world detection. The replay scenarios are explicitly simulated tests of software behavior under agreement, conflict, missing evidence, and delay; they are not paired sensor-fusion measurements. Combined-performance claims require suitable paired observations and are outside the evidence in this project phase.
