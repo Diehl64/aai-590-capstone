@@ -13,4 +13,4 @@ This replay uses saved held-out outputs from the independently evaluated radar a
 From the repository root:
 
 ```powershell
-python src/run_real_output_replay.py
+python src/run_real_output_replay.pysss
