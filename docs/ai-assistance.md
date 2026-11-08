@@ -21,3 +21,11 @@ ChatGPT verified the published CC BY 4.0 license through the Zenodo API, downloa
 ChatGPT checked the uploaded measurement CSV and corrected an overstatement in the report: 128 measurements span all three published splits; IDs 81 and 92 span only splits 1 and 3. All 130 span multiple splits. Tony uploaded the corrected report, and ChatGPT verified it against the repository CSVs. Setup and audit documentation were updated to distinguish completed Python execution from pending native Jupyter validation and team scientific review.
 
 The team then ran the measurement-disjoint nearest-centroid baseline and a from-scratch RadarCNN on the checksum-verified dataset. The baseline and CUDA CNN metrics are recorded under `results/`; the CNN used PyTorch 2.11.0+cu128 on an NVIDIA RTX 5080. Review the split assumptions, labels, and remaining session/subject/target-overlap limitation before presenting these as team results.
+
+### 2026-11-08 — Radar handoff, simulated replay, and documentation
+
+ChatGPT assisted Tony with drafting the radar report-figure script, the saved-checkpoint held-out radar-output exporter, the partial real-output replay runner, and related repository documentation. ChatGPT also helped draft the ethics-and-limitations section and status updates.
+
+Tony downloaded the official radar file from Zenodo, verified its published MD5 checksum, ran the saved RadarCNN checkpoint on the RTX 5080 without retraining, and confirmed that the regenerated test predictions matched the committed confusion matrix, accuracy, and macro F1. Tony validated the 11,050-row radar handoff CSV, ran the partial replay with committed radar and thermal outputs, and ran the repository’s 11 unit tests successfully.
+
+The replay outputs remain explicitly simulated and require human review. Team review of remaining RF, acoustic, thermal, and coordination-agent evidence is still pending.
