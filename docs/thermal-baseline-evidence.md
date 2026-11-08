@@ -1,6 +1,6 @@
 # Reported thermal/IR baseline evidence
 
-Jacob reported this Dataset 2-only thermal/IR baseline in the Group 1 Slack channel on 2026-11-02. The underlying code and artifacts are reported as pushed to GitHub, but the repository or pull-request link has not yet been provided to this shared capstone repository. The results below are therefore team-reported and awaiting source-artifact review.
+Jacob reported this Dataset 2-only thermal/IR baseline in the Group 1 Slack channel on 2026-11-02. Its saved test-image decisions were subsequently reviewed from `thermal-ir-pipeline` commit `4738a821` and mapped into the shared handoff artifact. The complete thermal pipeline remains on its team branch rather than merged into `main`; the results below retain their source-artifact references and still require team review before final reporting.
 
 ## Dataset and task
 
@@ -34,7 +34,7 @@ At a validation-selected threshold, the Batch-32 baseline reportedly achieved:
 | Drone-present recall on held-out Dataset 2 test data | 97.44% |
 | Bird false-positive rate on held-out Dataset 2 test data | 0.66% |
 
-These values must not be treated as independently reproducible capstone results until the team records the code commit, environment/dependency specification, data-access and license evidence, exact split manifest, saved metrics, threshold-selection procedure, and held-out prediction outputs.
+The reviewed source branch supplies the saved metrics, threshold-selection procedure, split manifests, and held-out prediction decisions used by the shared handoff. The complete thermal pipeline, environment/dependency specification, and data-access/license evidence still require team review before these values are included as final report results.
 
 ## Reviewed handoff artifact
 
