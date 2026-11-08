@@ -75,16 +75,22 @@ def missing_evidence(
 def scenario(
     event_id: str,
     name: str,
-    radar_row: dict[str, str],
+    radar_row: dict[str, str] | None,
     thermal_row: dict[str, str] | None,
+    radar_status: EvidenceStatus = EvidenceStatus.AVAILABLE,
     thermal_status: EvidenceStatus = EvidenceStatus.AVAILABLE,
 ) -> dict[str, object]:
     timestamp = f"simulated-event:{event_id}"
     evidence = [
-        actual_evidence(event_id, timestamp, radar_row),
         missing_evidence(event_id, timestamp, SensorType.RF),
         missing_evidence(event_id, timestamp, SensorType.ACOUSTIC),
     ]
+
+    if radar_row is None:
+        evidence.append(missing_evidence(event_id, timestamp, SensorType.RADAR))
+    else:
+        evidence.append(actual_evidence(event_id, timestamp, radar_row, radar_status))
+
     if thermal_row is None:
         evidence.append(missing_evidence(event_id, timestamp, SensorType.THERMAL))
     else:
@@ -116,19 +122,69 @@ def main() -> None:
     thermal = load_rows(args.thermal)
 
     scenarios = [
-        scenario("sim-real-001", "both_predict_drone",
-                 first_with_label(radar, "drone"), first_with_label(thermal, "drone")),
-        scenario("sim-real-002", "radar_drone_thermal_no_drone",
-                 first_with_label(radar, "drone"), first_with_label(thermal, "no_drone")),
-        scenario("sim-real-003", "radar_bird_thermal_no_drone",
-                 first_with_label(radar, "bird"), first_with_label(thermal, "no_drone")),
-        scenario("sim-real-004", "radar_human_thermal_drone",
-                 first_with_label(radar, "human"), first_with_label(thermal, "drone")),
-        scenario("sim-real-005", "thermal_missing",
-                 first_with_label(radar, "drone"), None),
-        scenario("sim-real-006", "thermal_delayed",
-                 first_with_label(radar, "drone"), first_with_label(thermal, "drone"),
-                 EvidenceStatus.DELAYED),
+        scenario(
+            "sim-real-001",
+            "both_predict_drone",
+            first_with_label(radar, "drone"),
+            first_with_label(thermal, "drone"),
+        ),
+        scenario(
+            "sim-real-002",
+            "radar_drone_thermal_no_drone",
+            first_with_label(radar, "drone"),
+            first_with_label(thermal, "no_drone"),
+        ),
+        scenario(
+            "sim-real-003",
+            "radar_bird_thermal_no_drone",
+            first_with_label(radar, "bird"),
+            first_with_label(thermal, "no_drone"),
+        ),
+        scenario(
+            "sim-real-004",
+            "radar_human_thermal_drone",
+            first_with_label(radar, "human"),
+            first_with_label(thermal, "drone"),
+        ),
+        scenario(
+            "sim-real-005",
+            "thermal_missing",
+            first_with_label(radar, "drone"),
+            None,
+        ),
+        scenario(
+            "sim-real-006",
+            "thermal_delayed",
+            first_with_label(radar, "drone"),
+            first_with_label(thermal, "drone"),
+            thermal_status=EvidenceStatus.DELAYED,
+        ),
+        scenario(
+            "sim-real-007",
+            "radar_missing",
+            None,
+            first_with_label(thermal, "drone"),
+        ),
+        scenario(
+            "sim-real-008",
+            "radar_delayed",
+            first_with_label(radar, "drone"),
+            first_with_label(thermal, "drone"),
+            radar_status=EvidenceStatus.DELAYED,
+        ),
+        scenario(
+            "sim-real-009",
+            "thermal_low_quality",
+            first_with_label(radar, "drone"),
+            first_with_label(thermal, "drone"),
+            thermal_status=EvidenceStatus.LOW_QUALITY,
+        ),
+        scenario(
+            "sim-real-010",
+            "both_non_drone_predictions",
+            first_with_label(radar, "human"),
+            first_with_label(thermal, "no_drone"),
+        ),
     ]
 
     output = {
