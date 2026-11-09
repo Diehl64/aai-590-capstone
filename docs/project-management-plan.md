@@ -48,6 +48,25 @@ This status records repository evidence without changing the approved schedule o
 | Local replay | A ten-scenario partial replay using real radar and thermal held-out outputs is committed; every case is simulated and requires human review. | Add RF and acoustic held-out outputs, then run the planned four-sensor simulated scenarios. |
 | Coordination-agent comparison | Coordination rules are documented, and an interface with tests exists on the team agent branch. | Create a focused agent-only PR, approve validation-based per-sensor thresholds, and run the scheduled comparison with fixed rules. |
 
+## Weekly status snapshot
+
+Status meaning: 🟢 is committed and documented repository evidence; 🟡 is active work or review still needed; 🔴 has no committed implementation evidence.
+
+| Project area | Status | Committed evidence | Next action |
+| --- | --- | --- | --- |
+| Scope and project plan | 🟢 Complete | Scope, schedule, risks, ethics, and limitations are documented. | Record team review feedback. |
+| Radar audit and model | 🟢 Complete | Audit, grouped split, baseline, RadarCNN, metrics, figures, error analysis, and 11,050 held-out outputs are committed. | Obtain reviewer feedback and integrate into the report. |
+| Thermal-IR | 🟡 In progress | A validated 2,631-row held-out handoff and baseline evidence are committed. | Complete provenance/access entry, environment details, curated error figures, and review. |
+| RF v4 versus v5 | 🟡 In progress | Comparison evidence is committed; calibration and held-out-output export code exists on the team branch. | Commit the saved held-out RF CSV, configuration, metrics, and provenance without retraining solely for handoff. |
+| Acoustic | 🟡 In progress | Transformer, CNN, and Random Forest baselines plus a padding-shortcut check exist on team branches. | Commit optimized comparison, controlled-noise evidence, metrics, and held-out outputs. |
+| Simulated replay | 🟡 In progress | Ten simulated scenarios, real radar/thermal outputs, and a scenario-status figure are committed. | Add real RF/acoustic outputs and run the four-sensor replay. |
+| Coordination agent | 🟡 In progress | Coordination-agent interface and tests exist on the team branch. | Open a focused agent-only PR, approve validation-based thresholds, and compare with fixed rules. |
+| Literature and methods | 🔴 Not started in repository | No committed report source exists. | Complete Jacob’s draft and review. |
+| Leakage and integrity review | 🔴 Not started | No final cross-model integrity review artifact exists. | Review split integrity, preprocessing, and metrics after remaining artifacts arrive. |
+| Final report and slides | 🔴 Not started | No report or presentation source exists. | Start after methods and remaining outputs are ready. |
+
+This snapshot does not change the approved schedule or ownership. The replay remains explicitly simulated, and it does not establish measured real-world sensor fusion or combined accuracy.
+
 ## Risks and controls
 
 | Risk | Control |
