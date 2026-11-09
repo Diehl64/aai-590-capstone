@@ -66,7 +66,7 @@ Coordinates, velocity, timestamps, and camera pose must come from an external so
 Candidate radar data:
 https://zenodo.org/records/5896641
 
-The [Thermal Dataset 2 EDA notebook](notebooks/03_thermal_dataset2_eda.ipynb) documents recording counts, durations, annotation issues, bounding-box geometry, target location, and temporal dependence for the current thermal analysis subset.
+The [Thermal EDA notebook](notebooks/03_thermal_eda.ipynb) documents Dataset 2 recording counts, durations, annotation issues, bounding-box geometry, target location, and temporal dependence, plus Dataset 1 source characteristics and a descriptive cross-source comparison.
 
 Initial integrity and schema checks are complete, and the source metadata identifies CC BY 4.0. Final adoption, class mapping, preprocessing, and evaluation suitability require team review. See the [dataset manifest](data/dataset-manifest.csv) and [audit notes](docs/radar-data-audit.md).
 
@@ -139,6 +139,8 @@ Record actual team contributions in [the contribution log](docs/contributions.cs
 ## Licensing and AI Assistance
 
 The radar dataset is attributed to Alexander Karlsson (KTH), [DOI 10.5281/zenodo.5896641](https://doi.org/10.5281/zenodo.5896641), under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Credit the source, link the license, and identify modifications when sharing derived material. Verification evidence is in the source metadata linked above.
+
+The Thermal-IR work records two separate sources. Dataset 1 is the [Official Dataset Release for the 4th Anti-UAV Challenge](https://doi.org/10.5281/zenodo.15103888), version 1.0.0, published by China Telecom. Its Zenodo files are restricted and its record does not state a license; request access and confirm reuse or redistribution permission before sharing derived data. Dataset 2 is [DroneDetectionThesis/Drone-detection-dataset](https://github.com/DroneDetectionThesis/Drone-detection-dataset), used for the reported drone-versus-bird baseline, and its bundled license is [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/). Cite the source as requested by its repository. Detailed access, version, split, and permission notes are in [the dataset manifest](data/dataset-manifest.csv).
 
 The team has not selected a software license. The dataset license does not automatically license this repository's code. Review permissions for additional datasets and models before use and redistribution.
 

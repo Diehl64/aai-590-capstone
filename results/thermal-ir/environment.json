@@ -1,0 +1,35 @@
+{
+  "purpose": "Recorded environment for the Dataset 2-only Batch-32 Thermal-IR baseline",
+  "operating_system": "Windows 11",
+  "python": "3.11.7",
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 5080",
+    "cuda_runtime": "13.0",
+    "device": "CUDA:0"
+  },
+  "packages": {
+    "ultralytics": "8.4.198",
+    "torch": "2.14.1+cu130",
+    "torchvision": "0.29.1+cu130",
+    "numpy": "2.4.6",
+    "opencv-python": "5.0.0.93",
+    "pillow": "13.0.0",
+    "pandas": "3.1.0",
+    "PyYAML": "6.0.3",
+    "mcos-decoder": "0.1.0"
+  },
+  "training": {
+    "notebook": "notebooks/02_thermal_ir_pipeline.ipynb",
+    "model": "yolo26n.pt",
+    "batch": 32,
+    "image_size": 640,
+    "optimizer": "AdamW",
+    "seed": 590,
+    "deterministic": true,
+    "mosaic": 0.5,
+    "close_mosaic": 10,
+    "workers": 8,
+    "decision_threshold": 0.25
+  },
+  "limitations": "This records the environment used for the saved baseline. Reproduction on a different GPU, driver, or operating system may produce small numerical differences."
+}

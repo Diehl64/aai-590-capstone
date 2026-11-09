@@ -5,7 +5,7 @@ The following thermal notebooks are implemented. Run the source-manifest validat
 | Suggested name | Purpose |
 | --- | --- |
 | `02_thermal_ir_pipeline.ipynb` | Thermal dataset provenance, source validation, visual QA, derived-data export, recording-disjoint splitting, and YOLO workflow |
-| `03_thermal_dataset2_eda.ipynb` | Dataset 2-only EDA: class counts, recording durations, annotation mismatches, bounding-box geometry, target locations, and temporal-dependence checks. Reads validated manifests and raw annotations; writes derived summaries and figures only. |
+| `03_thermal_eda.ipynb` | Thermal EDA: Dataset 2 class counts, durations, annotation mismatches, geometry, target locations, and temporal-dependence checks; Dataset 1 source characteristics; and a descriptive cross-source comparison. Reads validated manifests and raw annotations; writes derived summaries and figures only. |
 | `01_data_audit_and_cleaning.ipynb` | Provenance, data issues, preprocessing, and split construction |
 | `03_baseline_and_model_training.ipynb` | Baseline and neural-network training or fine-tuning |
 | `04_optimization_and_evaluation.ipynb` | Validation-driven optimization, final test evaluation, and error analysis |
