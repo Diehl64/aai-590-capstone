@@ -1,0 +1,37 @@
+{
+  "test_roc_auc": 0.9241981449682853,
+  "test_windows": 57015,
+  "test_unpadded_drone_windows": 4340,
+  "operating_points": [
+    {
+      "validation_false_alarm": 0.01,
+      "threshold": 0.0045,
+      "test_detection_rate": 0.848680311007287,
+      "test_false_alarm_rate": 0.001623491211971483
+    },
+    {
+      "validation_false_alarm": 0.05,
+      "threshold": 0.0045,
+      "test_detection_rate": 0.848680311007287,
+      "test_false_alarm_rate": 0.001623491211971483
+    }
+  ],
+  "unpadded_recall_lower_bound": [
+    {
+      "model": "Spectrogram transformer",
+      "section_13_detection": 1.0,
+      "unpadded_drone_recall_at_least": 0.9966957373271893
+    },
+    {
+      "model": "Spectrogram CNN",
+      "section_13_detection": 0.993,
+      "unpadded_drone_recall_at_least": 0.9504360599078344
+    },
+    {
+      "model": "Random forest",
+      "section_13_detection": 0.993,
+      "unpadded_drone_recall_at_least": 0.9504360599078344
+    }
+  ],
+  "retrain": false
+}
