@@ -1,0 +1,13 @@
+{
+  "decision_threshold": 0.25,
+  "true_positive": 5332,
+  "false_positive": 36,
+  "false_negative": 1300,
+  "true_negative": 574,
+  "precision": 0.9932935916542474,
+  "recall": 0.8039806996381182,
+  "f1": 0.8886666666666667,
+  "target_absent_false_positive_rate": 0.05901639344262295,
+  "limitation": "Dataset 1 target-absent frames are background negatives, not birds.",
+  "decision_threshold_origin": "fixed_dataset2_baseline_validation_threshold"
+}
