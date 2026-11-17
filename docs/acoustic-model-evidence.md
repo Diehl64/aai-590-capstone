@@ -17,7 +17,7 @@ The drone decision uses threshold **0.344**, the 1% false-alarm point chosen on 
 
 Clean recall over files, rather than windows, has a 95% interval of 0.994 to 0.998. Full-length windows are the clips that already filled the one-second window. Originally short windows are reported with the padding check below.
 
-The comparison table and that interval are in [`results/acoustic/cnn_v2_eval.csv`](../results/acoustic/cnn_v2_eval.csv) and [`results/acoustic/cnn_v2_eval.json`](../results/acoustic/cnn_v2_eval.json). The five validation trials are in [`results/acoustic/cnn_v2_optuna.csv`](../results/acoustic/cnn_v2_optuna.csv). The CNN-Tuned counts behind the table above are in [`results/acoustic/cnn_tuned_metrics.csv`](../results/acoustic/cnn_tuned_metrics.csv).
+The comparison table and that interval are in [`results/acoustic/cnn_v2_eval.csv`](../results/acoustic/cnn_v2_eval.csv) and [`results/acoustic/cnn_v2_eval.json`](../results/acoustic/cnn_v2_eval.json). The five validation trials are in [`results/acoustic/cnn_v2_optuna.csv`](../results/acoustic/cnn_v2_optuna.csv). The CNN-Tuned counts behind the table above are in [`results/acoustic/cnn_tuned_metrics.csv`](../results/acoustic/cnn_tuned_metrics.csv). `cnn_v2_eval.csv`, `cnn_v2_eval.json`, and `cnn_tuned_metrics.csv` were saved from the notebook’s printed output and are rounded to three decimals.
 
 - [`results/acoustic/cnn_v2_clean.png`](../results/acoustic/cnn_v2_clean.png)
 - [`results/acoustic/cnn_tuned_confusion.png`](../results/acoustic/cnn_tuned_confusion.png)
