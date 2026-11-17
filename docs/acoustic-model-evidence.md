@@ -17,6 +17,12 @@ The drone decision uses threshold **0.344**, the 1% false-alarm point chosen on 
 
 Clean recall over files, rather than windows, has a 95% interval of 0.994 to 0.998. Full-length windows are the clips that already filled the one-second window. Originally short windows are reported with the padding check below.
 
+The comparison table and that interval are in [`results/acoustic/cnn_v2_eval.csv`](../results/acoustic/cnn_v2_eval.csv) and [`results/acoustic/cnn_v2_eval.json`](../results/acoustic/cnn_v2_eval.json). The five validation trials are in [`results/acoustic/cnn_v2_optuna.csv`](../results/acoustic/cnn_v2_optuna.csv). The CNN-Tuned counts behind the table above are in [`results/acoustic/cnn_tuned_metrics.csv`](../results/acoustic/cnn_tuned_metrics.csv).
+
+- [`results/acoustic/cnn_v2_clean.png`](../results/acoustic/cnn_v2_clean.png)
+- [`results/acoustic/cnn_tuned_confusion.png`](../results/acoustic/cnn_tuned_confusion.png)
+- [`results/acoustic/cnn_tuned_roc.png`](../results/acoustic/cnn_tuned_roc.png)
+
 ## Noise, kept separate from the clean result
 
 Noise is an ESC-50 outdoor and mechanical mix (rain, sea waves, wind, thunderstorm, engine, train, helicopter, airplane, crackling fire, chainsaw), added only at test time. The clean-validation threshold stays fixed. Helicopter, airplane, and engine can sound like a drone, so a higher false-alarm rate at low SNR can be the added clip. License and citation are in [`results/acoustic/noise_robustness.json`](../results/acoustic/noise_robustness.json).
@@ -33,7 +39,12 @@ For CNN-Tuned, fold-5 noise on the rewindowed test windows, still at 0.344:
 | 0 dB | 0.775 | 0.047 |
 | −5 dB | 0.518 | 0.071 |
 
-The 95% file interval for full-length recall at 20 dB is 0.951 to 0.983. Overall recall stays higher than full-length recall because the originally short windows remain easy after the tail is filled with quiet background.
+The 95% file interval for full-length recall at 20 dB is 0.951 to 0.983. Overall recall stays higher than full-length recall because the originally short windows remain easy after the tail is filled with quiet background. Those CNN-Tuned noise rows are in [`results/acoustic/cnn_tuned_metrics.csv`](../results/acoustic/cnn_tuned_metrics.csv) and [`results/acoustic/cnn_v2_eval.csv`](../results/acoustic/cnn_v2_eval.csv).
+
+- [`results/acoustic/cnn_v2_recall_vs_snr.png`](../results/acoustic/cnn_v2_recall_vs_snr.png)
+- [`results/acoustic/cnn_v2_recall_by_length.png`](../results/acoustic/cnn_v2_recall_by_length.png)
+- [`results/acoustic/cnn_v2_steps.png`](../results/acoustic/cnn_v2_steps.png)
+- [`results/acoustic/cnn_tuned_noise_summary.png`](../results/acoustic/cnn_tuned_noise_summary.png)
 
 The earlier check on the three saved models, trained on zero-padded windows, is the committed noise table. At 20 dB their full-length recall is 0.991 (transformer), 0.936 (CNN), and 0.912 (forest), while recall on the padded drone windows falls to 0.186, 0.357, and 0.012. That gap is why the headline is the full-length number. Tables and figures:
 
