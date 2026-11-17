@@ -12,8 +12,8 @@ This matrix controls the claims used in the capstone report and presentation. It
 | Thermal Dataset 1 | Dataset 1 EDA may inform future work but is not part of the reported baseline without confirmed access, reuse, and evaluation controls. | Active branch work; not final. | `thermal-ir-pipeline` branch and Group 1 review |
 | RF evaluation | RF v4 versus v5 evaluation evidence is documented. | Documentation committed; final output handoff pending. | `docs/rf-v4-v5-evidence.md` |
 | RF replay handoff | A held-out RF prediction CSV, exact checkpoint, validation-selected threshold, calibration status, and class semantics are required. | Not yet available. | Group 1 handoff requirement |
-| Acoustic evaluation | Acoustic results must be reported from reproducible committed artifacts and must state source/site-generalization limitations. | Baseline and uploaded held-out CSVs available; final operating-point confirmation pending. | `docs/acoustic-model-evidence.md` |
-| Acoustic replay handoff | Two validated 57,015-row acoustic test-output CSVs exist as separate operating points. The team must identify the validation-selected operating point. | Ready for integration after patch review and team confirmation. | `acoustic-test-outputs.csv` and `acoustic-test-outputs-0.6.csv` |
+| Acoustic evaluation | CNN-Tuned at the validation-selected threshold 0.344 has held-out recall 0.996 and false-alarm rate 0.012 on all 57,015 rewindowed test windows, and full-length recall 0.977. Noise and padding results are reported separately. DADS has no source or site label, so the scores do not measure new-site performance. | Committed | [`docs/acoustic-model-evidence.md`](../docs/acoustic-model-evidence.md) and [`results/acoustic/`](../results/acoustic/) |
+| Acoustic replay handoff | The repository includes 57,015 CNN-Tuned held-out test outputs at threshold 0.344. `score` is the probability of the predicted class. | Committed | [`results/acoustic/acoustic-test-outputs.csv`](../results/acoustic/acoustic-test-outputs.csv) |
 | Simulated replay | Replay tests software behavior for agreement, conflict, missing, delayed, and low-quality evidence under human review. | Committed foundation; expanded integration remains active. | `docs/local-replay.md` and replay code |
 | Sensor fusion | Source datasets are not synchronized. The replay does not measure real-world sensor fusion or combined detection accuracy. | Required project boundary. | Scope, replay, and limitations documentation |
 | Human review | Every simulated alert requires human/operator review. | Required project boundary. | Replay and ethics documentation |
@@ -30,7 +30,6 @@ This matrix controls the claims used in the capstone report and presentation. It
 ## Evidence still needed before final submission
 
 1. RF held-out output CSV, selected checkpoint, threshold, calibration status, and class semantics.
-2. Acoustic selected operating point, optimized-model comparison, controlled-noise results, metrics, and provenance.
-3. Thermal focused review of environment, data-access/license record, Dataset 2 error analysis, and Dataset 1 scope decision.
-4. Clean coordination-agent PR, validation-based thresholds, and fixed-rule comparison.
-5. Final cross-model integrity review and report/presentation sources.
+2. Thermal focused review of environment, data-access/license record, Dataset 2 error analysis, and Dataset 1 scope decision.
+3. Clean coordination-agent PR, validation-based thresholds, and fixed-rule comparison.
+4. Final cross-model integrity review and report/presentation sources.
