@@ -33,6 +33,39 @@ def first_with_label(rows: list[dict[str, str]], label: str) -> dict[str, str]:
     raise ValueError(f"No saved output has predicted_label={label!r}")
 
 
+def file_and_start(row: dict[str, str]) -> tuple[str, int] | None:
+    observation_id = row["source_observation_id"]
+    marker = "-start-"
+    if marker not in observation_id:
+        return None
+    file_id, start = observation_id.rsplit(marker, 1)
+    try:
+        return file_id, int(start)
+    except ValueError:
+        return None
+
+
+def first_full_length(rows: list[dict[str, str]], label: str) -> dict[str, str]:
+    """Pick a 1-second window that is not the short tail of its recording.
+
+    The handoff has no padding column. A window is full length when the same
+    recording has another window starting at least 16,000 samples later.
+    """
+    starts = set()
+    labeled = []
+    for row in rows:
+        located = file_and_start(row)
+        if located is None:
+            continue
+        starts.add(located)
+        if row["predicted_label"] == label:
+            labeled.append((located, row))
+    for (file_id, start), row in labeled:
+        if (file_id, start + 16_000) in starts:
+            return row
+    return first_with_label(rows, label)
+
+
 def actual_evidence(
     event_id: str,
     timestamp: str,
@@ -79,12 +112,17 @@ def scenario(
     thermal_row: dict[str, str] | None,
     radar_status: EvidenceStatus = EvidenceStatus.AVAILABLE,
     thermal_status: EvidenceStatus = EvidenceStatus.AVAILABLE,
+    acoustic_row: dict[str, str] | None = None,
+    acoustic_status: EvidenceStatus = EvidenceStatus.AVAILABLE,
 ) -> dict[str, object]:
     timestamp = f"simulated-event:{event_id}"
     evidence = [
         missing_evidence(event_id, timestamp, SensorType.RF),
-        missing_evidence(event_id, timestamp, SensorType.ACOUSTIC),
     ]
+    if acoustic_row is None:
+        evidence.append(missing_evidence(event_id, timestamp, SensorType.ACOUSTIC))
+    else:
+        evidence.append(actual_evidence(event_id, timestamp, acoustic_row, acoustic_status))
 
     if radar_row is None:
         evidence.append(missing_evidence(event_id, timestamp, SensorType.RADAR))
@@ -112,6 +150,11 @@ def main() -> None:
         default=Path("data/model-outputs/thermal-dataset2-batch32-test-outputs.csv"),
     )
     parser.add_argument(
+        "--acoustic",
+        type=Path,
+        default=Path("data/model-outputs/acoustic-cnn-tuned-test-outputs.csv"),
+    )
+    parser.add_argument(
         "--output",
         type=Path,
         default=Path("results/real-output-replay/real-output-replay.json"),
@@ -120,37 +163,43 @@ def main() -> None:
 
     radar = load_rows(args.radar)
     thermal = load_rows(args.thermal)
+    acoustic = load_rows(args.acoustic)
 
     scenarios = [
         scenario(
             "sim-real-001",
-            "both_predict_drone",
+            "all_three_predict_drone",
             first_with_label(radar, "drone"),
             first_with_label(thermal, "drone"),
+            acoustic_row=first_full_length(acoustic, "drone"),
         ),
         scenario(
             "sim-real-002",
             "radar_drone_thermal_no_drone",
             first_with_label(radar, "drone"),
             first_with_label(thermal, "no_drone"),
+            acoustic_row=first_full_length(acoustic, "no_drone"),
         ),
         scenario(
             "sim-real-003",
             "radar_bird_thermal_no_drone",
             first_with_label(radar, "bird"),
             first_with_label(thermal, "no_drone"),
+            acoustic_row=first_full_length(acoustic, "no_drone"),
         ),
         scenario(
             "sim-real-004",
             "radar_human_thermal_drone",
             first_with_label(radar, "human"),
             first_with_label(thermal, "drone"),
+            acoustic_row=first_full_length(acoustic, "drone"),
         ),
         scenario(
             "sim-real-005",
             "thermal_missing",
             first_with_label(radar, "drone"),
             None,
+            acoustic_row=first_full_length(acoustic, "drone"),
         ),
         scenario(
             "sim-real-006",
@@ -158,12 +207,14 @@ def main() -> None:
             first_with_label(radar, "drone"),
             first_with_label(thermal, "drone"),
             thermal_status=EvidenceStatus.DELAYED,
+            acoustic_row=first_full_length(acoustic, "drone"),
         ),
         scenario(
             "sim-real-007",
             "radar_missing",
             None,
             first_with_label(thermal, "drone"),
+            acoustic_row=first_full_length(acoustic, "drone"),
         ),
         scenario(
             "sim-real-008",
@@ -171,6 +222,7 @@ def main() -> None:
             first_with_label(radar, "drone"),
             first_with_label(thermal, "drone"),
             radar_status=EvidenceStatus.DELAYED,
+            acoustic_row=first_full_length(acoustic, "drone"),
         ),
         scenario(
             "sim-real-009",
@@ -178,12 +230,57 @@ def main() -> None:
             first_with_label(radar, "drone"),
             first_with_label(thermal, "drone"),
             thermal_status=EvidenceStatus.LOW_QUALITY,
+            acoustic_row=first_full_length(acoustic, "drone"),
         ),
         scenario(
             "sim-real-010",
-            "both_non_drone_predictions",
+            "all_non_drone_predictions",
             first_with_label(radar, "human"),
             first_with_label(thermal, "no_drone"),
+            acoustic_row=first_full_length(acoustic, "no_drone"),
+        ),
+        scenario(
+            "sim-real-011",
+            "acoustic_only_sensor_available",
+            None,
+            None,
+            acoustic_row=first_full_length(acoustic, "drone"),
+        ),
+        scenario(
+            "sim-real-012",
+            "radar_thermal_drone_acoustic_disagrees",
+            first_with_label(radar, "drone"),
+            first_with_label(thermal, "drone"),
+            acoustic_row=first_full_length(acoustic, "no_drone"),
+        ),
+        scenario(
+            "sim-real-013",
+            "only_acoustic_hears_drone",
+            first_with_label(radar, "human"),
+            first_with_label(thermal, "no_drone"),
+            acoustic_row=first_full_length(acoustic, "drone"),
+        ),
+        scenario(
+            "sim-real-014",
+            "acoustic_missing",
+            first_with_label(radar, "drone"),
+            first_with_label(thermal, "drone"),
+        ),
+        scenario(
+            "sim-real-015",
+            "acoustic_delayed",
+            first_with_label(radar, "drone"),
+            first_with_label(thermal, "drone"),
+            acoustic_row=first_full_length(acoustic, "drone"),
+            acoustic_status=EvidenceStatus.DELAYED,
+        ),
+        scenario(
+            "sim-real-016",
+            "acoustic_low_quality",
+            first_with_label(radar, "drone"),
+            first_with_label(thermal, "drone"),
+            acoustic_row=first_full_length(acoustic, "drone"),
+            acoustic_status=EvidenceStatus.LOW_QUALITY,
         ),
     ]
 
@@ -192,8 +289,8 @@ def main() -> None:
         "simulated_only": True,
         "not_a_measured_fusion_evaluation": True,
         "review_required_for_every_scenario": True,
-        "available_sensor_types": ["radar", "thermal"],
-        "missing_sensor_types": ["rf", "acoustic"],
+        "available_sensor_types": ["radar", "thermal", "acoustic"],
+        "missing_sensor_types": ["rf"],
         "scenarios": scenarios,
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)
