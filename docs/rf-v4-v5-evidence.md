@@ -58,3 +58,15 @@ The loss-weight sweep exposes a trade-off. Higher Machine recall reduces Machine
 ## Reproducibility and handoff status
 
 The selected test predictions are `data/model-outputs/rf-cnn-test-outputs.csv`. Accuracy, macro F1, per-class recall, Machine precision and recall, the Benign→Machine and Machine→Benign counts, the confusion matrix, and the expected calibration error before and after calibration are computed from that file plus the assignment-split metadata and saved in `results/rf-intrusion/rf_v5_test_metrics.json`. The `.keras` checkpoint stays outside git. Replay remains simulated and still requires human review.
+
+## Split integrity
+
+Checked on 2026-11-18. The full lists are in `results/rf-intrusion/rf_integrity_checks.json`.
+
+Each of the 24,000 filenames is in exactly one assignment split. The counts are 9,600 train, 2,400 validation, 2,400 test, and 9,600 production.
+
+SHA-256 of the file bytes finds 23,764 distinct images. There are 219 groups of byte-identical copies, covering 455 images. 76 groups sit inside one split and 143 cross splits. 41 test images have an identical copy in train, validation, or production. 10 groups carry more than one class label.
+
+The metadata has no recording or session id. This check sees exact copies only. Images from one recording that are not byte-identical can still sit in different splits.
+
+The notebook still shows the earlier section 6 test scores for weights 1.25 through 1.50. That cell was not run in the Colab session that chose the screen, and those scores were not used to choose it. Section 7 scored the test set once, for weight 1.50 and threshold 0.45. Section 10 read the test images again only to write the held-out CSV for that same model.
