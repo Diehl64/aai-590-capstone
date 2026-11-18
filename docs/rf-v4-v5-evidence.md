@@ -40,7 +40,7 @@ That one test score is saved in `results/rf-intrusion/rf_v5_test_metrics.json`, 
 
 ## Held-out test comparison
 
-The notebook rebuilds the AAI-540 assignment split from the predecessor's committed metadata: 9,600 training images, 2,400 validation images, 2,400 held-out test images, and 9,600 production images. The v4 test confusion matrix is embedded in the notebook. The v5 values below are notebook-run results; no retraining was performed for this documentation.
+The notebook rebuilds the assignment split from `data/rf-split-manifest.csv`: 9,600 training images, 2,400 validation images, 2,400 held-out test images, and 9,600 production images. The AAI-540 metadata URL is only a fallback when that file is missing. The v4 test confusion matrix is embedded in the notebook. The v5 values below are notebook-run results; no retraining was performed for this documentation.
 
 | Version | Machine loss weight | Test accuracy | Macro F1 | Machine recall | Machine precision | Machine false negatives predicted Benign |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
