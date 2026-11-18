@@ -127,7 +127,7 @@ Section 6 of [`notebooks/rf_machine_detection.ipynb`](../notebooks/rf_machine_de
 | v5.5 | 1.45 | 0.8679 | 0.8672 | 0.8400 | 0.5675 | 167 | 47 |
 | v5.6 | 1.50 | 0.8979 | 0.8972 | 0.6700 | 0.8625 | 55 | 110 |
 
-Section 12 of the notebook still describes that earlier stand-alone run. Its closing paragraph names a diagnostic export at temperature 1.5158 and threshold 0.50. The held-out CSV in this repository is the screen export: weight 1.50, threshold 0.45, temperature 1.2932965073088454.
+Section 12 of the notebook records this screen. An earlier diagnostic export used temperature 1.5158 and threshold 0.50 on a weight-1.25 checkpoint. The held-out CSV in this repository is the screen export: weight 1.50, threshold 0.45, temperature 1.2932965073088454.
 
 ## Split integrity
 
