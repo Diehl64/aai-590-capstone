@@ -1,0 +1,14 @@
+{
+  "temperature": 1.2932965073088454,
+  "fit_split": "validation",
+  "method": "temperature_scaling",
+  "validation_nll_before": 0.24542851746082306,
+  "validation_nll_after": 0.23933258652687073,
+  "machine_threshold": 0.45,
+  "threshold_source": "section_7_screen_rule",
+  "recall_target": 0.9,
+  "target_met": true,
+  "test_ece_before": 0.02616624760131039,
+  "test_ece_after": 0.016203877901037517,
+  "argmax_unchanged": true
+}
