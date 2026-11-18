@@ -139,6 +139,12 @@ The metadata has no recording or session id. This check sees exact copies only. 
 
 Section 7 scored the test set once, for the chosen pair. Section 10 read the test images again only to write the held-out CSV for that same model.
 
+## Training environment
+
+The screen run used Google Colab with an A100. The notebook printed TensorFlow 2.21.0. The run constants are seed 42, image size 128 × 128, and batch size 32 (`SEED`, `IMG_SIZE`, and `BATCH_SIZE`).
+
+[`requirements-training.txt`](../requirements-training.txt) lists that environment as TensorFlow 2.21.0, `kagglehub`, pandas, scikit-learn, and matplotlib. Colab already provides TensorFlow. The first code cell installs `kagglehub`, pandas, scikit-learn, and matplotlib. The Windows 11 RTX 5080 block in that file is unchanged.
+
 ## Limitations
 
 - Machine is a drone-like cue. The Kaggle card does not define it as a confirmed drone, and it does not say which source produced a given image.
@@ -159,3 +165,4 @@ Section 7 scored the test set once, for the chosen pair. Section 10 read the tes
 - Selected test metrics and figures: [`rf_v5_test_metrics.json`](../results/rf-intrusion/rf_v5_test_metrics.json), [`rf_v5_test_confusion_matrix.png`](../results/rf-intrusion/rf_v5_test_confusion_matrix.png), [`rf_intrusion_cnn_v5_selected_confusion_matrix.png`](../results/rf-intrusion/rf_intrusion_cnn_v5_selected_confusion_matrix.png)
 - Trade-off and seed summary: [`rf_v5_validation_tradeoff.csv`](../results/rf-intrusion/rf_v5_validation_tradeoff.csv), [`rf_v5_validation_tradeoff.png`](../results/rf-intrusion/rf_v5_validation_tradeoff.png), [`rf_v5_seed_summary.csv`](../results/rf-intrusion/rf_v5_seed_summary.csv)
 - Integrity: [`rf_integrity_checks.json`](../results/rf-intrusion/rf_integrity_checks.json)
+- Environment: [`requirements-training.txt`](../requirements-training.txt)
