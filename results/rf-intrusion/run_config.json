@@ -1,0 +1,12 @@
+{
+  "chosen_weight": 1.5,
+  "temperature": 1.2932965073088454,
+  "machine_threshold": 0.45,
+  "threshold": 0.45,
+  "recall_target": 0.9,
+  "seed": 42,
+  "target_met": true,
+  "checkpoint_weight": 1.5,
+  "checkpoint_role": "selected",
+  "selection_rule": "First-stage screen, fixed before this run. Candidates are the seed-42 checkpoints at Machine loss weights 1.00 to 1.50. Seeds 43 and 44 are trained for stability and are not selected. For each candidate, fit temperature on validation, then sweep the Machine threshold from 0.10 to 0.90 in steps of 0.05 on the calibrated validation probabilities. Keep pairs with validation Machine recall at least 0.90. Among those, choose the fewest Benign-to-Machine errors, then higher macro F1, then the lower weight. If none reach 0.90, choose the highest validation Machine recall and report that the target was not met. A shared recall uses the same tie break. Score the test set once with the chosen pair."
+}
