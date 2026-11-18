@@ -1,0 +1,6243 @@
+{
+  "checked": "2026-11-18",
+  "hash": "sha256 of the image file bytes",
+  "metadata": "AAI-540 rf_intrusion_assignment_split_metadata.csv",
+  "images_hashed": 24000,
+  "missing_files": 0,
+  "split_counts": {
+    "train": 9600,
+    "validation": 2400,
+    "test": 2400,
+    "production": 9600
+  },
+  "expected_counts": {
+    "train": 9600,
+    "validation": 2400,
+    "test": 2400,
+    "production": 9600
+  },
+  "counts_match": true,
+  "unique_filenames": 24000,
+  "each_filename_in_exactly_one_split": true,
+  "unique_hashes": 23764,
+  "duplicate_byte_groups": 219,
+  "images_in_duplicate_groups": 455,
+  "groups_within_one_split": 76,
+  "groups_across_splits": 143,
+  "groups_with_different_class_labels": 10,
+  "groups_with_test_and_another_split": 41,
+  "test_images_with_an_identical_copy_outside_test": 41,
+  "across_split_group_counts": {
+    "test+train": 18,
+    "production+train": 58,
+    "production+validation": 22,
+    "production+test": 19,
+    "production+train+validation": 5,
+    "train+validation": 17,
+    "test+validation": 3,
+    "test+train+validation": 1
+  },
+  "groups": [
+    {
+      "sha256": "9a562509e5182a4f59aa2d33618239b43a4acc036e6bc8ba57c55d8e7f4b52b0",
+      "count": 2,
+      "assignment_splits": [
+        "test",
+        "train"
+      ],
+      "class_labels": [
+        "Broadband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": true,
+      "files": [
+        {
+          "filename": "jam_Broadband_Jam_001323.png",
+          "class_label": "Broadband_Jam",
+          "assignment_split": "test",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Broadband_Jam_000070.png",
+          "class_label": "Broadband_Jam",
+          "assignment_split": "train",
+          "original_split": "val"
+        }
+      ]
+    },
+    {
+      "sha256": "11f020f67d58d39367f694b957b48e631d74a7b86ebe96ceb5fab44645f01127",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Broadband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "jam_Broadband_Jam_001562.png",
+          "class_label": "Broadband_Jam",
+          "assignment_split": "production",
+          "original_split": "val"
+        },
+        {
+          "filename": "aug_Broadband_Jam_000231.png",
+          "class_label": "Broadband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "d92aac562c3a668298ecde1d33552f1cb2db43bf3e5c8f35ff540e82e45e1252",
+      "count": 2,
+      "assignment_splits": [
+        "train"
+      ],
+      "class_labels": [
+        "Broadband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Broadband_Jam_000617.png",
+          "class_label": "Broadband_Jam",
+          "assignment_split": "train",
+          "original_split": "test"
+        },
+        {
+          "filename": "jam_Broadband_Jam_002698.png",
+          "class_label": "Broadband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "ab4f9cb2542e3dcc42c4c53a56a37ef960057693114f584904ef329d2f7b1904",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "validation"
+      ],
+      "class_labels": [
+        "Broadband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "jam_Broadband_Jam_001166.png",
+          "class_label": "Broadband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Broadband_Jam_000626.png",
+          "class_label": "Broadband_Jam",
+          "assignment_split": "validation",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "76280127ef6fa0c8defd7875e6353c7cee6febeba986e31dd4d7e7183ced75b5",
+      "count": 2,
+      "assignment_splits": [
+        "production"
+      ],
+      "class_labels": [
+        "Broadband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Broadband_Jam_000688.png",
+          "class_label": "Broadband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "jam_Broadband_Jam_000552.png",
+          "class_label": "Broadband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "5931d92f50803671769053af6e025d56c5e4e4575af95122f9f1096efaf78f91",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "test"
+      ],
+      "class_labels": [
+        "Broadband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": true,
+      "files": [
+        {
+          "filename": "jam_Broadband_Jam_001304.png",
+          "class_label": "Broadband_Jam",
+          "assignment_split": "production",
+          "original_split": "val"
+        },
+        {
+          "filename": "aug_Broadband_Jam_000773.png",
+          "class_label": "Broadband_Jam",
+          "assignment_split": "test",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "313eba8b0e01ede8b684f744209e02073b544bdd528f82b5f471f13356781832",
+      "count": 2,
+      "assignment_splits": [
+        "production"
+      ],
+      "class_labels": [
+        "Broadband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Broadband_Jam_000829.png",
+          "class_label": "Broadband_Jam",
+          "assignment_split": "production",
+          "original_split": "val"
+        },
+        {
+          "filename": "jam_Broadband_Jam_000036.png",
+          "class_label": "Broadband_Jam",
+          "assignment_split": "production",
+          "original_split": "val"
+        }
+      ]
+    },
+    {
+      "sha256": "0d7d46c5dc1d48ebe8d981f501c5e66bc9c3b45a8ccc2d6270ff0bc5462508b8",
+      "count": 2,
+      "assignment_splits": [
+        "test"
+      ],
+      "class_labels": [
+        "Broadband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": true,
+      "files": [
+        {
+          "filename": "aug_Broadband_Jam_000844.png",
+          "class_label": "Broadband_Jam",
+          "assignment_split": "test",
+          "original_split": "train"
+        },
+        {
+          "filename": "jam_Broadband_Jam_000585.png",
+          "class_label": "Broadband_Jam",
+          "assignment_split": "test",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "44ea30cecc3bbf45528934f10a4cbebe57e20c1b3b4335c546817e6a9f95464a",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "test"
+      ],
+      "class_labels": [
+        "Broadband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": true,
+      "files": [
+        {
+          "filename": "jam_Broadband_Jam_000010.png",
+          "class_label": "Broadband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Broadband_Jam_000862.png",
+          "class_label": "Broadband_Jam",
+          "assignment_split": "test",
+          "original_split": "test"
+        }
+      ]
+    },
+    {
+      "sha256": "a7fbc4f1a7ae1eedcbda4ffb2a9448d28a37662971149b948a88a2d9ae9ee85a",
+      "count": 2,
+      "assignment_splits": [
+        "train"
+      ],
+      "class_labels": [
+        "Broadband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Broadband_Jam_001587.png",
+          "class_label": "Broadband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        },
+        {
+          "filename": "jam_Broadband_Jam_002297.png",
+          "class_label": "Broadband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "202feaa7ed97f39beb4c219203e98cad068f723344fc291d2c355cba9cfa6583",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002919.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_000072.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "1262303faf5d80432bee8c96b1a82fdadd6264d416159658bed8dae151e60b18",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "test"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": true,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002759.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_000129.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "test",
+          "original_split": "test"
+        }
+      ]
+    },
+    {
+      "sha256": "aa0fd707c0688834c3cb6cf986cf0de5548a78a999f32bf713295382befa8cf6",
+      "count": 3,
+      "assignment_splits": [
+        "production",
+        "train",
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_003263.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_000158.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "test"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003402.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "b8867dbae866c5e4ab7405afbc1260784d70ae6fdf7eba3382bf3a5c3168ed7c",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002100.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "val"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_000178.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "79b421cdcede9c7be269147e5a16549daf7f3625607724553ca0f4b171e5a3aa",
+      "count": 2,
+      "assignment_splits": [
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_000260.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_000839.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "60e112f33b1880dce3505078d5145669d4d690c84dd6d3cf094e4918e3a8c106",
+      "count": 2,
+      "assignment_splits": [
+        "train",
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_000277.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "test"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_000862.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "test"
+        }
+      ]
+    },
+    {
+      "sha256": "7f8a392f6bea73161885535272684d9a28e28870bc3ccb7b188a3984a7d01bc8",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_000656.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_000279.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "e507753b24d7bcedab6ae913e7f5071e1531351ea31c073491571671f50b1e3d",
+      "count": 2,
+      "assignment_splits": [
+        "train",
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_000330.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003411.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "d9f195744e31c21546508a3414841d0719eaec5a1c062110aaefe89046158c8f",
+      "count": 2,
+      "assignment_splits": [
+        "production"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_000340.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "val"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002439.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "3e439ca01be7822d11724e8a3aa645280b3db7349eeeda845f7589640ed8ab80",
+      "count": 2,
+      "assignment_splits": [
+        "production"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_000342.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003883.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "3bfa41755b1862d5e8b5c766d228dda2c80b532b6f36d0d01a599afbd9eefd90",
+      "count": 2,
+      "assignment_splits": [
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_000351.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003753.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "test"
+        }
+      ]
+    },
+    {
+      "sha256": "e1068504f28a93471961ea7f6790a856918203b3e5ae44efed23b7c0016107bc",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "test"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": true,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001248.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_000360.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "test",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "0d0b2511fe91c87368f02714b47d2d9ad126b6dd3eaf810e756669c08d588ed0",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_000875.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "val"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_000367.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "a32ad14d4db364227f1477c8aca1c44b85f228e84729a07ebe30605f06bcc7d2",
+      "count": 2,
+      "assignment_splits": [
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_000143.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_000378.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "val"
+        }
+      ]
+    },
+    {
+      "sha256": "a47b284498913f2234b1fa1a0adeebd3f7786802095cc45b3e7dc5e518963a9a",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001336.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "val"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_000445.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "test"
+        }
+      ]
+    },
+    {
+      "sha256": "6eaba38a3eef86d1b008b77c95150f2e4ee37a2d31130bfb8c6155de3d77c308",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "test"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": true,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002356.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "val"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_000462.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "test",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "325698ab87d9163051259e18ffd68a8e92bec0a8898704841d11b34303256380",
+      "count": 2,
+      "assignment_splits": [
+        "train",
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_000479.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003900.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "fc6fa0ba8832a2302ab2856aa16ebf1dcc8ed69c5a4329e168e271d8603bf6a5",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "jam_Narrowband_Jam_000133.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "val"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_000489.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "b08f2bcb32175292801e50a1d5ba8e9c2027e3bff2ea08fa72050b965cecb421",
+      "count": 2,
+      "assignment_splits": [
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_000506.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003132.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "d8be65348de48d9fc45292f5fade8f1dbcec530a913b38c10cd9fd0772f5496f",
+      "count": 2,
+      "assignment_splits": [
+        "production"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_000518.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002582.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "948a88c373c04f029d0be85e8f6c4fda65588133f547df2b575f7183dfe5c301",
+      "count": 2,
+      "assignment_splits": [
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_000537.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002004.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "test"
+        }
+      ]
+    },
+    {
+      "sha256": "c72e7a60d5e6ed1a2130b2a4e6706548f5c3c74ebda37ebf686ae9c540de85bd",
+      "count": 2,
+      "assignment_splits": [
+        "test",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": true,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_003880.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "test",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_000538.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "val"
+        }
+      ]
+    },
+    {
+      "sha256": "30f810d0a8b60c07cd4c5838729ef2f5fb01692fa1bc080b0c5976f84e51cb7c",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_003615.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_000544.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "e72807829b6193d0325333a8b808f49f6618af294eea0e221ee568ad6fa08207",
+      "count": 2,
+      "assignment_splits": [
+        "test",
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": true,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002127.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "test",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_000574.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "62f93c72a83df74129477dfc0ea3f04a652797e8107568c0c7624d6957a52acd",
+      "count": 2,
+      "assignment_splits": [
+        "production"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_000579.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "test"
+        },
+        {
+          "filename": "jam_Narrowband_Jam_000072.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "a307fb13780485e60f0942b51658711a16bedffb41ac8b527e3586a0f8a53bd8",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001138.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "val"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_000598.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "val"
+        }
+      ]
+    },
+    {
+      "sha256": "38431bf8ae519aae6a986ef718d782b03c6c8ca077242bc768b77470e6e4596c",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002691.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_000601.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "test"
+        }
+      ]
+    },
+    {
+      "sha256": "418494d5ca1c50003524fc2c78d43b4de109dbb39fcb94e5705867f529e58319",
+      "count": 2,
+      "assignment_splits": [
+        "train",
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_000614.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "val"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_000944.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "6a7a9771e560b0578975f4cac33628a6fc13e8c52c67db4fd684766b9deaef7f",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001469.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_000620.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "2507bb676fd66bbf8350a5caf1f4fd082059b3aabfaf4bacbeb4a20250bd7805",
+      "count": 2,
+      "assignment_splits": [
+        "test"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": true,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_000633.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "test",
+          "original_split": "train"
+        },
+        {
+          "filename": "jam_Narrowband_Jam_000136.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "test",
+          "original_split": "test"
+        }
+      ]
+    },
+    {
+      "sha256": "20f14d54fd431429b53780bfc183d3e8663bc029fb2717543d26aa67a28c6c94",
+      "count": 3,
+      "assignment_splits": [
+        "production",
+        "train",
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002968.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "val"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_000651.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_000076.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "1f9df5bdcd64b1815eef8d94da563d4a175ef5b931b0d07b73153ad51c003380",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_003419.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_000669.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "dec40080551bc9d210ffd773eb0a13efed905e433e271215a97cfea684086e28",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001728.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_000697.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "a6f43bd54241bccb9a7e2a43f0a031da5acd7df9a60bf9990046fadeac144da9",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_003478.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_000699.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "98d7718a88b09940839059fe485a2ec40f224e032c96af6527520ba0f2f61655",
+      "count": 2,
+      "assignment_splits": [
+        "production"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_000665.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_000719.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "test"
+        }
+      ]
+    },
+    {
+      "sha256": "baa83cfaba269aeca4ad5250ab90dc4baf58cad3b331280d836bcbdb5a05d3ca",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "test"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": true,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_000711.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "val"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_000770.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "test",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "9202175abc3d96c1ef12e7cc2918bd8560486d2f3cb303cb37d1b660c5dbb4e0",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_003745.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_000866.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "35539ea3dcebc0c4ffb98234ca84b40f8eae84cd3a21992832a5913fe929e164",
+      "count": 2,
+      "assignment_splits": [
+        "production"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_000950.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003435.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "67c1e7493a9665d4558675d8c3c9ce3bc72424a5326828285b66d51e4c1860e3",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001527.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "val"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_000961.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "val"
+        }
+      ]
+    },
+    {
+      "sha256": "c9dea608b349e71b6799be3d984ec777d903aae0f251ddeac3b2f61d69ff83db",
+      "count": 3,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "jam_Narrowband_Jam_000090.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_000979.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002154.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "cb0461f77aa3911682f50eb8d3d5aeb617b9c5625dd9a901ee8323a51c21bd43",
+      "count": 2,
+      "assignment_splits": [
+        "production"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_000992.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "val"
+        },
+        {
+          "filename": "jam_Narrowband_Jam_000124.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "9d330f0133ffa80d9e9a3332107d5b29755da6788bd724cee1a48f5e24d9de41",
+      "count": 2,
+      "assignment_splits": [
+        "test",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": true,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_003448.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "test",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_001018.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "b077e1a93b1c612c6cb522f8df3f9667b0ecef3113d49aa73505b0074e15cced",
+      "count": 3,
+      "assignment_splits": [
+        "test",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": true,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002194.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "test",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_001030.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "val"
+        },
+        {
+          "filename": "jam_Narrowband_Jam_000120.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "8cb290a8d0606f7b5a5a40ada927d5a646f1f26c3a5f15d63ce6f0f57cebd49c",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_000551.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "test"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_001105.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "test"
+        }
+      ]
+    },
+    {
+      "sha256": "77ca5a124bad7b5010f6ddefa97204f56f72b27f268e86a0af1e31a4e91041d5",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002280.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "test"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_001189.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "64d45b477c9062772832aa358cb58df07a5c42a9abe8d50a54686145c1db7ecb",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001619.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_001222.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "val"
+        }
+      ]
+    },
+    {
+      "sha256": "b3c8020a33c53be30b22c237acff57ccf123a549d436384f3fecbf086041f0be",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_003436.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "test"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_001288.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "0228b40ec16cea30980066318293689810c82a71eb60d1f3df4961d89257d7cc",
+      "count": 2,
+      "assignment_splits": [
+        "train",
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001295.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "val"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002615.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "a0810768b63160114eda185d8c39f4aae0f0af5413e3252bbbedc9fe57734769",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002768.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_001378.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "50ce876d09cfb1afd4aa4496acdfd72550ad66a0ee0563b8b9896757672ed60a",
+      "count": 3,
+      "assignment_splits": [
+        "production",
+        "train",
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001262.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_001381.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_000590.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "8004fe6cd5ea3db2642a6fd6209876778c50ecb560957866dc25f7be255ce61a",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_003181.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_001383.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "29211bdd4aa746b7e5cf41971bf6997462458c8299d72c0911fffaf0e1ccf111",
+      "count": 2,
+      "assignment_splits": [
+        "production"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001387.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "val"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002325.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "1e375b766563bccf93b2779ddea74de42b2220ff194068566fd401036fed5d43",
+      "count": 2,
+      "assignment_splits": [
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001391.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "test"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003640.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "6d73821a0388801785f78a6a8cf311af7ad4303a479d6624272b2abe25a12f68",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001234.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "val"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_001399.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "c2a433945b1117cd3080295e76945c32eba8d3aa33b289af31d3f10d07c1537b",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "test"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": true,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001977.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "test"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_001462.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "test",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "30c13fa0188e9111f2b51d2aaa7afd475a2fb7fc9a838b6fe9e4b430dd0a98e5",
+      "count": 2,
+      "assignment_splits": [
+        "test"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": true,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001506.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "test",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_001865.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "test",
+          "original_split": "val"
+        }
+      ]
+    },
+    {
+      "sha256": "e8ccf3b91e357e37563328e2d3bc94c6b0f608be7ebfd8f2a233c3ce4d73ef22",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "test"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": true,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001320.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_001510.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "test",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "ee322127bab2298af682fef451599e3dc998b6fe035999b6c7dbacc8867fb524",
+      "count": 2,
+      "assignment_splits": [
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001092.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "test"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_001518.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "803aab1e619d23260ff40e6c1d19c31c683de5fe6c9823d06c68bee1bd10d3da",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_003466.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_001574.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "e605d42644326e8f9ce34e322e51f0d50211c078eea84b2883cf6fdde92a3be6",
+      "count": 2,
+      "assignment_splits": [
+        "train",
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001589.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002367.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "bcffd2ba6945484aa6f8603a5f4fa8f2633da606c305469e17ee8916e7d578d6",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_000332.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "val"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_001598.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "val"
+        }
+      ]
+    },
+    {
+      "sha256": "320f84164e250c1a93b0087cd34bd77a58cf7795df16a8de963c27ed2befcc55",
+      "count": 2,
+      "assignment_splits": [
+        "production"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001632.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "test"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003086.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "c822409a7e73db99a487f046b3d6314af1fe90acc8a2c9e6c4393fa81d7c4c01",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001672.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "val"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_001641.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "5f9f1f7e47a9a237f4de40124a8ec7aed04203949380c120aa049bc1a3544d49",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "test"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": true,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_000622.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "val"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_001662.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "test",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "3bdd74785d432a1dfddb9333daccd8f246e7dfc27ec6940b3b3c96dedcaddb1d",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "test"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": true,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002023.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_001678.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "test",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "abe3f8a46c684168a2a122cb4cf0ea1d70c9cd111f40bc301e99e3246c3ae0fa",
+      "count": 2,
+      "assignment_splits": [
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001749.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_001938.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "3e92602c81dff4b240f965675df272bc104d3b660d24232851a358931eaba7e3",
+      "count": 2,
+      "assignment_splits": [
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001039.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_001794.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "val"
+        }
+      ]
+    },
+    {
+      "sha256": "9b9fc1b675ff36798ea942d8eca4d1a391dea71471d70a8718ac4949d09be8dd",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002187.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_001796.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "b7fb6d9bd2065451e536b2b8db0eef645abeaf2388adefa582b328804dd68ba4",
+      "count": 3,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001152.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "test"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_001798.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "val"
+        },
+        {
+          "filename": "jam_Narrowband_Jam_000066.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "c1d043c376ad683bb50c2baf2efe14a9f924051dae524d9f433a4eae7fcac078",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "test"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": true,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_000286.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_001816.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "test",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "923f26966a884f29998580805c89ec3cc12aa25a478a1f9e31df32f479842ac6",
+      "count": 2,
+      "assignment_splits": [
+        "production"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001835.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "jam_Narrowband_Jam_000104.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "92b0c417365629e0666613dca03bb45088b60cca1f7efb125589da8820dbf793",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_000524.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "test"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_001857.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "val"
+        }
+      ]
+    },
+    {
+      "sha256": "2846774c93d6583c6bd687b8b3f3429d6b9d3efe9d76821ab7a5ead425d94627",
+      "count": 3,
+      "assignment_splits": [
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001875.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002506.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003283.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "cd22f706b6b878714e6cd863c11319c101eb9a24de7417ffd27f7fa31c8d7ab7",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001523.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_001937.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "val"
+        }
+      ]
+    },
+    {
+      "sha256": "fc3e595cd6450e300725bb9a4dbc5f22d99be923d15abfb5e6d87de2df970dc7",
+      "count": 3,
+      "assignment_splits": [
+        "train",
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001947.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        },
+        {
+          "filename": "jam_Narrowband_Jam_000084.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002080.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "6cdba1efb5c1da9b56f2a72f0864797e7af1e18dce24245ce56a0ba86c32530d",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_000747.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002009.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "781f07136d5bfeb2249b392ebe9fc70b81da1eb0a9f41402b41ca500f3dd8739",
+      "count": 2,
+      "assignment_splits": [
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001049.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "val"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002017.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "val"
+        }
+      ]
+    },
+    {
+      "sha256": "dabe813e676e9f507b813f13b876e94310b4f292994f2beaf211fd3a613e281a",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002922.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002021.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "a0b93d70d2282f84744240104baab3cffd6fdbb811ff822878e99a8a40f85a17",
+      "count": 2,
+      "assignment_splits": [
+        "production"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_000540.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "test"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002046.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "a34747d00503dad6b085355fc1585bac285d5815c3a3412b9faf6e941dd76877",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002902.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002073.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "test"
+        }
+      ]
+    },
+    {
+      "sha256": "9d9f61ba59228ad3b29eff6ebde91969e5ff67b34749bcb0adfea987267a96ca",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002571.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002138.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "8e70fa6322c4735989d3cac94e6b7f21d6440405a02bc8b26ad4b3529da837f6",
+      "count": 2,
+      "assignment_splits": [
+        "production"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001791.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002144.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "db35cc03f47ffd05edbccb562eb58f7afc5374ccad0f68e9bdd0247f367d11ef",
+      "count": 2,
+      "assignment_splits": [
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001511.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002176.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "07363433913f30ebc27e0b220cb926ca3148e869141d8d94b8f20fd289093f93",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001985.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002185.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "e315030c8c29ad33896aa2d8ea9c8c18971428402b6ab9558bb009a6488df26e",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_000138.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "val"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002189.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "71b2b3c011def652c75ea1d4c7ca097cec1d46e0b392da4a44a601670cdfe484",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001915.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002198.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "944c1285cc7c32b67f917c39e4011f3cb9075cebb343aabce6088941425e27f6",
+      "count": 2,
+      "assignment_splits": [
+        "production"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001144.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "val"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002213.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "val"
+        }
+      ]
+    },
+    {
+      "sha256": "09f0908dd24991599ee9e71e362775c128f6ae881797d102a258c6ff80c41e98",
+      "count": 2,
+      "assignment_splits": [
+        "train",
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002214.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002958.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "480b5901a822c498b8c6e1618ac967a3eadad5581bbb83d506fac4cdac079b3a",
+      "count": 2,
+      "assignment_splits": [
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001974.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002221.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "17a4a9b8811a635c153bf20abd57e08343f063811ff335086349b79463770d8b",
+      "count": 2,
+      "assignment_splits": [
+        "train",
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002228.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "test"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002820.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "fcb928e4a335cd6d60dfb2876bc8307f21301790f390dea9d8c07628ff5491db",
+      "count": 2,
+      "assignment_splits": [
+        "production"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_000141.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002247.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "val"
+        }
+      ]
+    },
+    {
+      "sha256": "89cb32168e48f9e4b58557687276c825ad73e6bd9be84b20f95806a6ca82d76c",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_000501.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "test"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002290.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "test"
+        }
+      ]
+    },
+    {
+      "sha256": "b26dd52d391d1d673b92eedbccdabbea6afe0473bda268f9641e67a484a5a9e9",
+      "count": 2,
+      "assignment_splits": [
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_000603.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002307.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "test"
+        }
+      ]
+    },
+    {
+      "sha256": "dbff3f5949990cf6966556575b3bf9c608cd9415629e297ddb0201b88c579429",
+      "count": 2,
+      "assignment_splits": [
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002400.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003649.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "d0dc59b87a5dccdfe98f640f024d31490aa14f24866240b4cdf36b6971e252da",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002761.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002461.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "30d30a5c5c454cf60d4cfede050699d650e4f8700375cb64e77a1977b4d5a442",
+      "count": 2,
+      "assignment_splits": [
+        "production"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002470.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "val"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002982.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "6e53116133999ec9cc57c53cec7b438cc527552af65ce1e40a266ccb812b9f8b",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_003214.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "test"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002520.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "01a0d16edb593f94ba4e7efafc8aea6a0a50554e680c64e89d35118e390a0328",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001942.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "val"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002522.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "d65406b2a77c68de2a3212baba023ec65e8c8e00e0baba0a2befa076e939cab8",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_003735.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002525.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "bc69b7ddd5ab700e1befca54e3bc38b9027c8f7fc4376947aa81f76cf522a5f5",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_000353.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002576.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "62b8ff34595e54f2e1649928a464b181c7df921260cda81287a91179f4d56d91",
+      "count": 2,
+      "assignment_splits": [
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002613.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003823.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "94149388dce538ec3cba2087fbfcac21e9c4557511b2174ae4663addefe3ae44",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002305.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "test"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002730.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "d75b2fd4e39223fad2aef29016a0c2c1791a7b7fd6e85451c5f923b4f86f77a0",
+      "count": 2,
+      "assignment_splits": [
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001633.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "test"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002735.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "c1c419bcb57f8bb56a93d8503bb89ed31f76aa4b5e131567f3c9cd0952e70d02",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_003477.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002746.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "936844d1cd813a95b6517144f335a7e8538b68ad87cb004e1cc0a5c6bab359fd",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002066.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002754.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "d735b12337ed2c46686a489ea74dec65ca682bc0fd975619fd3b7dd6de0cac1b",
+      "count": 2,
+      "assignment_splits": [
+        "train",
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002777.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_000846.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "88f718fd78c11a8ba2a604cc0812f781e2769bf836c47609bd4e9ff6cec6ed24",
+      "count": 2,
+      "assignment_splits": [
+        "test",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": true,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001317.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "test",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002802.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "f27e6e044d7417de79d45797255d8459a15222f718eb1efdeadeb6447e25d0b6",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_000507.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "val"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002805.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "44cc0b0ebf74da6622d29ae2f83dd3635fc845f7f293995660ad37bb3559a4d0",
+      "count": 2,
+      "assignment_splits": [
+        "production"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002790.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "test"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002835.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "val"
+        }
+      ]
+    },
+    {
+      "sha256": "3000558e633400f81f5301be4b30c47dc0bbbbf7361a1b6e2a59d1c749b76d8a",
+      "count": 2,
+      "assignment_splits": [
+        "train",
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002862.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "val"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002071.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "02eab5a0c0296cdb26dafee365e7ca20790cadbe494d320b5aabbfe8b35ef163",
+      "count": 2,
+      "assignment_splits": [
+        "test",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": true,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_003514.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "test",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002863.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "340e9e05d8cc4647bf5f2c1444dfacb22af55c37b5dc73fc09bed1d5873773a8",
+      "count": 2,
+      "assignment_splits": [
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002872.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003036.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "3b969c506922c3a8d5e787ef16808dc7ced104e7dc18b89c2446c5fa07c6f1b7",
+      "count": 2,
+      "assignment_splits": [
+        "production"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002225.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "test"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002887.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "test"
+        }
+      ]
+    },
+    {
+      "sha256": "6eb88599d0772ff4c099d474291efb5c721ccdbe8b2cca974f7143dc6ff82de9",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_003567.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002895.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "ca4b49c630f861015e5b01672ac5f7c4bfef0b03e14f935b76ba2a36acd55c91",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002404.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "test"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002910.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "a3c6e08c1d48f1cc25a820c705436f23bb395e10b15d32341c6585ea469c545a",
+      "count": 2,
+      "assignment_splits": [
+        "test",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": true,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002931.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "test",
+          "original_split": "val"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002934.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "96e6c87148c8ebd3665fca10734ad8c727ff66e8ac433c54c681d6c3161839dc",
+      "count": 2,
+      "assignment_splits": [
+        "train",
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002970.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "test"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_000859.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "0b2d52019389a97ce2321163d503c84303939a985a53d0b1028e40e86c10162f",
+      "count": 4,
+      "assignment_splits": [
+        "production",
+        "train",
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_000801.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003761.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002985.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002321.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "val"
+        }
+      ]
+    },
+    {
+      "sha256": "1cd41afa1c321cb18a29d3c5df35eb05d57a2ef98003a757370acc0941389ad8",
+      "count": 2,
+      "assignment_splits": [
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002211.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002989.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "916fd6283875bb0ddd076c9de38a49d884d014824ac4c8ac3c5b7dfafcae5bfd",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "jam_Narrowband_Jam_000113.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002991.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "val"
+        }
+      ]
+    },
+    {
+      "sha256": "119a0c6e4d5e3a30d7a5aa30bf24b1700e63d8ada74b8fbdd48a6532530430c7",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_000295.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002997.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "b02183a9710914eb2a0898e37f61c2414984f7bcb3fbfb06e62458bb085e8838",
+      "count": 2,
+      "assignment_splits": [
+        "test",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": true,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_003795.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "test",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003091.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "46a7acbd850beb70ed9c53ba3e9905056d42b076ba5a9829e65e36d2ae1e681a",
+      "count": 2,
+      "assignment_splits": [
+        "production"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002368.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003092.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "097e0312bc908c6e2a5f499fbbc11ead960b727f42d2792f6bd7ec4139772d63",
+      "count": 2,
+      "assignment_splits": [
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_000751.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "val"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003113.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "val"
+        }
+      ]
+    },
+    {
+      "sha256": "026431a8d48b44594992c56496c3f747c4e804ee7712d9562a1b6921ec47206d",
+      "count": 2,
+      "assignment_splits": [
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001269.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003155.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "test"
+        }
+      ]
+    },
+    {
+      "sha256": "d54f983a3b028b5add022f303cdee20a43d70f2d6514945b81b16da92bda0233",
+      "count": 2,
+      "assignment_splits": [
+        "train",
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_003159.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_000038.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "eddfc51eb794233db797ac69772b1427dfa95c3a38ae15ddc43bb4dab5b50a4c",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002975.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "val"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003188.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "58777159f8c8ff114201c9e268ee80c887fdd7247d657f50857c5f58d6033417",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001473.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003231.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "d57f6d341e17f6c326e0620e8d681ecc562e0ced32469ee56267ee9ab316fa53",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002673.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "test"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003242.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "test"
+        }
+      ]
+    },
+    {
+      "sha256": "fce2cc6f7f7eea1bf652237ef3e6f3b89d4c09a8f5518cc058b762a792129113",
+      "count": 2,
+      "assignment_splits": [
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001334.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003248.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "f5839e15a0845b60f896e3e6a8f7f819cbc253cec88306bb6420305c3e02a8c2",
+      "count": 2,
+      "assignment_splits": [
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_003297.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003494.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "fdc9a24ce39ee8a9c430f90b44eeb716f58f4c980bed4509fecb0d9de1277624",
+      "count": 3,
+      "assignment_splits": [
+        "production",
+        "test"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": true,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001272.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "test"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003037.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003366.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "test",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "9164d6c6d9682b49a7d0e4512b2fc4c959d466a76d672c50e5f0ab811f9a0b6b",
+      "count": 2,
+      "assignment_splits": [
+        "train",
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_003378.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_001230.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "0ba13f8fde0aea8e6ebe1a2a69233b69d227feafb6b6b943eb43b57fe3884031",
+      "count": 2,
+      "assignment_splits": [
+        "test",
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": true,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002233.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "test",
+          "original_split": "val"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003406.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "val"
+        }
+      ]
+    },
+    {
+      "sha256": "8da7a20a0579c74e92b655dd531b749d4e07b879a53951050d49594e1b9ad2c7",
+      "count": 2,
+      "assignment_splits": [
+        "production"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002332.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003415.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "4ec3e874cb7f0728bbb931f9a72b12048572000d4e2cbd4364fe249f4bd86a2d",
+      "count": 2,
+      "assignment_splits": [
+        "test",
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": true,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001959.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "test",
+          "original_split": "val"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003420.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "9609b833b706a3a8f0257c7e0268f2f911bd913f3f9128643f2701a2bc8fc219",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001696.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003424.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "ecd59d6dd91ac312069d292ccd973eda7042eee0e9bc1360b2d5485e5fb624cc",
+      "count": 3,
+      "assignment_splits": [
+        "test",
+        "train",
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": true,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001497.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "test",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003445.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "test"
+        },
+        {
+          "filename": "jam_Narrowband_Jam_000102.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "test"
+        }
+      ]
+    },
+    {
+      "sha256": "33eab0adbd926cecda7e4ca1117c4827df0ec75eebe29abb9e6078488a173a7a",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "test"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": true,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_003801.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003497.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "test",
+          "original_split": "test"
+        }
+      ]
+    },
+    {
+      "sha256": "484d4ef9e4691fd3cd10a4e0c77f85029f4d54fa0281389977b13859a0718ff8",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002070.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003559.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "8e06e004391a8c689395af08765b58d8020f750d63c59e3b5a03e065a5e947af",
+      "count": 2,
+      "assignment_splits": [
+        "test",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": true,
+      "files": [
+        {
+          "filename": "jam_Narrowband_Jam_000125.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "test",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003578.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "71dc487d70e6239aa7eb5199a1073fc0effc0e0f3faf653677f71d67aeea891b",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002331.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003585.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "test"
+        }
+      ]
+    },
+    {
+      "sha256": "3f6841f4519ec566979a4907b976515f3317eb2e0970728e3b3a9cb9d3793051",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002239.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003675.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "79e205dd036290325ef570dc2eb227a281958f1449c00c3f60877dadf84ba32f",
+      "count": 2,
+      "assignment_splits": [
+        "production"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_000287.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003685.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "val"
+        }
+      ]
+    },
+    {
+      "sha256": "20170aef6662cb981d7a87d2e80d52234873d1a346e9db3af54317ae606244e7",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001680.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003690.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "058967b43de0697b2c489215c117d46e27350334d7b845a9a5aca603c15a4f97",
+      "count": 2,
+      "assignment_splits": [
+        "test",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": true,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_000459.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "test",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003810.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "val"
+        }
+      ]
+    },
+    {
+      "sha256": "8694ed72b1ce1334089a36b4b35c26f29e277d93a960ca33b9f601b36cf73860",
+      "count": 2,
+      "assignment_splits": [
+        "test",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": true,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002101.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "test",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003817.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "9c7c1a3670d5cd98e36a23c1e23b285f3016fb449da539e31a1f394c4557e533",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_003628.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "val"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003837.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "a2a8190b31943123459101c50571c87752570a738887481410fb46ea5f9f922e",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "jam_Narrowband_Jam_000121.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003845.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "9719a1be0648eb87dba87f0b62d47f000bd8d48207181186f829443fea85c20e",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_003054.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003863.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "928daa170115f9dc514136933841ff89e6b8d3fcbe742bbfcc57e6a8576415b0",
+      "count": 2,
+      "assignment_splits": [
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002197.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "test"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003881.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "c83ede69554922f7ba950eb583ff964ffb68c5f3658049c2bb5f37711d787b80",
+      "count": 2,
+      "assignment_splits": [
+        "production"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_003604.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003898.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "4605eebb4a54f5df47b859e35cf8a66f4d11df4ffca199ef6e368a835ae52279",
+      "count": 2,
+      "assignment_splits": [
+        "test",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": true,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002915.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "test",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003901.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "test"
+        }
+      ]
+    },
+    {
+      "sha256": "c887ba53f305852486982aadf5c172e804bc65ed77c60c85e4d30e5a77ebbb03",
+      "count": 2,
+      "assignment_splits": [
+        "test",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": true,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002261.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "test",
+          "original_split": "val"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003906.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "85b7a130540c38111569af436acd386cbcee8e33af682d9eeb49966908b3a2a8",
+      "count": 2,
+      "assignment_splits": [
+        "test",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": true,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001566.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "test",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003908.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "6ea352948ce4634b61a892a47e0d583eb998ece28d2b96a4d7b53af33741243d",
+      "count": 2,
+      "assignment_splits": [
+        "production"
+      ],
+      "class_labels": [
+        "Benign",
+        "Machine"
+      ],
+      "same_class": false,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "dronerf_020268.png",
+          "class_label": "Machine",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "dronerf_070976.png",
+          "class_label": "Benign",
+          "assignment_split": "production",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "b95cee03477386531c1c890913db9872c54f978252268bffba9739d9afaef931",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Benign",
+        "Machine"
+      ],
+      "same_class": false,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "dronerf_066056.png",
+          "class_label": "Benign",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "dronerf_040155.png",
+          "class_label": "Machine",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "36239ac778ea3d7b7fc05f0185aee204df68aa14ff24ce4a16f9444044cf2594",
+      "count": 2,
+      "assignment_splits": [
+        "train"
+      ],
+      "class_labels": [
+        "Benign"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "dronerf_048769.png",
+          "class_label": "Benign",
+          "assignment_split": "train",
+          "original_split": "train"
+        },
+        {
+          "filename": "dronerf_059488.png",
+          "class_label": "Benign",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "955441b3c25c18c1846d72893d5387e752ddc8069a9084b5f0dcf02e0dbb2140",
+      "count": 2,
+      "assignment_splits": [
+        "production"
+      ],
+      "class_labels": [
+        "Benign"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "dronerf_050439.png",
+          "class_label": "Benign",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "dronerf_068070.png",
+          "class_label": "Benign",
+          "assignment_split": "production",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "aa947ae912f61d4cd5e376a52afd1e38644078313da6cb35842dc80060696813",
+      "count": 2,
+      "assignment_splits": [
+        "train"
+      ],
+      "class_labels": [
+        "Benign",
+        "Machine"
+      ],
+      "same_class": false,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "dronerf_016234.png",
+          "class_label": "Machine",
+          "assignment_split": "train",
+          "original_split": "val"
+        },
+        {
+          "filename": "dronerf_057141.png",
+          "class_label": "Benign",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "6b66cd827c7451b16b740c5712effd364300d5dfd69bf17712ce35edfbde973d",
+      "count": 2,
+      "assignment_splits": [
+        "production"
+      ],
+      "class_labels": [
+        "Benign"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "dronerf_058634.png",
+          "class_label": "Benign",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "dronerf_063080.png",
+          "class_label": "Benign",
+          "assignment_split": "production",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "0f861d51766796eabedbb93646c460be477a090a82174d8fb9ce906a603b6cfc",
+      "count": 4,
+      "assignment_splits": [
+        "production",
+        "train",
+        "validation"
+      ],
+      "class_labels": [
+        "Benign",
+        "Machine"
+      ],
+      "same_class": false,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "dronerf_052956.png",
+          "class_label": "Benign",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "dronerf_062517.png",
+          "class_label": "Benign",
+          "assignment_split": "train",
+          "original_split": "train"
+        },
+        {
+          "filename": "dronerf_004988.png",
+          "class_label": "Machine",
+          "assignment_split": "validation",
+          "original_split": "train"
+        },
+        {
+          "filename": "dronerf_079971.png",
+          "class_label": "Machine",
+          "assignment_split": "validation",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "00c3ac48ece73950b09b3063134583d99e916e465acfffdc81081cc2f0196ddf",
+      "count": 2,
+      "assignment_splits": [
+        "production"
+      ],
+      "class_labels": [
+        "Benign",
+        "Machine"
+      ],
+      "same_class": false,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "dronerf_015243.png",
+          "class_label": "Machine",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "dronerf_067748.png",
+          "class_label": "Benign",
+          "assignment_split": "production",
+          "original_split": "val"
+        }
+      ]
+    },
+    {
+      "sha256": "4391dd59122d0319a54203c3f56852f2def47b758ba39ed01d64f5384eb4e7a6",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Benign",
+        "Machine"
+      ],
+      "same_class": false,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "dronerf_049587.png",
+          "class_label": "Benign",
+          "assignment_split": "production",
+          "original_split": "val"
+        },
+        {
+          "filename": "dronerf_078086.png",
+          "class_label": "Machine",
+          "assignment_split": "train",
+          "original_split": "test"
+        }
+      ]
+    },
+    {
+      "sha256": "3f3b62ebc6fe2b82e5dfeab4cb5f5b590f0db866dac5de46dd65dc27405a93f2",
+      "count": 2,
+      "assignment_splits": [
+        "train"
+      ],
+      "class_labels": [
+        "Benign",
+        "Machine"
+      ],
+      "same_class": false,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "dronerf_068661.png",
+          "class_label": "Benign",
+          "assignment_split": "train",
+          "original_split": "train"
+        },
+        {
+          "filename": "dronerf_080357.png",
+          "class_label": "Machine",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "acde5edd11324f1d6a230eb47d31da82df60abbb585fed3f70c9f7ffa784bce2",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Machine"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "dronerf_007331.png",
+          "class_label": "Machine",
+          "assignment_split": "production",
+          "original_split": "test"
+        },
+        {
+          "filename": "dronerf_080379.png",
+          "class_label": "Machine",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "b3792dba9464fa6edf552d7d94edd71db0d0d54488e9ece178645a885f0b8385",
+      "count": 2,
+      "assignment_splits": [
+        "production"
+      ],
+      "class_labels": [
+        "Benign",
+        "Machine"
+      ],
+      "same_class": false,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "dronerf_070303.png",
+          "class_label": "Benign",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "dronerf_088157.png",
+          "class_label": "Machine",
+          "assignment_split": "production",
+          "original_split": "test"
+        }
+      ]
+    },
+    {
+      "sha256": "0b508d48653d4488030fe31d2ceb115297e12548990ccdf32330c64446914d3d",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "test"
+      ],
+      "class_labels": [
+        "Machine"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": true,
+      "files": [
+        {
+          "filename": "dronerf_018023.png",
+          "class_label": "Machine",
+          "assignment_split": "production",
+          "original_split": "val"
+        },
+        {
+          "filename": "dronerf_090083.png",
+          "class_label": "Machine",
+          "assignment_split": "test",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "7f556b68f3ca8535be2b21b1dee39778a4a9bec2acc0b5382a0734f7c30516f7",
+      "count": 2,
+      "assignment_splits": [
+        "production"
+      ],
+      "class_labels": [
+        "Benign",
+        "Machine"
+      ],
+      "same_class": false,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "dronerf_068006.png",
+          "class_label": "Benign",
+          "assignment_split": "production",
+          "original_split": "test"
+        },
+        {
+          "filename": "dronerf_095397.png",
+          "class_label": "Machine",
+          "assignment_split": "production",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "b3570e688236f4b77a852b7c8942763d2f61f83fc232d975329a7b0cfc77abc7",
+      "count": 2,
+      "assignment_splits": [
+        "train",
+        "validation"
+      ],
+      "class_labels": [
+        "Benign",
+        "Machine"
+      ],
+      "same_class": false,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "dronerf_124240.png",
+          "class_label": "Machine",
+          "assignment_split": "train",
+          "original_split": "train"
+        },
+        {
+          "filename": "dronerf_061600.png",
+          "class_label": "Benign",
+          "assignment_split": "validation",
+          "original_split": "val"
+        }
+      ]
+    },
+    {
+      "sha256": "3984a4fe1e2b4001fe49f64b58c010a1e89f647bbbe6a12bc427b58d5db75ef4",
+      "count": 2,
+      "assignment_splits": [
+        "train"
+      ],
+      "class_labels": [
+        "Broadband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Broadband_Jam_000057.png",
+          "class_label": "Broadband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        },
+        {
+          "filename": "jam_Broadband_Jam_001426.png",
+          "class_label": "Broadband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "9ea2a372d147d4323a41aee67551493fa548e033150b51ef7a36462e5ac78fa5",
+      "count": 2,
+      "assignment_splits": [
+        "production"
+      ],
+      "class_labels": [
+        "Broadband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Broadband_Jam_001358.png",
+          "class_label": "Broadband_Jam",
+          "assignment_split": "production",
+          "original_split": "val"
+        },
+        {
+          "filename": "jam_Broadband_Jam_001443.png",
+          "class_label": "Broadband_Jam",
+          "assignment_split": "production",
+          "original_split": "val"
+        }
+      ]
+    },
+    {
+      "sha256": "98b74e7e07ab4c76e3c16d92fcafb693684ba704466de235cdba52b1c0b7b483",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Broadband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Broadband_Jam_001271.png",
+          "class_label": "Broadband_Jam",
+          "assignment_split": "production",
+          "original_split": "test"
+        },
+        {
+          "filename": "jam_Broadband_Jam_001617.png",
+          "class_label": "Broadband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "23014101df65be715cd84b2c21f879dd4e136f4fcc5f23d6cf394b97f46933d3",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Broadband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Broadband_Jam_001239.png",
+          "class_label": "Broadband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "jam_Broadband_Jam_002009.png",
+          "class_label": "Broadband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "1416f8577b27b06485a4516475549e7ed15e6c29418259fc06d87d65b0b8a316",
+      "count": 2,
+      "assignment_splits": [
+        "train"
+      ],
+      "class_labels": [
+        "Broadband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Broadband_Jam_000192.png",
+          "class_label": "Broadband_Jam",
+          "assignment_split": "train",
+          "original_split": "val"
+        },
+        {
+          "filename": "jam_Broadband_Jam_002280.png",
+          "class_label": "Broadband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "7408a07d4ab3bd36194c1a6ca8a8632aeaf5da58ab67e1ab0e5921e8a22092c7",
+      "count": 2,
+      "assignment_splits": [
+        "train"
+      ],
+      "class_labels": [
+        "Broadband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Broadband_Jam_001607.png",
+          "class_label": "Broadband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        },
+        {
+          "filename": "jam_Broadband_Jam_002464.png",
+          "class_label": "Broadband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "9687dcd2e07643ac67af1afef1103870b34195e3a3b941ded2b3fa1f1de6fc37",
+      "count": 3,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_000423.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_003217.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "jam_Narrowband_Jam_000065.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "4119ab1670bce9a662aaa9157dae156a2bf484239b146fb4d3d2eba60409a2d3",
+      "count": 2,
+      "assignment_splits": [
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_000298.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "val"
+        },
+        {
+          "filename": "jam_Narrowband_Jam_000076.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "aeab2241e568d692fdf62b0cebf3f5c55d656b4ce26d71fbfbd63c223c14fb23",
+      "count": 2,
+      "assignment_splits": [
+        "production"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001373.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "jam_Narrowband_Jam_000082.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "test"
+        }
+      ]
+    },
+    {
+      "sha256": "e24084e2c21747012a3f92ab3ef65df620169669d3a64fbe243bab62f36ff7d2",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002808.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "test"
+        },
+        {
+          "filename": "jam_Narrowband_Jam_000087.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "val"
+        }
+      ]
+    },
+    {
+      "sha256": "7ec70301c07d708e9758cc6670095db193d49dfc2abc4a4112c3a85829eff46e",
+      "count": 2,
+      "assignment_splits": [
+        "production"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001601.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "test"
+        },
+        {
+          "filename": "jam_Narrowband_Jam_000088.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "val"
+        }
+      ]
+    },
+    {
+      "sha256": "becb208360eb6d9c9010cc5e6e97ec1cc53e6887f8d5f0df9fa0ec6647eeaf6b",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_000971.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "jam_Narrowband_Jam_000099.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "val"
+        }
+      ]
+    },
+    {
+      "sha256": "6b687066a15caf727dfd83a32ea7520c947c47e3fc2f858a9816c9946ac489e1",
+      "count": 2,
+      "assignment_splits": [
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002619.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        },
+        {
+          "filename": "jam_Narrowband_Jam_000100.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "4018733d830054944b912232a5902c9c2c963049e22ba379c21cf67972164c44",
+      "count": 2,
+      "assignment_splits": [
+        "production"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_000288.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "jam_Narrowband_Jam_000101.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "b92375f48d18da580abab58d47a65ef772ba9c58ddb2cbcc81185cc90ec8c8d6",
+      "count": 2,
+      "assignment_splits": [
+        "production"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002846.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "jam_Narrowband_Jam_000103.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "488bcf0bbc14b55165c6f0928eb9f8c22aaf7605139030e0c5465f9f43be1557",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002277.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "jam_Narrowband_Jam_000109.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "74cc2ca5b195d3878fd41509699585695c88a144cb0259cf382e7161495ec19d",
+      "count": 3,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_002561.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "test"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_002700.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "test"
+        },
+        {
+          "filename": "jam_Narrowband_Jam_000110.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "2a33749468b83b19720624696dcbfe1aff8305912f4d21f3d2bcd344874f5b99",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_003668.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "jam_Narrowband_Jam_000116.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "85125b0b9f986d79b7f3eb4eeee78cf1b4adb41a9638f1dcf425252ec8d72589",
+      "count": 3,
+      "assignment_splits": [
+        "train",
+        "validation"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_000311.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        },
+        {
+          "filename": "jam_Narrowband_Jam_000118.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "train",
+          "original_split": "train"
+        },
+        {
+          "filename": "aug_Narrowband_Jam_000182.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "validation",
+          "original_split": "val"
+        }
+      ]
+    },
+    {
+      "sha256": "d110db0bb4a3f3408a533c63df886db9319f41fb37072032e8bb96ba1baca202",
+      "count": 2,
+      "assignment_splits": [
+        "production"
+      ],
+      "class_labels": [
+        "Narrowband_Jam"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "aug_Narrowband_Jam_001305.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "test"
+        },
+        {
+          "filename": "jam_Narrowband_Jam_000126.png",
+          "class_label": "Narrowband_Jam",
+          "assignment_split": "production",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "ddfce50b14d668d9268392e943f5f6d77b07f9f9845966b6c229bdb0ea2f4d62",
+      "count": 2,
+      "assignment_splits": [
+        "test",
+        "train"
+      ],
+      "class_labels": [
+        "Wildlife"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": true,
+      "files": [
+        {
+          "filename": "radar_013276.png",
+          "class_label": "Wildlife",
+          "assignment_split": "test",
+          "original_split": "test"
+        },
+        {
+          "filename": "radar_011892.png",
+          "class_label": "Wildlife",
+          "assignment_split": "train",
+          "original_split": "test"
+        }
+      ]
+    },
+    {
+      "sha256": "0d9c3d521b1c24a6eb42aa480e79da62b86de4ba5e68bf081d0e515a8a165e7e",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Wildlife"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "radar_013281.png",
+          "class_label": "Wildlife",
+          "assignment_split": "production",
+          "original_split": "test"
+        },
+        {
+          "filename": "radar_011897.png",
+          "class_label": "Wildlife",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "50a5a9c65aeb2a1f92da2f9986fcb81157bddba386a55f7fcf16b4d2c190e8b0",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Wildlife"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "radar_013284.png",
+          "class_label": "Wildlife",
+          "assignment_split": "production",
+          "original_split": "test"
+        },
+        {
+          "filename": "radar_011900.png",
+          "class_label": "Wildlife",
+          "assignment_split": "train",
+          "original_split": "test"
+        }
+      ]
+    },
+    {
+      "sha256": "09d56838762b07acd735ccb1cd9fdd2d283599f176b31e8c11d82347bff3a5a1",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "test"
+      ],
+      "class_labels": [
+        "Wildlife"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": true,
+      "files": [
+        {
+          "filename": "radar_013287.png",
+          "class_label": "Wildlife",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "radar_011903.png",
+          "class_label": "Wildlife",
+          "assignment_split": "test",
+          "original_split": "val"
+        }
+      ]
+    },
+    {
+      "sha256": "85a2db528241aa8fe896d6ee85ad5771f04d4c6644db6563bb18911488a48604",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "test"
+      ],
+      "class_labels": [
+        "Wildlife"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": true,
+      "files": [
+        {
+          "filename": "radar_013288.png",
+          "class_label": "Wildlife",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "radar_011904.png",
+          "class_label": "Wildlife",
+          "assignment_split": "test",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "f3dd3e845e2fbb65e96038f9c685c58a122ac6bee380eee76869a124f02327d5",
+      "count": 2,
+      "assignment_splits": [
+        "production"
+      ],
+      "class_labels": [
+        "Wildlife"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "radar_011905.png",
+          "class_label": "Wildlife",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "radar_013289.png",
+          "class_label": "Wildlife",
+          "assignment_split": "production",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "c7c7047be8a38b8722bf4e67a96968a81f2f7194bb386fa220d20d2b6c143424",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "test"
+      ],
+      "class_labels": [
+        "Wildlife"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": true,
+      "files": [
+        {
+          "filename": "radar_013292.png",
+          "class_label": "Wildlife",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "radar_011908.png",
+          "class_label": "Wildlife",
+          "assignment_split": "test",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "4330459456989f063db6bfc63c419781dbc838361ffec38858bfa94bde129da6",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "test"
+      ],
+      "class_labels": [
+        "Wildlife"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": true,
+      "files": [
+        {
+          "filename": "radar_013295.png",
+          "class_label": "Wildlife",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "radar_011911.png",
+          "class_label": "Wildlife",
+          "assignment_split": "test",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "dd55edab15356b7c50f7aebd9c2e4e2faf8a87e9992be37b5b1e96ab8d608aff",
+      "count": 2,
+      "assignment_splits": [
+        "train"
+      ],
+      "class_labels": [
+        "Wildlife"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "radar_011912.png",
+          "class_label": "Wildlife",
+          "assignment_split": "train",
+          "original_split": "train"
+        },
+        {
+          "filename": "radar_013296.png",
+          "class_label": "Wildlife",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "467b539568f6d7f7af4b01902708ecd7f0d27b95723eb740597e38fe31645b4a",
+      "count": 2,
+      "assignment_splits": [
+        "production"
+      ],
+      "class_labels": [
+        "Wildlife"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "radar_011916.png",
+          "class_label": "Wildlife",
+          "assignment_split": "production",
+          "original_split": "val"
+        },
+        {
+          "filename": "radar_013300.png",
+          "class_label": "Wildlife",
+          "assignment_split": "production",
+          "original_split": "val"
+        }
+      ]
+    },
+    {
+      "sha256": "dfbe66c2007fb124dbedf164df62a5c8068774690fe7de0b90faf51ffd5fed99",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "validation"
+      ],
+      "class_labels": [
+        "Wildlife"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "radar_013304.png",
+          "class_label": "Wildlife",
+          "assignment_split": "production",
+          "original_split": "val"
+        },
+        {
+          "filename": "radar_011920.png",
+          "class_label": "Wildlife",
+          "assignment_split": "validation",
+          "original_split": "test"
+        }
+      ]
+    },
+    {
+      "sha256": "fe733bfa3e376a2373555002fa1d087d95d6d8a0b0e624b17f215d4d2e41b9ac",
+      "count": 2,
+      "assignment_splits": [
+        "train"
+      ],
+      "class_labels": [
+        "Wildlife"
+      ],
+      "same_class": true,
+      "crosses_splits": false,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "radar_011891.png",
+          "class_label": "Wildlife",
+          "assignment_split": "train",
+          "original_split": "train"
+        },
+        {
+          "filename": "radar_013275.png",
+          "class_label": "Wildlife",
+          "assignment_split": "train",
+          "original_split": "test"
+        }
+      ]
+    },
+    {
+      "sha256": "91c000f7404aa33c19e4e5f881dfb3f0c6c224107e796893bf424b3fb224ab05",
+      "count": 2,
+      "assignment_splits": [
+        "test",
+        "train"
+      ],
+      "class_labels": [
+        "Wildlife"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": true,
+      "files": [
+        {
+          "filename": "radar_011894.png",
+          "class_label": "Wildlife",
+          "assignment_split": "test",
+          "original_split": "train"
+        },
+        {
+          "filename": "radar_013278.png",
+          "class_label": "Wildlife",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "275af578ac217479b7cf385699d2719560229465b4e4da421a9c317a39b5b1f1",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Wildlife"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "radar_011901.png",
+          "class_label": "Wildlife",
+          "assignment_split": "production",
+          "original_split": "test"
+        },
+        {
+          "filename": "radar_013285.png",
+          "class_label": "Wildlife",
+          "assignment_split": "train",
+          "original_split": "val"
+        }
+      ]
+    },
+    {
+      "sha256": "f9c5388193d0020c5f53a8d3f8739f6283b82c3312a2a78bb029c8d07a4f1735",
+      "count": 2,
+      "assignment_splits": [
+        "test",
+        "train"
+      ],
+      "class_labels": [
+        "Wildlife"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": true,
+      "files": [
+        {
+          "filename": "radar_011902.png",
+          "class_label": "Wildlife",
+          "assignment_split": "test",
+          "original_split": "train"
+        },
+        {
+          "filename": "radar_013286.png",
+          "class_label": "Wildlife",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "f0942ce358e41b99ec12f1e4e39b3d0ebb3b4ead60c202efb6bc9bedd1f524bd",
+      "count": 2,
+      "assignment_splits": [
+        "test",
+        "train"
+      ],
+      "class_labels": [
+        "Wildlife"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": true,
+      "files": [
+        {
+          "filename": "radar_011906.png",
+          "class_label": "Wildlife",
+          "assignment_split": "test",
+          "original_split": "train"
+        },
+        {
+          "filename": "radar_013290.png",
+          "class_label": "Wildlife",
+          "assignment_split": "train",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "73d5720828c88b5265653e22ea721c9f5a9d833020ce053c96beb884f9bec98d",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "train"
+      ],
+      "class_labels": [
+        "Wildlife"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "radar_011907.png",
+          "class_label": "Wildlife",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "radar_013291.png",
+          "class_label": "Wildlife",
+          "assignment_split": "train",
+          "original_split": "test"
+        }
+      ]
+    },
+    {
+      "sha256": "623b4e325f8c44d884542c42aca08232d8b96709083419e46ba074546adca8f3",
+      "count": 2,
+      "assignment_splits": [
+        "production",
+        "test"
+      ],
+      "class_labels": [
+        "Wildlife"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": true,
+      "files": [
+        {
+          "filename": "radar_011918.png",
+          "class_label": "Wildlife",
+          "assignment_split": "production",
+          "original_split": "train"
+        },
+        {
+          "filename": "radar_013302.png",
+          "class_label": "Wildlife",
+          "assignment_split": "test",
+          "original_split": "train"
+        }
+      ]
+    },
+    {
+      "sha256": "094a100ee3dadc8b3131d01a0d0a6133dee43106f123660abaace087808470a5",
+      "count": 2,
+      "assignment_splits": [
+        "train",
+        "validation"
+      ],
+      "class_labels": [
+        "Wildlife"
+      ],
+      "same_class": true,
+      "crosses_splits": true,
+      "includes_test": false,
+      "files": [
+        {
+          "filename": "radar_013307.png",
+          "class_label": "Wildlife",
+          "assignment_split": "train",
+          "original_split": "train"
+        },
+        {
+          "filename": "radar_011923.png",
+          "class_label": "Wildlife",
+          "assignment_split": "validation",
+          "original_split": "train"
+        }
+      ]
+    }
+  ],
+  "test_split_use": [
+    {
+      "where": "Section 6 exploratory sweep",
+      "used_to_choose": false,
+      "this_colab_run_executed_it": false,
+      "note": "The notebook still shows the earlier test scores for weights 1.25 through 1.50. That cell was not run in the Colab session that selected weight 1.50."
+    },
+    {
+      "where": "Section 4 and section 5 saved output",
+      "used_to_choose": false,
+      "this_colab_run_executed_it": false,
+      "note": "Those cells were not run in this session. Their saved output includes an earlier test score of the weight-1.0 v5."
+    },
+    {
+      "where": "Section 7 selected model",
+      "used_to_choose": false,
+      "this_colab_run_executed_it": true,
+      "note": "The test set was scored once, after the weight and threshold were chosen on validation. The chosen pair is weight 1.50, threshold 0.45, seed 42."
+    },
+    {
+      "where": "Section 10 export",
+      "used_to_choose": false,
+      "this_colab_run_executed_it": true,
+      "note": "The test images were read again to write rf-test-outputs.csv for that same selected model. No other weight was scored."
+    }
+  ],
+  "known_gap": "The metadata has no recording or session id. This check finds exact byte copies only. Images from one recording that are not byte-identical can still sit in different splits."
+}
