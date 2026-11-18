@@ -36,7 +36,7 @@ The screen rule, applied on validation only:
 5. If no pair reaches the target, choose the highest validation Machine recall and report that the target was not met.
 6. Score the test set once with the chosen pair. Report Machine recall, Benign→Machine and Machine→Benign counts, the confusion matrix, macro F1, and expected calibration error before and after calibration.
 
-That test scoring has not been run yet. The comparison below is the earlier exploratory sweep.
+That one test score is saved in `results/rf-intrusion/rf_v5_test_metrics.json`, and the confusion matrix is `results/rf-intrusion/rf_v5_test_confusion_matrix.png`. The 2,400 held-out rows are `data/model-outputs/rf-cnn-test-outputs.csv`. The comparison below is the earlier exploratory sweep.
 
 ## Held-out test comparison
 
@@ -57,6 +57,4 @@ The loss-weight sweep exposes a trade-off. Higher Machine recall reduces Machine
 
 ## Reproducibility and handoff status
 
-The notebook is committed, but its saved model, metrics JSON, sweep CSV, and per-image test predictions were written to a temporary Colab artifact directory and are not committed in this repository. Therefore no RF output CSV has been added to `data/model-outputs/` and RF data must not replace a simulated replay placeholder yet.
-
-To complete the handoff without retraining, obtain Mostafa's existing downloaded artifact or saved per-image test predictions. Export one row per held-out test image using the shared schema in `data/model-output-handoff-template.csv`, including the exact model version, predicted class, raw score, dataset ID, and stable source reference. The replay must remain explicitly simulated and require human review.
+The selected test predictions are `data/model-outputs/rf-cnn-test-outputs.csv`. Accuracy, macro F1, per-class recall, Machine precision and recall, the Benign→Machine and Machine→Benign counts, the confusion matrix, and the expected calibration error before and after calibration are computed from that file plus the assignment-split metadata and saved in `results/rf-intrusion/rf_v5_test_metrics.json`. The `.keras` checkpoint stays outside git. Replay remains simulated and still requires human review.
