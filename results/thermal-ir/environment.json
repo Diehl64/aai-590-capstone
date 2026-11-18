@@ -19,7 +19,7 @@
     "mcos-decoder": "0.1.0"
   },
   "training": {
-    "notebook": "notebooks/02_thermal_ir_pipeline.ipynb",
+    "notebook": "notebooks/02_thermal_data_preparation_and_baseline.ipynb",
     "model": "yolo26n.pt",
     "batch": 32,
     "image_size": 640,
