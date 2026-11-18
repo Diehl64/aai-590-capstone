@@ -7,3 +7,12 @@ torchaudio==2.11.0+cu128
 
 # Install the CUDA wheels with the PyTorch index:
 # python -m pip install -r requirements-training.txt --index-url https://download.pytorch.org/whl/cu128
+
+# RF notebook (notebooks/rf_machine_detection.ipynb).
+# Colab with an A100, TensorFlow 2.21.0, seed 42, 128 x 128 images, batch size 32.
+# python -m pip install "tensorflow==2.21.0" kagglehub pandas scikit-learn matplotlib
+tensorflow==2.21.0
+kagglehub
+pandas
+scikit-learn
+matplotlib
