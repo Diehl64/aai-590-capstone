@@ -10,8 +10,8 @@ This matrix controls the claims used in the capstone report and presentation. It
 | Thermal evaluation | The Dataset 2-only baseline reports 97.44% drone-present recall and 0.66% bird false-positive rate at its validation-selected threshold. | Committed baseline evidence and held-out handoff. | `docs/thermal-baseline-evidence.md` and thermal output CSV |
 | Thermal replay handoff | The repository includes 2,631 held-out thermal test decisions. | Committed and validated. | `data/model-outputs/thermal-dataset2-batch32-test-outputs.csv` |
 | Thermal Dataset 1 | Dataset 1 EDA may inform future work but is not part of the reported baseline without confirmed access, reuse, and evaluation controls. | Active branch work; not final. | `thermal-ir-pipeline` branch and Group 1 review |
-| RF evaluation | RF v4 versus v5 evaluation evidence is documented. | Documentation committed; final output handoff pending. | `docs/rf-v4-v5-evidence.md` |
-| RF replay handoff | A held-out RF prediction CSV, exact checkpoint, validation-selected threshold, calibration status, and class semantics are required. | Not yet available. | Group 1 handoff requirement |
+| RF evaluation | v5 is the first-stage screen at weight 1.50, Machine threshold 0.45, and seed 42. v4 remains the stand-alone reference. | Committed. | `docs/rf-v4-v5-evidence.md` and `data/model-outputs/rf-cnn-test-outputs.csv` |
+| RF replay handoff | The repository includes 2,400 held-out RF test outputs. The validation-selected threshold, temperature, calibration status, and class semantics are recorded. The `.keras` checkpoint stays outside git. | Committed and validated. | `data/model-outputs/rf-cnn-test-outputs.csv` and `docs/rf-v4-v5-evidence.md` |
 | Acoustic evaluation | Acoustic results must be reported from reproducible committed artifacts and must state source/site-generalization limitations. | Baseline and uploaded held-out CSVs available; final operating-point confirmation pending. | `docs/acoustic-model-evidence.md` |
 | Acoustic replay handoff | Two validated 57,015-row acoustic test-output CSVs exist as separate operating points. The team must identify the validation-selected operating point. | Ready for integration after patch review and team confirmation. | `acoustic-test-outputs.csv` and `acoustic-test-outputs-0.6.csv` |
 | Simulated replay | Replay tests software behavior for agreement, conflict, missing, delayed, and low-quality evidence under human review. | Committed foundation; expanded integration remains active. | `docs/local-replay.md` and replay code |
@@ -29,8 +29,7 @@ This matrix controls the claims used in the capstone report and presentation. It
 
 ## Evidence still needed before final submission
 
-1. RF held-out output CSV, selected checkpoint, threshold, calibration status, and class semantics.
-2. Acoustic selected operating point, optimized-model comparison, controlled-noise results, metrics, and provenance.
-3. Thermal focused review of environment, data-access/license record, Dataset 2 error analysis, and Dataset 1 scope decision.
-4. Clean coordination-agent PR, validation-based thresholds, and fixed-rule comparison.
-5. Final cross-model integrity review and report/presentation sources.
+1. Acoustic selected operating point, optimized-model comparison, controlled-noise results, metrics, and provenance.
+2. Thermal focused review of environment, data-access/license record, Dataset 2 error analysis, and Dataset 1 scope decision.
+3. Clean coordination-agent PR, validation-based thresholds, and fixed-rule comparison.
+4. Final cross-model integrity review and report/presentation sources.
