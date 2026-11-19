@@ -72,16 +72,23 @@ class RealOutputReplayTests(unittest.TestCase):
             self.row(output_id="acoustic-quiet", sensor_type="acoustic", predicted_label="no_drone", source_observation_id="dads-row-2-start-0"),
             self.row(output_id="acoustic-quiet-later", sensor_type="acoustic", predicted_label="no_drone", source_observation_id="dads-row-2-start-16000"),
         ])
-        return radar, thermal, acoustic
+        rf = self.write_csv("rf.csv", [
+            self.row(output_id=replay.RF_MACHINE_FALSE_ALARM_OUTPUT_ID, sensor_type="rf", predicted_label="Machine", source_observation_id="false-alarm.png", score="0.50"),
+            self.row(output_id=replay.CLEAN_RF_OUTPUT_IDS["Machine"], sensor_type="rf", predicted_label="Machine", source_observation_id="machine.png", score="0.80"),
+            self.row(output_id=replay.CLEAN_RF_OUTPUT_IDS["Benign"], sensor_type="rf", predicted_label="Benign", source_observation_id="benign.png", score="0.70"),
+            self.row(output_id=replay.CLEAN_RF_OUTPUT_IDS["Broadband_Jam"], sensor_type="rf", predicted_label="Broadband_Jam", source_observation_id="jam.png", score="0.99"),
+        ])
+        return radar, thermal, acoustic, rf
 
     def run_replay(self):
-        radar, thermal, acoustic = self.fixture_csvs()
+        radar, thermal, acoustic, rf = self.fixture_csvs()
         output = self.root / "replay.json"
         argv = [
             "run_real_output_replay.py",
             "--radar", str(radar),
             "--thermal", str(thermal),
             "--acoustic", str(acoustic),
+            "--rf", str(rf),
             "--output", str(output),
         ]
         with patch("sys.argv", argv), redirect_stdout(io.StringIO()):
@@ -101,12 +108,23 @@ class RealOutputReplayTests(unittest.TestCase):
                 self.assertEqual(evidence["rf"]["status"], "missing")
                 self.assertIsNone(evidence["rf"]["prediction"])
         by_id = {item["record"]["event_id"]: item for item in result["scenarios"]}
-        agreed = {row["sensor_type"]: row for row in by_id["sim-real-017"]["record"]["evidence"]}
-        self.assertEqual(agreed["rf"]["status"], "available")
-        self.assertEqual(agreed["rf"]["prediction"], "Machine")
-        false_alarm = {row["sensor_type"]: row for row in by_id["sim-real-018"]["record"]["evidence"]}
-        self.assertEqual(false_alarm["rf"]["prediction"], "Machine")
-        self.assertEqual(false_alarm["radar"]["prediction"], "human")
+        expected = {
+            "sim-real-017": ("available", "Machine"),
+            "sim-real-018": ("available", "Machine"),
+            "sim-real-019": ("available", "Benign"),
+            "sim-real-020": ("available", "Machine"),
+            "sim-real-021": ("available", "Broadband_Jam"),
+            "sim-real-022": ("delayed", "Machine"),
+            "sim-real-023": ("low_quality", "Machine"),
+        }
+        for event_id, (status, label) in expected.items():
+            evidence = {row["sensor_type"]: row for row in by_id[event_id]["record"]["evidence"]}
+            self.assertEqual(evidence["rf"]["status"], status)
+            self.assertEqual(evidence["rf"]["prediction"], label)
+        only_rf = {row["sensor_type"]: row for row in by_id["sim-real-020"]["record"]["evidence"]}
+        self.assertEqual(only_rf["radar"]["status"], "missing")
+        self.assertEqual(only_rf["thermal"]["status"], "missing")
+        self.assertEqual(only_rf["acoustic"]["status"], "missing")
 
     def test_every_scenario_is_simulated_and_requires_review(self):
         result = self.run_replay()
@@ -114,6 +132,13 @@ class RealOutputReplayTests(unittest.TestCase):
         for item in result["scenarios"]:
             self.assertTrue(item["record"]["simulated"])
             self.assertTrue(item["record"]["review_required"])
+
+    def test_rf_csv_with_non_test_split_is_rejected(self):
+        path = self.write_csv("rf-train.csv", [
+            self.row(output_id="rf-train", sensor_type="rf", predicted_label="Machine", split="train"),
+        ])
+        with self.assertRaisesRegex(ValueError, "held-out test"):
+            replay.load_rows(path)
 
     def test_non_test_split_is_rejected(self):
         path = self.write_csv("train-split.csv", [self.row(split="train")])
