@@ -17,6 +17,7 @@ This matrix controls the claims used in the capstone report and presentation. It
 | Simulated replay | Replay tests software behavior for agreement, conflict, missing, delayed, and low-quality evidence under human review. | Committed foundation; expanded integration remains active. | `docs/local-replay.md` and replay code |
 | Sensor fusion | Source datasets are not synchronized. The replay does not measure real-world sensor fusion or combined detection accuracy. | Required project boundary. | Scope, replay, and limitations documentation |
 | Human review | Every simulated alert requires human/operator review. | Required project boundary. | Replay and ethics documentation |
+| Coordination agent | The interface maps each sensor label to a shared hypothesis, applies fixed status rules, and recommends the next sensor. Alerts are simulated, require review, and include no fused probability. The RF (0.45), acoustic (0.344), and thermal (0.25) floors come from validation. The radar floor (0.60) is a placeholder because RadarCNN has no validation score threshold. | Interface and validation-based floors committed. Fixed-rule comparison still open. | `docs/agent-coordination.md` |
 
 ## Claims that must not be made
 
@@ -32,5 +33,5 @@ This matrix controls the claims used in the capstone report and presentation. It
 1. RF held-out output CSV, selected checkpoint, threshold, calibration status, and class semantics.
 2. Acoustic selected operating point, optimized-model comparison, controlled-noise results, metrics, and provenance.
 3. Thermal focused review of environment, data-access/license record, Dataset 2 error analysis, and Dataset 1 scope decision.
-4. Clean coordination-agent PR, validation-based thresholds, and fixed-rule comparison.
+4. Fixed-rule comparison of the coordination agent against the fixed status rules. The interface and the RF, acoustic, and thermal validation floors are committed in `docs/agent-coordination.md`. The radar floor remains the placeholder 0.60.
 5. Final cross-model integrity review and report/presentation sources.
