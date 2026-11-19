@@ -44,6 +44,13 @@ class LabelMappingTests(unittest.TestCase):
     def test_acoustic_drone_at_0_40_stays_drone_like(self):
         self.assertEqual(obs(SensorType.ACOUSTIC, "drone", .40).hypothesis(), Hypothesis.DRONE_LIKE)
 
+    def test_thermal_no_drone_at_zero_stays_not_drone(self):
+        self.assertEqual(obs(SensorType.THERMAL, "no_drone", 0.0).hypothesis(), Hypothesis.NOT_DRONE)
+
+    def test_thermal_drone_above_validation_threshold_stays_drone_like(self):
+        self.assertEqual(obs(SensorType.THERMAL, "drone", .30).hypothesis(), Hypothesis.DRONE_LIKE)
+        self.assertEqual(obs(SensorType.THERMAL, "drone", .20).hypothesis(), Hypothesis.UNCERTAIN)
+
     def test_invalid_scores_are_rejected(self):
         for bad in (float("nan"), float("inf"), -0.1, 1.5, 7.0):
             with self.subTest(score=bad), self.assertRaisesRegex(ValueError, "score must"):

@@ -53,19 +53,18 @@ RF Machine is a cue for machine-generated RF activity, not a confirmed drone. A 
 
 ## Score floors
 
-A `drone_like` or `not_drone` hypothesis becomes `uncertain` when its score is below the sensor's floor. A score exactly at the floor counts. Floors must come from validation outputs, never from test.
+A `drone_like` or `not_drone` hypothesis becomes `uncertain` when its score is below the sensor's floor. A score exactly at the floor counts. Floors must come from validation outputs, never from test. Thermal is the exception: its score is the maximum detection confidence, so a `not_drone` call stays `not_drone` even when the score is below the floor. The floor still applies to a thermal `drone` call.
 
 | Sensor | Floor | Source | What `score` means | Effect on the held-out CSV |
 | --- | --- | --- | --- | --- |
 | RF | 0.45 | Machine threshold chosen on validation (`results/rf-intrusion/run_config.json`) | calibrated probability of the predicted class | 4 of 2,400 rows `uncertain` (1 Benign, 1 Human, 2 Wildlife); all 648 Machine calls stay `drone_like` |
 | Acoustic | 0.344 | CNN-Tuned 1% false-alarm threshold on clean validation (`docs/acoustic-model-evidence.md`) | probability of the predicted class | no held-out row `uncertain` |
 | Radar | 0.60 | placeholder | top raw softmax score | 419 of 11,050 rows `uncertain` |
-| Thermal | 0.60 | placeholder | YOLO's highest detection confidence | 2,553 of 2,631 rows `uncertain` |
+| Thermal | 0.25 | validation-selected decision threshold (`docs/thermal-baseline-evidence.md`) | YOLO's highest detection confidence, not the probability of the predicted class | 796 no_drone calls stay `not_drone`; 1,835 drone calls stay `drone_like` |
 
 The effects were checked on 2026-11-19 with `observation_from_handoff()` on the committed held-out CSVs. They show what the current floors do; they were not used to choose any floor.
 
-**Known issues, to be fixed in a follow-up:**
-- **Thermal:** the score is the highest detection confidence, not the confidence of the predicted label. A no-drone image scores near 0 because nothing was detected, so any floor turns a confident "no drone" into `uncertain`. The floor should apply only to drone calls, at the 0.25 validation threshold (`docs/thermal-baseline-evidence.md`).
+**Known issue, to be fixed in a follow-up:**
 - **Radar:** the model decides by argmax with no threshold. The floor should come from radar validation outputs, or stay a documented placeholder.
 
 ## Status rules
@@ -98,7 +97,7 @@ Every alert carries `simulated: true`, `review_required: true`, an empty `operat
 ## Limitations
 
 - The RF, radar, thermal, and acoustic datasets are not synchronized. Alerts built from them are simulated and do not measure detection performance.
-- The RF and acoustic floors come from validation. Radar and thermal are still placeholders, with the issues listed above.
+- The RF, acoustic, and thermal floors come from validation. The radar floor is still a placeholder, as noted above.
 - Radar and thermal scores are not calibrated, so a radar 0.9 and a thermal 0.9 do not mean the same thing.
 - The status rules are fixed rules proposed for team review. They do not weigh one sensor above another.
 - The agent run over the replay scenarios and the comparison of the fixed rules with the agent's cascade will be added after the RF and acoustic replay PRs merge.
