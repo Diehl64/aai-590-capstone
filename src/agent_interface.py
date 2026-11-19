@@ -79,15 +79,17 @@ LABEL_MAP: dict[SensorType, dict[str, Hypothesis]] = {
     },
 }
 
-# A score below a modality's floor maps to UNCERTAIN. Radar, thermal, and
-# acoustic floors are development placeholders: final values must be chosen
-# from validation outputs, never test. The RF floor is machine_threshold from
-# the validation screen in results/rf-intrusion/run_config.json.
+# A score below a modality's floor maps to UNCERTAIN. Radar and thermal floors
+# are development placeholders: final values must be chosen from validation
+# outputs, never test. The RF floor is machine_threshold from the validation
+# screen in results/rf-intrusion/run_config.json. The acoustic floor is the
+# CNN-Tuned 1% false-alarm threshold on clean validation
+# (docs/acoustic-model-evidence.md).
 DEFAULT_SCORE_FLOOR: dict[SensorType, float] = {
     SensorType.RF: 0.45,
     SensorType.RADAR: 0.60,
     SensorType.THERMAL: 0.60,
-    SensorType.ACOUSTIC: 0.60,
+    SensorType.ACOUSTIC: 0.344,
 }
 
 # Only held-out test predictions may enter replay scenarios (matches the RF notebook's handoff check).
