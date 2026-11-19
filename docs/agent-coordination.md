@@ -66,14 +66,14 @@ These counts were recomputed on 2026-11-19 with `observation_from_handoff()` and
 
 ## Status rules
 
-`decide_status()` applies these rules in order to the usable observations of the expected sensors. The first rule that matches decides.
+`decide_status()` applies these rules in order. The first rule that matches decides. Only expected sensors are considered. An expected sensor with no observation counts as missing. Only a usable observation that has a prediction votes, and `other` and `uncertain` never count for or against a drone.
 
-1. **Conflicting:** at least one sensor says `drone_like` and at least one says `not_drone`. This holds even when one side has a majority.
-2. **Confirmed:** at least two sensors share the same definitive hypothesis (`drone_like` or `not_drone`).
-3. **Unverified:** an expected sensor is missing, delayed, or low quality.
-4. **Unknown:** everything else, for example a single supporting sensor with no gaps, or only `other` and `uncertain` votes.
+1. **Conflicting:** at least one vote is `drone_like` and at least one is `not_drone`. This holds even when one side has a majority, and even when another expected sensor is missing, delayed, or low quality. `leading_hypothesis` is empty.
+2. **Confirmed:** at least two sensors share the same definitive hypothesis (`drone_like` or `not_drone`). That shared hypothesis is `leading_hypothesis`. This also holds when another expected sensor is missing, delayed, or low quality.
+3. **Unverified:** an expected sensor is missing, delayed, or low quality. `leading_hypothesis` is the definitive hypothesis that has any support, or empty when none does.
+4. **Unknown:** no gaps remain, and the votes neither conflict nor confirm. That is one supporting sensor, or only `other` and `uncertain` votes, or usable records with no prediction. `leading_hypothesis` is that one definitive hypothesis, or empty when there is none. `reasons` then ends with `single_modality_support` or `no_definitive_evidence`.
 
-`other` and `uncertain` never count as votes for or against a drone. The alert's `leading_hypothesis` is the definitive hypothesis that has support, and is empty for conflicting events. `reasons` lists the votes by hypothesis (for example `drone_like:radar,rf`) and each gap (for example `thermal_missing`).
+`reasons` lists each hypothesis that received votes, with its sensors (for example `drone_like:radar,rf`), then each gap as `{sensor}_{state}` (for example `thermal_missing`, `acoustic_delayed`).
 
 The radar-only replay statuses map onto these: confirmed → confirmed, conflicting → conflicting, and pending, timeout, or unavailable → unverified (`VERIFICATION_TO_ALERT`).
 
