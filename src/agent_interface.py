@@ -79,17 +79,30 @@ LABEL_MAP: dict[SensorType, dict[str, Hypothesis]] = {
     },
 }
 
-# A score below a modality's floor maps to UNCERTAIN. Radar and thermal floors
-# are development placeholders: final values must be chosen from validation
+# A score below a modality's floor maps to UNCERTAIN. The radar floor is a
+# development placeholder: its final value must be chosen from validation
 # outputs, never test. The RF floor is machine_threshold from the validation
 # screen in results/rf-intrusion/run_config.json. The acoustic floor is the
 # CNN-Tuned 1% false-alarm threshold on clean validation
-# (docs/acoustic-model-evidence.md).
+# (docs/acoustic-model-evidence.md). The thermal floor is the validation-selected
+# decision threshold in docs/thermal-baseline-evidence.md. Thermal score is the
+# maximum detection confidence, not the probability of the predicted class, so
+# SCORE_IS_PREDICTED_CLASS keeps a thermal not_drone call below the floor.
 DEFAULT_SCORE_FLOOR: dict[SensorType, float] = {
     SensorType.RF: 0.45,
     SensorType.RADAR: 0.60,
-    SensorType.THERMAL: 0.60,
+    SensorType.THERMAL: 0.25,
     SensorType.ACOUSTIC: 0.344,
+}
+
+# True when score is the probability of the predicted class. Thermal score is
+# the maximum detection confidence, so a no_drone image is near zero because
+# nothing was detected. The floor then applies only to drone_like.
+SCORE_IS_PREDICTED_CLASS: dict[SensorType, bool] = {
+    SensorType.RF: True,
+    SensorType.RADAR: True,
+    SensorType.ACOUSTIC: True,
+    SensorType.THERMAL: False,
 }
 
 # Only held-out test predictions may enter replay scenarios (matches the RF notebook's handoff check).
@@ -166,7 +179,11 @@ class AgentObservation:
             return None
         mapped = map_label(self.sensor, self.evidence.prediction)
         score = self.evidence.score
-        if mapped in DEFINITIVE and score is not None and score < score_floor.get(self.sensor, 0.0):
+        floor = score_floor.get(self.sensor, 0.0)
+        below_floor = score is not None and score < floor
+        if below_floor and mapped == Hypothesis.DRONE_LIKE:
+            return Hypothesis.UNCERTAIN
+        if below_floor and mapped == Hypothesis.NOT_DRONE and SCORE_IS_PREDICTED_CLASS.get(self.sensor, True):
             return Hypothesis.UNCERTAIN
         return mapped
 
