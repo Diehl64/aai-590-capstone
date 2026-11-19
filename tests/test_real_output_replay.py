@@ -92,11 +92,21 @@ class RealOutputReplayTests(unittest.TestCase):
         result = self.run_replay()
         self.assertEqual(result["available_sensor_types"], ["rf", "radar", "thermal", "acoustic"])
         self.assertEqual(result["missing_sensor_types"], [])
+        self.assertEqual(len(result["scenarios"]), 23)
         for item in result["scenarios"]:
             evidence = {row["sensor_type"]: row for row in item["record"]["evidence"]}
             self.assertIn("acoustic", evidence)
-            self.assertEqual(evidence["rf"]["status"], "missing")
-            self.assertIsNone(evidence["rf"]["prediction"])
+            number = int(item["record"]["event_id"].rsplit("-", 1)[-1])
+            if number <= 16:
+                self.assertEqual(evidence["rf"]["status"], "missing")
+                self.assertIsNone(evidence["rf"]["prediction"])
+        by_id = {item["record"]["event_id"]: item for item in result["scenarios"]}
+        agreed = {row["sensor_type"]: row for row in by_id["sim-real-017"]["record"]["evidence"]}
+        self.assertEqual(agreed["rf"]["status"], "available")
+        self.assertEqual(agreed["rf"]["prediction"], "Machine")
+        false_alarm = {row["sensor_type"]: row for row in by_id["sim-real-018"]["record"]["evidence"]}
+        self.assertEqual(false_alarm["rf"]["prediction"], "Machine")
+        self.assertEqual(false_alarm["radar"]["prediction"], "human")
 
     def test_every_scenario_is_simulated_and_requires_review(self):
         result = self.run_replay()

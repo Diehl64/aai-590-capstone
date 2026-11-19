@@ -164,6 +164,13 @@ def first_clean_rf(
     )
 
 
+def row_with_output_id(rows: list[dict[str, str]], output_id: str) -> dict[str, str]:
+    for row in rows:
+        if row["output_id"] == output_id:
+            return row
+    raise ValueError(f"No saved output has output_id={output_id!r}")
+
+
 def actual_evidence(
     event_id: str,
     timestamp: str,
@@ -404,6 +411,63 @@ def main() -> None:
             first_with_label(thermal, "drone"),
             acoustic_row=first_full_length(acoustic, "drone"),
             acoustic_status=EvidenceStatus.LOW_QUALITY,
+        ),
+        scenario(
+            "sim-real-017",
+            "all_four_predict_drone",
+            first_with_label(radar, "drone"),
+            first_with_label(thermal, "drone"),
+            acoustic_row=first_full_length(acoustic, "drone"),
+            rf_row=row_with_output_id(rf, CLEAN_RF_OUTPUT_IDS["Machine"]),
+        ),
+        scenario(
+            "sim-real-018",
+            "rf_machine_false_alarm_others_no_drone",
+            first_with_label(radar, "human"),
+            first_with_label(thermal, "no_drone"),
+            acoustic_row=first_full_length(acoustic, "no_drone"),
+            rf_row=row_with_output_id(rf, RF_MACHINE_FALSE_ALARM_OUTPUT_ID),
+        ),
+        scenario(
+            "sim-real-019",
+            "rf_benign_others_drone",
+            first_with_label(radar, "drone"),
+            first_with_label(thermal, "drone"),
+            acoustic_row=first_full_length(acoustic, "drone"),
+            rf_row=row_with_output_id(rf, CLEAN_RF_OUTPUT_IDS["Benign"]),
+        ),
+        scenario(
+            "sim-real-020",
+            "rf_only_sensor_available",
+            None,
+            None,
+            rf_row=row_with_output_id(rf, CLEAN_RF_OUTPUT_IDS["Machine"]),
+        ),
+        scenario(
+            "sim-real-021",
+            "rf_jamming_others_drone",
+            first_with_label(radar, "drone"),
+            first_with_label(thermal, "drone"),
+            acoustic_row=first_full_length(acoustic, "drone"),
+            rf_row=row_with_output_id(rf, CLEAN_RF_OUTPUT_IDS["Broadband_Jam"]),
+        ),
+        scenario(
+            "sim-real-022",
+            "rf_delayed",
+            first_with_label(radar, "drone"),
+            first_with_label(thermal, "drone"),
+            acoustic_row=first_full_length(acoustic, "drone"),
+            rf_row=row_with_output_id(rf, CLEAN_RF_OUTPUT_IDS["Machine"]),
+            rf_status=EvidenceStatus.DELAYED,
+        ),
+        scenario(
+            "sim-real-023",
+            "rf_low_quality",
+            first_with_label(radar, "drone"),
+            first_with_label(thermal, "drone"),
+            acoustic_row=first_full_length(acoustic, "drone"),
+            rf_row=row_with_output_id(rf, CLEAN_RF_OUTPUT_IDS["Machine"]),
+            rf_status=EvidenceStatus.LOW_QUALITY,
         ),
     ]
 
