@@ -9,6 +9,8 @@ This replay uses saved held-out outputs from the independently evaluated radar, 
 - Acoustic: `data/model-outputs/acoustic-cnn-tuned-test-outputs.csv` — 57,015 held-out CNN-Tuned outputs. The drone decision uses threshold 0.344, the 1% false-alarm point chosen on clean validation. The score is the raw probability of the predicted class.
 - RF is the only missing sensor.
 
+`first_clean_rf` in `src/run_real_output_replay.py` picks an RF row only when `--rf-manifest` (`data/rf-split-manifest.csv`) gives the same class as the predicted label, and the image is not one of the 41 test files with a byte-identical copy outside the test split. Those filenames and the chosen output ids are recorded in the runner, checked on 2026-11-18. The false-alarm exception is `rf-test-dronerf_046542.png`: predicted Machine, true class Benign. The manifest is not on this branch. Scenarios 001–016 still pass no RF row.
+
 DADS has no source or site label, so these acoustic scores do not measure generalization to a new site.
 
 ## Run

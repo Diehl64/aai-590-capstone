@@ -66,6 +66,104 @@ def first_full_length(rows: list[dict[str, str]], label: str) -> dict[str, str]:
     return first_with_label(rows, label)
 
 
+# Test images with a byte-identical copy outside the test split, from the
+# 2026-11-18 check of the assignment images. Listed here so this branch does
+# not read results/rf-intrusion.
+RF_TEST_FILENAMES_WITH_COPY_OUTSIDE_TEST = frozenset({
+    "aug_Broadband_Jam_000773.png",
+    "aug_Broadband_Jam_000862.png",
+    "aug_Narrowband_Jam_000129.png",
+    "aug_Narrowband_Jam_000360.png",
+    "aug_Narrowband_Jam_000459.png",
+    "aug_Narrowband_Jam_000462.png",
+    "aug_Narrowband_Jam_000770.png",
+    "aug_Narrowband_Jam_001317.png",
+    "aug_Narrowband_Jam_001462.png",
+    "aug_Narrowband_Jam_001497.png",
+    "aug_Narrowband_Jam_001510.png",
+    "aug_Narrowband_Jam_001566.png",
+    "aug_Narrowband_Jam_001662.png",
+    "aug_Narrowband_Jam_001678.png",
+    "aug_Narrowband_Jam_001816.png",
+    "aug_Narrowband_Jam_001959.png",
+    "aug_Narrowband_Jam_002101.png",
+    "aug_Narrowband_Jam_002127.png",
+    "aug_Narrowband_Jam_002194.png",
+    "aug_Narrowband_Jam_002233.png",
+    "aug_Narrowband_Jam_002261.png",
+    "aug_Narrowband_Jam_002915.png",
+    "aug_Narrowband_Jam_002931.png",
+    "aug_Narrowband_Jam_003366.png",
+    "aug_Narrowband_Jam_003448.png",
+    "aug_Narrowband_Jam_003497.png",
+    "aug_Narrowband_Jam_003514.png",
+    "aug_Narrowband_Jam_003795.png",
+    "aug_Narrowband_Jam_003880.png",
+    "dronerf_090083.png",
+    "jam_Broadband_Jam_001323.png",
+    "jam_Narrowband_Jam_000125.png",
+    "radar_011894.png",
+    "radar_011902.png",
+    "radar_011903.png",
+    "radar_011904.png",
+    "radar_011906.png",
+    "radar_011908.png",
+    "radar_011911.png",
+    "radar_013276.png",
+    "radar_013302.png",
+})
+
+# First held-out row, in CSV order, whose manifest class equals the predicted
+# label and whose file is not in the set above. Checked on 2026-11-18 against
+# data/rf-split-manifest.csv from the RF evidence branch.
+CLEAN_RF_OUTPUT_IDS = {
+    "Machine": "rf-test-dronerf_001714.png",
+    "Benign": "rf-test-dronerf_048199.png",
+    "Broadband_Jam": "rf-test-aug_Broadband_Jam_000004.png",
+    "Human": "rf-test-radar_003831.png",
+    "Narrowband_Jam": "rf-test-aug_Narrowband_Jam_000003.png",
+    "Wildlife": "rf-test-radar_009506.png",
+}
+# Scenario 018 is the exception: predicted Machine, true class Benign.
+RF_MACHINE_FALSE_ALARM_OUTPUT_ID = "rf-test-dronerf_046542.png"
+
+
+def load_rf_manifest(path: Path) -> dict[str, str]:
+    with path.open(newline="", encoding="utf-8") as stream:
+        return {
+            row["filename"]: row["class"]
+            for row in csv.DictReader(stream)
+            if row["split"] == "test"
+        }
+
+
+def first_clean_rf(
+    rows: list[dict[str, str]],
+    label: str,
+    manifest: dict[str, str],
+    excluded: frozenset[str] = RF_TEST_FILENAMES_WITH_COPY_OUTSIDE_TEST,
+    true_class: str | None = None,
+) -> dict[str, str]:
+    """Pick an RF row whose manifest class matches, skipping duplicate images.
+
+    `true_class` defaults to `label`. Pass a different class only for a
+    scenario that is meant to show a wrong prediction.
+    """
+    expected = label if true_class is None else true_class
+    for row in rows:
+        if row["predicted_label"] != label:
+            continue
+        filename = row["source_observation_id"]
+        if filename in excluded:
+            continue
+        if manifest.get(filename) != expected:
+            continue
+        return row
+    raise ValueError(
+        f"No RF row for predicted_label={label!r} with true class {expected!r}"
+    )
+
+
 def actual_evidence(
     event_id: str,
     timestamp: str,
@@ -163,6 +261,11 @@ def main() -> None:
         default=Path("data/model-outputs/rf-cnn-test-outputs.csv"),
     )
     parser.add_argument(
+        "--rf-manifest",
+        type=Path,
+        default=Path("data/rf-split-manifest.csv"),
+    )
+    parser.add_argument(
         "--output",
         type=Path,
         default=Path("results/real-output-replay/real-output-replay.json"),
@@ -175,6 +278,15 @@ def main() -> None:
     rf = load_rows(args.rf)
     if not rf:
         raise ValueError("RF held-out CSV has no rows")
+    if args.rf_manifest.is_file():
+        manifest = load_rf_manifest(args.rf_manifest)
+        for label, output_id in CLEAN_RF_OUTPUT_IDS.items():
+            row = first_clean_rf(rf, label, manifest)
+            if row["output_id"] != output_id:
+                raise ValueError(f"Clean RF row for {label} changed: {row['output_id']}")
+        error = first_clean_rf(rf, "Machine", manifest, true_class="Benign")
+        if error["output_id"] != RF_MACHINE_FALSE_ALARM_OUTPUT_ID:
+            raise ValueError(f"RF false-alarm row changed: {error['output_id']}")
 
     scenarios = [
         scenario(

@@ -110,6 +110,18 @@ class RealOutputReplayTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "held-out test"):
             replay.load_rows(path)
 
+    def test_rf_picker_skips_a_wrong_class_and_a_duplicate(self):
+        rows = [
+            self.row(output_id="rf-wrong", sensor_type="rf", predicted_label="Machine", source_observation_id="wrong.png"),
+            self.row(output_id="rf-copy", sensor_type="rf", predicted_label="Machine", source_observation_id="copy.png"),
+            self.row(output_id="rf-clean", sensor_type="rf", predicted_label="Machine", source_observation_id="clean.png"),
+        ]
+        manifest = {"wrong.png": "Benign", "copy.png": "Machine", "clean.png": "Machine"}
+        picked = replay.first_clean_rf(rows, "Machine", manifest, excluded=frozenset({"copy.png"}))
+        self.assertEqual(picked["output_id"], "rf-clean")
+        error = replay.first_clean_rf(rows, "Machine", manifest, excluded=frozenset(), true_class="Benign")
+        self.assertEqual(error["output_id"], "rf-wrong")
+
     def test_missing_acoustic_row_is_missing_evidence(self):
         radar = self.row(output_id="radar-drone", sensor_type="radar")
         thermal = self.row(output_id="thermal-drone", sensor_type="thermal")
