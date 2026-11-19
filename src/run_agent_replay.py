@@ -1,9 +1,9 @@
 """Run the coordination agent over simulated replay scenarios.
 
 Each scenario becomes one alert for operator review, plus a decision log that
-records the rule version and score floors. The run describes software behavior
-on simulated pairings and does not measure detection performance. See
-docs/agent-coordination.md.
+records the rule version and score floors, and a fixed-rule versus cascade
+comparison. The run describes software behavior on simulated pairings and does
+not measure detection performance. See docs/agent-coordination.md.
 """
 from __future__ import annotations
 
@@ -146,8 +146,17 @@ def main() -> None:
     observations_path = args.output_dir / "agent-observations.csv"
     alerts_path = args.output_dir / "agent-alerts.csv"
     write_agent_log(result, observations_path, alerts_path)
+    try:  # imported here so the comparison module can import this runner
+        from run_agent_comparison import write_fixed_vs_cascade
+    except ImportError:
+        from src.run_agent_comparison import write_fixed_vs_cascade
+    comparison_path, comparison_summary = write_fixed_vs_cascade(
+        args.replay, args.output_dir, args.deadline,
+    )
     print(f"wrote {len(result['scenarios'])} alerts to {path}")
     print(f"wrote decision log to {observations_path} and {alerts_path}")
+    print(f"wrote comparison to {comparison_path}")
+    print(comparison_summary)
 
 
 if __name__ == "__main__":
