@@ -59,13 +59,10 @@ A `drone_like` or `not_drone` hypothesis becomes `uncertain` when its score is b
 | --- | --- | --- | --- | --- |
 | RF | 0.45 | Machine threshold chosen on validation (`results/rf-intrusion/run_config.json`) | calibrated probability of the predicted class | 4 of 2,400 rows `uncertain` (1 Benign, 1 Human, 2 Wildlife); all 648 Machine calls stay `drone_like` |
 | Acoustic | 0.344 | CNN-Tuned 1% false-alarm threshold on clean validation (`docs/acoustic-model-evidence.md`) | probability of the predicted class | no held-out row `uncertain` |
-| Radar | 0.60 | placeholder | top raw softmax score | 419 of 11,050 rows `uncertain` |
+| Radar | 0.60 | placeholder. RadarCNN decides by argmax and has no validation score threshold (`docs/radar-model-results.md`) | top raw softmax score | 419 of 11,050 rows `uncertain` (200 drone, 121 bird, 98 human) |
 | Thermal | 0.25 | validation-selected decision threshold (`docs/thermal-baseline-evidence.md`) | YOLO's highest detection confidence, not the probability of the predicted class | 796 no_drone calls stay `not_drone`; 1,835 drone calls stay `drone_like` |
 
-The effects were checked on 2026-11-19 with `observation_from_handoff()` on the committed held-out CSVs. They show what the current floors do; they were not used to choose any floor.
-
-**Known issue, to be fixed in a follow-up:**
-- **Radar:** the model decides by argmax with no threshold. The floor should come from radar validation outputs, or stay a documented placeholder.
+The effects were checked on 2026-11-19 with `observation_from_handoff()` on the committed held-out CSVs. They show what the current floors do; they were not used to choose any floor. The radar placeholder can be replaced when a floor is chosen from radar validation outputs.
 
 ## Status rules
 
@@ -97,7 +94,7 @@ Every alert carries `simulated: true`, `review_required: true`, an empty `operat
 ## Limitations
 
 - The RF, radar, thermal, and acoustic datasets are not synchronized. Alerts built from them are simulated and do not measure detection performance.
-- The RF, acoustic, and thermal floors come from validation. The radar floor is still a placeholder, as noted above.
+- The RF, acoustic, and thermal floors come from validation. The radar floor is the placeholder 0.60, because the model has no validation score threshold.
 - Radar and thermal scores are not calibrated, so a radar 0.9 and a thermal 0.9 do not mean the same thing.
 - The status rules are fixed rules proposed for team review. They do not weigh one sensor above another.
 - The agent run over the replay scenarios and the comparison of the fixed rules with the agent's cascade will be added after the RF and acoustic replay PRs merge.

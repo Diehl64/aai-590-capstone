@@ -79,9 +79,10 @@ LABEL_MAP: dict[SensorType, dict[str, Hypothesis]] = {
     },
 }
 
-# A score below a modality's floor maps to UNCERTAIN. The radar floor is a
-# development placeholder: its final value must be chosen from validation
-# outputs, never test. The RF floor is machine_threshold from the validation
+# A score below a modality's floor maps to UNCERTAIN. The radar floor stays
+# 0.60 as a placeholder. RadarCNN decides by argmax and has no validation
+# score threshold (docs/radar-model-results.md); a floor was not chosen from
+# validation outputs. The RF floor is machine_threshold from the validation
 # screen in results/rf-intrusion/run_config.json. The acoustic floor is the
 # CNN-Tuned 1% false-alarm threshold on clean validation
 # (docs/acoustic-model-evidence.md). The thermal floor is the validation-selected
