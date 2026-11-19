@@ -114,11 +114,14 @@ def scenario(
     thermal_status: EvidenceStatus = EvidenceStatus.AVAILABLE,
     acoustic_row: dict[str, str] | None = None,
     acoustic_status: EvidenceStatus = EvidenceStatus.AVAILABLE,
+    rf_row: dict[str, str] | None = None,
+    rf_status: EvidenceStatus = EvidenceStatus.AVAILABLE,
 ) -> dict[str, object]:
     timestamp = f"simulated-event:{event_id}"
-    evidence = [
-        missing_evidence(event_id, timestamp, SensorType.RF),
-    ]
+    if rf_row is None:
+        evidence = [missing_evidence(event_id, timestamp, SensorType.RF)]
+    else:
+        evidence = [actual_evidence(event_id, timestamp, rf_row, rf_status)]
     if acoustic_row is None:
         evidence.append(missing_evidence(event_id, timestamp, SensorType.ACOUSTIC))
     else:
@@ -155,6 +158,11 @@ def main() -> None:
         default=Path("data/model-outputs/acoustic-cnn-tuned-test-outputs.csv"),
     )
     parser.add_argument(
+        "--rf",
+        type=Path,
+        default=Path("data/model-outputs/rf-cnn-test-outputs.csv"),
+    )
+    parser.add_argument(
         "--output",
         type=Path,
         default=Path("results/real-output-replay/real-output-replay.json"),
@@ -164,6 +172,9 @@ def main() -> None:
     radar = load_rows(args.radar)
     thermal = load_rows(args.thermal)
     acoustic = load_rows(args.acoustic)
+    rf = load_rows(args.rf)
+    if not rf:
+        raise ValueError("RF held-out CSV has no rows")
 
     scenarios = [
         scenario(
@@ -289,8 +300,8 @@ def main() -> None:
         "simulated_only": True,
         "not_a_measured_fusion_evaluation": True,
         "review_required_for_every_scenario": True,
-        "available_sensor_types": ["radar", "thermal", "acoustic"],
-        "missing_sensor_types": ["rf"],
+        "available_sensor_types": ["rf", "radar", "thermal", "acoustic"],
+        "missing_sensor_types": [],
         "scenarios": scenarios,
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)

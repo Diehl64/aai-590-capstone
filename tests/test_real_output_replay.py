@@ -90,7 +90,8 @@ class RealOutputReplayTests(unittest.TestCase):
 
     def test_acoustic_evidence_is_present_and_rf_stays_missing(self):
         result = self.run_replay()
-        self.assertEqual(result["missing_sensor_types"], ["rf"])
+        self.assertEqual(result["available_sensor_types"], ["rf", "radar", "thermal", "acoustic"])
+        self.assertEqual(result["missing_sensor_types"], [])
         for item in result["scenarios"]:
             evidence = {row["sensor_type"]: row for row in item["record"]["evidence"]}
             self.assertIn("acoustic", evidence)
