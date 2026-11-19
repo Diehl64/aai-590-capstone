@@ -55,14 +55,14 @@ RF Machine is a cue for machine-generated RF activity, not a confirmed drone. A 
 
 A `drone_like` or `not_drone` hypothesis becomes `uncertain` when its score is below the sensor's floor. A score exactly at the floor counts. Floors must come from validation outputs, never from test. Thermal is the exception: its score is the maximum detection confidence, so a `not_drone` call stays `not_drone` even when the score is below the floor. The floor still applies to a thermal `drone` call.
 
-| Sensor | Floor | Source | What `score` means | Effect on the held-out CSV |
-| --- | --- | --- | --- | --- |
-| RF | 0.45 | Machine threshold chosen on validation (`results/rf-intrusion/run_config.json`) | calibrated probability of the predicted class | 4 of 2,400 rows `uncertain` (1 Benign, 1 Human, 2 Wildlife); all 648 Machine calls stay `drone_like` |
-| Acoustic | 0.344 | CNN-Tuned 1% false-alarm threshold on clean validation (`docs/acoustic-model-evidence.md`) | probability of the predicted class | no held-out row `uncertain` |
-| Radar | 0.60 | placeholder. RadarCNN decides by argmax and has no validation score threshold (`docs/radar-model-results.md`) | top raw softmax score | 419 of 11,050 rows `uncertain` (200 drone, 121 bird, 98 human) |
-| Thermal | 0.25 | validation-selected decision threshold (`docs/thermal-baseline-evidence.md`) | YOLO's highest detection confidence, not the probability of the predicted class | 796 no_drone calls stay `not_drone`; 1,835 drone calls stay `drone_like` |
+| Sensor | Rows | Floor | `uncertain` | What `score` means | Threshold source |
+| --- | ---: | ---: | --- | --- | --- |
+| RF | 2,400 | 0.45 | 4 (1 Benign, 1 Human, 2 Wildlife). All 648 Machine calls stay `drone_like`. | calibrated probability of the predicted class | Machine threshold chosen on validation (`results/rf-intrusion/run_config.json`) |
+| Acoustic | 57,015 | 0.344 | 0 | probability of the predicted class | CNN-Tuned 1% false-alarm threshold on clean validation (`docs/acoustic-model-evidence.md`) |
+| Radar | 11,050 | 0.60 | 419 (200 drone, 121 bird, 98 human) | top raw softmax score | placeholder. RadarCNN decides by argmax and has no validation score threshold (`docs/radar-model-results.md`) |
+| Thermal | 2,631 | 0.25 | 0. The 796 no_drone calls stay `not_drone` and the 1,835 drone calls stay `drone_like`. | YOLO's highest detection confidence, not the probability of the predicted class | validation-selected decision threshold (`docs/thermal-baseline-evidence.md`) |
 
-The effects were checked on 2026-11-19 with `observation_from_handoff()` on the committed held-out CSVs. They show what the current floors do; they were not used to choose any floor. The radar placeholder can be replaced when a floor is chosen from radar validation outputs.
+These counts were recomputed on 2026-11-19 with `observation_from_handoff()` and `hypothesis()` on the four held-out CSVs, using the floors in this table. The counts were not used to choose a floor. The radar placeholder can be replaced when a floor is chosen from radar validation outputs.
 
 ## Status rules
 
