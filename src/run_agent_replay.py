@@ -1,9 +1,9 @@
 """Run the coordination agent over simulated replay scenarios.
 
-Each scenario becomes one alert for operator review. The run records which
-rule version, score floors, and deadline produced the alerts. It describes
-software behavior on simulated pairings and does not measure detection
-performance. See docs/agent-coordination.md.
+Each scenario becomes one alert for operator review, plus a decision log that
+records the rule version and score floors. The run describes software behavior
+on simulated pairings and does not measure detection performance. See
+docs/agent-coordination.md.
 """
 from __future__ import annotations
 
@@ -19,6 +19,7 @@ try:  # `python src/run_agent_replay.py` puts src/ on the path
         recommend_requests,
         to_dict,
     )
+    from agent_log import write_agent_log
     from synthetic_replay import EvidenceStatus, SensorEvidence, SensorType
 except ImportError:  # imported as src.run_agent_replay
     from src.agent_interface import (
@@ -28,6 +29,7 @@ except ImportError:  # imported as src.run_agent_replay
         recommend_requests,
         to_dict,
     )
+    from src.agent_log import write_agent_log
     from src.synthetic_replay import EvidenceStatus, SensorEvidence, SensorType
 
 
@@ -141,7 +143,11 @@ def main() -> None:
 
     result = run_replay(args.replay, args.deadline)
     path = write_alerts(result, args.output_dir)
+    observations_path = args.output_dir / "agent-observations.csv"
+    alerts_path = args.output_dir / "agent-alerts.csv"
+    write_agent_log(result, observations_path, alerts_path)
     print(f"wrote {len(result['scenarios'])} alerts to {path}")
+    print(f"wrote decision log to {observations_path} and {alerts_path}")
 
 
 if __name__ == "__main__":
