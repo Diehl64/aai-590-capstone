@@ -38,7 +38,7 @@ def main() -> None:
     scenarios = replay["scenarios"]
 
     label_width = 3.6
-    figure, axis = plt.subplots(figsize=(13, 8.5))
+    figure, axis = plt.subplots(figsize=(13, 1.2 + 0.45 * len(scenarios)))
     axis.set_xlim(0, label_width + len(SENSORS))
     axis.set_ylim(-0.8, len(scenarios) + 0.7)
     axis.axis("off")

@@ -295,6 +295,11 @@ def main() -> None:
         if error["output_id"] != RF_MACHINE_FALSE_ALARM_OUTPUT_ID:
             raise ValueError(f"RF false-alarm row changed: {error['output_id']}")
 
+    rf_machine = row_with_output_id(rf, CLEAN_RF_OUTPUT_IDS["Machine"])
+    rf_benign = row_with_output_id(rf, CLEAN_RF_OUTPUT_IDS["Benign"])
+    rf_jam = row_with_output_id(rf, CLEAN_RF_OUTPUT_IDS["Broadband_Jam"])
+    rf_false_alarm = row_with_output_id(rf, RF_MACHINE_FALSE_ALARM_OUTPUT_ID)
+
     scenarios = [
         scenario(
             "sim-real-001",
@@ -302,6 +307,7 @@ def main() -> None:
             first_with_label(radar, "drone"),
             first_with_label(thermal, "drone"),
             acoustic_row=first_full_length(acoustic, "drone"),
+            rf_row=rf_machine,
         ),
         scenario(
             "sim-real-002",
@@ -309,6 +315,7 @@ def main() -> None:
             first_with_label(radar, "drone"),
             first_with_label(thermal, "no_drone"),
             acoustic_row=first_full_length(acoustic, "no_drone"),
+            rf_row=rf_benign,
         ),
         scenario(
             "sim-real-003",
@@ -316,6 +323,7 @@ def main() -> None:
             first_with_label(radar, "bird"),
             first_with_label(thermal, "no_drone"),
             acoustic_row=first_full_length(acoustic, "no_drone"),
+            rf_row=rf_benign,
         ),
         scenario(
             "sim-real-004",
@@ -323,6 +331,7 @@ def main() -> None:
             first_with_label(radar, "human"),
             first_with_label(thermal, "drone"),
             acoustic_row=first_full_length(acoustic, "drone"),
+            rf_row=rf_machine,
         ),
         scenario(
             "sim-real-005",
@@ -330,6 +339,7 @@ def main() -> None:
             first_with_label(radar, "drone"),
             None,
             acoustic_row=first_full_length(acoustic, "drone"),
+            rf_row=rf_machine,
         ),
         scenario(
             "sim-real-006",
@@ -338,6 +348,7 @@ def main() -> None:
             first_with_label(thermal, "drone"),
             thermal_status=EvidenceStatus.DELAYED,
             acoustic_row=first_full_length(acoustic, "drone"),
+            rf_row=rf_machine,
         ),
         scenario(
             "sim-real-007",
@@ -345,6 +356,7 @@ def main() -> None:
             None,
             first_with_label(thermal, "drone"),
             acoustic_row=first_full_length(acoustic, "drone"),
+            rf_row=rf_machine,
         ),
         scenario(
             "sim-real-008",
@@ -353,6 +365,7 @@ def main() -> None:
             first_with_label(thermal, "drone"),
             radar_status=EvidenceStatus.DELAYED,
             acoustic_row=first_full_length(acoustic, "drone"),
+            rf_row=rf_machine,
         ),
         scenario(
             "sim-real-009",
@@ -361,6 +374,7 @@ def main() -> None:
             first_with_label(thermal, "drone"),
             thermal_status=EvidenceStatus.LOW_QUALITY,
             acoustic_row=first_full_length(acoustic, "drone"),
+            rf_row=rf_machine,
         ),
         scenario(
             "sim-real-010",
@@ -368,13 +382,15 @@ def main() -> None:
             first_with_label(radar, "human"),
             first_with_label(thermal, "no_drone"),
             acoustic_row=first_full_length(acoustic, "no_drone"),
+            rf_row=rf_benign,
         ),
         scenario(
             "sim-real-011",
-            "acoustic_only_sensor_available",
+            "radar_and_thermal_missing",
             None,
             None,
             acoustic_row=first_full_length(acoustic, "drone"),
+            rf_row=rf_machine,
         ),
         scenario(
             "sim-real-012",
@@ -382,6 +398,7 @@ def main() -> None:
             first_with_label(radar, "drone"),
             first_with_label(thermal, "drone"),
             acoustic_row=first_full_length(acoustic, "no_drone"),
+            rf_row=rf_benign,
         ),
         scenario(
             "sim-real-013",
@@ -389,12 +406,14 @@ def main() -> None:
             first_with_label(radar, "human"),
             first_with_label(thermal, "no_drone"),
             acoustic_row=first_full_length(acoustic, "drone"),
+            rf_row=rf_benign,
         ),
         scenario(
             "sim-real-014",
             "acoustic_missing",
             first_with_label(radar, "drone"),
             first_with_label(thermal, "drone"),
+            rf_row=rf_machine,
         ),
         scenario(
             "sim-real-015",
@@ -403,6 +422,7 @@ def main() -> None:
             first_with_label(thermal, "drone"),
             acoustic_row=first_full_length(acoustic, "drone"),
             acoustic_status=EvidenceStatus.DELAYED,
+            rf_row=rf_machine,
         ),
         scenario(
             "sim-real-016",
@@ -411,6 +431,7 @@ def main() -> None:
             first_with_label(thermal, "drone"),
             acoustic_row=first_full_length(acoustic, "drone"),
             acoustic_status=EvidenceStatus.LOW_QUALITY,
+            rf_row=rf_machine,
         ),
         scenario(
             "sim-real-017",
@@ -418,7 +439,7 @@ def main() -> None:
             first_with_label(radar, "drone"),
             first_with_label(thermal, "drone"),
             acoustic_row=first_full_length(acoustic, "drone"),
-            rf_row=row_with_output_id(rf, CLEAN_RF_OUTPUT_IDS["Machine"]),
+            rf_row=rf_machine,
         ),
         scenario(
             "sim-real-018",
@@ -426,7 +447,7 @@ def main() -> None:
             first_with_label(radar, "human"),
             first_with_label(thermal, "no_drone"),
             acoustic_row=first_full_length(acoustic, "no_drone"),
-            rf_row=row_with_output_id(rf, RF_MACHINE_FALSE_ALARM_OUTPUT_ID),
+            rf_row=rf_false_alarm,
         ),
         scenario(
             "sim-real-019",
@@ -434,14 +455,14 @@ def main() -> None:
             first_with_label(radar, "drone"),
             first_with_label(thermal, "drone"),
             acoustic_row=first_full_length(acoustic, "drone"),
-            rf_row=row_with_output_id(rf, CLEAN_RF_OUTPUT_IDS["Benign"]),
+            rf_row=rf_benign,
         ),
         scenario(
             "sim-real-020",
             "rf_only_sensor_available",
             None,
             None,
-            rf_row=row_with_output_id(rf, CLEAN_RF_OUTPUT_IDS["Machine"]),
+            rf_row=rf_machine,
         ),
         scenario(
             "sim-real-021",
@@ -449,7 +470,7 @@ def main() -> None:
             first_with_label(radar, "drone"),
             first_with_label(thermal, "drone"),
             acoustic_row=first_full_length(acoustic, "drone"),
-            rf_row=row_with_output_id(rf, CLEAN_RF_OUTPUT_IDS["Broadband_Jam"]),
+            rf_row=rf_jam,
         ),
         scenario(
             "sim-real-022",
@@ -457,7 +478,7 @@ def main() -> None:
             first_with_label(radar, "drone"),
             first_with_label(thermal, "drone"),
             acoustic_row=first_full_length(acoustic, "drone"),
-            rf_row=row_with_output_id(rf, CLEAN_RF_OUTPUT_IDS["Machine"]),
+            rf_row=rf_machine,
             rf_status=EvidenceStatus.DELAYED,
         ),
         scenario(
@@ -466,8 +487,24 @@ def main() -> None:
             first_with_label(radar, "drone"),
             first_with_label(thermal, "drone"),
             acoustic_row=first_full_length(acoustic, "drone"),
-            rf_row=row_with_output_id(rf, CLEAN_RF_OUTPUT_IDS["Machine"]),
+            rf_row=rf_machine,
             rf_status=EvidenceStatus.LOW_QUALITY,
+        ),
+        scenario(
+            "sim-real-024",
+            "rf_missing",
+            first_with_label(radar, "drone"),
+            first_with_label(thermal, "drone"),
+            acoustic_row=first_full_length(acoustic, "drone"),
+        ),
+        scenario(
+            "sim-real-025",
+            "radar_low_quality",
+            first_with_label(radar, "drone"),
+            first_with_label(thermal, "drone"),
+            radar_status=EvidenceStatus.LOW_QUALITY,
+            acoustic_row=first_full_length(acoustic, "drone"),
+            rf_row=rf_machine,
         ),
     ]
 

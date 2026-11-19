@@ -95,19 +95,37 @@ class RealOutputReplayTests(unittest.TestCase):
             replay.main()
         return json.loads(output.read_text(encoding="utf-8"))
 
-    def test_acoustic_evidence_is_present_and_rf_stays_missing(self):
+    def test_acoustic_and_rf_evidence_are_present(self):
         result = self.run_replay()
         self.assertEqual(result["available_sensor_types"], ["rf", "radar", "thermal", "acoustic"])
         self.assertEqual(result["missing_sensor_types"], [])
-        self.assertEqual(len(result["scenarios"]), 23)
+        self.assertEqual(len(result["scenarios"]), 25)
+        early_rf = {
+            "sim-real-001": "Machine",
+            "sim-real-002": "Benign",
+            "sim-real-003": "Benign",
+            "sim-real-004": "Machine",
+            "sim-real-005": "Machine",
+            "sim-real-006": "Machine",
+            "sim-real-007": "Machine",
+            "sim-real-008": "Machine",
+            "sim-real-009": "Machine",
+            "sim-real-010": "Benign",
+            "sim-real-011": "Machine",
+            "sim-real-012": "Benign",
+            "sim-real-013": "Benign",
+            "sim-real-014": "Machine",
+            "sim-real-015": "Machine",
+            "sim-real-016": "Machine",
+        }
+        by_id = {item["record"]["event_id"]: item for item in result["scenarios"]}
         for item in result["scenarios"]:
             evidence = {row["sensor_type"]: row for row in item["record"]["evidence"]}
             self.assertIn("acoustic", evidence)
-            number = int(item["record"]["event_id"].rsplit("-", 1)[-1])
-            if number <= 16:
-                self.assertEqual(evidence["rf"]["status"], "missing")
-                self.assertIsNone(evidence["rf"]["prediction"])
-        by_id = {item["record"]["event_id"]: item for item in result["scenarios"]}
+        for event_id, label in early_rf.items():
+            evidence = {row["sensor_type"]: row for row in by_id[event_id]["record"]["evidence"]}
+            self.assertEqual(evidence["rf"]["status"], "available")
+            self.assertEqual(evidence["rf"]["prediction"], label)
         expected = {
             "sim-real-017": ("available", "Machine"),
             "sim-real-018": ("available", "Machine"),
@@ -125,6 +143,13 @@ class RealOutputReplayTests(unittest.TestCase):
         self.assertEqual(only_rf["radar"]["status"], "missing")
         self.assertEqual(only_rf["thermal"]["status"], "missing")
         self.assertEqual(only_rf["acoustic"]["status"], "missing")
+        rf_missing = {row["sensor_type"]: row for row in by_id["sim-real-024"]["record"]["evidence"]}
+        self.assertEqual(rf_missing["rf"]["status"], "missing")
+        self.assertIsNone(rf_missing["rf"]["prediction"])
+        self.assertEqual(rf_missing["radar"]["status"], "available")
+        radar_low = {row["sensor_type"]: row for row in by_id["sim-real-025"]["record"]["evidence"]}
+        self.assertEqual(radar_low["radar"]["status"], "low_quality")
+        self.assertEqual(radar_low["rf"]["status"], "available")
 
     def test_every_scenario_is_simulated_and_requires_review(self):
         result = self.run_replay()
