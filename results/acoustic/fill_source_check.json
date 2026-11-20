@@ -1,0 +1,38 @@
+{
+  "question": "Do training-audio fills in originally short validation/test windows inflate run C's results?",
+  "model": "run C (CNN-Tuned), not retrained",
+  "temperature": 1.0,
+  "fill_level_db_below_window_rms": 20.0,
+  "seed": 2026,
+  "fills": {
+    "original": "training no-drone full-length windows (as in windows_v2.csv)",
+    "split_isolated": "full-length no-drone windows from the same split, never the same file",
+    "pink_noise": "synthetic 1/f noise, no recording"
+  },
+  "split_isolated_donors": {
+    "val": {
+      "donor_pool_windows": 29429,
+      "donor_files_used": 2268,
+      "filled_windows": 24377
+    },
+    "test": {
+      "donor_pool_windows": 28287,
+      "donor_files_used": 2273,
+      "filled_windows": 24388
+    }
+  },
+  "pipeline_check": {
+    "windows": 300,
+    "max_abs_difference": 0.001953125,
+    "tolerance": 0.05
+  },
+  "thresholds_1pct_false_alarm_on_validation": {
+    "original": 0.34373635053634644,
+    "split_isolated": 0.34419265389442444,
+    "pink_noise": 0.34373635053634644
+  },
+  "test_labels_changed_vs_handoff": {
+    "all": 2,
+    "full_length": 0
+  }
+}
