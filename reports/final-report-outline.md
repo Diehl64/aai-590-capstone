@@ -23,9 +23,11 @@
 - State that saved held-out predictions are used for replay evidence.
 
 ### 4.2 Thermal-IR
-- Describe the Dataset 2-only baseline, recording-disjoint split, and bird hard negatives.
-- Document Dataset 1 as EDA-only unless access, reuse, and evaluation controls are approved.
-- State the held-out-output handoff process.
+- Describe the recording-disjoint export, Dataset 2 bird hard negatives, and Dataset 1 target-absent backgrounds.
+- Describe the Dataset 2-only baseline, Dataset 1-only, transfer-learning, and balanced-joint experiments as separate designs.
+- Explain the validation-selected or fixed operating threshold for each experiment.
+- Document that Dataset 1 access/reuse terms remain subject to confirmation before publication beyond internal course review.
+- State that only Dataset 2 supports bird-rejection claims and that the Dataset 2 baseline handoff is the replay input.
 
 ### 4.3 Acoustic
 - Describe the independently evaluated acoustic model and held-out output format.
@@ -38,7 +40,9 @@
 
 ## 5. Individual-model results
 - Present radar metrics, confusion matrix, figures, and error analysis.
-- Present thermal results with provenance and limitations.
+- Present thermal Dataset 2 baseline and balanced-joint results on their shared held-out test set; report thermal Dataset 1 results separately as internal-source evidence.
+- Include source-specific thermal error panels and explain that they are selected examples, not additional metrics.
+- Present thermal provenance, license status, and limitations.
 - Present acoustic and RF results only from committed, reproducible artifacts.
 - Keep all individual-model results separate.
 

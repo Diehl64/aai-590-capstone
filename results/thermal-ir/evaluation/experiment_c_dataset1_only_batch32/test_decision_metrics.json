@@ -1,0 +1,11 @@
+{
+  "decision_threshold": 0.75,
+  "true_positive": 2350,
+  "false_positive": 0,
+  "false_negative": 4282,
+  "true_negative": 610,
+  "precision": 1.0,
+  "recall": 0.3543425814234017,
+  "f1": 0.5232687597417056,
+  "target_absent_false_positive_rate": 0.0
+}

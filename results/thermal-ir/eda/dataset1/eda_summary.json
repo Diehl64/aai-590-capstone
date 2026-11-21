@@ -1,0 +1,13 @@
+{
+  "scope": "Dataset 1 Anti-UAV train partition only; test folders are not included",
+  "sequence_count": 223,
+  "frame_count": 247579,
+  "visible_entries": 229977,
+  "absent_entries": 17602,
+  "valid_box_count": 229726,
+  "issue_counts": {
+    "box_exceeds_image_boundary": 130,
+    "non_positive_box_dimensions": 121,
+    "unreadable_source_frame": 117
+  }
+}

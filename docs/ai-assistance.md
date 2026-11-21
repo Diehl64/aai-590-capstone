@@ -29,3 +29,7 @@ ChatGPT assisted Tony with drafting the radar report-figure script, the saved-ch
 Tony downloaded the official radar file from Zenodo, verified its published MD5 checksum, ran the saved RadarCNN checkpoint on the RTX 5080 without retraining, and confirmed that the regenerated test predictions matched the committed confusion matrix, accuracy, and macro F1. Tony validated the 11,050-row radar handoff CSV, ran the partial replay with committed radar and thermal outputs, and ran the repository’s 11 unit tests successfully.
 
 The replay outputs remain explicitly simulated and require human review. Team review of remaining RF, acoustic, thermal, and coordination-agent evidence is still pending.
+
+### 2026-11-15 — Thermal-IR error analysis and documentation
+
+ChatGPT refactored the thermal error-panel utility so it can use each evaluation's saved decision categories and, where per-box predictions were not preserved, replay boxes only for the selected visual examples. It generated source-specific panels for the Dataset 1-only, transfer-learning, and balanced-joint evaluations, then checked the Dataset 1 and Dataset 2 license records against their primary source pages. ChatGPT also consolidated the thermal pipeline and baseline-evidence documentation and updated repository status/report-planning documents. Saved decisions and metrics remain unchanged; team review of the Dataset 1 access/reuse status and final report claims is pending.

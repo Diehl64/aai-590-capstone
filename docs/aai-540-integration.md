@@ -2,7 +2,7 @@
 
 ## Phase 1 scope and evidence
 
-Phase 1 documents project continuity, reusable components, and the capstone's new contributions. It adds no model implementation, artifact migration, AWS deployment, or claimed radar/visual performance. The radar audit and radar modeling are complete; thermal/vision feasibility and the coordinated demonstration remain scheduled work.
+Phase 1 documents project continuity, reusable components, and the capstone's new contributions. It adds no predecessor-model implementation, artifact migration, or AWS deployment. The radar audit and radar modeling are complete; separate thermal-IR evaluation artifacts are available for review, while the coordinated demonstration remains scheduled work.
 
 The [AAI-540 RF Intrusion Detection MLOps repository](https://github.com/Mosizamani/aai-540-final-project-group6) is a read-only predecessor/reference project. This inventory was checked against commit [`4187e05489ba1bbaeb3a73ef95633d248b31fcb8`](https://github.com/Mosizamani/aai-540-final-project-group6/tree/4187e05489ba1bbaeb3a73ef95633d248b31fcb8). Reviewing its code and saved outputs does not independently reproduce its experiments. No predecessor notebooks or AWS-mutating cells were executed for Phase 1.
 
@@ -44,7 +44,7 @@ The [radar audit notes](radar-data-audit.md), [dataset manifest](../data/dataset
 | Operator review | Present model evidence, uncertainty, verification status, and an explicit human decision | Replay scenarios showing reviewable alerts, human disposition, and an audit trail; no autonomous physical response |
 | Capstone monitoring and promotion | Apply the predecessor's monitoring/gating patterns to the new components with new baselines and validation-selected thresholds | Reports for each model and the coordinated workflow, rejected-candidate evidence, versioned approved artifacts, and preserved final test independence |
 
-The radar modeling contributions and metrics are now recorded in [radar-model-results](radar-model-results.md). Thermal/vision feasibility, coordinated replay, and operator review remain separate capabilities with their own evidence requirements. The submitted management plan defines the remaining scope and dates.
+The radar modeling contributions and metrics are recorded in [radar-model-results](radar-model-results.md). The thermal-IR workflow and its review boundaries are recorded in [thermal_ir_pipeline.md](thermal_ir_pipeline.md). Coordinated replay and operator review remain separate capabilities with their own evidence requirements. The submitted management plan defines the remaining scope and dates.
 
 ## Proposed coordination boundary
 
@@ -66,6 +66,6 @@ Anduril Lattice is outside the capstone scope. Acoustic model outputs may partic
 
 Phase 1 delivers this reference inventory and the [README continuity summary](../README.md#continuity-from-aai-540-to-aai-590). Review should confirm that inherited work, new work, completed evidence, and planned capabilities are distinguishable. The predecessor remains unchanged.
 
-Subsequent work should complete the scheduled RF evaluation, thermal/vision feasibility assessment, evidence-based comparison, and local replay review. Cloud deployment and optional integrations remain outside the submitted scope.
+Subsequent work should complete the scheduled RF evaluation, thermal provenance/access and team review, evidence-based comparison, and local replay review. Cloud deployment and optional integrations remain outside the submitted scope.
 
 For each adapted component, record the exact predecessor commit/path, permission or license, changes made, and new validation evidence. Track actual implementation ownership and contributions through issues and the [contribution log](contributions.csv). Follow the [AI-assistance disclosure guidance](ai-assistance.md) when adopting generated documentation or code. Do not duplicate predecessor results as new capstone contributions.

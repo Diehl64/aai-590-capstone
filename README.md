@@ -4,7 +4,7 @@ University of San Diego — M.S. in Applied Artificial Intelligence
 
 **Team:** Ramon (Tony) Diehl-Verdugo, Mostafa Zamaniturk, and Jacob Tassos.
 
-**Status:** Radar audit, measurement-disjoint baseline, CNN evaluation, held-out radar handoff, report figures, and error analysis are complete. A partial simulated replay now uses saved radar and thermal outputs. RF held-out outputs, acoustic robustness evidence and outputs, thermal final review, the coordination-agent comparison, and the final four-sensor simulated replay remain.
+**Status:** Radar audit, measurement-disjoint baseline, CNN evaluation, held-out radar handoff, report figures, and error analysis are complete. Thermal-IR source validation, four held-out experiments, and source-specific error panels are available for team review; Dataset 1 access/reuse confirmation and final report approval remain. A partial simulated replay uses the reviewed Dataset 2 baseline handoff. RF held-out outputs, acoustic robustness evidence and outputs, the coordination-agent comparison, and the final four-sensor simulated replay remain.
 
 ## Completed Radar Audit
 
@@ -36,7 +36,7 @@ This capstone builds on the team's [AAI-540 RF Intrusion Detection MLOps project
 
 **RF communications data and radar data are separate modalities.** AAI-540 classifies RF activity from spectrogram images into Benign, Broadband_Jam, Human, Machine, Narrowband_Jam, and Wildlife. AAI-590 evaluates complex-valued measurements from a 77 GHz FMCW radar using the documented drone/bird/human mapping and explicit reflector exclusion. Shared label wording does not establish equivalent targets, paired observations, compatible inputs, or transferable performance. AAI-540 weights, preprocessing, thresholds, and metrics do not establish radar classifier performance.
 
-The new AAI-590 contributions now include radar preprocessing, measurement-disjoint evaluation, a radar baseline, and a neural network trained from scratch. Separately evaluated visual verification, coordination of observation and verification events, and operator review remain future work.
+The new AAI-590 contributions include radar preprocessing, measurement-disjoint evaluation, a radar baseline, a neural network trained from scratch, and separately evaluated thermal-IR detection experiments. Coordination of observation and verification events and operator-review integration remain future work.
 
 The remaining scope and dated ownership are recorded in the [project management plan](docs/project-management-plan.md). The local comparison will use explicitly simulated replay scenarios and will not claim measured sensor fusion.
 
@@ -66,6 +66,8 @@ Coordinates, velocity, timestamps, and camera pose must come from an external so
 Candidate radar data:
 https://zenodo.org/records/5896641
 
+The [thermal-IR pipeline and evaluation record](docs/thermal_ir_pipeline.md) documents data provenance, license status, notebook order, held-out results, and error-analysis artifacts. The [Thermal Dataset Exploration notebook](notebooks/03_thermal_dataset_exploration.ipynb) documents Dataset 2 recording counts, durations, annotation issues, bounding-box geometry, target location, and temporal dependence, plus Dataset 1 source characteristics and a descriptive cross-source comparison.
+
 Initial integrity and schema checks are complete, and the source metadata identifies CC BY 4.0. Final adoption, class mapping, preprocessing, and evaluation suitability require team review. See the [dataset manifest](data/dataset-manifest.csv) and [audit notes](docs/radar-data-audit.md).
 
 The team will:
@@ -74,7 +76,7 @@ The team will:
 - Document provenance, limitations, and permitted uses.
 - Prevent leakage between related recordings in training and test splits.
 - Extend the measured radar comparison with error analysis and robustness checks.
-- Complete the thermal/vision feasibility work and the local replay without implying paired real-world sensor data.
+- Complete thermal provenance/access review and report integration, and extend the local replay without implying paired real-world sensor data.
 
 Synchronized radar-camera data has not yet been secured. Models using separate real-world datasets will be evaluated separately. Simulated verification scenarios will be identified explicitly.
 
@@ -129,7 +131,7 @@ This repository contains the executed audit, split manifest, baseline and CNN co
 1. Review the measured radar results, error patterns, and the remaining session/subject/target-overlap limitation.
 2. Add report-ready methodology, results, figures, and a reviewed dependency specification.
 3. Add meaningful split, schema, and metric tests.
-4. Complete the scheduled RF evaluation, thermal/vision feasibility work, and local replay; keep their evidence-based comparison separate from measured radar metrics.
+4. Complete the scheduled RF evaluation, thermal provenance/access review, and local replay; keep their evidence-based comparison separate from measured radar metrics.
 5. Assemble and review the report, presentation, and repository deliverables on the dates in the project management plan.
 
 Record actual team contributions in [the contribution log](docs/contributions.csv).
@@ -137,6 +139,8 @@ Record actual team contributions in [the contribution log](docs/contributions.cs
 ## Licensing and AI Assistance
 
 The radar dataset is attributed to Alexander Karlsson (KTH), [DOI 10.5281/zenodo.5896641](https://doi.org/10.5281/zenodo.5896641), under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Credit the source, link the license, and identify modifications when sharing derived material. Verification evidence is in the source metadata linked above.
+
+The Thermal-IR work records two separate sources. Dataset 1 is the [Official Dataset Release for the 4th Anti-UAV Challenge](https://doi.org/10.5281/zenodo.15103888), version 1.0.0, published by China Telecom. Its files are restricted and its Zenodo Rights → License field was blank when checked on 2026-11-15; confirm access, reuse, and redistribution permission before sharing source or derived image data. Dataset 2 is [DroneDetectionThesis/Drone-detection-dataset](https://github.com/DroneDetectionThesis/Drone-detection-dataset), whose repository [LICENSE](https://github.com/DroneDetectionThesis/Drone-detection-dataset/blob/master/LICENSE) is CC0 1.0 Universal. Cite the source as requested by its repository. Detailed access, version, split, and permission notes are in [the dataset manifest](data/dataset-manifest.csv).
 
 The team has not selected a software license. The dataset license does not automatically license this repository's code. Review permissions for additional datasets and models before use and redistribution.
 

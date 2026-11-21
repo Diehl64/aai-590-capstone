@@ -33,7 +33,7 @@ GitHub Projects is the team Kanban board. Work moves from **To do** to **In prog
 | 17 | Slides, rehearsal, and presentation recording | Dec 2–4 | Dec 5 | All | Tony, Mostafa, and Jacob |
 | 18 | Playback check, final repository review, and submission | Dec 6 | Dec 6 | Tony submits | Mostafa and Jacob |
 
-## Current execution status (2026-11-08)
+## Current execution status (2026-11-15)
 
 This status records repository evidence without changing the approved schedule or ownership above. A task remains in progress until its listed review is complete.
 
@@ -43,7 +43,7 @@ This status records repository evidence without changing the approved schedule o
 | Radar audit and data summary | Audit, measurement-disjoint split, baseline, CNN, metrics, tests, report figures, error analysis, and held-out output handoff are committed. | Obtain reviewer feedback and document the remaining session/subject/target-overlap limitation. |
 | RF v4 versus v5 | Comparison evidence and RF dataset provenance are committed. The team branch contains calibration and held-out-output export code. | Commit the existing saved RF held-out outputs, configuration, metrics, and provenance; do not retrain solely for handoff. |
 | Radar evaluation and limitations | Validated 11,050-row held-out output handoff, report figures, and error analysis are committed. | Obtain reviewer feedback. |
-| Thermal/vision feasibility | A validated 2,631-row held-out thermal handoff is committed; the source pipeline remains on the team branch. | Review the full pipeline, environment, data-access/license evidence, curated error-analysis figures, and final thermal manifest entry. |
+| Thermal/vision feasibility | The reviewed Dataset 2 baseline handoff is committed. Dataset 1-only, transfer-learning, and balanced-joint held-out evaluations plus source-specific error panels are available in the repository worktree. | Confirm Dataset 1 access/reuse terms, review experiment controls and figures, then approve which results may enter the final report. |
 | Acoustic evidence and robustness | Acoustic Transformer, CNN, and Random Forest baseline notebook is committed on the team branch. | Commit optimized-model comparison, controlled-noise evidence, metrics, and held-out outputs. |
 | Local replay | A ten-scenario partial replay using real radar and thermal held-out outputs is committed; every case is simulated and requires human review. | Add RF and acoustic held-out outputs, then run the planned four-sensor simulated scenarios. |
 | Coordination-agent comparison | Coordination rules are documented, and an interface with tests exists on the team agent branch. | Create a focused agent-only PR, approve validation-based per-sensor thresholds, and run the scheduled comparison with fixed rules. |
@@ -56,7 +56,7 @@ Status meaning: 🟢 is committed and documented repository evidence; 🟡 is ac
 | --- | --- | --- | --- |
 | Scope and project plan | 🟢 Complete | Scope, schedule, risks, ethics, and limitations are documented. | Record team review feedback. |
 | Radar audit and model | 🟢 Complete | Audit, grouped split, baseline, RadarCNN, metrics, figures, error analysis, and 11,050 held-out outputs are committed. | Obtain reviewer feedback and integrate into the report. |
-| Thermal-IR | 🟡 In progress | A validated 2,631-row held-out handoff and baseline evidence are committed. | Complete provenance/access entry, environment details, curated error figures, and review. |
+| Thermal-IR | 🟡 In review | A validated 2,631-row Dataset 2 handoff is committed; four thermal experiments and source-specific error panels are available for review. | Confirm Dataset 1 access/reuse terms, complete team review, and approve final report claims. |
 | RF v4 versus v5 | 🟡 In progress | Comparison evidence is committed; calibration and held-out-output export code exists on the team branch. | Commit the saved held-out RF CSV, configuration, metrics, and provenance without retraining solely for handoff. |
 | Acoustic | 🟡 In progress | Transformer, CNN, and Random Forest baselines plus a padding-shortcut check exist on team branches. | Commit optimized comparison, controlled-noise evidence, metrics, and held-out outputs. |
 | Simulated replay | 🟡 In progress | Ten simulated scenarios, real radar/thermal outputs, and a scenario-status figure are committed. | Add real RF/acoustic outputs and run the four-sensor replay. |

@@ -13,7 +13,7 @@ The capstone evaluates RF intrusion classification, 77 GHz radar micro-Doppler c
 
 ## Current state
 
-Radar audit, measurement-disjoint split, nearest-centroid baseline, from-scratch RadarCNN, CUDA run, and radar replay states are complete. RF evaluation, thermal/vision feasibility, acoustic-model evidence review, evidence-based comparison, and report integration remain scheduled work. Lattice publishing remains outside the capstone scope.
+Radar audit, measurement-disjoint split, nearest-centroid baseline, from-scratch RadarCNN, CUDA run, and radar replay states are complete. Thermal-IR source validation, Dataset 2 baseline, Dataset 1-only, transfer-learning, and balanced-joint evaluations are available for review; Dataset 1 access/reuse confirmation and report integration remain. RF evaluation, acoustic-model evidence review, evidence-based comparison, and report integration remain scheduled work. Lattice publishing remains outside the capstone scope.
 
 ## Decision gates
 
