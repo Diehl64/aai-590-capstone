@@ -1,0 +1,14 @@
+{
+  "baselines_trained_on": "zero-padded windows",
+  "optimized_cnn_trained_on": "windows_v2.csv background-filled tails",
+  "noise_test": "ESC-50 fold 5 only",
+  "run_c_clean_recall_ci95": [
+    0.994,
+    0.998
+  ],
+  "run_c_unpadded_20db_recall_ci95": [
+    0.951,
+    0.983
+  ],
+  "temperature": 1.0
+}
