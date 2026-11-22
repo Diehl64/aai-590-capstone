@@ -1,0 +1,50 @@
+{
+  "noise_source": "ESC-50",
+  "noise_dataset": "ashraq/esc50",
+  "license": "CC BY-NC 3.0",
+  "license_note": "ESC-50 is Creative Commons Attribution-NonCommercial. The DCASE datalist records CC BY-NC 3.0. ESC-10 clips are CC BY; this subset is not limited to ESC-10.",
+  "citation": "K. J. Piczak, ESC: Dataset for Environmental Sound Classification, ACM Multimedia, 2015. DOI 10.1145/2733373.2806390",
+  "categories": [
+    "rain",
+    "sea_waves",
+    "wind",
+    "thunderstorm",
+    "engine",
+    "train",
+    "helicopter",
+    "airplane",
+    "crackling_fire",
+    "chainsaw"
+  ],
+  "category_counts": {
+    "rain": 40,
+    "sea_waves": 40,
+    "wind": 40,
+    "thunderstorm": 40,
+    "engine": 40,
+    "train": 40,
+    "helicopter": 40,
+    "airplane": 40,
+    "crackling_fire": 40,
+    "chainsaw": 40
+  },
+  "n_noise_clips": 400,
+  "snrs_db": [
+    20,
+    10,
+    5,
+    0,
+    -5
+  ],
+  "same_noise_draw_across_snrs": true,
+  "threshold_rule": "1% false-alarm threshold fit on clean validation and applied unchanged",
+  "thresholds": {
+    "Spectrogram transformer": 0.046544648706912994,
+    "Spectrogram CNN": 0.31394657492637634,
+    "Random forest": 0.3452751350257254
+  },
+  "seed": 42,
+  "power_floor": 1e-06,
+  "n_windows_using_power_floor": 0,
+  "separate_from": "section 13 clean comparison"
+}

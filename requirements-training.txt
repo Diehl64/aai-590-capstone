@@ -7,3 +7,9 @@ torchaudio==2.11.0+cu128
 
 # Install the CUDA wheels with the PyTorch index:
 # python -m pip install -r requirements-training.txt --index-url https://download.pytorch.org/whl/cu128
+
+# Acoustic CNN training and the held-out export used torch on Google Colab with an A100 GPU.
+datasets
+optuna
+scipy
+joblib
