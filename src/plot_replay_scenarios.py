@@ -37,15 +37,16 @@ def main() -> None:
     replay = json.loads(args.input.read_text(encoding="utf-8"))
     scenarios = replay["scenarios"]
 
-    figure, axis = plt.subplots(figsize=(11, 7))
-    axis.set_xlim(0, len(SENSORS) + 1.9)
-    axis.set_ylim(-0.8, len(scenarios))
+    label_width = 3.6
+    figure, axis = plt.subplots(figsize=(13, 8.5))
+    axis.set_xlim(0, label_width + len(SENSORS))
+    axis.set_ylim(-0.8, len(scenarios) + 0.7)
     axis.axis("off")
 
-    for column, sensor in enumerate(SENSORS, start=1):
+    for column, sensor in enumerate(SENSORS):
         axis.text(
-            column + 0.5,
-            len(scenarios) - 0.25,
+            label_width + column + 0.5,
+            len(scenarios) + 0.25,
             sensor.upper(),
             ha="center",
             va="center",
@@ -60,18 +61,18 @@ def main() -> None:
             item["scenario"].replace("_", " "),
             ha="left",
             va="center",
-            fontsize=9,
+            fontsize=8,
         )
 
         states = {
             evidence["sensor_type"]: evidence["status"]
             for evidence in item["record"]["evidence"]
         }
-        for column, sensor in enumerate(SENSORS, start=1):
+        for column, sensor in enumerate(SENSORS):
             state = states[sensor]
             axis.add_patch(
                 Rectangle(
-                    (column, y),
+                    (label_width + column, y),
                     1,
                     1,
                     facecolor=COLORS[state],
@@ -80,7 +81,7 @@ def main() -> None:
                 )
             )
             axis.text(
-                column + 0.5,
+                label_width + column + 0.5,
                 y + 0.5,
                 state.replace("_", "\n"),
                 ha="center",
