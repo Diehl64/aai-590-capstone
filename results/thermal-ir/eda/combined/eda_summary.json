@@ -1,0 +1,26 @@
+{
+  "scope": "Descriptive comparison of normalized annotations; not a merged training or evaluation dataset",
+  "groups": {
+    "Dataset 1 drone": {
+      "valid_box_count": 229726,
+      "median_area_fraction": 0.001318359375,
+      "median_aspect_ratio": 1.3636363636363635,
+      "median_center_x": 0.49609375,
+      "median_center_y": 0.529296875
+    },
+    "Dataset 2 drone": {
+      "valid_box_count": 47622,
+      "median_area_fraction": 0.0026719563083626775,
+      "median_aspect_ratio": 1.4990245206779367,
+      "median_center_x": 0.574675977230072,
+      "median_center_y": 0.38951849937438965
+    },
+    "Dataset 2 bird": {
+      "valid_box_count": 21967,
+      "median_area_fraction": 0.002168782552407854,
+      "median_aspect_ratio": 1.1223628689975143,
+      "median_center_x": 0.4781063988095811,
+      "median_center_y": 0.44219501192976773
+    }
+  }
+}

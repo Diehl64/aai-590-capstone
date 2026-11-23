@@ -1,0 +1,13 @@
+{
+  "decision_threshold": 0.5,
+  "true_positive": 1765,
+  "false_positive": 0,
+  "false_negative": 113,
+  "true_negative": 753,
+  "precision": 1.0,
+  "recall": 0.9398296059637913,
+  "f1": 0.9689816085643701,
+  "negative_false_positive_rate": 0.0,
+  "bird_false_positive_rate": 0.0,
+  "threshold_selected_on": "dataset2_validation_only"
+}

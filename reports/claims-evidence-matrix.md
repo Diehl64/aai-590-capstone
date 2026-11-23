@@ -7,9 +7,9 @@ This matrix controls the claims used in the capstone report and presentation. It
 | Radar evaluation | RadarCNN achieved 0.9439 held-out test accuracy and 0.8910 macro F1 on the documented measurement-disjoint radar split. | Committed and documented. | `docs/radar-model-results.md` and `results/radar-neural-network/` |
 | Radar errors | The largest listed radar error is human segments predicted as drones; results are segment-level and do not establish false alerts per operating hour. | Committed and documented. | `docs/radar-model-results.md` |
 | Radar replay handoff | The repository includes 11,050 saved RadarCNN held-out test outputs. | Committed and validated. | `data/model-outputs/radar-cnn-test-outputs.csv` |
-| Thermal evaluation | The Dataset 2-only baseline reports 97.44% drone-present recall and 0.66% bird false-positive rate at its validation-selected threshold. | Committed baseline evidence and held-out handoff. | `docs/thermal-baseline-evidence.md` and thermal output CSV |
+| Thermal evaluation | The Dataset 2-only baseline reports 97.44% drone-present recall and 0.66% bird false-positive rate at its validation-selected threshold. | Committed baseline evidence and held-out handoff. | `docs/thermal_ir_pipeline.md` and thermal output CSV |
 | Thermal replay handoff | The repository includes 2,631 held-out thermal test decisions. | Committed and validated. | `data/model-outputs/thermal-dataset2-batch32-test-outputs.csv` |
-| Thermal Dataset 1 | Dataset 1 EDA may inform future work but is not part of the reported baseline without confirmed access, reuse, and evaluation controls. | Active branch work; not final. | `thermal-ir-pipeline` branch and Group 1 review |
+| Thermal follow-on experiments | Dataset 1-only, Dataset 2 → Dataset 1 transfer, and balanced-joint experiments have saved held-out artifacts. Dataset 1 target-absent results are not bird-rejection results; only Dataset 2 supports that claim. | Repository worktree evidence; pending Dataset 1 access/reuse confirmation and final team review. | `docs/thermal_ir_pipeline.md` and `results/thermal-ir/evaluation/` |
 | RF evaluation | RF v4 versus v5 evaluation evidence is documented. | Documentation committed; final output handoff pending. | `docs/rf-v4-v5-evidence.md` |
 | RF replay handoff | A held-out RF prediction CSV, exact checkpoint, validation-selected threshold, calibration status, and class semantics are required. | Not yet available. | Group 1 handoff requirement |
 | Acoustic evaluation | CNN-Tuned at the validation-selected threshold 0.344 has held-out recall 0.996 and false-alarm rate 0.012 on all 57,015 rewindowed test windows, and full-length recall 0.977. Noise and padding results are reported separately. DADS has no source or site label, so the scores do not measure new-site performance. | Committed | [`docs/acoustic-model-evidence.md`](../docs/acoustic-model-evidence.md) and [`results/acoustic/`](../results/acoustic/) |
@@ -30,6 +30,6 @@ This matrix controls the claims used in the capstone report and presentation. It
 ## Evidence still needed before final submission
 
 1. RF held-out output CSV, selected checkpoint, threshold, calibration status, and class semantics.
-2. Thermal focused review of environment, data-access/license record, Dataset 2 error analysis, and Dataset 1 scope decision.
+2. Thermal focused review of environment, Dataset 1 data-access/license record, experiment controls, source-specific error panels, and final claim selection.
 3. Clean coordination-agent PR, validation-based thresholds, and fixed-rule comparison.
 4. Final cross-model integrity review and report/presentation sources.
