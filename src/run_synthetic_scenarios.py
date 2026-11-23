@@ -41,6 +41,12 @@ def scenarios() -> dict[str, object]:
             evidence("sim-004", SensorType.THERMAL, "no_drone", .79),
             evidence("sim-004", SensorType.ACOUSTIC, "drone", .89),
         ]),
+        "likely_non_drone_event": create_scenario([
+            evidence("sim-005", SensorType.RF, "human", .81),
+            evidence("sim-005", SensorType.RADAR, "human", .87),
+            evidence("sim-005", SensorType.THERMAL, "no_drone", .92),
+            evidence("sim-005", SensorType.ACOUSTIC, "no_drone", .85),
+        ]),
     }
 
 
