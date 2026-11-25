@@ -6,7 +6,7 @@ RF classifies 128×128 spectrograms into Benign, Broadband_Jam, Human, Machine, 
 
 Checked the Kaggle card for `hector484/unified-multi-class-rf-intrusion-dataset` on 2026-11-18. Its class list gives one sentence each. It does not give a frequency band, a protocol, or a way to separate a drone link from other mechanical targets. The same card says the images mix 77 GHz FMCW radar captures of humans, birds, and drones, DroneRF UAV recordings, SDR scans, and interference recordings, and it does not say which source produced a given image.
 
-The folder names in this project are `Benign`, `Broadband_Jam`, `Human`, `Machine`, `Narrowband_Jam`, and `Wildlife`. The card writes the jam classes as "Broadband Jam" and "Narrowband Jam". `LABEL_MAP` in `src/agent_interface.py` on branch `agent-pipeline` (commit `0642645`) lowercases the label and turns spaces and hyphens into underscores, so both spellings use the same key. That file is not on this branch. The comment on the map marks it as proposed for team review. The hypothesis column below is that map.
+The folder names in this project are `Benign`, `Broadband_Jam`, `Human`, `Machine`, `Narrowband_Jam`, and `Wildlife`. The card writes the jam classes as "Broadband Jam" and "Narrowband Jam". `LABEL_MAP` in `src/agent_interface.py` on branch `agent-pipeline` (PR #56) lowercases the label and turns spaces and hyphens into underscores, so both spellings use the same key. That file is not on this branch. The comment on the map marks it as proposed for team review. The hypothesis column below is that map.
 
 | RF class | Meaning on the Kaggle card | Agent hypothesis |
 | --- | --- | --- |
@@ -17,7 +17,7 @@ The folder names in this project are `Benign`, `Broadband_Jam`, `Human`, `Machin
 | Broadband_Jam | Wideband interference, described as denial-of-service or heavy jamming. The card gives no bandwidth or power cutoff. | `other`: an alert, not a drone |
 | Narrowband_Jam | Localized, single-frequency interference. The card gives no frequency. | `other`: an alert, not a drone |
 
-`uncertain` is in the same map and is not one of the six dataset classes. A `drone_like` or `not_drone` label is read as `uncertain` when its score is below the RF score floor. That floor is the placeholder 0.60 in `DEFAULT_SCORE_FLOOR`. A jam label stays `other`.
+`uncertain` is in the same map and is not one of the six dataset classes. A `drone_like` or `not_drone` label is read as `uncertain` when its score is below the RF score floor. On `agent-pipeline` (PR #56), `DEFAULT_SCORE_FLOOR` sets that floor to 0.45, the Machine threshold chosen below, so every selected Machine call stays `drone_like`. A jam label stays `other`.
 
 A Machine prediction is the drone-like cue. Confirmation still depends on acoustic, radar, or thermal evidence and on operator review.
 
@@ -27,9 +27,9 @@ The validation Machine-recall target is **0.90**, set before the screen run. RF 
 
 v5 can trade the two errors with the Machine loss weight and a calibrated threshold. v4 has one fixed operating point. v5 scores are temperature-calibrated on validation, which the agent needs.
 
-v4 remains the stand-alone reference. Its recorded test result, saved in the notebook, is accuracy 0.8875, macro F1 0.8865, and Machine recall 0.6450 (258 of 400). Of the 142 Machine misses, 118 are called Benign. v4 also calls 59 true Benign images Machine.
+v4 remains the stand-alone reference. Its recorded test result, in [`results/rf-intrusion/rf_v4_reference_metrics.json`](../results/rf-intrusion/rf_v4_reference_metrics.json) (built from the saved v4 confusion matrix in notebook section 3), is accuracy 0.8875, macro F1 0.8865, and Machine recall 0.6450 (258 of 400). Of the 142 Machine misses, 118 are called Benign. v4 also calls 59 true Benign images Machine.
 
-An earlier stand-alone rule, written up in section 12 of the notebook, kept v4. That write-up compares one v4 test macro F1, 0.8865, with a three-seed validation mean, and records the highest of those means as 0.8831 at weight 1.25, short by 0.0034. The screen rule replaced that comparison before the test score in this note. The three-seed table later in this note is from the screen run and is a stability check, not that earlier comparison.
+An earlier stand-alone rule, written up in section 12 of the [earlier notebook at commit `66aba6b`](https://github.com/Diehl64/aai-590-capstone/blob/66aba6b8ffdd18e463b8fa78d9f592fdea86b666/notebooks/RF_Intrusion_07_CNN_v5_Training_and_Evaluation.ipynb), kept v4. That write-up compares one v4 test macro F1, 0.8865, with a three-seed validation mean, and records the highest of those means as 0.8831 at weight 1.25, short by 0.0034. The screen rule replaced that comparison before the test score in this note. The three-seed table later in this note is from the screen run and is a stability check, not that earlier comparison.
 
 ## Screen rule and the chosen pair
 
@@ -42,7 +42,7 @@ Applied on validation only, seed 42. Seeds 43 and 44 are trained for stability a
 5. If no pair reaches the target, choose the highest validation Machine recall and report that the target was not met.
 6. Score the test set once with the chosen pair.
 
-The target was met. The chosen pair is weight **1.50**, Machine threshold **0.45**, temperature **1.2932965073088454**, seed **42**, `checkpoint_role` `selected`. On validation that pair has Machine recall 0.9025, 262 Benign→Machine, 13 Machine→Benign, and macro F1 0.8382840806086049. Validation negative log-likelihood moves from 0.24542851746082306 to 0.23933258652687073. Fifty pairs reached the recall target. The next fewest Benign→Machine count is 264, at weight 1.00 and threshold 0.35. The full sweep is [`results/rf-intrusion/validation_selection/validation_screen.csv`](../results/rf-intrusion/validation_selection/validation_screen.csv).
+The target was met. The chosen pair is weight **1.50**, Machine threshold **0.45**, temperature **1.2932965073088454**, seed **42**, `checkpoint_role` `selected`. On validation that pair has Machine recall 0.9025, 262 Benign→Machine, 13 Machine→Benign, and macro F1 0.8382840806086049. Validation negative log-likelihood moves from 0.24542851746082306 to 0.23933258652687073 ([`calibration_record.json`](../results/rf-intrusion/validation_selection/calibration_record.json)). Fifty pairs reached the recall target. The next fewest Benign→Machine count is 264, at weight 1.00 and threshold 0.35. The full sweep is [`results/rf-intrusion/validation_selection/validation_screen.csv`](../results/rf-intrusion/validation_selection/validation_screen.csv).
 
 ## Validation trade-off at the chosen weight
 
@@ -97,7 +97,7 @@ From [`results/rf-intrusion/rf_v5_test_metrics.json`](../results/rf-intrusion/rf
 | Narrowband_Jam | 0.9975 | 0.9975 | 0.9975 | 400 |
 | Wildlife | 0.9134 | 0.8700 | 0.8912 | 400 |
 
-Confusion matrix, rows true and columns predicted, in the class order above. The figure is [`results/rf-intrusion/rf_v5_test_confusion_matrix.png`](../results/rf-intrusion/rf_v5_test_confusion_matrix.png). The notebook also saved [`results/rf-intrusion/rf_intrusion_cnn_v5_selected_confusion_matrix.png`](../results/rf-intrusion/rf_intrusion_cnn_v5_selected_confusion_matrix.png) from the same test score.
+Confusion matrix, rows true and columns predicted, in the class order above, from `rf_v5_test_metrics.json`. The figure is [`results/rf-intrusion/rf_v5_test_confusion_matrix.png`](../results/rf-intrusion/rf_v5_test_confusion_matrix.png). The notebook also saved [`results/rf-intrusion/rf_intrusion_cnn_v5_selected_confusion_matrix.png`](../results/rf-intrusion/rf_intrusion_cnn_v5_selected_confusion_matrix.png) from the same test score.
 
 | True \ predicted | Benign | Broadband_Jam | Human | Machine | Narrowband_Jam | Wildlife |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -115,7 +115,7 @@ Two expected calibration errors are recorded, both with 15 equal-width bins. The
 
 ## Earlier test scores still in the notebook
 
-Section 6 of [`notebooks/rf_machine_detection.ipynb`](../notebooks/rf_machine_detection.ipynb) scored the test set for weights 1.25 through 1.50 before this screen rule. That cell was not run in the Colab session that chose the pair, and those scores were not used to choose it. The saved section 6 table is below. Section 5's saved output also has an earlier weight-1.00 v5 test score: accuracy 0.8983, macro F1 0.8965, Machine recall 0.6375.
+Section 6 of [`notebooks/rf_machine_detection.ipynb`](../notebooks/rf_machine_detection.ipynb) scored the test set for weights 1.25 through 1.50 before this screen rule. That cell was not run in the Colab session that chose the pair, and those scores were not used to choose it. The saved section 5 and section 6 scores are below and in [`results/rf-intrusion/rf_exploratory_test_scores.csv`](../results/rf-intrusion/rf_exploratory_test_scores.csv). Section 5's saved output also has an earlier weight-1.00 v5 test score: accuracy 0.8983, macro F1 0.8965, Machine recall 0.6375.
 
 | Version | Weight | Accuracy | Macro F1 | Machine recall | Benign recall | Benign→Machine | Machine→Benign |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -127,7 +127,7 @@ Section 6 of [`notebooks/rf_machine_detection.ipynb`](../notebooks/rf_machine_de
 | v5.5 | 1.45 | 0.8679 | 0.8672 | 0.8400 | 0.5675 | 167 | 47 |
 | v5.6 | 1.50 | 0.8979 | 0.8972 | 0.6700 | 0.8625 | 55 | 110 |
 
-Section 12 of the notebook records this screen. An earlier diagnostic export used temperature 1.5158 and threshold 0.50 on a weight-1.25 checkpoint. The held-out CSV in this repository is the screen export: weight 1.50, threshold 0.45, temperature 1.2932965073088454.
+Section 12 of the notebook records this screen. The [earlier notebook at commit `66aba6b`](https://github.com/Diehl64/aai-590-capstone/blob/66aba6b8ffdd18e463b8fa78d9f592fdea86b666/notebooks/RF_Intrusion_07_CNN_v5_Training_and_Evaluation.ipynb) records a diagnostic export that used temperature 1.5158 and threshold 0.50 on a weight-1.25 checkpoint. The held-out CSV in this repository is the screen export: weight 1.50, threshold 0.45, temperature 1.2932965073088454.
 
 ## Split integrity
 
@@ -153,7 +153,7 @@ The screen run used Google Colab with an A100. The notebook printed TensorFlow 2
 - The notebook still shows earlier test scores from sections 5 and 6. Those scores were not used to choose the screen.
 - The selected operating point spends Benign recall to reach the Machine-recall target: validation Benign→Machine is 262, and the test count is 249. Benign test recall is 0.3775.
 - The `.keras` checkpoint and the seven seed-42 `.h5` weight files stay outside git. `results/rf-intrusion/rf-production-outputs.csv` is the 9,600-row production export and is not the handoff.
-- Replay of this CSV is still simulated and still requires human review. The placeholder RF score floor remains 0.60.
+- Replay of this CSV is still simulated and still requires human review. The RF score floor of 0.45 is on `agent-pipeline` (PR #56) and is not on `main` until that PR merges.
 
 ## Files
 
@@ -162,6 +162,9 @@ The screen run used Google Colab with an A100. The notebook printed TensorFlow 2
 - Held-out handoff: [`data/model-outputs/rf-cnn-test-outputs.csv`](../data/model-outputs/rf-cnn-test-outputs.csv) and [`results/rf-intrusion/rf-test-outputs.csv`](../results/rf-intrusion/rf-test-outputs.csv)
 - Choice: [`results/rf-intrusion/run_config.json`](../results/rf-intrusion/run_config.json), [`results/rf-intrusion/validation_selection/selection_record.json`](../results/rf-intrusion/validation_selection/selection_record.json), [`results/rf-intrusion/validation_selection/calibration_record.json`](../results/rf-intrusion/validation_selection/calibration_record.json)
 - Validation sweep and seeds: [`validation_screen.csv`](../results/rf-intrusion/validation_selection/validation_screen.csv), [`validation_runs.csv`](../results/rf-intrusion/validation_selection/validation_runs.csv), [`validation_summary.csv`](../results/rf-intrusion/validation_selection/validation_summary.csv). [`validation_benign_machine_thresholds.csv`](../results/rf-intrusion/validation_selection/validation_benign_machine_thresholds.csv) is the section 8 uncalibrated threshold table.
+- v4 reference: [`rf_v4_reference_metrics.json`](../results/rf-intrusion/rf_v4_reference_metrics.json)
+- Exploratory test scores, not used for selection: [`rf_exploratory_test_scores.csv`](../results/rf-intrusion/rf_exploratory_test_scores.csv)
+- Earlier notebook (stand-alone rule and diagnostic export): [`RF_Intrusion_07_CNN_v5_Training_and_Evaluation.ipynb` at `66aba6b`](https://github.com/Diehl64/aai-590-capstone/blob/66aba6b8ffdd18e463b8fa78d9f592fdea86b666/notebooks/RF_Intrusion_07_CNN_v5_Training_and_Evaluation.ipynb)
 - Selected test metrics and figures: [`rf_v5_test_metrics.json`](../results/rf-intrusion/rf_v5_test_metrics.json), [`rf_v5_test_confusion_matrix.png`](../results/rf-intrusion/rf_v5_test_confusion_matrix.png), [`rf_intrusion_cnn_v5_selected_confusion_matrix.png`](../results/rf-intrusion/rf_intrusion_cnn_v5_selected_confusion_matrix.png)
 - Trade-off and seed summary: [`rf_v5_validation_tradeoff.csv`](../results/rf-intrusion/rf_v5_validation_tradeoff.csv), [`rf_v5_validation_tradeoff.png`](../results/rf-intrusion/rf_v5_validation_tradeoff.png), [`rf_v5_seed_summary.csv`](../results/rf-intrusion/rf_v5_seed_summary.csv)
 - Integrity: [`rf_integrity_checks.json`](../results/rf-intrusion/rf_integrity_checks.json)

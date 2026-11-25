@@ -1,0 +1,110 @@
+{
+  "model": "RF CNN v4 (AAI-540), stand-alone reference",
+  "source": "V4_CONFUSION in notebooks/rf_machine_detection.ipynb, section 3: the saved v4 test confusion matrix",
+  "split": "test (2,400 images, 400 per class)",
+  "decision": "argmax",
+  "accuracy": 0.8875,
+  "macro_f1": 0.886496,
+  "machine_recall": 0.645,
+  "machine_correct": 258,
+  "machine_called_benign": 118,
+  "benign_called_machine": 59,
+  "per_class": {
+    "Benign": {
+      "precision": 0.741304,
+      "recall": 0.8525,
+      "f1": 0.793023,
+      "support": 400
+    },
+    "Broadband_Jam": {
+      "precision": 0.995012,
+      "recall": 0.9975,
+      "f1": 0.996255,
+      "support": 400
+    },
+    "Human": {
+      "precision": 0.949367,
+      "recall": 0.9375,
+      "f1": 0.943396,
+      "support": 400
+    },
+    "Machine": {
+      "precision": 0.75,
+      "recall": 0.645,
+      "f1": 0.693548,
+      "support": 400
+    },
+    "Narrowband_Jam": {
+      "precision": 1.0,
+      "recall": 0.995,
+      "f1": 0.997494,
+      "support": 400
+    },
+    "Wildlife": {
+      "precision": 0.893035,
+      "recall": 0.8975,
+      "f1": 0.895262,
+      "support": 400
+    }
+  },
+  "confusion_matrix": {
+    "labels": [
+      "Benign",
+      "Broadband_Jam",
+      "Human",
+      "Machine",
+      "Narrowband_Jam",
+      "Wildlife"
+    ],
+    "rows_true_columns_predicted": [
+      [
+        341,
+        0,
+        0,
+        59,
+        0,
+        0
+      ],
+      [
+        1,
+        399,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        375,
+        4,
+        0,
+        21
+      ],
+      [
+        118,
+        0,
+        2,
+        258,
+        0,
+        22
+      ],
+      [
+        0,
+        2,
+        0,
+        0,
+        398,
+        0
+      ],
+      [
+        0,
+        0,
+        18,
+        23,
+        0,
+        359
+      ]
+    ]
+  }
+}
