@@ -89,5 +89,40 @@ class AgentReplayTests(unittest.TestCase):
             self.assertLessEqual(int(row["cascade_sensors_used"]), int(row["fixed_sensors_used"]))
 
 
+    def comparison(self, name):
+        _, rows = read_csv(self.output / "fixed-vs-cascade.csv")
+        for row in rows:
+            if row["scenario"] == name:
+                return row
+        self.fail(f"missing comparison row {name}")
+
+    def test_early_confirmation_that_masks_a_conflict_is_flagged(self):
+        row = self.comparison("early_confirmation_masks_radar_conflict")
+        self.assertEqual(row["cascade_status"], "confirmed")
+        self.assertEqual(row["fixed_status"], "conflicting")
+        self.assertEqual(row["cascade_revealed_sensors"], "rf;acoustic")
+        self.assertEqual(row["cascade_unrevealed_sensors"], "radar;thermal")
+        self.assertEqual(row["unrevealed_disagreeing_sensors"], "radar")
+        self.assertEqual(row["early_stop_masks_conflict"], "true")
+
+    def test_agreeing_unrevealed_sensors_are_not_flagged(self):
+        row = self.comparison("all_four_drone_like")
+        self.assertEqual(row["cascade_unrevealed_sensors"], "radar;thermal")
+        self.assertEqual(row["unrevealed_disagreeing_sensors"], "")
+        self.assertEqual(row["early_stop_masks_conflict"], "false")
+
+    def test_a_masked_conflict_always_names_the_hidden_sensor(self):
+        _, rows = read_csv(self.output / "fixed-vs-cascade.csv")
+        for row in rows:
+            revealed = set(filter(None, row["cascade_revealed_sensors"].split(";")))
+            unrevealed = set(filter(None, row["cascade_unrevealed_sensors"].split(";")))
+            self.assertFalse(revealed & unrevealed)
+            self.assertEqual(len(revealed), int(row["cascade_sensors_used"]))
+            if row["early_stop_masks_conflict"] == "true":
+                self.assertTrue(row["unrevealed_disagreeing_sensors"])
+            if not unrevealed:
+                self.assertEqual(row["cascade_status"], row["fixed_status"])
+
+
 if __name__ == "__main__":
     unittest.main()
