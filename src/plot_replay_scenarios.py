@@ -37,8 +37,8 @@ def main() -> None:
     replay = json.loads(args.input.read_text(encoding="utf-8"))
     scenarios = replay["scenarios"]
 
-    label_width = 3.6
-    figure, axis = plt.subplots(figsize=(13, 8.5))
+    label_width = 5.0
+    figure, axis = plt.subplots(figsize=(15, 1.2 + 0.45 * len(scenarios)))
     axis.set_xlim(0, label_width + len(SENSORS))
     axis.set_ylim(-0.8, len(scenarios) + 0.7)
     axis.axis("off")

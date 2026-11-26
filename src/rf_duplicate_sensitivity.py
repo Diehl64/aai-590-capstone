@@ -71,7 +71,10 @@ def metrics(rows: list[tuple[str, str]]) -> dict:
 def run(outputs: Path, manifest: Path, integrity: Path) -> dict:
     truth = {row["filename"]: row["class"] for row in read_csv(manifest) if row["split"] == "test"}
     handoff = read_csv(outputs)
-    if len(handoff) != len(truth) or any(row["split"] != "test" for row in handoff):
+    source_ids = [row["source_observation_id"] for row in handoff]
+    if len(source_ids) != len(set(source_ids)):
+        raise ValueError("handoff source_observation_id values must be unique")
+    if set(source_ids) != set(truth) or any(row["split"] != "test" for row in handoff):
         raise ValueError("the handoff must hold exactly the test split of the manifest")
     pairs = {row["source_observation_id"]: (truth[row["source_observation_id"]], row["predicted_label"]) for row in handoff}
     checks = json.loads(Path(integrity).read_text(encoding="utf-8"))
