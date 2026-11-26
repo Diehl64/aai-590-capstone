@@ -17,7 +17,7 @@ The folder names in this project are `Benign`, `Broadband_Jam`, `Human`, `Machin
 | Broadband_Jam | Wideband interference, described as denial-of-service or heavy jamming. The card gives no bandwidth or power cutoff. | `other`: an alert, not a drone |
 | Narrowband_Jam | Localized, single-frequency interference. The card gives no frequency. | `other`: an alert, not a drone |
 
-`uncertain` is in the same map and is not one of the six dataset classes. A `drone_like` or `not_drone` label is read as `uncertain` when its score is below the RF score floor. On `agent-pipeline` (PR #56), `DEFAULT_SCORE_FLOOR` sets that floor to 0.45, the Machine threshold chosen below, so every selected Machine call stays `drone_like`. A jam label stays `other`.
+`uncertain` is in the same map and is not one of the six dataset classes. A `drone_like` or `not_drone` label is read as `uncertain` when its score is below the RF score floor. The floor is agent behavior and is not part of this evaluation. PR #56 (`agent-pipeline`) sets it to 0.45, the Machine threshold chosen below, so every selected Machine call stays `drone_like`; the RF results in this note do not depend on that PR. A jam label stays `other`.
 
 A Machine prediction is the drone-like cue. Confirmation still depends on acoustic, radar, or thermal evidence and on operator review.
 
@@ -137,6 +137,14 @@ SHA-256 of the file bytes finds 23,764 distinct images. There are 219 groups of 
 
 The metadata has no recording or session id. This check sees exact copies only. Images from one recording that are not byte-identical can still sit in different splits.
 
+### Effect of the duplicates on the reported result
+
+[`src/rf_duplicate_sensitivity.py`](../src/rf_duplicate_sensitivity.py) rescores the committed held-out CSV against the true classes in `data/rf-split-manifest.csv`, leaving out the 41 test images that have a byte-identical copy in another split. Nothing is retrained and the threshold is not refit. The output is [`results/rf-intrusion/rf_v5_test_duplicate_sensitivity.json`](../results/rf-intrusion/rf_v5_test_duplicate_sensitivity.json).
+
+The 41 images are 28 Narrowband_Jam, 9 Wildlife, 3 Broadband_Jam, 1 Machine, and no Benign; none of them is in a group with mixed class labels, and 40 of the 41 are classified correctly. On the remaining 2,359 test images, Machine recall is 0.9048 (0.9050 on all 2,400), Benign→Machine stays 249, Machine→Benign stays 16, and macro F1 is 0.8441 (0.8442). Leaving out all 47 test images that sit in any duplicate group gives the same Benign and Machine counts. The duplicates therefore do not carry the Benign-versus-Machine result this screen is reported on.
+
+On validation, 49 images have a copy in another split, of which 2 are Machine and 1 is Benign. Removing them cannot change the chosen pair. The chosen pair has 361 of 400 validation Machine images correct, so at worst 359 of 398 (0.9020) remain, still above the 0.90 target. The closest pair below the target, weight 1.45 at threshold 0.45, has 357 correct (0.8925), so at best 357 of 398 (0.8970), still below it. Among eligible pairs, the chosen pair has 262 Benign→Machine and the next has 264; one Benign image can lower either count by at most one.
+
 Section 7 scored the test set once, for the chosen pair. Section 10 read the test images again only to write the held-out CSV for that same model.
 
 ## Training environment
@@ -149,11 +157,11 @@ The screen run used Google Colab with an A100. The notebook printed TensorFlow 2
 
 - Machine is a drone-like cue. The Kaggle card does not define it as a confirmed drone, and it does not say which source produced a given image.
 - The metadata has no recording or session id, so exact-copy checks do not prove that train, validation, and test are separate recordings.
-- 41 test images have a byte-identical copy outside the test split, and 10 duplicate groups mix class labels.
+- 41 test images have a byte-identical copy outside the test split, so the test split is not fully independent of training. They are mostly jam and Wildlife images; without them the Benign and Machine counts are unchanged (see "Effect of the duplicates on the reported result"). 10 duplicate groups mix class labels, none of them in the test split. This is accepted as a stated limitation, not fixed: removing the duplicates from training would require retraining.
 - The notebook still shows earlier test scores from sections 5 and 6. Those scores were not used to choose the screen.
 - The selected operating point spends Benign recall to reach the Machine-recall target: validation Benign→Machine is 262, and the test count is 249. Benign test recall is 0.3775.
 - The `.keras` checkpoint and the seven seed-42 `.h5` weight files stay outside git. `results/rf-intrusion/rf-production-outputs.csv` is the 9,600-row production export and is not the handoff.
-- Replay of this CSV is still simulated and still requires human review. The RF score floor of 0.45 is on `agent-pipeline` (PR #56) and is not on `main` until that PR merges.
+- Replay of this CSV is still simulated and still requires human review. How the agent reads RF scores (its 0.45 floor) is decided in PR #56 and does not change any number in this note.
 
 ## Files
 
@@ -167,5 +175,5 @@ The screen run used Google Colab with an A100. The notebook printed TensorFlow 2
 - Earlier notebook (stand-alone rule and diagnostic export): [`RF_Intrusion_07_CNN_v5_Training_and_Evaluation.ipynb` at `66aba6b`](https://github.com/Diehl64/aai-590-capstone/blob/66aba6b8ffdd18e463b8fa78d9f592fdea86b666/notebooks/RF_Intrusion_07_CNN_v5_Training_and_Evaluation.ipynb)
 - Selected test metrics and figures: [`rf_v5_test_metrics.json`](../results/rf-intrusion/rf_v5_test_metrics.json), [`rf_v5_test_confusion_matrix.png`](../results/rf-intrusion/rf_v5_test_confusion_matrix.png), [`rf_intrusion_cnn_v5_selected_confusion_matrix.png`](../results/rf-intrusion/rf_intrusion_cnn_v5_selected_confusion_matrix.png)
 - Trade-off and seed summary: [`rf_v5_validation_tradeoff.csv`](../results/rf-intrusion/rf_v5_validation_tradeoff.csv), [`rf_v5_validation_tradeoff.png`](../results/rf-intrusion/rf_v5_validation_tradeoff.png), [`rf_v5_seed_summary.csv`](../results/rf-intrusion/rf_v5_seed_summary.csv)
-- Integrity: [`rf_integrity_checks.json`](../results/rf-intrusion/rf_integrity_checks.json)
+- Integrity: [`rf_integrity_checks.json`](../results/rf-intrusion/rf_integrity_checks.json); duplicate sensitivity: [`rf_v5_test_duplicate_sensitivity.json`](../results/rf-intrusion/rf_v5_test_duplicate_sensitivity.json) from [`src/rf_duplicate_sensitivity.py`](../src/rf_duplicate_sensitivity.py)
 - Environment: [`requirements-training.txt`](../requirements-training.txt)

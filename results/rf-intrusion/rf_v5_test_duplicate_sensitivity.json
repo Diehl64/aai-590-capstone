@@ -1,0 +1,400 @@
+{
+  "purpose": "Sensitivity of the selected RF v5 test result to exact cross-split duplicate images.",
+  "inputs": {
+    "handoff": "data/model-outputs/rf-cnn-test-outputs.csv",
+    "true_classes": "data/rf-split-manifest.csv",
+    "duplicate_groups": "results/rf-intrusion/rf_integrity_checks.json"
+  },
+  "model_version": "rf-intrusion-cnn-v5-w1.50-seed42-selected",
+  "not_retrained": true,
+  "threshold_not_refit": true,
+  "test_duplicates": {
+    "copy_outside_test": 41,
+    "in_any_duplicate_group": 47,
+    "in_mixed_label_groups": 0,
+    "copy_outside_test_by_class": {
+      "Narrowband_Jam": 28,
+      "Wildlife": 9,
+      "Machine": 1,
+      "Broadband_Jam": 3
+    },
+    "copy_outside_test_correct": 40
+  },
+  "validation_duplicates": {
+    "copy_outside_validation": 49,
+    "copy_outside_validation_by_class": {
+      "Broadband_Jam": 1,
+      "Narrowband_Jam": 43,
+      "Machine": 2,
+      "Benign": 1,
+      "Wildlife": 2
+    }
+  },
+  "all_test_images": {
+    "images": 2400,
+    "accuracy": 0.85125,
+    "macro_f1": 0.8442349992515298,
+    "machine_recall": 0.905,
+    "machine_precision": 0.558641975308642,
+    "benign_recall": 0.3775,
+    "benign_to_machine": 249,
+    "machine_to_benign": 16,
+    "per_class": {
+      "Benign": {
+        "precision": 0.893491124260355,
+        "recall": 0.3775,
+        "f1": 0.530755711775044,
+        "support": 400
+      },
+      "Broadband_Jam": {
+        "precision": 0.9974937343358395,
+        "recall": 0.995,
+        "f1": 0.9962453066332916,
+        "support": 400
+      },
+      "Human": {
+        "precision": 0.9553349875930521,
+        "recall": 0.9625,
+        "f1": 0.958904109589041,
+        "support": 400
+      },
+      "Machine": {
+        "precision": 0.558641975308642,
+        "recall": 0.905,
+        "f1": 0.6908396946564886,
+        "support": 400
+      },
+      "Narrowband_Jam": {
+        "precision": 0.9975,
+        "recall": 0.9975,
+        "f1": 0.9975,
+        "support": 400
+      },
+      "Wildlife": {
+        "precision": 0.9133858267716536,
+        "recall": 0.87,
+        "f1": 0.8911651728553137,
+        "support": 400
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "Benign",
+        "Broadband_Jam",
+        "Human",
+        "Machine",
+        "Narrowband_Jam",
+        "Wildlife"
+      ],
+      "rows_true_columns_predicted": [
+        [
+          151,
+          0,
+          0,
+          249,
+          0,
+          0
+        ],
+        [
+          1,
+          398,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          385,
+          3,
+          0,
+          12
+        ],
+        [
+          16,
+          0,
+          1,
+          362,
+          0,
+          21
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          399,
+          0
+        ],
+        [
+          1,
+          0,
+          17,
+          34,
+          0,
+          348
+        ]
+      ]
+    }
+  },
+  "excluding_copy_outside_test": {
+    "images": 2359,
+    "accuracy": 0.8490885968630776,
+    "macro_f1": 0.8440706497056447,
+    "machine_recall": 0.9047619047619048,
+    "machine_precision": 0.5579598145285936,
+    "benign_recall": 0.3775,
+    "benign_to_machine": 249,
+    "machine_to_benign": 16,
+    "per_class": {
+      "Benign": {
+        "precision": 0.8988095238095238,
+        "recall": 0.3775,
+        "f1": 0.5316901408450704,
+        "support": 400
+      },
+      "Broadband_Jam": {
+        "precision": 0.9974747474747475,
+        "recall": 0.9949622166246851,
+        "f1": 0.9962168978562421,
+        "support": 397
+      },
+      "Human": {
+        "precision": 0.9553349875930521,
+        "recall": 0.9625,
+        "f1": 0.958904109589041,
+        "support": 400
+      },
+      "Machine": {
+        "precision": 0.5579598145285936,
+        "recall": 0.9047619047619048,
+        "f1": 0.6902485659655833,
+        "support": 399
+      },
+      "Narrowband_Jam": {
+        "precision": 0.9973118279569892,
+        "recall": 0.9973118279569892,
+        "f1": 0.9973118279569892,
+        "support": 372
+      },
+      "Wildlife": {
+        "precision": 0.9115281501340483,
+        "recall": 0.8695652173913043,
+        "f1": 0.8900523560209425,
+        "support": 391
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "Benign",
+        "Broadband_Jam",
+        "Human",
+        "Machine",
+        "Narrowband_Jam",
+        "Wildlife"
+      ],
+      "rows_true_columns_predicted": [
+        [
+          151,
+          0,
+          0,
+          249,
+          0,
+          0
+        ],
+        [
+          1,
+          395,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          385,
+          3,
+          0,
+          12
+        ],
+        [
+          16,
+          0,
+          1,
+          361,
+          0,
+          21
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          371,
+          0
+        ],
+        [
+          0,
+          0,
+          17,
+          34,
+          0,
+          340
+        ]
+      ]
+    }
+  },
+  "excluding_any_duplicate_group": {
+    "images": 2353,
+    "accuracy": 0.8487037824054399,
+    "macro_f1": 0.8440625832912447,
+    "machine_recall": 0.9047619047619048,
+    "machine_precision": 0.5579598145285936,
+    "benign_recall": 0.3775,
+    "benign_to_machine": 249,
+    "machine_to_benign": 16,
+    "per_class": {
+      "Benign": {
+        "precision": 0.8988095238095238,
+        "recall": 0.3775,
+        "f1": 0.5316901408450704,
+        "support": 400
+      },
+      "Broadband_Jam": {
+        "precision": 0.9974619289340102,
+        "recall": 0.9949367088607595,
+        "f1": 0.9961977186311788,
+        "support": 395
+      },
+      "Human": {
+        "precision": 0.9553349875930521,
+        "recall": 0.9625,
+        "f1": 0.958904109589041,
+        "support": 400
+      },
+      "Machine": {
+        "precision": 0.5579598145285936,
+        "recall": 0.9047619047619048,
+        "f1": 0.6902485659655833,
+        "support": 399
+      },
+      "Narrowband_Jam": {
+        "precision": 0.9972826086956522,
+        "recall": 0.9972826086956522,
+        "f1": 0.9972826086956522,
+        "support": 368
+      },
+      "Wildlife": {
+        "precision": 0.9115281501340483,
+        "recall": 0.8695652173913043,
+        "f1": 0.8900523560209425,
+        "support": 391
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "Benign",
+        "Broadband_Jam",
+        "Human",
+        "Machine",
+        "Narrowband_Jam",
+        "Wildlife"
+      ],
+      "rows_true_columns_predicted": [
+        [
+          151,
+          0,
+          0,
+          249,
+          0,
+          0
+        ],
+        [
+          1,
+          393,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          385,
+          3,
+          0,
+          12
+        ],
+        [
+          16,
+          0,
+          1,
+          361,
+          0,
+          21
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          367,
+          0
+        ],
+        [
+          0,
+          0,
+          17,
+          34,
+          0,
+          340
+        ]
+      ]
+    }
+  },
+  "excluded_files": [
+    "aug_Broadband_Jam_000773.png",
+    "aug_Broadband_Jam_000862.png",
+    "aug_Narrowband_Jam_000129.png",
+    "aug_Narrowband_Jam_000360.png",
+    "aug_Narrowband_Jam_000459.png",
+    "aug_Narrowband_Jam_000462.png",
+    "aug_Narrowband_Jam_000770.png",
+    "aug_Narrowband_Jam_001317.png",
+    "aug_Narrowband_Jam_001462.png",
+    "aug_Narrowband_Jam_001497.png",
+    "aug_Narrowband_Jam_001510.png",
+    "aug_Narrowband_Jam_001566.png",
+    "aug_Narrowband_Jam_001662.png",
+    "aug_Narrowband_Jam_001678.png",
+    "aug_Narrowband_Jam_001816.png",
+    "aug_Narrowband_Jam_001959.png",
+    "aug_Narrowband_Jam_002101.png",
+    "aug_Narrowband_Jam_002127.png",
+    "aug_Narrowband_Jam_002194.png",
+    "aug_Narrowband_Jam_002233.png",
+    "aug_Narrowband_Jam_002261.png",
+    "aug_Narrowband_Jam_002915.png",
+    "aug_Narrowband_Jam_002931.png",
+    "aug_Narrowband_Jam_003366.png",
+    "aug_Narrowband_Jam_003448.png",
+    "aug_Narrowband_Jam_003497.png",
+    "aug_Narrowband_Jam_003514.png",
+    "aug_Narrowband_Jam_003795.png",
+    "aug_Narrowband_Jam_003880.png",
+    "dronerf_090083.png",
+    "jam_Broadband_Jam_001323.png",
+    "jam_Narrowband_Jam_000125.png",
+    "radar_011894.png",
+    "radar_011902.png",
+    "radar_011903.png",
+    "radar_011904.png",
+    "radar_011906.png",
+    "radar_011908.png",
+    "radar_011911.png",
+    "radar_013276.png",
+    "radar_013302.png"
+  ]
+}
