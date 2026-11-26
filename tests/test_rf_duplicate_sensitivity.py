@@ -27,11 +27,12 @@ class DuplicateSensitivityTests(unittest.TestCase):
             {"filename": "c.png", "class": "Narrowband_Jam", "split": "test"},
             {"filename": "d.png", "class": "Narrowband_Jam", "split": "train"},
         ])
-        write_csv(self.outputs, ["source_observation_id", "split", "predicted_label", "model_version"], [
+        self.handoff_rows = [
             {"source_observation_id": "a.png", "split": "test", "predicted_label": "Machine", "model_version": "fixture"},
             {"source_observation_id": "b.png", "split": "test", "predicted_label": "Machine", "model_version": "fixture"},
             {"source_observation_id": "c.png", "split": "test", "predicted_label": "Narrowband_Jam", "model_version": "fixture"},
-        ])
+        ]
+        self.write_handoff()
         self.integrity.write_text(json.dumps({"groups": [{
             "same_class": True,
             "files": [
@@ -42,6 +43,9 @@ class DuplicateSensitivityTests(unittest.TestCase):
 
     def tearDown(self):
         self.tmp.cleanup()
+
+    def write_handoff(self):
+        write_csv(self.outputs, ["source_observation_id", "split", "predicted_label", "model_version"], self.handoff_rows)
 
     def test_cross_split_copy_is_excluded(self):
         result = run(self.outputs, self.manifest, self.integrity)
@@ -56,10 +60,27 @@ class DuplicateSensitivityTests(unittest.TestCase):
             self.assertEqual(result[key]["machine_recall"], 1.0)
 
     def test_non_test_rows_are_rejected(self):
-        write_csv(self.outputs, ["source_observation_id", "split", "predicted_label", "model_version"], [
-            {"source_observation_id": "a.png", "split": "validation", "predicted_label": "Machine", "model_version": "x"},
-        ])
+        self.handoff_rows[0]["split"] = "validation"
+        self.write_handoff()
         with self.assertRaises(ValueError):
+            run(self.outputs, self.manifest, self.integrity)
+
+    def test_duplicate_source_id_cannot_replace_missing_test_image(self):
+        self.handoff_rows[1]["source_observation_id"] = "a.png"
+        self.write_handoff()
+        with self.assertRaisesRegex(ValueError, "source_observation_id values must be unique"):
+            run(self.outputs, self.manifest, self.integrity)
+
+    def test_missing_test_image_is_rejected(self):
+        self.handoff_rows.pop()
+        self.write_handoff()
+        with self.assertRaisesRegex(ValueError, "exactly the test split"):
+            run(self.outputs, self.manifest, self.integrity)
+
+    def test_unexpected_source_id_is_rejected_even_with_same_row_count(self):
+        self.handoff_rows[0]["source_observation_id"] = "d.png"
+        self.write_handoff()
+        with self.assertRaisesRegex(ValueError, "exactly the test split"):
             run(self.outputs, self.manifest, self.integrity)
 
 

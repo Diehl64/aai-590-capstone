@@ -33,3 +33,9 @@ The replay outputs remain explicitly simulated and require human review. Team re
 ### 2026-11-15 — Thermal-IR error analysis and documentation
 
 ChatGPT refactored the thermal error-panel utility so it can use each evaluation's saved decision categories and, where per-box predictions were not preserved, replay boxes only for the selected visual examples. It generated source-specific panels for the Dataset 1-only, transfer-learning, and balanced-joint evaluations, then checked the Dataset 1 and Dataset 2 license records against their primary source pages. ChatGPT also consolidated the thermal pipeline and baseline-evidence documentation and updated repository status/report-planning documents. Saved decisions and metrics remain unchanged; team review of the Dataset 1 access/reuse status and final report claims is pending.
+
+### 2026-11-25 — Saved-output replay integration preparation
+
+At Tony's request, Codex prepared a focused local integration from main `5fc4dca` and the existing RF replay PR #55. It retained optional two-/three-sensor operation, required an explicit RF input and manifest, added dataset-ID alias checks and RF source-ID integrity tests, regenerated the simulated replay artifacts, and updated stale status documentation. The existing three-sensor records and all four committed handoff CSVs were preserved. Models were not trained or refit; no raw datasets, weights, or training notebooks were added.
+
+Codex ran the repository's 37 tests and the two-, three-, and four-sensor saved-output modes in the cloud workspace. It also checked the supplied 0.6 acoustic CSV as an explicit alternative, without selecting it as the final operating point. All scenarios retain simulated labels and human review. Tony authorized committing and publishing the focused review branch; teammate review is still required before merge. This record does not claim completed team scientific review or changes to the coordination-agent policy.

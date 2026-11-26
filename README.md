@@ -4,7 +4,7 @@ University of San Diego — M.S. in Applied Artificial Intelligence
 
 **Team:** Ramon (Tony) Diehl-Verdugo, Mostafa Zamaniturk, and Jacob Tassos.
 
-**Status:** Radar audit, measurement-disjoint baseline, CNN evaluation, held-out radar handoff, report figures, and error analysis are complete. Thermal-IR source validation, four held-out experiments, and source-specific error panels are available for team review; Dataset 1 access/reuse confirmation and final report approval remain. A partial simulated replay uses the reviewed Dataset 2 baseline handoff. RF held-out outputs, acoustic robustness evidence and outputs, the coordination-agent comparison, and the final four-sensor simulated replay remain.
+**Status (2026-11-25):** Radar, thermal, acoustic, and RF evaluation evidence and held-out output handoffs are committed on `main` at `5fc4dca`. Radar figures and error analysis, four thermal experiments, acoustic robustness checks, and RF validation selection, calibration, and duplicate sensitivity records are available for team review. That revision contains 16 simulated radar/thermal/acoustic replay scenarios. The 25-record four-sensor integration from PR #55 has been prepared and tested on `tony/replay-integration-review`; teammate review and merge remain pending. Coordination-agent integration, the fixed-rule comparison, final scientific review, and report/presentation deliverables remain.
 
 ## Completed Radar Audit
 
@@ -15,7 +15,7 @@ The checksum-verified dataset contains **130 measurements and 75,868 segments**.
 - 128 measurements span published splits 1, 2, and 3. Measurement IDs 81 and 92 span only splits 1 and 3.
 - The proposed three-class mapping is drone, bird, and human; reflectors are explicitly excluded, leaving 72,588 segments.
 
-All measurements span multiple published splits. The published partition therefore does not evaluate unseen measurements. We need measurement-disjoint evaluation and further checks for session or target overlap. This does not establish that the original study's results are invalid; its evaluation question may differ.
+All measurements span multiple published splits. The published partition therefore does not evaluate unseen measurements. The capstone uses a measurement-disjoint split; session or target overlap remains a limitation. This does not establish that the original study's results are invalid; its evaluation question may differ.
 
 The audit was followed by a measurement-disjoint nearest-centroid baseline and a from-scratch CNN. The CNN was trained on an RTX 5080 with PyTorch CUDA and evaluated once on the untouched test partition. See the [model results](docs/radar-model-results.md). These are target-centered dataset results, not continuous field-detection performance.
 
@@ -36,11 +36,13 @@ This capstone builds on the team's [AAI-540 RF Intrusion Detection MLOps project
 
 **RF communications data and radar data are separate modalities.** AAI-540 classifies RF activity from spectrogram images into Benign, Broadband_Jam, Human, Machine, Narrowband_Jam, and Wildlife. AAI-590 evaluates complex-valued measurements from a 77 GHz FMCW radar using the documented drone/bird/human mapping and explicit reflector exclusion. Shared label wording does not establish equivalent targets, paired observations, compatible inputs, or transferable performance. AAI-540 weights, preprocessing, thresholds, and metrics do not establish radar classifier performance.
 
-The new AAI-590 contributions include radar preprocessing, measurement-disjoint evaluation, a radar baseline, a neural network trained from scratch, and separately evaluated thermal-IR detection experiments. Coordination of observation and verification events and operator-review integration remain future work.
+The new AAI-590 contributions include radar preprocessing and measurement-disjoint evaluation, separately evaluated thermal-IR and acoustic models, the RF v5 Machine-screen evidence package, and simulated replay using saved outputs. The coordination-agent implementation remains under review in PR #56; its comparison with fixed rules is still pending.
 
-The remaining scope and dated ownership are recorded in the [project management plan](docs/project-management-plan.md). The local comparison will use explicitly simulated replay scenarios and will not claim measured sensor fusion.
+The remaining scope and dated ownership are recorded in the [project management plan](docs/project-management-plan.md). The local comparison uses explicitly simulated replay scenarios and does not claim measured sensor fusion.
 
-The [synthetic local-replay foundation](docs/synthetic-replay.md) provides an RF/radar/thermal/acoustic event contract and placeholder-only development scenarios. The [partial real-output replay](docs/real-output-replay.md) now uses saved held-out radar and thermal outputs in ten explicitly simulated scenarios. RF and acoustic remain missing until their owners provide validated held-out output files. Every replay scenario requires human review and does not claim measured real-world sensor fusion.
+The [synthetic local-replay foundation](docs/synthetic-replay.md) provides an RF/radar/thermal/acoustic event contract and five placeholder-only development scenarios. These are separate from the [saved-output replay](docs/real-output-replay.md): the reviewed main revision has 16 radar/thermal/acoustic scenarios, while the tested review branch provides 25 four-sensor records (not 25 distinct evidence combinations). The RF CSV is already committed; integrating it does not require new model training or invented RF predictions. Every scenario remains simulated and requires human review.
+
+The committed handoffs contain 11,050 radar outputs, 2,631 thermal decisions, 57,015 acoustic outputs, and 2,400 RF outputs. See the [radar](docs/radar-model-results.md), [thermal](docs/thermal_ir_pipeline.md), [acoustic](docs/acoustic-model-evidence.md), and [RF](docs/rf-v4-v5-evidence.md) evidence. RF `Machine` is a mechanical/UAV-like cue requiring corroborating evidence and operator review, not a confirmed drone. Keep each model's metrics and limitations separate from replay results.
 
 The radar and any future verification datasets capture different events and are not synchronized. They therefore cannot establish that sensor fusion improves real-world detection. We evaluate each model independently and use clearly labeled simulated scenarios to test agreement, conflict, missing evidence, and delayed verification. Claims about combined performance require suitable paired observations and will not be made from the current datasets.
 
@@ -54,7 +56,7 @@ The proposed proof of concept uses recorded or simulated observations to demonst
 2. Radar observation classification.
 3. Thermal/vision feasibility for drone detection.
 4. Acoustic drone-sound detection.
-5. Structured results containing a predicted class, confidence, supporting evidence, and verification status.
+5. Structured results containing a predicted class, model score with its calibration status, supporting evidence, and verification status.
 6. An operator alert for human review.
 
 Physical drone flight control and interception are outside the capstone implementation scope.
@@ -63,28 +65,27 @@ Coordinates, velocity, timestamps, and camera pose must come from an external so
 
 ## Data and Modeling
 
-Candidate radar data:
+Evaluated radar dataset:
 https://zenodo.org/records/5896641
 
 The [thermal-IR pipeline and evaluation record](docs/thermal_ir_pipeline.md) documents data provenance, license status, notebook order, held-out results, and error-analysis artifacts. The [Thermal Dataset Exploration notebook](notebooks/03_thermal_dataset_exploration.ipynb) documents Dataset 2 recording counts, durations, annotation issues, bounding-box geometry, target location, and temporal dependence, plus Dataset 1 source characteristics and a descriptive cross-source comparison.
 
-Initial integrity and schema checks are complete, and the source metadata identifies CC BY 4.0. Final adoption, class mapping, preprocessing, and evaluation suitability require team review. See the [dataset manifest](data/dataset-manifest.csv) and [audit notes](docs/radar-data-audit.md).
+Radar integrity checks, class mapping, preprocessing, and evaluation are documented, and the source metadata identifies CC BY 4.0. Team review must retain the remaining session/subject/target-overlap limitation. See the [dataset manifest](data/dataset-manifest.csv) and [audit notes](docs/radar-data-audit.md).
 
-The team will:
+Remaining data and evidence review:
 
-- Select suitable RF, radar, thermal/vision, and acoustic datasets.
-- Document provenance, limitations, and permitted uses.
-- Prevent leakage between related recordings in training and test splits.
-- Extend the measured radar comparison with error analysis and robustness checks.
+- Confirm unresolved provenance, limitations, and permitted uses, especially thermal Dataset 1.
+- Review split integrity, including RF exact duplicates and unavailable recording/session identifiers, without claiming the checks prove independent recordings.
+- Carry radar, thermal, acoustic, and RF error analysis and limitations into the report.
 - Complete thermal provenance/access review and report integration, and extend the local replay without implying paired real-world sensor data.
 
 Synchronized radar-camera data has not yet been secured. Models using separate real-world datasets will be evaluated separately. Simulated verification scenarios will be identified explicitly.
 
 ## Integration
 
-The initial demonstration will use a local replay workflow and structured model outputs.
+The demonstration uses a local simulated replay workflow and structured saved model outputs. Review the proposed four-sensor integration and coordination agent before recording their comparison with fixed rules. The RF Machine threshold and calibrated scores must retain their documented meaning; the radar 0.60 agent score floor remains a development placeholder until supported by validation evidence.
 
-Integration with Anduril's Lattice sandbox is an optional extension, dependent on access and available interfaces. The core capstone must remain demonstrable without that integration.
+Live sensor control, Lattice integration, interception, cloud deployment, and real-time field testing are outside this capstone's implementation scope.
 
 ## Repository Structure
 
@@ -116,7 +117,7 @@ Target-centered classification samples alone cannot establish continuous perimet
 
 ## Team Workflow
 
-Tony coordinates repository organization. Technical responsibilities will be agreed upon by the team and tracked through issues and contributions.
+Tony coordinates repository organization. Technical responsibilities are recorded in the project management plan and tracked through issues and contributions.
 
 Each member contributes to implementation, documentation, and the final presentation. Changes should use focused branches and teammate review.
 
@@ -128,11 +129,11 @@ This repository contains the executed audit, split manifest, baseline and CNN co
 
 ## Next Milestones
 
-1. Review the measured radar results, error patterns, and the remaining session/subject/target-overlap limitation.
-2. Add report-ready methodology, results, figures, and a reviewed dependency specification.
-3. Add meaningful split, schema, and metric tests.
-4. Complete the scheduled RF evaluation, thermal provenance/access review, and local replay; keep their evidence-based comparison separate from measured radar metrics.
-5. Assemble and review the report, presentation, and repository deliverables on the dates in the project management plan.
+1. Review the four-sensor replay integration and coordination agent, preserve RF class/score semantics, and record the comparison with fixed rules.
+2. Complete cross-model integrity and reproducibility review, retaining RF duplicate/test-exposure limitations and each modality's generalization limits.
+3. Confirm thermal Dataset 1 access/reuse terms and approve final thermal report claims.
+4. Complete results/figures and reproducibility work by November 26, with review November 27. Integrate the existing [report outline](reports/final-report-outline.md), [radar methods/results](reports/radar-methodology-results.md), and [claims matrix](reports/claims-evidence-matrix.md) into the full draft by November 28, with review November 29.
+5. Finish report/source review and presentation deliverables during Week 7, November 30–December 6, following the project management plan. Record outstanding team signoffs rather than treating a merged artifact as final scientific approval.
 
 Record actual team contributions in [the contribution log](docs/contributions.csv).
 

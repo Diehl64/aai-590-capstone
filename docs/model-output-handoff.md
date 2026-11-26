@@ -14,7 +14,7 @@ Each modality owner must provide a CSV of saved **held-out test** outputs before
 | `predicted_label` | The model's predicted class. |
 | `score` | Raw model score from 0 through 1. It must not be called a calibrated probability without calibration evidence. |
 | `model_version` | Exact model or experiment version. |
-| `dataset_id` | Dataset identifier from the repository manifest. |
+| `dataset_id` | Dataset identifier from the repository manifest, or an explicitly registered alias. |
 | `source_output_ref` | Path or stable reference to the saved model-output artifact. |
 
 ## Validate before handoff
@@ -24,6 +24,21 @@ python src/validate_model_outputs.py path/to/held_out_outputs.csv
 ```
 
 The validator checks required fields, unique row IDs, supported sensors, a held-out test split, and score range. Passing it does not establish that outputs from different datasets describe the same real-world event. The replay pairs them only in explicitly simulated scenarios.
+
+To also check dataset identity against the committed manifest and alias registry:
+
+```bash
+python src/validate_model_outputs.py path/to/held_out_outputs.csv --dataset-manifest data/dataset-manifest.csv --dataset-aliases data/dataset-id-aliases.csv
+```
+
+The optional identity check rejects unknown IDs, duplicate definitions, aliases that shadow canonical IDs, and alias targets absent from the manifest. It does not rewrite the CSV or change source observation IDs. Existing handoffs use these two names for datasets already recorded in the manifest:
+
+| Saved handoff ID | Canonical manifest ID |
+| --- | --- |
+| `drone_detection_dataset_2` | `drone_detection_dataset2` |
+| `unified_multi_class_rf_intrusion` | `rf_intrusion_spectrogram` |
+
+These exact mappings are stored in [`data/dataset-id-aliases.csv`](../data/dataset-id-aliases.csv). They reconcile names only; they do not verify licensing, split independence, or the authenticity of an output. Python callers can load the registry once with `load_dataset_registry(manifest, aliases)` and pass it to `validate(path, dataset_registry=registry)`. Omitting the registry preserves the original schema-only check; test fixtures should use their own explicit registry when testing dataset identity.
 
 ## Owner checklist
 

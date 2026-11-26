@@ -4,7 +4,7 @@ This repository follows the Group 1 plan submitted for Assignment 2.1.2. The pla
 
 ## Scope
 
-The capstone evaluates RF intrusion classification, 77 GHz radar micro-Doppler classification, thermal/vision feasibility for drone detection, and acoustic drone-sound detection. The source datasets are not synchronized. Multisensor work is therefore limited to an evidence-based comparison and local replay; it does not claim measured real-time sensor fusion.
+The capstone evaluates RF intrusion classification, 77 GHz FMCW radar classification, thermal/vision feasibility for drone detection, and acoustic drone-sound detection. The radar classifier uses signal-magnitude inputs; these are not calibrated micro-Doppler features. The source datasets are not synchronized. Multisensor work is therefore limited to an evidence-based comparison and explicitly simulated local replay with mandatory human review; it does not claim measured real-time sensor fusion or combined detection accuracy.
 
 ## Workflow
 
@@ -33,37 +33,41 @@ GitHub Projects is the team Kanban board. Work moves from **To do** to **In prog
 | 17 | Slides, rehearsal, and presentation recording | Dec 2–4 | Dec 5 | All | Tony, Mostafa, and Jacob |
 | 18 | Playback check, final repository review, and submission | Dec 6 | Dec 6 | Tony submits | Mostafa and Jacob |
 
-## Current execution status (2026-11-15)
+## Current execution status (2026-11-25)
 
-This status records repository evidence without changing the approved schedule or ownership above. A task remains in progress until its listed review is complete.
+This status records evidence committed on `main` at `5fc4dca`, plus clearly identified work under review, without changing the approved schedule or ownership above. Completed component work is distinguished from remaining integration and scientific review. Review-branch changes and open PRs are not treated as merged deliverables.
 
 | Project area | Repository status | Remaining action |
 | --- | --- | --- |
 | Management plan and GitHub Project | Plan, issues, and review workflow are committed. | Jacob records review feedback. |
-| Radar audit and data summary | Audit, measurement-disjoint split, baseline, CNN, metrics, tests, report figures, error analysis, and held-out output handoff are committed. | Obtain reviewer feedback and document the remaining session/subject/target-overlap limitation. |
-| RF v4 versus v5 | Comparison evidence and RF dataset provenance are committed. The team branch contains calibration and held-out-output export code. | Commit the existing saved RF held-out outputs, configuration, metrics, and provenance; do not retrain solely for handoff. |
+| Radar audit and data summary | Audit, measurement-disjoint split, baseline, CNN, metrics, tests, report figures, error analysis, and held-out output handoff are committed. | Record reviewer feedback and retain the documented session/subject/target-overlap limitation in the report. |
+| RF v4 versus v5 | PR #54 is merged: comparison evidence, 2,400 held-out outputs, selected configuration, validation threshold/calibration, class semantics, and exact-duplicate sensitivity are committed. | Review the RF cue and score handling in replay/agent integration. Preserve the Benign-to-Machine trade-off, earlier exploratory test exposure, exact duplicates, and unknown recording/session overlap in report claims. No retraining is required for handoff. |
 | Radar evaluation and limitations | Validated 11,050-row held-out output handoff, report figures, and error analysis are committed. | Obtain reviewer feedback. |
-| Thermal/vision feasibility | The reviewed Dataset 2 baseline handoff is committed. Dataset 1-only, transfer-learning, and balanced-joint held-out evaluations plus source-specific error panels are available in the repository worktree. | Confirm Dataset 1 access/reuse terms, review experiment controls and figures, then approve which results may enter the final report. |
-| Acoustic evidence and robustness | Acoustic Transformer, CNN, and Random Forest baseline notebook is committed on the team branch. | Commit optimized-model comparison, controlled-noise evidence, metrics, and held-out outputs. |
-| Local replay | A ten-scenario partial replay using real radar and thermal held-out outputs is committed; every case is simulated and requires human review. | Add RF and acoustic held-out outputs, then run the planned four-sensor simulated scenarios. |
-| Coordination-agent comparison | Coordination rules are documented, and an interface with tests exists on the team agent branch. | Create a focused agent-only PR, approve validation-based per-sensor thresholds, and run the scheduled comparison with fixed rules. |
+| Thermal/vision feasibility | The 2,631-row Dataset 2 baseline handoff, full pipeline, four held-out experiments, EDA, and source-specific error panels are committed through PR #58. | Confirm Dataset 1 access/reuse terms, review experiment controls and figures, then approve which results may enter the final report. |
+| Acoustic evidence and robustness | Optimized CNN-Tuned comparison, controlled-noise/padding/fill-source checks, figures, and 57,015 held-out outputs are committed. The documented clean-validation operating threshold is 0.344. | Record reviewer feedback and retain the full-length-window headline, padding caveat, and unavailable source/site labels in the report. |
+| Local replay | Main at `5fc4dca` has 16 simulated radar/thermal/acoustic saved-output scenarios. All four handoffs are committed. The integration from PR #55 is prepared and tested on `tony/replay-integration-review`: 25 four-sensor records (including a repeated evidence combination), 37 passing unit tests, and successful two-/three-/four-sensor checks. The separate placeholder runner has five development cases. | Obtain teammate review before merging and retain the RF cue semantics. Every case remains simulated and requires human review. |
+| Coordination-agent comparison | Coordination rules, interface, and tests are available for review in PR #56; integration and the fixed-rule comparison remain pending. | Review compatibility with the replay, verify per-sensor score semantics, and run the comparison. Keep the radar 0.60 floor labeled as a development placeholder unless validation evidence supports it. |
+| Report preparation | A final-report outline, claims/evidence matrix, and radar methodology/results source are committed. PR #59 proposes carrying the merged RF limitations into the report plan. | Complete literature/methods review, integrate the full draft, and review the report and slides; no complete final report or slide source is recorded yet. |
+
+Week 6 is **November 23–29**. Results/figures and reproducibility work are due November 26, with review November 27; the integrated full draft is due November 28, with review November 29. Record any outstanding integrity/ethics reviews scheduled for November 19 and methodology/replay reviews scheduled for November 22. Week 7 remains November 30–December 6 for final review, presentation, and submission.
 
 ## Weekly status snapshot
 
-Status meaning: 🟢 is committed and documented repository evidence; 🟡 is active work or review still needed; 🔴 has no committed implementation evidence.
+Status meaning: ✅ Complete requires committed and documented evidence; 🟡 In progress or In review means implementation, integration, or signoff remains; ⬜ Not started means no implementation artifact is recorded. Component evidence can be committed while the broader task remains in review.
 
 | Project area | Status | Committed evidence | Next action |
 | --- | --- | --- | --- |
-| Scope and project plan | 🟢 Complete | Scope, schedule, risks, ethics, and limitations are documented. | Record team review feedback. |
-| Radar audit and model | 🟢 Complete | Audit, grouped split, baseline, RadarCNN, metrics, figures, error analysis, and 11,050 held-out outputs are committed. | Obtain reviewer feedback and integrate into the report. |
-| Thermal-IR | 🟡 In review | A validated 2,631-row Dataset 2 handoff is committed; four thermal experiments and source-specific error panels are available for review. | Confirm Dataset 1 access/reuse terms, complete team review, and approve final report claims. |
-| RF v4 versus v5 | 🟡 In progress | Comparison evidence is committed; calibration and held-out-output export code exists on the team branch. | Commit the saved held-out RF CSV, configuration, metrics, and provenance without retraining solely for handoff. |
-| Acoustic | 🟡 In progress | Transformer, CNN, and Random Forest baselines plus a padding-shortcut check exist on team branches. | Commit optimized comparison, controlled-noise evidence, metrics, and held-out outputs. |
-| Simulated replay | 🟡 In progress | Ten simulated scenarios, real radar/thermal outputs, and a scenario-status figure are committed. | Add real RF/acoustic outputs and run the four-sensor replay. |
-| Coordination agent | 🟡 In progress | Coordination-agent interface and tests exist on the team branch. | Open a focused agent-only PR, approve validation-based thresholds, and compare with fixed rules. |
-| Literature and methods | 🔴 Not started in repository | No committed report source exists. | Complete Jacob’s draft and review. |
-| Leakage and integrity review | 🔴 Not started | No final cross-model integrity review artifact exists. | Review split integrity, preprocessing, and metrics after remaining artifacts arrive. |
-| Final report and slides | 🔴 Not started | No report or presentation source exists. | Start after methods and remaining outputs are ready. |
+| Scope and project plan | ✅ Complete | Scope, schedule, risks, ethics, and limitations are documented. | Record team review feedback. |
+| Radar audit and model | ✅ Complete | Audit, grouped split, baseline, RadarCNN, metrics, figures, error analysis, and 11,050 held-out outputs are committed. | Record reviewer feedback and integrate into the report. |
+| Thermal-IR | 🟡 In review | Full pipeline, four experiments, error panels, and the 2,631-row Dataset 2 handoff are committed. | Confirm Dataset 1 access/reuse terms, complete team review, and approve final report claims. |
+| RF v4 versus v5 | 🟡 In review | Comparison, validation-selection/calibration evidence, duplicate sensitivity, and 2,400 held-out outputs are committed. | Review integration semantics and final claims; Machine remains a cue requiring corroboration and operator review. |
+| Acoustic | 🟡 In review | Baselines, optimized comparison, robustness checks, metrics, figures, and 57,015 held-out outputs are committed. | Record review and carry the padding/source-site limitations into the report. |
+| Simulated replay | 🟡 In progress | Sixteen three-sensor saved-output cases and five separate placeholder cases are committed; all four output handoffs are available. | Review the tested 25-record integration on the review branch before merging; this is not the agent-versus-fixed-rule comparison. |
+| Coordination agent | 🟡 In progress | Interface and tests exist on the agent branch; PR #56 is open. | Complete integration review and the fixed-rule comparison; resolve or disclose placeholder thresholds. |
+| Literature and methods | 🟡 In progress | Report outline, claims matrix, radar methods/results, and modality documentation exist. | Complete the literature/methods sections and record review; issue closure alone does not demonstrate signoff. |
+| Leakage and integrity review | 🟡 In progress | Modality split checks and RF duplicate sensitivity are committed. | Complete and record cross-model review of split integrity, preprocessing, metrics, and unresolved limits. |
+| Full report | 🟡 In progress | Outline, claims matrix, and radar methods/results provide draft sources. | Integrate the full draft by November 28 and review November 29. |
+| Slides and recording | ⬜ Not started in repository | No slide or recording source is recorded. | Prepare the reviewed presentation during Week 7. |
 
 This snapshot does not change the approved schedule or ownership. The replay remains explicitly simulated, and it does not establish measured real-world sensor fusion or combined accuracy.
 
