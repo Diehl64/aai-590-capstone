@@ -49,7 +49,7 @@ Each sensor's label is normalized (lowercase; `-` and spaces become `_`) and map
 | Thermal | drone | no_drone, bird | | |
 | Acoustic | drone | no_drone | | |
 
-RF Machine is a cue for machine-generated RF activity, not a confirmed drone. A jam is an RF alert of its own (`other`), not evidence for or against a drone.
+RF Machine is a cue for machine-generated RF activity, not a confirmed drone. On its own it can never confirm an event: confirmation needs a second sensor with the same hypothesis, and every alert, confirmed or not, still requires operator review. A jam is an RF alert of its own (`other`), not evidence for or against a drone.
 
 ## Score floors
 
@@ -59,8 +59,8 @@ A `drone_like` or `not_drone` hypothesis becomes `uncertain` when its score is b
 | --- | ---: | ---: | --- | --- | --- |
 | RF | 2,400 | 0.45 | 4 (1 Benign, 1 Human, 2 Wildlife). All 648 Machine calls stay `drone_like`. | calibrated probability of the predicted class | Machine threshold chosen on validation (`results/rf-intrusion/run_config.json`) |
 | Acoustic | 57,015 | 0.344 | 0 | probability of the predicted class | CNN-Tuned 1% false-alarm threshold on clean validation (`docs/acoustic-model-evidence.md`) |
-| Radar | 11,050 | 0.60 | 419 (200 drone, 121 bird, 98 human) | top raw softmax score | placeholder. RadarCNN decides by argmax and has no validation score threshold (`docs/radar-model-results.md`) |
-| Thermal | 2,631 | 0.25 | 0. The 796 no_drone calls stay `not_drone` and the 1,835 drone calls stay `drone_like`. | YOLO's highest detection confidence, not the probability of the predicted class | validation-selected decision threshold (`docs/thermal-baseline-evidence.md`) |
+| Radar | 11,050 | 0.60 | 419 (200 drone, 121 bird, 98 human) | top raw softmax score | development placeholder. RadarCNN decides by argmax and has no validation score threshold (`docs/radar-model-results.md`) |
+| Thermal | 2,631 | 0.25 | 0. The 796 no_drone calls stay `not_drone` and the 1,835 drone calls stay `drone_like`. | YOLO's highest detection confidence, not the probability of the predicted class | threshold selected on Dataset 2 validation (`docs/thermal_ir_pipeline.md`) |
 
 These counts were recomputed on 2026-11-19 with `observation_from_handoff()` and `hypothesis()` on the four held-out CSVs, using the floors in this table. The counts were not used to choose a floor. The radar placeholder can be replaced when a floor is chosen from radar validation outputs.
 
@@ -94,7 +94,7 @@ Every alert carries `simulated: true`, `review_required: true`, an empty `operat
 ## Limitations
 
 - The RF, radar, thermal, and acoustic datasets are not synchronized. Alerts built from them are simulated and do not measure detection performance.
-- The RF, acoustic, and thermal floors come from validation. The radar floor is the placeholder 0.60, because the model has no validation score threshold.
+- The RF, acoustic, and thermal floors come from validation-selected thresholds. The radar floor of 0.60 is a development placeholder, because RadarCNN has no validation score threshold; it must not be reported as validated.
 - Radar and thermal scores are not calibrated, so a radar 0.9 and a thermal 0.9 do not mean the same thing.
 - The status rules are fixed rules proposed for team review. They do not weigh one sensor above another.
-- The agent run over the replay scenarios and the comparison of the fixed rules with the agent's cascade will be added after the RF and acoustic replay PRs merge.
+- The 25-record saved-output replay is now in `main`. The agent run over it and the comparison of the fixed rules with the agent's cascade come in PR #57. The 25 records repeat some evidence, so they are not 25 independent trials.

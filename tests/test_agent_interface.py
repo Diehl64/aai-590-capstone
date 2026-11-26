@@ -2,7 +2,7 @@ import json
 import unittest
 
 from src.agent_interface import (
-    Alert, AlertStatus, AgentObservation, Hypothesis, VERIFICATION_TO_ALERT, build_alert, map_label,
+    DEFAULT_SCORE_FLOOR, Alert, AlertStatus, AgentObservation, Hypothesis, VERIFICATION_TO_ALERT, build_alert, map_label,
     observation_from_handoff, recommend_requests, to_dict,
 )
 from src.replay_workflow import VerificationStatus
@@ -219,6 +219,30 @@ class HandoffAdapterTests(unittest.TestCase):
         for split in ("train", "validation", "production", ""):
             with self.subTest(split=split), self.assertRaisesRegex(ValueError, "not held-out"):
                 observation_from_handoff(dict(self.ROW, split=split), "sim-1", "2026-11-16T18:00:00Z", 2.0)
+
+
+class RfCueTests(unittest.TestCase):
+    """RF Machine is a cue: it needs a second sensor to confirm, and review is always required."""
+
+    def test_rf_machine_alone_with_gaps_is_not_confirmed(self):
+        alert = build_alert("sim-1", [obs(SensorType.RF, "Machine", .99)], ALL, DEADLINE)
+        self.assertEqual(alert.status, AlertStatus.UNVERIFIED)
+        self.assertNotEqual(alert.status, AlertStatus.CONFIRMED)
+        self.assertTrue(alert.review_required)
+
+    def test_rf_machine_as_the_only_expected_sensor_is_unknown(self):
+        alert = build_alert("sim-1", [obs(SensorType.RF, "Machine", .99)], (SensorType.RF,), DEADLINE)
+        self.assertEqual(alert.status, AlertStatus.UNKNOWN)
+        self.assertIn("single_modality_support", alert.reasons)
+
+    def test_rf_machine_is_confirmed_only_with_a_corroborating_sensor(self):
+        pair = (SensorType.RF, SensorType.RADAR)
+        alert = build_alert("sim-1", [obs(SensorType.RF, "Machine", .99), obs(SensorType.RADAR, "drone", .9)], pair, DEADLINE)
+        self.assertEqual(alert.status, AlertStatus.CONFIRMED)
+        self.assertTrue(alert.review_required)
+
+    def test_radar_floor_is_the_documented_placeholder(self):
+        self.assertEqual(DEFAULT_SCORE_FLOOR[SensorType.RADAR], 0.60)
 
 
 if __name__ == "__main__":
