@@ -1,0 +1,270 @@
+{
+  "source_csv": "data/model-outputs/rf-cnn-test-outputs.csv",
+  "true_labels": "AAI-540 rf_intrusion_assignment_split_metadata.csv, assignment_split=test",
+  "model_version": "rf-intrusion-cnn-v5-w1.50-seed42-selected",
+  "threshold": 0.45,
+  "temperature": 1.293297,
+  "checkpoint_role": "selected",
+  "n_test": 2400,
+  "accuracy": 0.85125,
+  "macro_f1": 0.8442349992515298,
+  "per_class": {
+    "Benign": {
+      "precision": 0.893491124260355,
+      "recall": 0.3775,
+      "f1": 0.5307557117750439,
+      "support": 400
+    },
+    "Broadband_Jam": {
+      "precision": 0.9974937343358395,
+      "recall": 0.995,
+      "f1": 0.9962453066332916,
+      "support": 400
+    },
+    "Human": {
+      "precision": 0.9553349875930521,
+      "recall": 0.9625,
+      "f1": 0.958904109589041,
+      "support": 400
+    },
+    "Machine": {
+      "precision": 0.558641975308642,
+      "recall": 0.905,
+      "f1": 0.6908396946564885,
+      "support": 400
+    },
+    "Narrowband_Jam": {
+      "precision": 0.9975,
+      "recall": 0.9975,
+      "f1": 0.9975,
+      "support": 400
+    },
+    "Wildlife": {
+      "precision": 0.9133858267716536,
+      "recall": 0.87,
+      "f1": 0.8911651728553137,
+      "support": 400
+    }
+  },
+  "machine_precision": 0.558641975308642,
+  "machine_recall": 0.905,
+  "benign_to_machine": 249,
+  "machine_to_benign": 16,
+  "confusion_matrix": {
+    "labels": [
+      "Benign",
+      "Broadband_Jam",
+      "Human",
+      "Machine",
+      "Narrowband_Jam",
+      "Wildlife"
+    ],
+    "rows_true_columns_predicted": [
+      [
+        151,
+        0,
+        0,
+        249,
+        0,
+        0
+      ],
+      [
+        1,
+        398,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        385,
+        3,
+        0,
+        12
+      ],
+      [
+        16,
+        0,
+        1,
+        362,
+        0,
+        21
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        399,
+        0
+      ],
+      [
+        1,
+        0,
+        17,
+        34,
+        0,
+        348
+      ]
+    ]
+  },
+  "ece": {
+    "n_bins": 15,
+    "definition": "Fifteen equal-width bins on [0, 1]. Confidence before calibration is the handoff score, the raw softmax probability of the thresholded predicted class. Confidence after calibration is calibrated_score, the temperature-scaled probability of that same class. A row is correct when the predicted label matches the metadata class.",
+    "before": 0.04273572069166662,
+    "after": 0.03339788058749988,
+    "bins_before": [
+      {
+        "start": 0.26666666666666666,
+        "end": 0.3333333333333333,
+        "count": 1,
+        "confidence": 0.29777938,
+        "accuracy": 1.0
+      },
+      {
+        "start": 0.4,
+        "end": 0.4666666666666667,
+        "count": 63,
+        "confidence": 0.4520602701587301,
+        "accuracy": 0.2222222222222222
+      },
+      {
+        "start": 0.4666666666666667,
+        "end": 0.5333333333333333,
+        "count": 188,
+        "confidence": 0.5007050007978723,
+        "accuracy": 0.3723404255319149
+      },
+      {
+        "start": 0.5333333333333333,
+        "end": 0.6,
+        "count": 147,
+        "confidence": 0.5651888639455782,
+        "accuracy": 0.4557823129251701
+      },
+      {
+        "start": 0.6,
+        "end": 0.6666666666666666,
+        "count": 47,
+        "confidence": 0.6280232276595745,
+        "accuracy": 0.5106382978723404
+      },
+      {
+        "start": 0.6666666666666666,
+        "end": 0.7333333333333333,
+        "count": 33,
+        "confidence": 0.7061715266666667,
+        "accuracy": 0.5757575757575758
+      },
+      {
+        "start": 0.7333333333333333,
+        "end": 0.8,
+        "count": 48,
+        "confidence": 0.7672553356249999,
+        "accuracy": 0.4791666666666667
+      },
+      {
+        "start": 0.8,
+        "end": 0.8666666666666667,
+        "count": 48,
+        "confidence": 0.8354802977083334,
+        "accuracy": 0.6666666666666666
+      },
+      {
+        "start": 0.8666666666666667,
+        "end": 0.9333333333333333,
+        "count": 83,
+        "confidence": 0.9053491248192772,
+        "accuracy": 0.8795180722891566
+      },
+      {
+        "start": 0.9333333333333333,
+        "end": 1.0,
+        "count": 1742,
+        "confidence": 0.994989878892078,
+        "accuracy": 0.9873708381171068
+      }
+    ],
+    "bins_after": [
+      {
+        "start": 0.26666666666666666,
+        "end": 0.3333333333333333,
+        "count": 1,
+        "confidence": 0.28382343,
+        "accuracy": 1.0
+      },
+      {
+        "start": 0.3333333333333333,
+        "end": 0.4,
+        "count": 1,
+        "confidence": 0.3931284,
+        "accuracy": 0.0
+      },
+      {
+        "start": 0.4,
+        "end": 0.4666666666666667,
+        "count": 40,
+        "confidence": 0.45576738875,
+        "accuracy": 0.3
+      },
+      {
+        "start": 0.4666666666666667,
+        "end": 0.5333333333333333,
+        "count": 237,
+        "confidence": 0.49986875924050633,
+        "accuracy": 0.350210970464135
+      },
+      {
+        "start": 0.5333333333333333,
+        "end": 0.6,
+        "count": 149,
+        "confidence": 0.5581301447651007,
+        "accuracy": 0.4697986577181208
+      },
+      {
+        "start": 0.6,
+        "end": 0.6666666666666666,
+        "count": 43,
+        "confidence": 0.6325872576744187,
+        "accuracy": 0.6046511627906976
+      },
+      {
+        "start": 0.6666666666666666,
+        "end": 0.7333333333333333,
+        "count": 52,
+        "confidence": 0.7004019730769231,
+        "accuracy": 0.4807692307692308
+      },
+      {
+        "start": 0.7333333333333333,
+        "end": 0.8,
+        "count": 49,
+        "confidence": 0.7663523440816328,
+        "accuracy": 0.6326530612244898
+      },
+      {
+        "start": 0.8,
+        "end": 0.8666666666666667,
+        "count": 69,
+        "confidence": 0.8333523843478262,
+        "accuracy": 0.8405797101449275
+      },
+      {
+        "start": 0.8666666666666667,
+        "end": 0.9333333333333333,
+        "count": 127,
+        "confidence": 0.9017416269291338,
+        "accuracy": 0.9291338582677166
+      },
+      {
+        "start": 0.9333333333333333,
+        "end": 1.0,
+        "count": 1632,
+        "confidence": 0.992667712610294,
+        "accuracy": 0.9920343137254902
+      }
+    ]
+  }
+}
