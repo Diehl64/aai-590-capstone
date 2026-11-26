@@ -124,5 +124,58 @@ class AgentReplayTests(unittest.TestCase):
                 self.assertEqual(row["cascade_status"], row["fixed_status"])
 
 
+class HandoffScoreTests(unittest.TestCase):
+    def test_rf_floor_uses_calibrated_score_when_raw_score_is_below_it(self):
+        with TemporaryDirectory() as folder:
+            root = Path(folder)
+            handoff = root / "rf-test.csv"
+            handoff.write_text(
+                "output_id,sensor_type,source_observation_id,split,timestamp,predicted_label,"
+                "score,model_version,dataset_id,source_output_ref,calibrated_score\n"
+                "rf-low-raw,rf,image.png,test,source-time-unavailable,Machine,"
+                "0.40,rf-v5,rf_intrusion,rf-test.csv,0.50\n",
+                encoding="utf-8",
+            )
+            replay = root / "replay.json"
+            evidence = []
+            for sensor, status, prediction, score, source_ref in (
+                ("rf", "available", "Machine", 0.40,
+                 "rf-test.csv#output_id=rf-low-raw;source_timestamp=source-time-unavailable"),
+                ("acoustic", "missing", None, None, "not-provided"),
+                ("radar", "missing", None, None, "not-provided"),
+                ("thermal", "missing", None, None, "not-provided"),
+            ):
+                evidence.append({
+                    "event_id": "sim-score-001",
+                    "timestamp": "simulated-event:sim-score-001",
+                    "sensor_type": sensor,
+                    "status": status,
+                    "prediction": prediction,
+                    "score": score,
+                    "model_version": "fixture" if prediction else "not-provided",
+                    "source_ref": source_ref,
+                    "placeholder_value": False,
+                })
+            replay.write_text(json.dumps({
+                "input_files": {"rf": str(handoff)},
+                "scenarios": [{
+                    "scenario": "rf_raw_below_floor",
+                    "record": {
+                        "event_id": "sim-score-001",
+                        "timestamp": "simulated-event:sim-score-001",
+                        "evidence": evidence,
+                        "simulated": True,
+                        "review_required": True,
+                    },
+                }],
+            }), encoding="utf-8")
+            result = run_replay(replay, DEFAULT_DEADLINE_S)
+            rf = result["scenarios"][0]["alert"]["sensors"][0]
+            self.assertEqual(result["score_types"]["rf"], "calibrated_score")
+            self.assertEqual(rf["score"], 0.50)
+            self.assertTrue(rf["score_calibrated"])
+            self.assertEqual(rf["hypothesis"], "drone_like")
+
+
 if __name__ == "__main__":
     unittest.main()

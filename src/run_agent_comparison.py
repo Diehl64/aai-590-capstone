@@ -34,7 +34,8 @@ try:  # `python src/run_agent_comparison.py` puts src/ on the path
         DEFAULT_OUTPUT_DIR,
         DEFAULT_REPLAY,
         EXPECTED_SENSORS,
-        observation_from_evidence,
+        load_handoffs,
+        observations_for_evidence,
     )
     from synthetic_replay import SensorType
 except ImportError:  # imported as src.run_agent_comparison
@@ -51,7 +52,8 @@ except ImportError:  # imported as src.run_agent_comparison
         DEFAULT_OUTPUT_DIR,
         DEFAULT_REPLAY,
         EXPECTED_SENSORS,
-        observation_from_evidence,
+        load_handoffs,
+        observations_for_evidence,
     )
     from src.synthetic_replay import SensorType
 
@@ -79,10 +81,9 @@ _OPPOSITE = {
 _STOP = (AlertStatus.CONFIRMED, AlertStatus.CONFLICTING)
 
 
-def _observations(evidence: list[dict], deadline_s: float) -> dict[SensorType, object]:
+def _observations(evidence: list[dict], deadline_s: float, handoffs: dict) -> dict[SensorType, object]:
     by_sensor = {}
-    for record in evidence:
-        observation = observation_from_evidence(record, deadline_s)
+    for observation in observations_for_evidence(evidence, deadline_s, handoffs):
         by_sensor[observation.sensor] = observation
     return by_sensor
 
@@ -150,9 +151,10 @@ def _cell(status: AlertStatus, leading) -> tuple[str, str]:
 
 def compare_replay(replay_path: Path, deadline_s: float) -> list[dict[str, str]]:
     payload = json.loads(Path(replay_path).read_text(encoding="utf-8"))
+    handoffs, _score_types = load_handoffs(payload)
     rows = []
     for item in payload["scenarios"]:
-        by_sensor = _observations(item["record"]["evidence"], deadline_s)
+        by_sensor = _observations(item["record"]["evidence"], deadline_s, handoffs)
         fixed_status, fixed_leading, fixed_used = _fixed(by_sensor, deadline_s)
         cascade_status, cascade_leading, revealed = _cascade(by_sensor, deadline_s)
         unrevealed = [sensor for sensor in EXPECTED_SENSORS if sensor not in revealed]
