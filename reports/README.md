@@ -6,4 +6,4 @@ The final report for this three-person team is limited to 20 pages including fig
 
 Use `reports/notebook-pdfs/` for final PDF exports of completed notebooks. Submit the final repository URL, notebook PDFs, and raw Python files as required by Canvas. Keep confidential peer evaluation forms outside the team repository.
 
-No report, presentation, or notebook export is included yet.
+The repository includes a report outline, a claims-and-evidence matrix, a radar methodology/results source, a presentation outline, and a cross-model integrity review. A complete final report, slide deck, and notebook exports are not yet included.

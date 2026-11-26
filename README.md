@@ -4,7 +4,7 @@ University of San Diego — M.S. in Applied Artificial Intelligence
 
 **Team:** Ramon (Tony) Diehl-Verdugo, Mostafa Zamaniturk, and Jacob Tassos.
 
-**Status (2026-11-25):** Radar, thermal, acoustic, and RF evaluation evidence and held-out output handoffs are committed on `main` at `5fc4dca`. Radar figures and error analysis, four thermal experiments, acoustic robustness checks, and RF validation selection, calibration, and duplicate sensitivity records are available for team review. That revision contains 16 simulated radar/thermal/acoustic replay scenarios. The 25-record four-sensor integration from PR #55 has been prepared and tested on `tony/replay-integration-review`; teammate review and merge remain pending. Coordination-agent integration, the fixed-rule comparison, final scientific review, and report/presentation deliverables remain.
+**Status (2026-11-26):** Radar, thermal, acoustic, and RF evaluation evidence and held-out output handoffs are committed on `main`. Radar figures and error analysis, four thermal experiments, acoustic robustness checks, and RF validation selection, calibration, and duplicate sensitivity records are available for team review. The committed saved-output replay contains 25 explicitly simulated four-sensor records; it is not a measurement of synchronized sensor fusion or combined accuracy. The coordination-agent interface and tests are also committed. The remaining integration is the agent run and fixed-rule-versus-cascade comparison in PR #57, followed by final scientific review and report/presentation assembly.
 
 ## Completed Radar Audit
 
@@ -36,11 +36,11 @@ This capstone builds on the team's [AAI-540 RF Intrusion Detection MLOps project
 
 **RF communications data and radar data are separate modalities.** AAI-540 classifies RF activity from spectrogram images into Benign, Broadband_Jam, Human, Machine, Narrowband_Jam, and Wildlife. AAI-590 evaluates complex-valued measurements from a 77 GHz FMCW radar using the documented drone/bird/human mapping and explicit reflector exclusion. Shared label wording does not establish equivalent targets, paired observations, compatible inputs, or transferable performance. AAI-540 weights, preprocessing, thresholds, and metrics do not establish radar classifier performance.
 
-The new AAI-590 contributions include radar preprocessing and measurement-disjoint evaluation, separately evaluated thermal-IR and acoustic models, the RF v5 Machine-screen evidence package, and simulated replay using saved outputs. The coordination-agent implementation remains under review in PR #56; its comparison with fixed rules is still pending.
+The new AAI-590 contributions include radar preprocessing and measurement-disjoint evaluation, separately evaluated thermal-IR and acoustic models, the RF v5 Machine-screen evidence package, simulated replay using saved outputs, and a committed coordination-agent interface. The agent's comparison with fixed rules remains pending in PR #57.
 
 The remaining scope and dated ownership are recorded in the [project management plan](docs/project-management-plan.md). The local comparison uses explicitly simulated replay scenarios and does not claim measured sensor fusion.
 
-The [synthetic local-replay foundation](docs/synthetic-replay.md) provides an RF/radar/thermal/acoustic event contract and five placeholder-only development scenarios. These are separate from the [saved-output replay](docs/real-output-replay.md): the reviewed main revision has 16 radar/thermal/acoustic scenarios, while the tested review branch provides 25 four-sensor records (not 25 distinct evidence combinations). The RF CSV is already committed; integrating it does not require new model training or invented RF predictions. Every scenario remains simulated and requires human review.
+The [synthetic local-replay foundation](docs/synthetic-replay.md) provides an RF/radar/thermal/acoustic event contract and five placeholder-only development scenarios. These are separate from the committed [saved-output replay](docs/real-output-replay.md), which provides 25 four-sensor records (not 25 distinct evidence combinations). The RF CSV is already committed; no model training or invented RF predictions were used for this integration. Every scenario remains simulated and requires human review.
 
 The committed handoffs contain 11,050 radar outputs, 2,631 thermal decisions, 57,015 acoustic outputs, and 2,400 RF outputs. See the [radar](docs/radar-model-results.md), [thermal](docs/thermal_ir_pipeline.md), [acoustic](docs/acoustic-model-evidence.md), and [RF](docs/rf-v4-v5-evidence.md) evidence. RF `Machine` is a mechanical/UAV-like cue requiring corroborating evidence and operator review, not a confirmed drone. Keep each model's metrics and limitations separate from replay results.
 
@@ -83,7 +83,7 @@ Synchronized radar-camera data has not yet been secured. Models using separate r
 
 ## Integration
 
-The demonstration uses a local simulated replay workflow and structured saved model outputs. Review the proposed four-sensor integration and coordination agent before recording their comparison with fixed rules. The RF Machine threshold and calibrated scores must retain their documented meaning; the radar 0.60 agent score floor remains a development placeholder until supported by validation evidence.
+The demonstration uses a local simulated replay workflow and structured saved model outputs. The four-sensor replay and coordination-agent interface are committed; review the agent's fixed-rule comparison before presenting it as a completed result. The RF Machine threshold and calibrated scores must retain their documented meaning; the radar 0.60 agent score floor remains a development placeholder until supported by validation evidence.
 
 Live sensor control, Lattice integration, interception, cloud deployment, and real-time field testing are outside this capstone's implementation scope.
 
@@ -129,7 +129,7 @@ This repository contains the executed audit, split manifest, baseline and CNN co
 
 ## Next Milestones
 
-1. Review the four-sensor replay integration and coordination agent, preserve RF class/score semantics, and record the comparison with fixed rules.
+1. Rebase, review, and run the coordination agent on the committed four-sensor replay; record the fixed-rule comparison while preserving RF class/score semantics.
 2. Complete cross-model integrity and reproducibility review, retaining RF duplicate/test-exposure limitations and each modality's generalization limits.
 3. Confirm thermal Dataset 1 access/reuse terms and approve final thermal report claims.
 4. Complete results/figures and reproducibility work by November 26, with review November 27. Integrate the existing [report outline](reports/final-report-outline.md), [radar methods/results](reports/radar-methodology-results.md), and [claims matrix](reports/claims-evidence-matrix.md) into the full draft by November 28, with review November 29.
