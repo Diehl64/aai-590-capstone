@@ -57,7 +57,7 @@
 
 ## 6. Simulated replay and operator review
 - Describe the replay input contract and held-out-output validation.
-- Include the RF four-sensor replay only after its branch is rebased, reviewed, and merged.
+- Include the committed four-sensor replay, but label every scenario explicitly simulated and every alert human-review-required.
 - Describe the 25 scenarios as software-behavior cases built by pairing independent saved outputs, not as real events.
 - Cover agreement, disagreement, missing evidence, delayed evidence, low-quality evidence, RF false alarms/misses, and jamming.
 - State that replay does not establish synchronized sensor fusion, combined detection accuracy, or operational detection performance.
@@ -72,5 +72,5 @@
 
 ## 8. Conclusion and next steps
 - Summarize validated component-model evidence without implying measured sensor fusion.
-- Identify remaining work: rebase/review the RF replay branch, complete the four-sensor replay and agent comparison, perform a cross-model integrity review, and finish report/presentation source checks.
+- Identify remaining work: complete the agent replay and fixed-rule comparison, perform a cross-model integrity review, and finish report/presentation source checks.
 - Describe only approved future work, such as evaluation on suitably paired observations.
