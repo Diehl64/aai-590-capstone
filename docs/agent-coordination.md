@@ -97,4 +97,4 @@ Every alert carries `simulated: true`, `review_required: true`, an empty `operat
 - The RF, acoustic, and thermal floors come from validation-selected thresholds. The radar floor of 0.60 is a development placeholder, because RadarCNN has no validation score threshold; it must not be reported as validated.
 - Radar and thermal scores are not calibrated, so a radar 0.9 and a thermal 0.9 do not mean the same thing.
 - The status rules are fixed rules proposed for team review. They do not weigh one sensor above another.
-- The 25-record saved-output replay is now in `main`. The agent run over it and the comparison of the fixed rules with the agent's cascade come in PR #57. The 25 records repeat some evidence, so they are not 25 independent trials.
+- The agent run over the 25-record saved-output replay and the comparison of the fixed rules with the agent's cascade are in [`agent-replay.md`](agent-replay.md), with outputs in `results/agent-replay/`. The 25 records repeat some evidence, so they are not 25 independent trials.

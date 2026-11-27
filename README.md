@@ -4,7 +4,7 @@ University of San Diego — M.S. in Applied Artificial Intelligence
 
 **Team:** Ramon (Tony) Diehl-Verdugo, Mostafa Zamaniturk, and Jacob Tassos.
 
-**Status (2026-11-26):** Radar, thermal, acoustic, and RF evaluation evidence and held-out output handoffs are committed on `main`. Radar figures and error analysis, four thermal experiments, acoustic robustness checks, and RF validation selection, calibration, and duplicate sensitivity records are available for team review. The committed saved-output replay contains 25 explicitly simulated four-sensor records; it is not a measurement of synchronized sensor fusion or combined accuracy. The coordination-agent interface and tests are also committed. The remaining integration is the agent run and fixed-rule-versus-cascade comparison in PR #57, followed by final scientific review and report/presentation assembly.
+**Status (2026-11-26):** Radar, thermal, acoustic, and RF evaluation evidence and held-out output handoffs are committed on `main`. Radar figures and error analysis, four thermal experiments, acoustic robustness checks, and RF validation selection, calibration, and duplicate sensitivity records are available for team review. The committed saved-output replay contains 25 explicitly simulated four-sensor records; it is not a measurement of synchronized sensor fusion or combined accuracy. The coordination-agent interface and tests are also committed, together with the agent run over the 25 simulated records and the fixed-rule-versus-cascade comparison ([`docs/agent-replay.md`](docs/agent-replay.md)); every alert is simulated and requires human review. The remaining work is final scientific review and report/presentation assembly.
 
 ## Completed Radar Audit
 
@@ -36,7 +36,7 @@ This capstone builds on the team's [AAI-540 RF Intrusion Detection MLOps project
 
 **RF communications data and radar data are separate modalities.** AAI-540 classifies RF activity from spectrogram images into Benign, Broadband_Jam, Human, Machine, Narrowband_Jam, and Wildlife. AAI-590 evaluates complex-valued measurements from a 77 GHz FMCW radar using the documented drone/bird/human mapping and explicit reflector exclusion. Shared label wording does not establish equivalent targets, paired observations, compatible inputs, or transferable performance. AAI-540 weights, preprocessing, thresholds, and metrics do not establish radar classifier performance.
 
-The new AAI-590 contributions include radar preprocessing and measurement-disjoint evaluation, separately evaluated thermal-IR and acoustic models, the RF v5 Machine-screen evidence package, simulated replay using saved outputs, and a committed coordination-agent interface. The agent's comparison with fixed rules remains pending in PR #57.
+The new AAI-590 contributions include radar preprocessing and measurement-disjoint evaluation, separately evaluated thermal-IR and acoustic models, the RF v5 Machine-screen evidence package, simulated replay using saved outputs, and a committed coordination-agent interface with its run over the simulated replay and its comparison with fixed rules.
 
 The remaining scope and dated ownership are recorded in the [project management plan](docs/project-management-plan.md). The local comparison uses explicitly simulated replay scenarios and does not claim measured sensor fusion.
 
@@ -83,7 +83,7 @@ Synchronized radar-camera data has not yet been secured. Models using separate r
 
 ## Integration
 
-The demonstration uses a local simulated replay workflow and structured saved model outputs. The four-sensor replay and coordination-agent interface are committed; review the agent's fixed-rule comparison before presenting it as a completed result. The RF Machine threshold and calibrated scores must retain their documented meaning; the radar 0.60 agent score floor remains a development placeholder until supported by validation evidence.
+The demonstration uses a local simulated replay workflow and structured saved model outputs. The four-sensor replay, the coordination-agent interface, and the agent's fixed-rule-versus-cascade comparison are committed; present the comparison as simulated software behavior on 25 non-independent records, not as detection performance. The RF Machine threshold and calibrated scores must retain their documented meaning; the radar 0.60 agent score floor remains a development placeholder until supported by validation evidence.
 
 Live sensor control, Lattice integration, interception, cloud deployment, and real-time field testing are outside this capstone's implementation scope.
 
@@ -129,11 +129,10 @@ This repository contains the executed audit, split manifest, baseline and CNN co
 
 ## Next Milestones
 
-1. Rebase, review, and run the coordination agent on the committed four-sensor replay; record the fixed-rule comparison while preserving RF class/score semantics.
-2. Complete cross-model integrity and reproducibility review, retaining RF duplicate/test-exposure limitations and each modality's generalization limits.
-3. Confirm thermal Dataset 1 access/reuse terms and approve final thermal report claims.
-4. Complete results/figures and reproducibility work by November 26, with review November 27. Integrate the existing [report outline](reports/final-report-outline.md), [radar methods/results](reports/radar-methodology-results.md), and [claims matrix](reports/claims-evidence-matrix.md) into the full draft by November 28, with review November 29.
-5. Finish report/source review and presentation deliverables during Week 7, November 30–December 6, following the project management plan. Record outstanding team signoffs rather than treating a merged artifact as final scientific approval.
+1. Complete cross-model integrity and reproducibility review, retaining RF duplicate/test-exposure limitations and each modality's generalization limits.
+2. Confirm thermal Dataset 1 access/reuse terms and approve final thermal report claims.
+3. Complete results/figures and reproducibility work by November 26, with review November 27. Integrate the existing [report outline](reports/final-report-outline.md), [radar methods/results](reports/radar-methodology-results.md), and [claims matrix](reports/claims-evidence-matrix.md) into the full draft by November 28, with review November 29.
+4. Finish report/source review and presentation deliverables during Week 7, November 30–December 6, following the project management plan. Record outstanding team signoffs rather than treating a merged artifact as final scientific approval.
 
 Record actual team contributions in [the contribution log](docs/contributions.csv).
 
