@@ -1,0 +1,1869 @@
+{
+  "rule_version": "decide_status-v1",
+  "floors_used": {
+    "rf": 0.45,
+    "radar": 0.6,
+    "thermal": 0.25,
+    "acoustic": 0.344
+  },
+  "score_types": {
+    "radar": "score",
+    "thermal": "score",
+    "acoustic": "calibrated_score",
+    "rf": "calibrated_score"
+  },
+  "deadline_s": 5.0,
+  "scenarios": [
+    {
+      "scenario": "all_three_predict_drone",
+      "alert": {
+        "event_id": "sim-real-001",
+        "status": "confirmed",
+        "leading_hypothesis": "drone_like",
+        "reasons": [
+          "drone_like:rf,acoustic,radar,thermal"
+        ],
+        "sensors": [
+          {
+            "sensor": "rf",
+            "state": "usable",
+            "prediction": "Machine",
+            "hypothesis": "drone_like",
+            "score": 0.59517425,
+            "score_calibrated": true,
+            "model_version": "rf-intrusion-cnn-v5-w1.50-seed42-selected",
+            "source_ref": "rf-test-outputs.csv#rf-test-dronerf_001714.png",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "acoustic",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.499101,
+            "score_calibrated": true,
+            "model_version": "cnn-tuned-epoch-5-temperature-1.000",
+            "source_ref": "acoustic-test-outputs.csv#acoustic-test-000358",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "radar",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.9910517334938049,
+            "score_calibrated": false,
+            "model_version": "RadarCNN-seed-590-epoch-7",
+            "source_ref": "data/model-outputs/radar-cnn-test-outputs.csv#radar-test-000000",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "thermal",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.3640251159667969,
+            "score_calibrated": false,
+            "model_version": "YOLO26n-dataset2-only-batch32-threshold-0.25",
+            "source_ref": "origin/thermal-ir-pipeline@4738a821:results/thermal-ir/evaluation/experiment_a_dataset2_only_batch32/test_image_decisions.csv#thermal-test-drone_detection_dataset2-IR_BIRD_011-275",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          }
+        ],
+        "missing_sensors": [],
+        "delayed_sensors": [],
+        "deadline_s": 5.0,
+        "simulated": true,
+        "review_required": true,
+        "operator_disposition": null,
+        "notes": [
+          "No fused detection probability is calculated.",
+          "Scores are raw model outputs unless score_calibrated is true."
+        ]
+      },
+      "recommended_requests": []
+    },
+    {
+      "scenario": "radar_drone_thermal_no_drone",
+      "alert": {
+        "event_id": "sim-real-002",
+        "status": "conflicting",
+        "leading_hypothesis": null,
+        "reasons": [
+          "drone_like:radar",
+          "not_drone:rf,acoustic,thermal"
+        ],
+        "sensors": [
+          {
+            "sensor": "rf",
+            "state": "usable",
+            "prediction": "Benign",
+            "hypothesis": "not_drone",
+            "score": 0.613937,
+            "score_calibrated": true,
+            "model_version": "rf-intrusion-cnn-v5-w1.50-seed42-selected",
+            "source_ref": "rf-test-outputs.csv#rf-test-dronerf_048199.png",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "acoustic",
+            "state": "usable",
+            "prediction": "no_drone",
+            "hypothesis": "not_drone",
+            "score": 0.997951,
+            "score_calibrated": true,
+            "model_version": "cnn-tuned-epoch-5-temperature-1.000",
+            "source_ref": "acoustic-test-outputs.csv#acoustic-test-000000",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "radar",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.9910517334938049,
+            "score_calibrated": false,
+            "model_version": "RadarCNN-seed-590-epoch-7",
+            "source_ref": "data/model-outputs/radar-cnn-test-outputs.csv#radar-test-000000",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "thermal",
+            "state": "usable",
+            "prediction": "no_drone",
+            "hypothesis": "not_drone",
+            "score": 0.0,
+            "score_calibrated": false,
+            "model_version": "YOLO26n-dataset2-only-batch32-threshold-0.25",
+            "source_ref": "origin/thermal-ir-pipeline@4738a821:results/thermal-ir/evaluation/experiment_a_dataset2_only_batch32/test_image_decisions.csv#thermal-test-drone_detection_dataset2-IR_BIRD_004-5",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          }
+        ],
+        "missing_sensors": [],
+        "delayed_sensors": [],
+        "deadline_s": 5.0,
+        "simulated": true,
+        "review_required": true,
+        "operator_disposition": null,
+        "notes": [
+          "No fused detection probability is calculated.",
+          "Scores are raw model outputs unless score_calibrated is true."
+        ]
+      },
+      "recommended_requests": []
+    },
+    {
+      "scenario": "radar_bird_thermal_no_drone",
+      "alert": {
+        "event_id": "sim-real-003",
+        "status": "confirmed",
+        "leading_hypothesis": "not_drone",
+        "reasons": [
+          "not_drone:rf,acoustic,radar,thermal"
+        ],
+        "sensors": [
+          {
+            "sensor": "rf",
+            "state": "usable",
+            "prediction": "Benign",
+            "hypothesis": "not_drone",
+            "score": 0.613937,
+            "score_calibrated": true,
+            "model_version": "rf-intrusion-cnn-v5-w1.50-seed42-selected",
+            "source_ref": "rf-test-outputs.csv#rf-test-dronerf_048199.png",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "acoustic",
+            "state": "usable",
+            "prediction": "no_drone",
+            "hypothesis": "not_drone",
+            "score": 0.997951,
+            "score_calibrated": true,
+            "model_version": "cnn-tuned-epoch-5-temperature-1.000",
+            "source_ref": "acoustic-test-outputs.csv#acoustic-test-000000",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "radar",
+            "state": "usable",
+            "prediction": "bird",
+            "hypothesis": "not_drone",
+            "score": 0.618328332901001,
+            "score_calibrated": false,
+            "model_version": "RadarCNN-seed-590-epoch-7",
+            "source_ref": "data/model-outputs/radar-cnn-test-outputs.csv#radar-test-001731",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "thermal",
+            "state": "usable",
+            "prediction": "no_drone",
+            "hypothesis": "not_drone",
+            "score": 0.0,
+            "score_calibrated": false,
+            "model_version": "YOLO26n-dataset2-only-batch32-threshold-0.25",
+            "source_ref": "origin/thermal-ir-pipeline@4738a821:results/thermal-ir/evaluation/experiment_a_dataset2_only_batch32/test_image_decisions.csv#thermal-test-drone_detection_dataset2-IR_BIRD_004-5",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          }
+        ],
+        "missing_sensors": [],
+        "delayed_sensors": [],
+        "deadline_s": 5.0,
+        "simulated": true,
+        "review_required": true,
+        "operator_disposition": null,
+        "notes": [
+          "No fused detection probability is calculated.",
+          "Scores are raw model outputs unless score_calibrated is true."
+        ]
+      },
+      "recommended_requests": []
+    },
+    {
+      "scenario": "radar_human_thermal_drone",
+      "alert": {
+        "event_id": "sim-real-004",
+        "status": "conflicting",
+        "leading_hypothesis": null,
+        "reasons": [
+          "drone_like:rf,acoustic,thermal",
+          "not_drone:radar"
+        ],
+        "sensors": [
+          {
+            "sensor": "rf",
+            "state": "usable",
+            "prediction": "Machine",
+            "hypothesis": "drone_like",
+            "score": 0.59517425,
+            "score_calibrated": true,
+            "model_version": "rf-intrusion-cnn-v5-w1.50-seed42-selected",
+            "source_ref": "rf-test-outputs.csv#rf-test-dronerf_001714.png",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "acoustic",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.499101,
+            "score_calibrated": true,
+            "model_version": "cnn-tuned-epoch-5-temperature-1.000",
+            "source_ref": "acoustic-test-outputs.csv#acoustic-test-000358",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "radar",
+            "state": "usable",
+            "prediction": "human",
+            "hypothesis": "not_drone",
+            "score": 0.7207658886909485,
+            "score_calibrated": false,
+            "model_version": "RadarCNN-seed-590-epoch-7",
+            "source_ref": "data/model-outputs/radar-cnn-test-outputs.csv#radar-test-000915",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "thermal",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.3640251159667969,
+            "score_calibrated": false,
+            "model_version": "YOLO26n-dataset2-only-batch32-threshold-0.25",
+            "source_ref": "origin/thermal-ir-pipeline@4738a821:results/thermal-ir/evaluation/experiment_a_dataset2_only_batch32/test_image_decisions.csv#thermal-test-drone_detection_dataset2-IR_BIRD_011-275",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          }
+        ],
+        "missing_sensors": [],
+        "delayed_sensors": [],
+        "deadline_s": 5.0,
+        "simulated": true,
+        "review_required": true,
+        "operator_disposition": null,
+        "notes": [
+          "No fused detection probability is calculated.",
+          "Scores are raw model outputs unless score_calibrated is true."
+        ]
+      },
+      "recommended_requests": []
+    },
+    {
+      "scenario": "thermal_missing",
+      "alert": {
+        "event_id": "sim-real-005",
+        "status": "confirmed",
+        "leading_hypothesis": "drone_like",
+        "reasons": [
+          "drone_like:rf,acoustic,radar",
+          "thermal_missing"
+        ],
+        "sensors": [
+          {
+            "sensor": "rf",
+            "state": "usable",
+            "prediction": "Machine",
+            "hypothesis": "drone_like",
+            "score": 0.59517425,
+            "score_calibrated": true,
+            "model_version": "rf-intrusion-cnn-v5-w1.50-seed42-selected",
+            "source_ref": "rf-test-outputs.csv#rf-test-dronerf_001714.png",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "acoustic",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.499101,
+            "score_calibrated": true,
+            "model_version": "cnn-tuned-epoch-5-temperature-1.000",
+            "source_ref": "acoustic-test-outputs.csv#acoustic-test-000358",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "radar",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.9910517334938049,
+            "score_calibrated": false,
+            "model_version": "RadarCNN-seed-590-epoch-7",
+            "source_ref": "data/model-outputs/radar-cnn-test-outputs.csv#radar-test-000000",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "thermal",
+            "state": "missing",
+            "prediction": null,
+            "hypothesis": null,
+            "score": null,
+            "score_calibrated": false,
+            "model_version": "not-provided",
+            "source_ref": "not-provided",
+            "placeholder_value": false,
+            "arrival_s": null
+          }
+        ],
+        "missing_sensors": [
+          "thermal"
+        ],
+        "delayed_sensors": [],
+        "deadline_s": 5.0,
+        "simulated": true,
+        "review_required": true,
+        "operator_disposition": null,
+        "notes": [
+          "No fused detection probability is calculated.",
+          "Scores are raw model outputs unless score_calibrated is true."
+        ]
+      },
+      "recommended_requests": []
+    },
+    {
+      "scenario": "thermal_delayed",
+      "alert": {
+        "event_id": "sim-real-006",
+        "status": "confirmed",
+        "leading_hypothesis": "drone_like",
+        "reasons": [
+          "drone_like:rf,acoustic,radar",
+          "thermal_delayed"
+        ],
+        "sensors": [
+          {
+            "sensor": "rf",
+            "state": "usable",
+            "prediction": "Machine",
+            "hypothesis": "drone_like",
+            "score": 0.59517425,
+            "score_calibrated": true,
+            "model_version": "rf-intrusion-cnn-v5-w1.50-seed42-selected",
+            "source_ref": "rf-test-outputs.csv#rf-test-dronerf_001714.png",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "acoustic",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.499101,
+            "score_calibrated": true,
+            "model_version": "cnn-tuned-epoch-5-temperature-1.000",
+            "source_ref": "acoustic-test-outputs.csv#acoustic-test-000358",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "radar",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.9910517334938049,
+            "score_calibrated": false,
+            "model_version": "RadarCNN-seed-590-epoch-7",
+            "source_ref": "data/model-outputs/radar-cnn-test-outputs.csv#radar-test-000000",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "thermal",
+            "state": "delayed",
+            "prediction": "drone",
+            "hypothesis": null,
+            "score": 0.3640251159667969,
+            "score_calibrated": false,
+            "model_version": "YOLO26n-dataset2-only-batch32-threshold-0.25",
+            "source_ref": "origin/thermal-ir-pipeline@4738a821:results/thermal-ir/evaluation/experiment_a_dataset2_only_batch32/test_image_decisions.csv#thermal-test-drone_detection_dataset2-IR_BIRD_011-275",
+            "placeholder_value": false,
+            "arrival_s": 6.0
+          }
+        ],
+        "missing_sensors": [],
+        "delayed_sensors": [
+          "thermal"
+        ],
+        "deadline_s": 5.0,
+        "simulated": true,
+        "review_required": true,
+        "operator_disposition": null,
+        "notes": [
+          "No fused detection probability is calculated.",
+          "Scores are raw model outputs unless score_calibrated is true."
+        ]
+      },
+      "recommended_requests": []
+    },
+    {
+      "scenario": "radar_missing",
+      "alert": {
+        "event_id": "sim-real-007",
+        "status": "confirmed",
+        "leading_hypothesis": "drone_like",
+        "reasons": [
+          "drone_like:rf,acoustic,thermal",
+          "radar_missing"
+        ],
+        "sensors": [
+          {
+            "sensor": "rf",
+            "state": "usable",
+            "prediction": "Machine",
+            "hypothesis": "drone_like",
+            "score": 0.59517425,
+            "score_calibrated": true,
+            "model_version": "rf-intrusion-cnn-v5-w1.50-seed42-selected",
+            "source_ref": "rf-test-outputs.csv#rf-test-dronerf_001714.png",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "acoustic",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.499101,
+            "score_calibrated": true,
+            "model_version": "cnn-tuned-epoch-5-temperature-1.000",
+            "source_ref": "acoustic-test-outputs.csv#acoustic-test-000358",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "radar",
+            "state": "missing",
+            "prediction": null,
+            "hypothesis": null,
+            "score": null,
+            "score_calibrated": false,
+            "model_version": "not-provided",
+            "source_ref": "not-provided",
+            "placeholder_value": false,
+            "arrival_s": null
+          },
+          {
+            "sensor": "thermal",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.3640251159667969,
+            "score_calibrated": false,
+            "model_version": "YOLO26n-dataset2-only-batch32-threshold-0.25",
+            "source_ref": "origin/thermal-ir-pipeline@4738a821:results/thermal-ir/evaluation/experiment_a_dataset2_only_batch32/test_image_decisions.csv#thermal-test-drone_detection_dataset2-IR_BIRD_011-275",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          }
+        ],
+        "missing_sensors": [
+          "radar"
+        ],
+        "delayed_sensors": [],
+        "deadline_s": 5.0,
+        "simulated": true,
+        "review_required": true,
+        "operator_disposition": null,
+        "notes": [
+          "No fused detection probability is calculated.",
+          "Scores are raw model outputs unless score_calibrated is true."
+        ]
+      },
+      "recommended_requests": []
+    },
+    {
+      "scenario": "radar_delayed",
+      "alert": {
+        "event_id": "sim-real-008",
+        "status": "confirmed",
+        "leading_hypothesis": "drone_like",
+        "reasons": [
+          "drone_like:rf,acoustic,thermal",
+          "radar_delayed"
+        ],
+        "sensors": [
+          {
+            "sensor": "rf",
+            "state": "usable",
+            "prediction": "Machine",
+            "hypothesis": "drone_like",
+            "score": 0.59517425,
+            "score_calibrated": true,
+            "model_version": "rf-intrusion-cnn-v5-w1.50-seed42-selected",
+            "source_ref": "rf-test-outputs.csv#rf-test-dronerf_001714.png",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "acoustic",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.499101,
+            "score_calibrated": true,
+            "model_version": "cnn-tuned-epoch-5-temperature-1.000",
+            "source_ref": "acoustic-test-outputs.csv#acoustic-test-000358",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "radar",
+            "state": "delayed",
+            "prediction": "drone",
+            "hypothesis": null,
+            "score": 0.9910517334938049,
+            "score_calibrated": false,
+            "model_version": "RadarCNN-seed-590-epoch-7",
+            "source_ref": "data/model-outputs/radar-cnn-test-outputs.csv#radar-test-000000",
+            "placeholder_value": false,
+            "arrival_s": 6.0
+          },
+          {
+            "sensor": "thermal",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.3640251159667969,
+            "score_calibrated": false,
+            "model_version": "YOLO26n-dataset2-only-batch32-threshold-0.25",
+            "source_ref": "origin/thermal-ir-pipeline@4738a821:results/thermal-ir/evaluation/experiment_a_dataset2_only_batch32/test_image_decisions.csv#thermal-test-drone_detection_dataset2-IR_BIRD_011-275",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          }
+        ],
+        "missing_sensors": [],
+        "delayed_sensors": [
+          "radar"
+        ],
+        "deadline_s": 5.0,
+        "simulated": true,
+        "review_required": true,
+        "operator_disposition": null,
+        "notes": [
+          "No fused detection probability is calculated.",
+          "Scores are raw model outputs unless score_calibrated is true."
+        ]
+      },
+      "recommended_requests": []
+    },
+    {
+      "scenario": "thermal_low_quality",
+      "alert": {
+        "event_id": "sim-real-009",
+        "status": "confirmed",
+        "leading_hypothesis": "drone_like",
+        "reasons": [
+          "drone_like:rf,acoustic,radar",
+          "thermal_low_quality"
+        ],
+        "sensors": [
+          {
+            "sensor": "rf",
+            "state": "usable",
+            "prediction": "Machine",
+            "hypothesis": "drone_like",
+            "score": 0.59517425,
+            "score_calibrated": true,
+            "model_version": "rf-intrusion-cnn-v5-w1.50-seed42-selected",
+            "source_ref": "rf-test-outputs.csv#rf-test-dronerf_001714.png",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "acoustic",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.499101,
+            "score_calibrated": true,
+            "model_version": "cnn-tuned-epoch-5-temperature-1.000",
+            "source_ref": "acoustic-test-outputs.csv#acoustic-test-000358",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "radar",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.9910517334938049,
+            "score_calibrated": false,
+            "model_version": "RadarCNN-seed-590-epoch-7",
+            "source_ref": "data/model-outputs/radar-cnn-test-outputs.csv#radar-test-000000",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "thermal",
+            "state": "low_quality",
+            "prediction": "drone",
+            "hypothesis": null,
+            "score": 0.3640251159667969,
+            "score_calibrated": false,
+            "model_version": "YOLO26n-dataset2-only-batch32-threshold-0.25",
+            "source_ref": "origin/thermal-ir-pipeline@4738a821:results/thermal-ir/evaluation/experiment_a_dataset2_only_batch32/test_image_decisions.csv#thermal-test-drone_detection_dataset2-IR_BIRD_011-275",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          }
+        ],
+        "missing_sensors": [],
+        "delayed_sensors": [],
+        "deadline_s": 5.0,
+        "simulated": true,
+        "review_required": true,
+        "operator_disposition": null,
+        "notes": [
+          "No fused detection probability is calculated.",
+          "Scores are raw model outputs unless score_calibrated is true."
+        ]
+      },
+      "recommended_requests": []
+    },
+    {
+      "scenario": "all_non_drone_predictions",
+      "alert": {
+        "event_id": "sim-real-010",
+        "status": "confirmed",
+        "leading_hypothesis": "not_drone",
+        "reasons": [
+          "not_drone:rf,acoustic,radar,thermal"
+        ],
+        "sensors": [
+          {
+            "sensor": "rf",
+            "state": "usable",
+            "prediction": "Benign",
+            "hypothesis": "not_drone",
+            "score": 0.613937,
+            "score_calibrated": true,
+            "model_version": "rf-intrusion-cnn-v5-w1.50-seed42-selected",
+            "source_ref": "rf-test-outputs.csv#rf-test-dronerf_048199.png",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "acoustic",
+            "state": "usable",
+            "prediction": "no_drone",
+            "hypothesis": "not_drone",
+            "score": 0.997951,
+            "score_calibrated": true,
+            "model_version": "cnn-tuned-epoch-5-temperature-1.000",
+            "source_ref": "acoustic-test-outputs.csv#acoustic-test-000000",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "radar",
+            "state": "usable",
+            "prediction": "human",
+            "hypothesis": "not_drone",
+            "score": 0.7207658886909485,
+            "score_calibrated": false,
+            "model_version": "RadarCNN-seed-590-epoch-7",
+            "source_ref": "data/model-outputs/radar-cnn-test-outputs.csv#radar-test-000915",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "thermal",
+            "state": "usable",
+            "prediction": "no_drone",
+            "hypothesis": "not_drone",
+            "score": 0.0,
+            "score_calibrated": false,
+            "model_version": "YOLO26n-dataset2-only-batch32-threshold-0.25",
+            "source_ref": "origin/thermal-ir-pipeline@4738a821:results/thermal-ir/evaluation/experiment_a_dataset2_only_batch32/test_image_decisions.csv#thermal-test-drone_detection_dataset2-IR_BIRD_004-5",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          }
+        ],
+        "missing_sensors": [],
+        "delayed_sensors": [],
+        "deadline_s": 5.0,
+        "simulated": true,
+        "review_required": true,
+        "operator_disposition": null,
+        "notes": [
+          "No fused detection probability is calculated.",
+          "Scores are raw model outputs unless score_calibrated is true."
+        ]
+      },
+      "recommended_requests": []
+    },
+    {
+      "scenario": "radar_and_thermal_missing",
+      "alert": {
+        "event_id": "sim-real-011",
+        "status": "confirmed",
+        "leading_hypothesis": "drone_like",
+        "reasons": [
+          "drone_like:rf,acoustic",
+          "radar_missing",
+          "thermal_missing"
+        ],
+        "sensors": [
+          {
+            "sensor": "rf",
+            "state": "usable",
+            "prediction": "Machine",
+            "hypothesis": "drone_like",
+            "score": 0.59517425,
+            "score_calibrated": true,
+            "model_version": "rf-intrusion-cnn-v5-w1.50-seed42-selected",
+            "source_ref": "rf-test-outputs.csv#rf-test-dronerf_001714.png",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "acoustic",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.499101,
+            "score_calibrated": true,
+            "model_version": "cnn-tuned-epoch-5-temperature-1.000",
+            "source_ref": "acoustic-test-outputs.csv#acoustic-test-000358",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "radar",
+            "state": "missing",
+            "prediction": null,
+            "hypothesis": null,
+            "score": null,
+            "score_calibrated": false,
+            "model_version": "not-provided",
+            "source_ref": "not-provided",
+            "placeholder_value": false,
+            "arrival_s": null
+          },
+          {
+            "sensor": "thermal",
+            "state": "missing",
+            "prediction": null,
+            "hypothesis": null,
+            "score": null,
+            "score_calibrated": false,
+            "model_version": "not-provided",
+            "source_ref": "not-provided",
+            "placeholder_value": false,
+            "arrival_s": null
+          }
+        ],
+        "missing_sensors": [
+          "radar",
+          "thermal"
+        ],
+        "delayed_sensors": [],
+        "deadline_s": 5.0,
+        "simulated": true,
+        "review_required": true,
+        "operator_disposition": null,
+        "notes": [
+          "No fused detection probability is calculated.",
+          "Scores are raw model outputs unless score_calibrated is true."
+        ]
+      },
+      "recommended_requests": []
+    },
+    {
+      "scenario": "radar_thermal_drone_acoustic_disagrees",
+      "alert": {
+        "event_id": "sim-real-012",
+        "status": "conflicting",
+        "leading_hypothesis": null,
+        "reasons": [
+          "drone_like:radar,thermal",
+          "not_drone:rf,acoustic"
+        ],
+        "sensors": [
+          {
+            "sensor": "rf",
+            "state": "usable",
+            "prediction": "Benign",
+            "hypothesis": "not_drone",
+            "score": 0.613937,
+            "score_calibrated": true,
+            "model_version": "rf-intrusion-cnn-v5-w1.50-seed42-selected",
+            "source_ref": "rf-test-outputs.csv#rf-test-dronerf_048199.png",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "acoustic",
+            "state": "usable",
+            "prediction": "no_drone",
+            "hypothesis": "not_drone",
+            "score": 0.997951,
+            "score_calibrated": true,
+            "model_version": "cnn-tuned-epoch-5-temperature-1.000",
+            "source_ref": "acoustic-test-outputs.csv#acoustic-test-000000",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "radar",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.9910517334938049,
+            "score_calibrated": false,
+            "model_version": "RadarCNN-seed-590-epoch-7",
+            "source_ref": "data/model-outputs/radar-cnn-test-outputs.csv#radar-test-000000",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "thermal",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.3640251159667969,
+            "score_calibrated": false,
+            "model_version": "YOLO26n-dataset2-only-batch32-threshold-0.25",
+            "source_ref": "origin/thermal-ir-pipeline@4738a821:results/thermal-ir/evaluation/experiment_a_dataset2_only_batch32/test_image_decisions.csv#thermal-test-drone_detection_dataset2-IR_BIRD_011-275",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          }
+        ],
+        "missing_sensors": [],
+        "delayed_sensors": [],
+        "deadline_s": 5.0,
+        "simulated": true,
+        "review_required": true,
+        "operator_disposition": null,
+        "notes": [
+          "No fused detection probability is calculated.",
+          "Scores are raw model outputs unless score_calibrated is true."
+        ]
+      },
+      "recommended_requests": []
+    },
+    {
+      "scenario": "only_acoustic_hears_drone",
+      "alert": {
+        "event_id": "sim-real-013",
+        "status": "conflicting",
+        "leading_hypothesis": null,
+        "reasons": [
+          "drone_like:acoustic",
+          "not_drone:rf,radar,thermal"
+        ],
+        "sensors": [
+          {
+            "sensor": "rf",
+            "state": "usable",
+            "prediction": "Benign",
+            "hypothesis": "not_drone",
+            "score": 0.613937,
+            "score_calibrated": true,
+            "model_version": "rf-intrusion-cnn-v5-w1.50-seed42-selected",
+            "source_ref": "rf-test-outputs.csv#rf-test-dronerf_048199.png",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "acoustic",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.499101,
+            "score_calibrated": true,
+            "model_version": "cnn-tuned-epoch-5-temperature-1.000",
+            "source_ref": "acoustic-test-outputs.csv#acoustic-test-000358",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "radar",
+            "state": "usable",
+            "prediction": "human",
+            "hypothesis": "not_drone",
+            "score": 0.7207658886909485,
+            "score_calibrated": false,
+            "model_version": "RadarCNN-seed-590-epoch-7",
+            "source_ref": "data/model-outputs/radar-cnn-test-outputs.csv#radar-test-000915",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "thermal",
+            "state": "usable",
+            "prediction": "no_drone",
+            "hypothesis": "not_drone",
+            "score": 0.0,
+            "score_calibrated": false,
+            "model_version": "YOLO26n-dataset2-only-batch32-threshold-0.25",
+            "source_ref": "origin/thermal-ir-pipeline@4738a821:results/thermal-ir/evaluation/experiment_a_dataset2_only_batch32/test_image_decisions.csv#thermal-test-drone_detection_dataset2-IR_BIRD_004-5",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          }
+        ],
+        "missing_sensors": [],
+        "delayed_sensors": [],
+        "deadline_s": 5.0,
+        "simulated": true,
+        "review_required": true,
+        "operator_disposition": null,
+        "notes": [
+          "No fused detection probability is calculated.",
+          "Scores are raw model outputs unless score_calibrated is true."
+        ]
+      },
+      "recommended_requests": []
+    },
+    {
+      "scenario": "acoustic_missing",
+      "alert": {
+        "event_id": "sim-real-014",
+        "status": "confirmed",
+        "leading_hypothesis": "drone_like",
+        "reasons": [
+          "drone_like:rf,radar,thermal",
+          "acoustic_missing"
+        ],
+        "sensors": [
+          {
+            "sensor": "rf",
+            "state": "usable",
+            "prediction": "Machine",
+            "hypothesis": "drone_like",
+            "score": 0.59517425,
+            "score_calibrated": true,
+            "model_version": "rf-intrusion-cnn-v5-w1.50-seed42-selected",
+            "source_ref": "rf-test-outputs.csv#rf-test-dronerf_001714.png",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "acoustic",
+            "state": "missing",
+            "prediction": null,
+            "hypothesis": null,
+            "score": null,
+            "score_calibrated": false,
+            "model_version": "not-provided",
+            "source_ref": "not-provided",
+            "placeholder_value": false,
+            "arrival_s": null
+          },
+          {
+            "sensor": "radar",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.9910517334938049,
+            "score_calibrated": false,
+            "model_version": "RadarCNN-seed-590-epoch-7",
+            "source_ref": "data/model-outputs/radar-cnn-test-outputs.csv#radar-test-000000",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "thermal",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.3640251159667969,
+            "score_calibrated": false,
+            "model_version": "YOLO26n-dataset2-only-batch32-threshold-0.25",
+            "source_ref": "origin/thermal-ir-pipeline@4738a821:results/thermal-ir/evaluation/experiment_a_dataset2_only_batch32/test_image_decisions.csv#thermal-test-drone_detection_dataset2-IR_BIRD_011-275",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          }
+        ],
+        "missing_sensors": [
+          "acoustic"
+        ],
+        "delayed_sensors": [],
+        "deadline_s": 5.0,
+        "simulated": true,
+        "review_required": true,
+        "operator_disposition": null,
+        "notes": [
+          "No fused detection probability is calculated.",
+          "Scores are raw model outputs unless score_calibrated is true."
+        ]
+      },
+      "recommended_requests": []
+    },
+    {
+      "scenario": "acoustic_delayed",
+      "alert": {
+        "event_id": "sim-real-015",
+        "status": "confirmed",
+        "leading_hypothesis": "drone_like",
+        "reasons": [
+          "drone_like:rf,radar,thermal",
+          "acoustic_delayed"
+        ],
+        "sensors": [
+          {
+            "sensor": "rf",
+            "state": "usable",
+            "prediction": "Machine",
+            "hypothesis": "drone_like",
+            "score": 0.59517425,
+            "score_calibrated": true,
+            "model_version": "rf-intrusion-cnn-v5-w1.50-seed42-selected",
+            "source_ref": "rf-test-outputs.csv#rf-test-dronerf_001714.png",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "acoustic",
+            "state": "delayed",
+            "prediction": "drone",
+            "hypothesis": null,
+            "score": 0.499101,
+            "score_calibrated": true,
+            "model_version": "cnn-tuned-epoch-5-temperature-1.000",
+            "source_ref": "acoustic-test-outputs.csv#acoustic-test-000358",
+            "placeholder_value": false,
+            "arrival_s": 6.0
+          },
+          {
+            "sensor": "radar",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.9910517334938049,
+            "score_calibrated": false,
+            "model_version": "RadarCNN-seed-590-epoch-7",
+            "source_ref": "data/model-outputs/radar-cnn-test-outputs.csv#radar-test-000000",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "thermal",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.3640251159667969,
+            "score_calibrated": false,
+            "model_version": "YOLO26n-dataset2-only-batch32-threshold-0.25",
+            "source_ref": "origin/thermal-ir-pipeline@4738a821:results/thermal-ir/evaluation/experiment_a_dataset2_only_batch32/test_image_decisions.csv#thermal-test-drone_detection_dataset2-IR_BIRD_011-275",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          }
+        ],
+        "missing_sensors": [],
+        "delayed_sensors": [
+          "acoustic"
+        ],
+        "deadline_s": 5.0,
+        "simulated": true,
+        "review_required": true,
+        "operator_disposition": null,
+        "notes": [
+          "No fused detection probability is calculated.",
+          "Scores are raw model outputs unless score_calibrated is true."
+        ]
+      },
+      "recommended_requests": []
+    },
+    {
+      "scenario": "acoustic_low_quality",
+      "alert": {
+        "event_id": "sim-real-016",
+        "status": "confirmed",
+        "leading_hypothesis": "drone_like",
+        "reasons": [
+          "drone_like:rf,radar,thermal",
+          "acoustic_low_quality"
+        ],
+        "sensors": [
+          {
+            "sensor": "rf",
+            "state": "usable",
+            "prediction": "Machine",
+            "hypothesis": "drone_like",
+            "score": 0.59517425,
+            "score_calibrated": true,
+            "model_version": "rf-intrusion-cnn-v5-w1.50-seed42-selected",
+            "source_ref": "rf-test-outputs.csv#rf-test-dronerf_001714.png",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "acoustic",
+            "state": "low_quality",
+            "prediction": "drone",
+            "hypothesis": null,
+            "score": 0.499101,
+            "score_calibrated": true,
+            "model_version": "cnn-tuned-epoch-5-temperature-1.000",
+            "source_ref": "acoustic-test-outputs.csv#acoustic-test-000358",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "radar",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.9910517334938049,
+            "score_calibrated": false,
+            "model_version": "RadarCNN-seed-590-epoch-7",
+            "source_ref": "data/model-outputs/radar-cnn-test-outputs.csv#radar-test-000000",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "thermal",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.3640251159667969,
+            "score_calibrated": false,
+            "model_version": "YOLO26n-dataset2-only-batch32-threshold-0.25",
+            "source_ref": "origin/thermal-ir-pipeline@4738a821:results/thermal-ir/evaluation/experiment_a_dataset2_only_batch32/test_image_decisions.csv#thermal-test-drone_detection_dataset2-IR_BIRD_011-275",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          }
+        ],
+        "missing_sensors": [],
+        "delayed_sensors": [],
+        "deadline_s": 5.0,
+        "simulated": true,
+        "review_required": true,
+        "operator_disposition": null,
+        "notes": [
+          "No fused detection probability is calculated.",
+          "Scores are raw model outputs unless score_calibrated is true."
+        ]
+      },
+      "recommended_requests": []
+    },
+    {
+      "scenario": "rf_machine_with_three_drone_predictions",
+      "alert": {
+        "event_id": "sim-real-017",
+        "status": "confirmed",
+        "leading_hypothesis": "drone_like",
+        "reasons": [
+          "drone_like:rf,acoustic,radar,thermal"
+        ],
+        "sensors": [
+          {
+            "sensor": "rf",
+            "state": "usable",
+            "prediction": "Machine",
+            "hypothesis": "drone_like",
+            "score": 0.59517425,
+            "score_calibrated": true,
+            "model_version": "rf-intrusion-cnn-v5-w1.50-seed42-selected",
+            "source_ref": "rf-test-outputs.csv#rf-test-dronerf_001714.png",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "acoustic",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.499101,
+            "score_calibrated": true,
+            "model_version": "cnn-tuned-epoch-5-temperature-1.000",
+            "source_ref": "acoustic-test-outputs.csv#acoustic-test-000358",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "radar",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.9910517334938049,
+            "score_calibrated": false,
+            "model_version": "RadarCNN-seed-590-epoch-7",
+            "source_ref": "data/model-outputs/radar-cnn-test-outputs.csv#radar-test-000000",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "thermal",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.3640251159667969,
+            "score_calibrated": false,
+            "model_version": "YOLO26n-dataset2-only-batch32-threshold-0.25",
+            "source_ref": "origin/thermal-ir-pipeline@4738a821:results/thermal-ir/evaluation/experiment_a_dataset2_only_batch32/test_image_decisions.csv#thermal-test-drone_detection_dataset2-IR_BIRD_011-275",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          }
+        ],
+        "missing_sensors": [],
+        "delayed_sensors": [],
+        "deadline_s": 5.0,
+        "simulated": true,
+        "review_required": true,
+        "operator_disposition": null,
+        "notes": [
+          "No fused detection probability is calculated.",
+          "Scores are raw model outputs unless score_calibrated is true."
+        ]
+      },
+      "recommended_requests": []
+    },
+    {
+      "scenario": "rf_machine_false_alarm_others_no_drone",
+      "alert": {
+        "event_id": "sim-real-018",
+        "status": "conflicting",
+        "leading_hypothesis": null,
+        "reasons": [
+          "drone_like:rf",
+          "not_drone:acoustic,radar,thermal"
+        ],
+        "sensors": [
+          {
+            "sensor": "rf",
+            "state": "usable",
+            "prediction": "Machine",
+            "hypothesis": "drone_like",
+            "score": 0.48236093,
+            "score_calibrated": true,
+            "model_version": "rf-intrusion-cnn-v5-w1.50-seed42-selected",
+            "source_ref": "rf-test-outputs.csv#rf-test-dronerf_046542.png",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "acoustic",
+            "state": "usable",
+            "prediction": "no_drone",
+            "hypothesis": "not_drone",
+            "score": 0.997951,
+            "score_calibrated": true,
+            "model_version": "cnn-tuned-epoch-5-temperature-1.000",
+            "source_ref": "acoustic-test-outputs.csv#acoustic-test-000000",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "radar",
+            "state": "usable",
+            "prediction": "human",
+            "hypothesis": "not_drone",
+            "score": 0.7207658886909485,
+            "score_calibrated": false,
+            "model_version": "RadarCNN-seed-590-epoch-7",
+            "source_ref": "data/model-outputs/radar-cnn-test-outputs.csv#radar-test-000915",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "thermal",
+            "state": "usable",
+            "prediction": "no_drone",
+            "hypothesis": "not_drone",
+            "score": 0.0,
+            "score_calibrated": false,
+            "model_version": "YOLO26n-dataset2-only-batch32-threshold-0.25",
+            "source_ref": "origin/thermal-ir-pipeline@4738a821:results/thermal-ir/evaluation/experiment_a_dataset2_only_batch32/test_image_decisions.csv#thermal-test-drone_detection_dataset2-IR_BIRD_004-5",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          }
+        ],
+        "missing_sensors": [],
+        "delayed_sensors": [],
+        "deadline_s": 5.0,
+        "simulated": true,
+        "review_required": true,
+        "operator_disposition": null,
+        "notes": [
+          "No fused detection probability is calculated.",
+          "Scores are raw model outputs unless score_calibrated is true."
+        ]
+      },
+      "recommended_requests": []
+    },
+    {
+      "scenario": "rf_benign_others_drone",
+      "alert": {
+        "event_id": "sim-real-019",
+        "status": "conflicting",
+        "leading_hypothesis": null,
+        "reasons": [
+          "drone_like:acoustic,radar,thermal",
+          "not_drone:rf"
+        ],
+        "sensors": [
+          {
+            "sensor": "rf",
+            "state": "usable",
+            "prediction": "Benign",
+            "hypothesis": "not_drone",
+            "score": 0.613937,
+            "score_calibrated": true,
+            "model_version": "rf-intrusion-cnn-v5-w1.50-seed42-selected",
+            "source_ref": "rf-test-outputs.csv#rf-test-dronerf_048199.png",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "acoustic",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.499101,
+            "score_calibrated": true,
+            "model_version": "cnn-tuned-epoch-5-temperature-1.000",
+            "source_ref": "acoustic-test-outputs.csv#acoustic-test-000358",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "radar",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.9910517334938049,
+            "score_calibrated": false,
+            "model_version": "RadarCNN-seed-590-epoch-7",
+            "source_ref": "data/model-outputs/radar-cnn-test-outputs.csv#radar-test-000000",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "thermal",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.3640251159667969,
+            "score_calibrated": false,
+            "model_version": "YOLO26n-dataset2-only-batch32-threshold-0.25",
+            "source_ref": "origin/thermal-ir-pipeline@4738a821:results/thermal-ir/evaluation/experiment_a_dataset2_only_batch32/test_image_decisions.csv#thermal-test-drone_detection_dataset2-IR_BIRD_011-275",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          }
+        ],
+        "missing_sensors": [],
+        "delayed_sensors": [],
+        "deadline_s": 5.0,
+        "simulated": true,
+        "review_required": true,
+        "operator_disposition": null,
+        "notes": [
+          "No fused detection probability is calculated.",
+          "Scores are raw model outputs unless score_calibrated is true."
+        ]
+      },
+      "recommended_requests": []
+    },
+    {
+      "scenario": "rf_only_sensor_available",
+      "alert": {
+        "event_id": "sim-real-020",
+        "status": "unverified",
+        "leading_hypothesis": "drone_like",
+        "reasons": [
+          "drone_like:rf",
+          "acoustic_missing",
+          "radar_missing",
+          "thermal_missing"
+        ],
+        "sensors": [
+          {
+            "sensor": "rf",
+            "state": "usable",
+            "prediction": "Machine",
+            "hypothesis": "drone_like",
+            "score": 0.59517425,
+            "score_calibrated": true,
+            "model_version": "rf-intrusion-cnn-v5-w1.50-seed42-selected",
+            "source_ref": "rf-test-outputs.csv#rf-test-dronerf_001714.png",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "acoustic",
+            "state": "missing",
+            "prediction": null,
+            "hypothesis": null,
+            "score": null,
+            "score_calibrated": false,
+            "model_version": "not-provided",
+            "source_ref": "not-provided",
+            "placeholder_value": false,
+            "arrival_s": null
+          },
+          {
+            "sensor": "radar",
+            "state": "missing",
+            "prediction": null,
+            "hypothesis": null,
+            "score": null,
+            "score_calibrated": false,
+            "model_version": "not-provided",
+            "source_ref": "not-provided",
+            "placeholder_value": false,
+            "arrival_s": null
+          },
+          {
+            "sensor": "thermal",
+            "state": "missing",
+            "prediction": null,
+            "hypothesis": null,
+            "score": null,
+            "score_calibrated": false,
+            "model_version": "not-provided",
+            "source_ref": "not-provided",
+            "placeholder_value": false,
+            "arrival_s": null
+          }
+        ],
+        "missing_sensors": [
+          "acoustic",
+          "radar",
+          "thermal"
+        ],
+        "delayed_sensors": [],
+        "deadline_s": 5.0,
+        "simulated": true,
+        "review_required": true,
+        "operator_disposition": null,
+        "notes": [
+          "No fused detection probability is calculated.",
+          "Scores are raw model outputs unless score_calibrated is true."
+        ]
+      },
+      "recommended_requests": [
+        "acoustic",
+        "radar",
+        "thermal"
+      ]
+    },
+    {
+      "scenario": "rf_jamming_others_drone",
+      "alert": {
+        "event_id": "sim-real-021",
+        "status": "confirmed",
+        "leading_hypothesis": "drone_like",
+        "reasons": [
+          "drone_like:acoustic,radar,thermal",
+          "other:rf"
+        ],
+        "sensors": [
+          {
+            "sensor": "rf",
+            "state": "usable",
+            "prediction": "Broadband_Jam",
+            "hypothesis": "other",
+            "score": 0.99998343,
+            "score_calibrated": true,
+            "model_version": "rf-intrusion-cnn-v5-w1.50-seed42-selected",
+            "source_ref": "rf-test-outputs.csv#rf-test-aug_Broadband_Jam_000004.png",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "acoustic",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.499101,
+            "score_calibrated": true,
+            "model_version": "cnn-tuned-epoch-5-temperature-1.000",
+            "source_ref": "acoustic-test-outputs.csv#acoustic-test-000358",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "radar",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.9910517334938049,
+            "score_calibrated": false,
+            "model_version": "RadarCNN-seed-590-epoch-7",
+            "source_ref": "data/model-outputs/radar-cnn-test-outputs.csv#radar-test-000000",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "thermal",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.3640251159667969,
+            "score_calibrated": false,
+            "model_version": "YOLO26n-dataset2-only-batch32-threshold-0.25",
+            "source_ref": "origin/thermal-ir-pipeline@4738a821:results/thermal-ir/evaluation/experiment_a_dataset2_only_batch32/test_image_decisions.csv#thermal-test-drone_detection_dataset2-IR_BIRD_011-275",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          }
+        ],
+        "missing_sensors": [],
+        "delayed_sensors": [],
+        "deadline_s": 5.0,
+        "simulated": true,
+        "review_required": true,
+        "operator_disposition": null,
+        "notes": [
+          "No fused detection probability is calculated.",
+          "Scores are raw model outputs unless score_calibrated is true."
+        ]
+      },
+      "recommended_requests": []
+    },
+    {
+      "scenario": "rf_delayed",
+      "alert": {
+        "event_id": "sim-real-022",
+        "status": "confirmed",
+        "leading_hypothesis": "drone_like",
+        "reasons": [
+          "drone_like:acoustic,radar,thermal",
+          "rf_delayed"
+        ],
+        "sensors": [
+          {
+            "sensor": "rf",
+            "state": "delayed",
+            "prediction": "Machine",
+            "hypothesis": null,
+            "score": 0.59517425,
+            "score_calibrated": true,
+            "model_version": "rf-intrusion-cnn-v5-w1.50-seed42-selected",
+            "source_ref": "rf-test-outputs.csv#rf-test-dronerf_001714.png",
+            "placeholder_value": false,
+            "arrival_s": 6.0
+          },
+          {
+            "sensor": "acoustic",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.499101,
+            "score_calibrated": true,
+            "model_version": "cnn-tuned-epoch-5-temperature-1.000",
+            "source_ref": "acoustic-test-outputs.csv#acoustic-test-000358",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "radar",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.9910517334938049,
+            "score_calibrated": false,
+            "model_version": "RadarCNN-seed-590-epoch-7",
+            "source_ref": "data/model-outputs/radar-cnn-test-outputs.csv#radar-test-000000",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "thermal",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.3640251159667969,
+            "score_calibrated": false,
+            "model_version": "YOLO26n-dataset2-only-batch32-threshold-0.25",
+            "source_ref": "origin/thermal-ir-pipeline@4738a821:results/thermal-ir/evaluation/experiment_a_dataset2_only_batch32/test_image_decisions.csv#thermal-test-drone_detection_dataset2-IR_BIRD_011-275",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          }
+        ],
+        "missing_sensors": [],
+        "delayed_sensors": [
+          "rf"
+        ],
+        "deadline_s": 5.0,
+        "simulated": true,
+        "review_required": true,
+        "operator_disposition": null,
+        "notes": [
+          "No fused detection probability is calculated.",
+          "Scores are raw model outputs unless score_calibrated is true."
+        ]
+      },
+      "recommended_requests": []
+    },
+    {
+      "scenario": "rf_low_quality",
+      "alert": {
+        "event_id": "sim-real-023",
+        "status": "confirmed",
+        "leading_hypothesis": "drone_like",
+        "reasons": [
+          "drone_like:acoustic,radar,thermal",
+          "rf_low_quality"
+        ],
+        "sensors": [
+          {
+            "sensor": "rf",
+            "state": "low_quality",
+            "prediction": "Machine",
+            "hypothesis": null,
+            "score": 0.59517425,
+            "score_calibrated": true,
+            "model_version": "rf-intrusion-cnn-v5-w1.50-seed42-selected",
+            "source_ref": "rf-test-outputs.csv#rf-test-dronerf_001714.png",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "acoustic",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.499101,
+            "score_calibrated": true,
+            "model_version": "cnn-tuned-epoch-5-temperature-1.000",
+            "source_ref": "acoustic-test-outputs.csv#acoustic-test-000358",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "radar",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.9910517334938049,
+            "score_calibrated": false,
+            "model_version": "RadarCNN-seed-590-epoch-7",
+            "source_ref": "data/model-outputs/radar-cnn-test-outputs.csv#radar-test-000000",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "thermal",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.3640251159667969,
+            "score_calibrated": false,
+            "model_version": "YOLO26n-dataset2-only-batch32-threshold-0.25",
+            "source_ref": "origin/thermal-ir-pipeline@4738a821:results/thermal-ir/evaluation/experiment_a_dataset2_only_batch32/test_image_decisions.csv#thermal-test-drone_detection_dataset2-IR_BIRD_011-275",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          }
+        ],
+        "missing_sensors": [],
+        "delayed_sensors": [],
+        "deadline_s": 5.0,
+        "simulated": true,
+        "review_required": true,
+        "operator_disposition": null,
+        "notes": [
+          "No fused detection probability is calculated.",
+          "Scores are raw model outputs unless score_calibrated is true."
+        ]
+      },
+      "recommended_requests": []
+    },
+    {
+      "scenario": "rf_missing",
+      "alert": {
+        "event_id": "sim-real-024",
+        "status": "confirmed",
+        "leading_hypothesis": "drone_like",
+        "reasons": [
+          "drone_like:acoustic,radar,thermal",
+          "rf_missing"
+        ],
+        "sensors": [
+          {
+            "sensor": "rf",
+            "state": "missing",
+            "prediction": null,
+            "hypothesis": null,
+            "score": null,
+            "score_calibrated": false,
+            "model_version": "not-provided",
+            "source_ref": "not-provided",
+            "placeholder_value": false,
+            "arrival_s": null
+          },
+          {
+            "sensor": "acoustic",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.499101,
+            "score_calibrated": true,
+            "model_version": "cnn-tuned-epoch-5-temperature-1.000",
+            "source_ref": "acoustic-test-outputs.csv#acoustic-test-000358",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "radar",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.9910517334938049,
+            "score_calibrated": false,
+            "model_version": "RadarCNN-seed-590-epoch-7",
+            "source_ref": "data/model-outputs/radar-cnn-test-outputs.csv#radar-test-000000",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "thermal",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.3640251159667969,
+            "score_calibrated": false,
+            "model_version": "YOLO26n-dataset2-only-batch32-threshold-0.25",
+            "source_ref": "origin/thermal-ir-pipeline@4738a821:results/thermal-ir/evaluation/experiment_a_dataset2_only_batch32/test_image_decisions.csv#thermal-test-drone_detection_dataset2-IR_BIRD_011-275",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          }
+        ],
+        "missing_sensors": [
+          "rf"
+        ],
+        "delayed_sensors": [],
+        "deadline_s": 5.0,
+        "simulated": true,
+        "review_required": true,
+        "operator_disposition": null,
+        "notes": [
+          "No fused detection probability is calculated.",
+          "Scores are raw model outputs unless score_calibrated is true."
+        ]
+      },
+      "recommended_requests": []
+    },
+    {
+      "scenario": "radar_low_quality",
+      "alert": {
+        "event_id": "sim-real-025",
+        "status": "confirmed",
+        "leading_hypothesis": "drone_like",
+        "reasons": [
+          "drone_like:rf,acoustic,thermal",
+          "radar_low_quality"
+        ],
+        "sensors": [
+          {
+            "sensor": "rf",
+            "state": "usable",
+            "prediction": "Machine",
+            "hypothesis": "drone_like",
+            "score": 0.59517425,
+            "score_calibrated": true,
+            "model_version": "rf-intrusion-cnn-v5-w1.50-seed42-selected",
+            "source_ref": "rf-test-outputs.csv#rf-test-dronerf_001714.png",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "acoustic",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.499101,
+            "score_calibrated": true,
+            "model_version": "cnn-tuned-epoch-5-temperature-1.000",
+            "source_ref": "acoustic-test-outputs.csv#acoustic-test-000358",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "radar",
+            "state": "low_quality",
+            "prediction": "drone",
+            "hypothesis": null,
+            "score": 0.9910517334938049,
+            "score_calibrated": false,
+            "model_version": "RadarCNN-seed-590-epoch-7",
+            "source_ref": "data/model-outputs/radar-cnn-test-outputs.csv#radar-test-000000",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          },
+          {
+            "sensor": "thermal",
+            "state": "usable",
+            "prediction": "drone",
+            "hypothesis": "drone_like",
+            "score": 0.3640251159667969,
+            "score_calibrated": false,
+            "model_version": "YOLO26n-dataset2-only-batch32-threshold-0.25",
+            "source_ref": "origin/thermal-ir-pipeline@4738a821:results/thermal-ir/evaluation/experiment_a_dataset2_only_batch32/test_image_decisions.csv#thermal-test-drone_detection_dataset2-IR_BIRD_011-275",
+            "placeholder_value": false,
+            "arrival_s": 0.0
+          }
+        ],
+        "missing_sensors": [],
+        "delayed_sensors": [],
+        "deadline_s": 5.0,
+        "simulated": true,
+        "review_required": true,
+        "operator_disposition": null,
+        "notes": [
+          "No fused detection probability is calculated.",
+          "Scores are raw model outputs unless score_calibrated is true."
+        ]
+      },
+      "recommended_requests": []
+    }
+  ]
+}

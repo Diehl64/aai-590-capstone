@@ -1,0 +1,351 @@
+{
+  "workflow": "agent_replay_fixture",
+  "simulated_only": true,
+  "not_a_measured_fusion_evaluation": true,
+  "review_required_for_every_scenario": true,
+  "available_sensor_types": [
+    "rf",
+    "acoustic",
+    "radar",
+    "thermal"
+  ],
+  "missing_sensor_types": [],
+  "scenarios": [
+    {
+      "scenario": "all_four_drone_like",
+      "record": {
+        "event_id": "sim-fix-001",
+        "timestamp": "simulated-event:sim-fix-001",
+        "evidence": [
+          {
+            "event_id": "sim-fix-001",
+            "timestamp": "simulated-event:sim-fix-001",
+            "sensor_type": "rf",
+            "status": "available",
+            "prediction": "Machine",
+            "score": 0.8,
+            "model_version": "fixture",
+            "source_ref": "tests/fixtures/agent-replay-fixture.json#sim-fix-001-rf",
+            "placeholder_value": false
+          },
+          {
+            "event_id": "sim-fix-001",
+            "timestamp": "simulated-event:sim-fix-001",
+            "sensor_type": "acoustic",
+            "status": "available",
+            "prediction": "drone",
+            "score": 0.9,
+            "model_version": "fixture",
+            "source_ref": "tests/fixtures/agent-replay-fixture.json#sim-fix-001-acoustic",
+            "placeholder_value": false
+          },
+          {
+            "event_id": "sim-fix-001",
+            "timestamp": "simulated-event:sim-fix-001",
+            "sensor_type": "radar",
+            "status": "available",
+            "prediction": "drone",
+            "score": 0.91,
+            "model_version": "fixture",
+            "source_ref": "tests/fixtures/agent-replay-fixture.json#sim-fix-001-radar",
+            "placeholder_value": false
+          },
+          {
+            "event_id": "sim-fix-001",
+            "timestamp": "simulated-event:sim-fix-001",
+            "sensor_type": "thermal",
+            "status": "available",
+            "prediction": "drone",
+            "score": 0.8,
+            "model_version": "fixture",
+            "source_ref": "tests/fixtures/agent-replay-fixture.json#sim-fix-001-thermal",
+            "placeholder_value": false
+          }
+        ],
+        "simulated": true,
+        "review_required": true,
+        "review_reason": "simulated_evidence_requires_human_review"
+      }
+    },
+    {
+      "scenario": "rf_false_alarm",
+      "record": {
+        "event_id": "sim-fix-002",
+        "timestamp": "simulated-event:sim-fix-002",
+        "evidence": [
+          {
+            "event_id": "sim-fix-002",
+            "timestamp": "simulated-event:sim-fix-002",
+            "sensor_type": "rf",
+            "status": "available",
+            "prediction": "Machine",
+            "score": 0.8,
+            "model_version": "fixture",
+            "source_ref": "tests/fixtures/agent-replay-fixture.json#sim-fix-002-rf",
+            "placeholder_value": false
+          },
+          {
+            "event_id": "sim-fix-002",
+            "timestamp": "simulated-event:sim-fix-002",
+            "sensor_type": "acoustic",
+            "status": "available",
+            "prediction": "no_drone",
+            "score": 0.9,
+            "model_version": "fixture",
+            "source_ref": "tests/fixtures/agent-replay-fixture.json#sim-fix-002-acoustic",
+            "placeholder_value": false
+          },
+          {
+            "event_id": "sim-fix-002",
+            "timestamp": "simulated-event:sim-fix-002",
+            "sensor_type": "radar",
+            "status": "available",
+            "prediction": "bird",
+            "score": 0.91,
+            "model_version": "fixture",
+            "source_ref": "tests/fixtures/agent-replay-fixture.json#sim-fix-002-radar",
+            "placeholder_value": false
+          },
+          {
+            "event_id": "sim-fix-002",
+            "timestamp": "simulated-event:sim-fix-002",
+            "sensor_type": "thermal",
+            "status": "available",
+            "prediction": "no_drone",
+            "score": 0.8,
+            "model_version": "fixture",
+            "source_ref": "tests/fixtures/agent-replay-fixture.json#sim-fix-002-thermal",
+            "placeholder_value": false
+          }
+        ],
+        "simulated": true,
+        "review_required": true,
+        "review_reason": "simulated_evidence_requires_human_review"
+      }
+    },
+    {
+      "scenario": "rf_miss",
+      "record": {
+        "event_id": "sim-fix-003",
+        "timestamp": "simulated-event:sim-fix-003",
+        "evidence": [
+          {
+            "event_id": "sim-fix-003",
+            "timestamp": "simulated-event:sim-fix-003",
+            "sensor_type": "rf",
+            "status": "available",
+            "prediction": "Benign",
+            "score": 0.8,
+            "model_version": "fixture",
+            "source_ref": "tests/fixtures/agent-replay-fixture.json#sim-fix-003-rf",
+            "placeholder_value": false
+          },
+          {
+            "event_id": "sim-fix-003",
+            "timestamp": "simulated-event:sim-fix-003",
+            "sensor_type": "acoustic",
+            "status": "available",
+            "prediction": "drone",
+            "score": 0.9,
+            "model_version": "fixture",
+            "source_ref": "tests/fixtures/agent-replay-fixture.json#sim-fix-003-acoustic",
+            "placeholder_value": false
+          },
+          {
+            "event_id": "sim-fix-003",
+            "timestamp": "simulated-event:sim-fix-003",
+            "sensor_type": "radar",
+            "status": "available",
+            "prediction": "drone",
+            "score": 0.91,
+            "model_version": "fixture",
+            "source_ref": "tests/fixtures/agent-replay-fixture.json#sim-fix-003-radar",
+            "placeholder_value": false
+          },
+          {
+            "event_id": "sim-fix-003",
+            "timestamp": "simulated-event:sim-fix-003",
+            "sensor_type": "thermal",
+            "status": "available",
+            "prediction": "drone",
+            "score": 0.8,
+            "model_version": "fixture",
+            "source_ref": "tests/fixtures/agent-replay-fixture.json#sim-fix-003-thermal",
+            "placeholder_value": false
+          }
+        ],
+        "simulated": true,
+        "review_required": true,
+        "review_reason": "simulated_evidence_requires_human_review"
+      }
+    },
+    {
+      "scenario": "rf_only",
+      "record": {
+        "event_id": "sim-fix-004",
+        "timestamp": "simulated-event:sim-fix-004",
+        "evidence": [
+          {
+            "event_id": "sim-fix-004",
+            "timestamp": "simulated-event:sim-fix-004",
+            "sensor_type": "rf",
+            "status": "available",
+            "prediction": "Machine",
+            "score": 0.8,
+            "model_version": "fixture",
+            "source_ref": "tests/fixtures/agent-replay-fixture.json#sim-fix-004-rf",
+            "placeholder_value": false
+          },
+          {
+            "event_id": "sim-fix-004",
+            "timestamp": "simulated-event:sim-fix-004",
+            "sensor_type": "acoustic",
+            "status": "missing",
+            "prediction": null,
+            "score": null,
+            "model_version": "not-provided",
+            "source_ref": "not-provided",
+            "placeholder_value": false
+          },
+          {
+            "event_id": "sim-fix-004",
+            "timestamp": "simulated-event:sim-fix-004",
+            "sensor_type": "radar",
+            "status": "missing",
+            "prediction": null,
+            "score": null,
+            "model_version": "not-provided",
+            "source_ref": "not-provided",
+            "placeholder_value": false
+          },
+          {
+            "event_id": "sim-fix-004",
+            "timestamp": "simulated-event:sim-fix-004",
+            "sensor_type": "thermal",
+            "status": "missing",
+            "prediction": null,
+            "score": null,
+            "model_version": "not-provided",
+            "source_ref": "not-provided",
+            "placeholder_value": false
+          }
+        ],
+        "simulated": true,
+        "review_required": true,
+        "review_reason": "simulated_evidence_requires_human_review"
+      }
+    },
+    {
+      "scenario": "acoustic_delayed_radar_low_quality",
+      "record": {
+        "event_id": "sim-fix-005",
+        "timestamp": "simulated-event:sim-fix-005",
+        "evidence": [
+          {
+            "event_id": "sim-fix-005",
+            "timestamp": "simulated-event:sim-fix-005",
+            "sensor_type": "rf",
+            "status": "available",
+            "prediction": "Machine",
+            "score": 0.8,
+            "model_version": "fixture",
+            "source_ref": "tests/fixtures/agent-replay-fixture.json#sim-fix-005-rf",
+            "placeholder_value": false
+          },
+          {
+            "event_id": "sim-fix-005",
+            "timestamp": "simulated-event:sim-fix-005",
+            "sensor_type": "acoustic",
+            "status": "delayed",
+            "prediction": "drone",
+            "score": 0.9,
+            "model_version": "fixture",
+            "source_ref": "tests/fixtures/agent-replay-fixture.json#sim-fix-005-acoustic",
+            "placeholder_value": false
+          },
+          {
+            "event_id": "sim-fix-005",
+            "timestamp": "simulated-event:sim-fix-005",
+            "sensor_type": "radar",
+            "status": "low_quality",
+            "prediction": "drone",
+            "score": 0.91,
+            "model_version": "fixture",
+            "source_ref": "tests/fixtures/agent-replay-fixture.json#sim-fix-005-radar",
+            "placeholder_value": false
+          },
+          {
+            "event_id": "sim-fix-005",
+            "timestamp": "simulated-event:sim-fix-005",
+            "sensor_type": "thermal",
+            "status": "missing",
+            "prediction": null,
+            "score": null,
+            "model_version": "not-provided",
+            "source_ref": "not-provided",
+            "placeholder_value": false
+          }
+        ],
+        "simulated": true,
+        "review_required": true,
+        "review_reason": "simulated_evidence_requires_human_review"
+      }
+    },
+    {
+      "scenario": "early_confirmation_masks_radar_conflict",
+      "record": {
+        "event_id": "sim-fix-006",
+        "timestamp": "simulated-event:sim-fix-006",
+        "evidence": [
+          {
+            "event_id": "sim-fix-006",
+            "timestamp": "simulated-event:sim-fix-006",
+            "sensor_type": "rf",
+            "status": "available",
+            "prediction": "Machine",
+            "score": 0.8,
+            "model_version": "fixture",
+            "source_ref": "tests/fixtures/agent-replay-fixture.json#sim-fix-006-rf",
+            "placeholder_value": false
+          },
+          {
+            "event_id": "sim-fix-006",
+            "timestamp": "simulated-event:sim-fix-006",
+            "sensor_type": "acoustic",
+            "status": "available",
+            "prediction": "drone",
+            "score": 0.9,
+            "model_version": "fixture",
+            "source_ref": "tests/fixtures/agent-replay-fixture.json#sim-fix-006-acoustic",
+            "placeholder_value": false
+          },
+          {
+            "event_id": "sim-fix-006",
+            "timestamp": "simulated-event:sim-fix-006",
+            "sensor_type": "radar",
+            "status": "available",
+            "prediction": "bird",
+            "score": 0.91,
+            "model_version": "fixture",
+            "source_ref": "tests/fixtures/agent-replay-fixture.json#sim-fix-006-radar",
+            "placeholder_value": false
+          },
+          {
+            "event_id": "sim-fix-006",
+            "timestamp": "simulated-event:sim-fix-006",
+            "sensor_type": "thermal",
+            "status": "available",
+            "prediction": "drone",
+            "score": 0.8,
+            "model_version": "fixture",
+            "source_ref": "tests/fixtures/agent-replay-fixture.json#sim-fix-006-thermal",
+            "placeholder_value": false
+          }
+        ],
+        "simulated": true,
+        "review_required": true,
+        "review_reason": "simulated_evidence_requires_human_review"
+      }
+    }
+  ]
+}
